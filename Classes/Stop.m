@@ -16,6 +16,7 @@
 @dynamic timeInMinutes;
 @dynamic run;
 @dynamic direction;
+@dynamic dayType;
 @dynamic station;
 @dynamic line;
 

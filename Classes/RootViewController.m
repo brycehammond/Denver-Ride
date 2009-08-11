@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-
+#import "StationViewController.h"
 
 @implementation RootViewController
 
@@ -18,11 +18,13 @@
     [super viewDidLoad];
 
 	// Set up the edit and add buttons.
+	/*
     self.navigationItem.leftBarButtonItem = self.editButtonItem;
     
     UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
     self.navigationItem.rightBarButtonItem = addButton;
     [addButton release];
+	 */
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -145,13 +147,13 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Navigation logic may go here -- for example, create and push another view controller.
-	// AnotherViewController *anotherViewController = [[AnotherViewController alloc] initWithNibName:@"AnotherView" bundle:nil];
-    // NSManagedObject *selectedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
-    // Pass the selected object to the new view controller.
-    /// ...
-	// [self.navigationController pushViewController:anotherViewController animated:YES];
-	// [anotherViewController release];
+	
+	Station *station = [fetchedResultsController objectAtIndexPath:indexPath];
+	StationViewController *stationController = [[StationViewController alloc] initWithStation:station];
+	[stationController setManagedObjectContext:[self managedObjectContext]];
+	[stationController setTitle:[station name]];
+	[[self navigationController] pushViewController:stationController animated:YES];
+	[stationController release];
 }
 
 
@@ -163,7 +165,7 @@
 }
 */
 
-
+/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -181,7 +183,7 @@
 		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
     }   
 }
-
+*/
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // The table view should not be re-orderable.
@@ -208,7 +210,7 @@
 	// Create the fetch request for the entity.
 	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 	// Edit the entity name as appropriate.
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Line" inManagedObjectContext:managedObjectContext];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[fetchRequest setEntity:entity];
 	
 	// Edit the sort key as appropriate.

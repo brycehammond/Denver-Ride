@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSNumber * timeInMinutes;
 @property (nonatomic, retain) NSNumber * run;
 @property (nonatomic, retain) NSString * direction;
+@property (nonatomic, retain) NSString * dayType;
 @property (nonatomic, retain) Station * station;
 @property (nonatomic, retain) Line * line;
 
