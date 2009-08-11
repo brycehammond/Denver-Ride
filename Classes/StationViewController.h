@@ -20,14 +20,16 @@
 	UISegmentedControl *_northOrSouthControl;
 	UITableView *_stopsTableView;
 	
+	NSInteger _currentTimeInMinutes;
+	
 }
 
 @property (nonatomic, retain) NSMutableArray *stopsArray;
 @property (nonatomic, retain) NSMutableArray *runsArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) Station *station;
+@property (assign) NSInteger currentTimeInMinutes;
 
-
--(id)initWithStation:(Station *)station;
+-(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
 
 @end

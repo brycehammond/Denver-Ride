@@ -18,7 +18,8 @@
 
 @implementation StationViewController
 
-@synthesize managedObjectContext = _managedObjectContext, station = _station, stopsArray = _stopsArray, runsArray = _runsArray;
+@synthesize managedObjectContext = _managedObjectContext, station = _station, 
+			stopsArray = _stopsArray, runsArray = _runsArray, currentTimeInMinutes = _currentTimeInMinutes;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -58,11 +59,12 @@
 }
 */
 
--(id)initWithStation:(Station *)station
+-(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
 {
 	if(self = [self init])
 	{
 		[self setStation:station];
+		[self setCurrentTimeInMinutes:currentTimeInMinutes];
 	}
 	return self;
 }
@@ -139,18 +141,9 @@
 
 
 -(void)retrieveStopsInDirection:(NSString *)direction
-{
-	//get the current hours and minutes to get stops that are in the future
-	NSDate *now = [NSDate date];
-	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
-	[dateFormatter setDateFormat:@"H"];
-	int hours = [[dateFormatter stringFromDate:now] intValue];
-	[dateFormatter setDateFormat:@"m"];
-	int minutes = [[dateFormatter stringFromDate:now] intValue];
-	int timeInMinutes = hours * 60 + minutes;
-	
+{	
 	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name == %@ AND direction = %@",
-							  timeInMinutes,[[self station] name],direction];
+							  [self currentTimeInMinutes],[[self station] name],direction];
 	
 	/*
 	 Fetch existing events.
@@ -188,8 +181,8 @@
 	for(Stop *stop in [self stopsArray])
 	{		
 		NSString *lineName = [[stop line] name];
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@",
-								  timeInMinutes,direction,[[stop run] intValue],lineName];
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
+								  [[stop timeInMinutes] intValue],direction,[[stop run] intValue],lineName];
 		
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];

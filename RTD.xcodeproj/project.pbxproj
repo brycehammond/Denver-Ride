@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		14A2D85C1030F1F6009411CD /* CLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85B1030F1F6009411CD /* CLine.m */; };
+		14A2D8601030F22F009411CD /* DLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85F1030F22F009411CD /* DLine.m */; };
+		14A2D8651030F542009411CD /* BaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D8641030F542009411CD /* BaseLine.m */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
@@ -26,6 +29,12 @@
 /* Begin PBXFileReference section */
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		14A2D85A1030F1F6009411CD /* CLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLine.h; sourceTree = "<group>"; };
+		14A2D85B1030F1F6009411CD /* CLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLine.m; sourceTree = "<group>"; };
+		14A2D85E1030F22F009411CD /* DLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLine.h; sourceTree = "<group>"; };
+		14A2D85F1030F22F009411CD /* DLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLine.m; sourceTree = "<group>"; };
+		14A2D8631030F542009411CD /* BaseLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLine.h; sourceTree = "<group>"; };
+		14A2D8641030F542009411CD /* BaseLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLine.m; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14EC9CF11026370F00F375E2 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		14EC9CF21026370F00F375E2 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -67,6 +76,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				14A2D85D1030F1FE009411CD /* Lines */,
 				14EC9CF01026370F00F375E2 /* Line.h */,
 				14EC9CF11026370F00F375E2 /* Line.m */,
 				14EC9CF21026370F00F375E2 /* Station.h */,
@@ -81,6 +91,19 @@
 				1454CF2F102F69D7007F0516 /* StationViewController.m */,
 			);
 			path = Classes;
+			sourceTree = "<group>";
+		};
+		14A2D85D1030F1FE009411CD /* Lines */ = {
+			isa = PBXGroup;
+			children = (
+				14A2D8631030F542009411CD /* BaseLine.h */,
+				14A2D8641030F542009411CD /* BaseLine.m */,
+				14A2D85A1030F1F6009411CD /* CLine.h */,
+				14A2D85B1030F1F6009411CD /* CLine.m */,
+				14A2D85E1030F22F009411CD /* DLine.h */,
+				14A2D85F1030F22F009411CD /* DLine.m */,
+			);
+			name = Lines;
 			sourceTree = "<group>";
 		};
 		19C28FACFE9D520D11CA2CBB /* Products */ = {
@@ -203,6 +226,9 @@
 				14EC9CF71026370F00F375E2 /* Station.m in Sources */,
 				14EC9CF81026370F00F375E2 /* Stop.m in Sources */,
 				1454CF30102F69D7007F0516 /* StationViewController.m in Sources */,
+				14A2D85C1030F1F6009411CD /* CLine.m in Sources */,
+				14A2D8601030F22F009411CD /* DLine.m in Sources */,
+				14A2D8651030F542009411CD /* BaseLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

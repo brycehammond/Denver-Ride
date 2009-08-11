@@ -26,6 +26,8 @@
     [addButton release];
 	 */
 	
+	[self setTitle:@"Stations"];
+	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
 		// Handle the error...
@@ -148,8 +150,17 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
+	//get the current hours and minutes to get stops that are in the future
+	NSDate *now = [NSDate date];
+	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
+	[dateFormatter setDateFormat:@"H"];
+	int hours = [[dateFormatter stringFromDate:now] intValue];
+	[dateFormatter setDateFormat:@"m"];
+	int minutes = [[dateFormatter stringFromDate:now] intValue];
+	int timeInMinutes = hours * 60 + minutes;
+	
 	Station *station = [fetchedResultsController objectAtIndexPath:indexPath];
-	StationViewController *stationController = [[StationViewController alloc] initWithStation:station];
+	StationViewController *stationController = [[StationViewController alloc] initWithStation:station withCurrentTimeInMinutes:timeInMinutes];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[stationController setTitle:[station name]];
 	[[self navigationController] pushViewController:stationController animated:YES];
