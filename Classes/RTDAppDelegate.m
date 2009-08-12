@@ -13,6 +13,9 @@
 #import "Stop.h"
 #import "CLine.h"
 #import "DLine.h"
+#import "FLine.h"
+#import "ELine.h"
+#import "HLine.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -571,6 +574,9 @@
 {
 	[CLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
 	[DLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[ELine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[FLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[HLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
 }
 
 #pragma mark -

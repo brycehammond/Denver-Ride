@@ -7,6 +7,7 @@
 //
 
 #import "StationViewController.h"
+#import "RunViewController.h"
 #import "Station.h"
 #import "Stop.h"
 #import "Line.h"
@@ -32,24 +33,38 @@
 */
 
 
+/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
 	[super loadView];
+	
+	_northOrSouthControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"North",@"South",nil]];
+	CGRect currentFrame = _northOrSouthControl.frame;
+	[[self view] addSubview:_northOrSouthControl];
+	
 	CGRect frame = [[self view] frame];
-	_stopsTableView = [[UITableView alloc] initWithFrame:frame];
+	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _northOrSouthControl.frame.origin.y + _northOrSouthControl.frame.size.height,
+																	[[UIScreen mainScreen] bounds].size.width, 
+																	frame.size.height - _northOrSouthControl.frame.size.height)];
 	[_stopsTableView setDelegate:self];
 	[_stopsTableView setDataSource:self];
 	[[self view] addSubview:_stopsTableView];
-	[self retrieveStopsInDirection:@"N"];
+	
 }
+ 
+ */
 
 
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	
+	[_northOrSouthControl setSelectedSegmentIndex:0];
+	NSString *direction = [[[_northOrSouthControl titleForSegmentAtIndex:[_northOrSouthControl selectedSegmentIndex]]
+							 substringToIndex:1] uppercaseString];
+	[self retrieveStopsInDirection:direction];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -61,7 +76,7 @@
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
 {
-	if(self = [self init])
+	if(self = [self initWithNibName:@"StationViewController" bundle:nil])
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
@@ -79,6 +94,15 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+}
+
+-(IBAction)changeDirection:(UISegmentedControl *)sender
+{
+	NSLog(@"%i",[sender selectedSegmentIndex]);
+	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
+							substringToIndex:1] uppercaseString];
+	[self retrieveStopsInDirection:direction];
+	[_stopsTableView reloadData];
 }
 
 #pragma mark -
@@ -123,7 +147,11 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
+	NSArray *runArray = [[self runsArray] objectAtIndex:indexPath.row];
+	RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
+	[runController setTitle:[[self station] name]];
+	[[self navigationController] pushViewController:runController animated:YES];
+	[runController release];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,8 +170,9 @@
 
 -(void)retrieveStopsInDirection:(NSString *)direction
 {	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name == %@ AND direction = %@",
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@",
 							  [self currentTimeInMinutes],[[self station] name],direction];
+	NSLog(@"predicate format: %@",[predicate predicateFormat]);
 	
 	/*
 	 Fetch existing events.

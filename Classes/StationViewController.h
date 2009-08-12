@@ -17,8 +17,8 @@
 	NSManagedObjectContext *_managedObjectContext;
 	Station *_station;
 	
-	UISegmentedControl *_northOrSouthControl;
-	UITableView *_stopsTableView;
+	IBOutlet UISegmentedControl *_northOrSouthControl;
+	IBOutlet UITableView *_stopsTableView;
 	
 	NSInteger _currentTimeInMinutes;
 	
@@ -31,5 +31,7 @@
 @property (assign) NSInteger currentTimeInMinutes;
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
+
+-(IBAction)changeDirection:(id)sender;
 
 @end

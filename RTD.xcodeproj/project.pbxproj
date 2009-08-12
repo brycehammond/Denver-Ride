@@ -11,6 +11,12 @@
 		14A2D85C1030F1F6009411CD /* CLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85B1030F1F6009411CD /* CLine.m */; };
 		14A2D8601030F22F009411CD /* DLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85F1030F22F009411CD /* DLine.m */; };
 		14A2D8651030F542009411CD /* BaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D8641030F542009411CD /* BaseLine.m */; };
+		14C6CB0C1032515000368298 /* FLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CB0B1032515000368298 /* FLine.m */; };
+		14C6CB14103265BA00368298 /* ELine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CB13103265BA00368298 /* ELine.m */; };
+		14C6CB18103266B000368298 /* HLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CB17103266B000368298 /* HLine.m */; };
+		14C6CB551032776900368298 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CB541032776900368298 /* StationViewController.xib */; };
+		14C6CBD91033038D00368298 /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* RunViewController.m */; };
+		14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CBD81033038D00368298 /* RunViewController.xib */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
@@ -35,6 +41,16 @@
 		14A2D85F1030F22F009411CD /* DLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLine.m; sourceTree = "<group>"; };
 		14A2D8631030F542009411CD /* BaseLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLine.h; sourceTree = "<group>"; };
 		14A2D8641030F542009411CD /* BaseLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseLine.m; sourceTree = "<group>"; };
+		14C6CB0A1032515000368298 /* FLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FLine.h; sourceTree = "<group>"; };
+		14C6CB0B1032515000368298 /* FLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FLine.m; sourceTree = "<group>"; };
+		14C6CB12103265BA00368298 /* ELine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELine.h; sourceTree = "<group>"; };
+		14C6CB13103265BA00368298 /* ELine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELine.m; sourceTree = "<group>"; };
+		14C6CB16103266B000368298 /* HLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLine.h; sourceTree = "<group>"; };
+		14C6CB17103266B000368298 /* HLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLine.m; sourceTree = "<group>"; };
+		14C6CB541032776900368298 /* StationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationViewController.xib; sourceTree = "<group>"; };
+		14C6CBD61033038D00368298 /* RunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunViewController.h; sourceTree = "<group>"; };
+		14C6CBD71033038D00368298 /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunViewController.m; sourceTree = "<group>"; };
+		14C6CBD81033038D00368298 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = Classes/RunViewController.xib; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14EC9CF11026370F00F375E2 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		14EC9CF21026370F00F375E2 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -89,6 +105,8 @@
 				1D3623250D0F684500981E51 /* RTDAppDelegate.m */,
 				1454CF2E102F69D7007F0516 /* StationViewController.h */,
 				1454CF2F102F69D7007F0516 /* StationViewController.m */,
+				14C6CBD61033038D00368298 /* RunViewController.h */,
+				14C6CBD71033038D00368298 /* RunViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -102,6 +120,12 @@
 				14A2D85B1030F1F6009411CD /* CLine.m */,
 				14A2D85E1030F22F009411CD /* DLine.h */,
 				14A2D85F1030F22F009411CD /* DLine.m */,
+				14C6CB0A1032515000368298 /* FLine.h */,
+				14C6CB0B1032515000368298 /* FLine.m */,
+				14C6CB12103265BA00368298 /* ELine.h */,
+				14C6CB13103265BA00368298 /* ELine.m */,
+				14C6CB16103266B000368298 /* HLine.h */,
+				14C6CB17103266B000368298 /* HLine.m */,
 			);
 			name = Lines;
 			sourceTree = "<group>";
@@ -140,6 +164,8 @@
 			children = (
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				2899E55F0DE3E45000AC0155 /* RootViewController.xib */,
+				14C6CB541032776900368298 /* StationViewController.xib */,
+				14C6CBD81033038D00368298 /* RunViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
 			);
@@ -208,6 +234,8 @@
 			files = (
 				28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */,
 				2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */,
+				14C6CB551032776900368298 /* StationViewController.xib in Resources */,
+				14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,6 +257,10 @@
 				14A2D85C1030F1F6009411CD /* CLine.m in Sources */,
 				14A2D8601030F22F009411CD /* DLine.m in Sources */,
 				14A2D8651030F542009411CD /* BaseLine.m in Sources */,
+				14C6CB0C1032515000368298 /* FLine.m in Sources */,
+				14C6CB14103265BA00368298 /* ELine.m in Sources */,
+				14C6CB18103266B000368298 /* HLine.m in Sources */,
+				14C6CBD91033038D00368298 /* RunViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
