@@ -133,11 +133,17 @@
 	// Get the event corresponding to the current index path and configure the table view cell.
 	Stop *stop = (Stop *)[[self stopsArray] objectAtIndex:indexPath.row];
 	
+	NSString *amOrPm = @"A";
 	int hours = [[stop timeInMinutes] intValue] / 60;
+	if(hours > 12)
+	{
+		hours -= 12;
+		amOrPm = @"P";
+	}	
 	int minutes = [[stop timeInMinutes] intValue] % 60;
 	NSString *formatedMinutes =(minutes < 10) ? [NSString stringWithFormat:@"0%i",minutes] : [NSString stringWithFormat:@"%i",minutes];
 	
-	cell.textLabel.text = [NSString stringWithFormat:@"%i:%@",hours,formatedMinutes];
+	cell.textLabel.text = [NSString stringWithFormat:@"%i:%@%@",hours,formatedMinutes,amOrPm];
 	
     cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Line (%@)",[[stop line] name],
 								 [[[[[self runsArray] objectAtIndex:indexPath.row] lastObject] station] name]];

@@ -1123,7 +1123,10 @@
 									  [NSArray arrayWithObjects:@"139",@"N",@"Weekday",@"H",@"Colorado",@"80",nil],
 									  [NSArray arrayWithObjects:@"142",@"N",@"Weekday",@"H",@"University of Denver",@"80",nil],
 									  [NSArray arrayWithObjects:@"144",@"N",@"Weekday",@"H",@"Louisiana/Pearl",@"80",nil],
-									  [NSArray arrayWithObjects:@"146",@"N",@"Weekday",@"H",@"I-25/Broadway",@"80",nil],nil]];
+									  [NSArray arrayWithObjects:@"146",@"N",@"Weekday",@"H",@"I-25/Broadway",@"80",nil],
+									  
+									  
+									  nil]];
 									  
 #pragma mark -
 #pragma mark Sourthbound Weekday
@@ -2258,7 +2261,9 @@
 									  [NSArray arrayWithObjects:@"108",@"S",@"Weekday",@"H",@"Yale",@"84",nil],
 									  [NSArray arrayWithObjects:@"111",@"S",@"Weekday",@"H",@"Southmoor",@"84",nil],
 									  [NSArray arrayWithObjects:@"115",@"S",@"Weekday",@"H",@"Dayton",@"84",nil],
-									  [NSArray arrayWithObjects:@"118",@"S",@"Weekday",@"H",@"Nine Mile",@"84",nil],nil]];									  
+									  [NSArray arrayWithObjects:@"118",@"S",@"Weekday",@"H",@"Nine Mile",@"84",nil],
+									  
+									  nil]];									  
 	
 	return returnArray;
 }

@@ -743,7 +743,10 @@
 									  [NSArray arrayWithObjects:@"109",@"N",@"Weekday",@"E",@"Colorado",@"41",nil],
 									  [NSArray arrayWithObjects:@"112",@"N",@"Weekday",@"E",@"University of Denver",@"41",nil],
 									  [NSArray arrayWithObjects:@"114",@"N",@"Weekday",@"E",@"Louisiana/Pearl",@"41",nil],
-									  [NSArray arrayWithObjects:@"116",@"N",@"Weekday",@"E",@"I-25/Broadway",@"41",nil],nil]];
+									  [NSArray arrayWithObjects:@"116",@"N",@"Weekday",@"E",@"I-25/Broadway",@"41",nil],
+									  
+									  
+									  nil]];
 									  
 	
 #pragma mark Southbound Weekday
@@ -1307,7 +1310,7 @@
 									  [NSArray arrayWithObjects:@"10",@"S",@"Weekday",@"E",@"Dry Creek",@"31",nil],
 									  [NSArray arrayWithObjects:@"12",@"S",@"Weekday",@"E",@"County Line",@"31",nil],
 									  [NSArray arrayWithObjects:@"15",@"S",@"Weekday",@"E",@"Lincoln",@"31",nil],
-									  [NSArray arrayWithObjects:@"712",@"S",@"Weekday",@"E",@"Union Station",@"32",nil],
+									  [NSArray arrayWithObjects:@"1432",@"S",@"Weekday",@"E",@"Union Station",@"32",nil],
 									  [NSArray arrayWithObjects:@"1434",@"S",@"Weekday",@"E",@"Pepsi Center/Six Flags",@"32",nil],
 									  [NSArray arrayWithObjects:@"1436",@"S",@"Weekday",@"E",@"Invesco Field at Mile High",@"32",nil],
 									  [NSArray arrayWithObjects:@"1437",@"S",@"Weekday",@"E",@"Auraria West Campus",@"32",nil],
@@ -1325,7 +1328,7 @@
 									  [NSArray arrayWithObjects:@"31",@"S",@"Weekday",@"E",@"Dry Creek",@"32",nil],
 									  [NSArray arrayWithObjects:@"33",@"S",@"Weekday",@"E",@"County Line",@"32",nil],
 									  [NSArray arrayWithObjects:@"36",@"S",@"Weekday",@"E",@"Lincoln",@"32",nil],
-									  [NSArray arrayWithObjects:@"732",@"S",@"Weekday",@"E",@"Union Station",@"33",nil],
+									  [NSArray arrayWithObjects:@"12",@"S",@"Weekday",@"E",@"Union Station",@"33",nil],
 									  [NSArray arrayWithObjects:@"14",@"S",@"Weekday",@"E",@"Pepsi Center/Six Flags",@"33",nil],
 									  [NSArray arrayWithObjects:@"16",@"S",@"Weekday",@"E",@"Invesco Field at Mile High",@"33",nil],
 									  [NSArray arrayWithObjects:@"17",@"S",@"Weekday",@"E",@"Auraria West Campus",@"33",nil],
@@ -1343,7 +1346,7 @@
 									  [NSArray arrayWithObjects:@"51",@"S",@"Weekday",@"E",@"Dry Creek",@"33",nil],
 									  [NSArray arrayWithObjects:@"53",@"S",@"Weekday",@"E",@"County Line",@"33",nil],
 									  [NSArray arrayWithObjects:@"55",@"S",@"Weekday",@"E",@"Lincoln",@"33",nil],
-									  [NSArray arrayWithObjects:@"762",@"S",@"Weekday",@"E",@"Union Station",@"34",nil],
+									  [NSArray arrayWithObjects:@"42",@"S",@"Weekday",@"E",@"Union Station",@"34",nil],
 									  [NSArray arrayWithObjects:@"44",@"S",@"Weekday",@"E",@"Pepsi Center/Six Flags",@"34",nil],
 									  [NSArray arrayWithObjects:@"46",@"S",@"Weekday",@"E",@"Invesco Field at Mile High",@"34",nil],
 									  [NSArray arrayWithObjects:@"47",@"S",@"Weekday",@"E",@"Auraria West Campus",@"34",nil],
@@ -1396,7 +1399,9 @@
 									  [NSArray arrayWithObjects:@"138",@"S",@"Weekday",@"E",@"Arapahoe at Village Center",@"36",nil],
 									  [NSArray arrayWithObjects:@"141",@"S",@"Weekday",@"E",@"Dry Creek",@"36",nil],
 									  [NSArray arrayWithObjects:@"143",@"S",@"Weekday",@"E",@"County Line",@"36",nil],
-									  [NSArray arrayWithObjects:@"145",@"S",@"Weekday",@"E",@"Lincoln",@"36",nil],nil]];
+									  [NSArray arrayWithObjects:@"145",@"S",@"Weekday",@"E",@"Lincoln",@"36",nil],
+									  
+									  nil]];
 									  
 	
 	return returnArray;

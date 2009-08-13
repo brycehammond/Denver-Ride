@@ -1098,6 +1098,7 @@
 									  [NSArray arrayWithObjects:@"1257",@"N",@"Weekday",@"F",@"Convention Center/Performing Arts",@"60",nil],
 									  [NSArray arrayWithObjects:@"1258",@"N",@"Weekday",@"F",@"16th & California",@"60",nil],
 									  [NSArray arrayWithObjects:@"1261",@"N",@"Weekday",@"F",@"18th & California",@"60",nil],
+									  
 									  nil]];
 	 
 #pragma mark Southbound Weekday
@@ -2333,6 +2334,7 @@
 									   [NSArray arrayWithObjects:@"1303",@"S",@"Weekday",@"F",@"Dry Creek",@"71",nil],
 									   [NSArray arrayWithObjects:@"1305",@"S",@"Weekday",@"F",@"County Line",@"71",nil],
 									   [NSArray arrayWithObjects:@"1307",@"S",@"Weekday",@"F",@"Lincoln",@"71",nil],
+									   
 									   nil]];
 									  
 
