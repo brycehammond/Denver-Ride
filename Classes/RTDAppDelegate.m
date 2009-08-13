@@ -31,6 +31,7 @@
 
 @synthesize window;
 @synthesize navigationController;
+@synthesize currentDirection = _currentDirection;
 
 
 #pragma mark -
@@ -54,6 +55,13 @@
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
+	
+	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	if(! currentDirection)
+	{
+		currentDirection = @"N";
+		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
+	}
 }
 
 /**
@@ -193,6 +201,20 @@
 	
 	return persistentStoreCoordinator;
 	 */
+}
+
+-(void)setCurrentDirection:(NSString *)direction
+{
+	if(_currentDirection != direction)
+	{
+		[_currentDirection release];
+		_currentDirection = [direction retain];
+	}
+	
+	if(_currentDirection)
+	{
+		[[NSUserDefaults standardUserDefaults] setObject:_currentDirection forKey:@"CurrentDirection"];
+	}
 }
 
 

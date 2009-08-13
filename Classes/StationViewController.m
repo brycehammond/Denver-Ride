@@ -59,9 +59,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[_northOrSouthControl setSelectedSegmentIndex:0];
-	NSString *direction = [[[_northOrSouthControl titleForSegmentAtIndex:[_northOrSouthControl selectedSegmentIndex]]
-							 substringToIndex:1] uppercaseString];
+	
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	if([direction isEqualToString:@"N"])
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:0];
+	}
+	else
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:1];
+	}
+	
 	[self retrieveStopsInDirection:direction];
 }
 
@@ -101,6 +109,7 @@
 	NSLog(@"%i",[sender selectedSegmentIndex]);
 	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
 							substringToIndex:1] uppercaseString];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
 }
