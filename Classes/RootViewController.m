@@ -8,82 +8,58 @@
 
 #import "RootViewController.h"
 #import "StationViewController.h"
+#import "Station.h"
+#import "Stop.h"
+#import "StationStopTableViewCell.h"
+#import "RunViewController.h"
+
+@interface RootViewController (Private)
+-(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
+@end
+
 
 @implementation RootViewController
 
-@synthesize fetchedResultsController, managedObjectContext;
-
+@synthesize  managedObjectContext = _managedObjectContext, 
+			stationsArray = _stationsArray,
+			locationManager = _locationManager,
+			closestStationsArray = _closestStationsArray,
+			closestStationsStopsArray = _closestStationsStopsArray,
+			closestStationsRunsArray = _closestStationsRunsArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
-	// Set up the edit and add buttons.
+	[self setTitle:@"Closest Stations"];
+	
+	//We haven't gotten a closest location yet so set the
+	//closest location array to empty
+	[self setClosestStationsArray:[NSArray array]];
+	[self setClosestStationsStopsArray:[NSMutableArray array]];
+	[self setClosestStationsRunsArray:[NSMutableArray array]];
+	
 	/*
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
-    
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject)];
-    self.navigationItem.rightBarButtonItem = addButton;
-    [addButton release];
+	 Fetch existing stations.
+	 Create a fetch request; find the Station entity and assign it to the request; add a sort descriptor; then execute the fetch.
 	 */
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
 	
-	[self setTitle:@"Stations"];
-	
-	NSError *error;
-	if (![[self fetchedResultsController] performFetch:&error]) {
-		// Handle the error...
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
 	}
-	 
-}
-
-
-- (void)insertNewObject {
 	
-	// Create a new instance of the entity managed by the fetched results controller.
-	NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-	NSEntityDescription *entity = [[fetchedResultsController fetchRequest] entity];
-	NSManagedObject *newManagedObject = [NSEntityDescription insertNewObjectForEntityForName:[entity name] inManagedObjectContext:context];
+	// Set the station array to the mutable array, then clean up.
+	[self setStationsArray:mutableFetchResults];
+	[mutableFetchResults release];
+	[request release];
 	
-	// If appropriate, configure the new managed object.
-	[newManagedObject setValue:[NSDate date] forKey:@"timeStamp"];
-	
-	// Save the context.
-    NSError *error;
-    if (![context save:&error]) {
-		// Handle the error...
-    }
-
-    [self.tableView reloadData];
+	// Start the location manager.
+	[[self locationManager] startUpdatingLocation];
 }
-
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
-/*
- // Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations.
-	return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
- */
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -98,58 +74,23 @@
 }
 
 
-#pragma mark Table view methods
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSUInteger count = [[fetchedResultsController sections] count];
-	
-    if (count == 0) {
-        count = 1;
-    }
-	
-    return count;
+- (void)dealloc {
+	[_managedObjectContext release];
+    [super dealloc];
 }
 
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSArray *sections = [fetchedResultsController sections];
-	
-    NSUInteger count = 0;
-	
-    if ([sections count]) {
-		
-        id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:section];
-		
-        count = [sectionInfo numberOfObjects];
-		
-    }
-	
-    return count;
+-(IBAction)changeDirection:(UISegmentedControl *)sender
+{
+	NSLog(@"%i",[sender selectedSegmentIndex]);
+	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
+							substringToIndex:1] uppercaseString];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[self retrieveStopsForClosestStationsInDirection:direction];
+	[_closeStationsTableView reloadData];
 }
 
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    static NSString *CellIdentifier = @"Cell";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
-    
-	// Configure the cell.
-
-	NSManagedObject *managedObject = [fetchedResultsController objectAtIndexPath:indexPath];
-
-	cell.textLabel.text = [managedObject valueForKey:@"name"];
-	
-    return cell;
-}
-
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	
+-(NSInteger)currentTimeInMinutes
+{
 	//get the current hours and minutes to get stops that are in the future
 	NSDate *now = [NSDate date];
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
@@ -159,96 +100,188 @@
 	int minutes = [[dateFormatter stringFromDate:now] intValue];
 	int timeInMinutes = hours * 60 + minutes;
 	
-	Station *station = [fetchedResultsController objectAtIndexPath:indexPath];
-	StationViewController *stationController = [[StationViewController alloc] initWithStation:station withCurrentTimeInMinutes:timeInMinutes];
-	[stationController setManagedObjectContext:[self managedObjectContext]];
-	[stationController setTitle:[station name]];
-	[[self navigationController] pushViewController:stationController animated:YES];
-	[stationController release];
+	return timeInMinutes;
 }
 
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the managed object for the given index path
-		NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
-		[context deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
+-(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
+{
+	[[self closestStationsStopsArray] removeAllObjects];
+	[[self closestStationsRunsArray] removeAllObjects];
+	for(Station *station in [self closestStationsArray])
+	{
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@",
+								  [self currentTimeInMinutes],[station name],direction];
+		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
-		// Save the context.
-		NSError *error;
-		if (![context save:&error]) {
-			// Handle the error...
+		/*
+		 Fetch existing events.
+		 Create a fetch request; find the Event entity and assign it to the request; add a sort descriptor; then execute the fetch.
+		 */
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
+		[request setEntity:entity];
+		
+		// Order the events by creation date, most recent first.
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+		[request setSortDescriptors:sortDescriptors];
+		[request setFetchLimit:5];
+		[request setPredicate:predicate];
+		[sortDescriptor release];
+		[sortDescriptors release];
+		
+		// Execute the fetch -- create a mutable copy of the result.
+		NSError *error = nil;
+		NSMutableArray *stopsArray = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+		if (stopsArray == nil) {
+			// Handle the error.
+		}
+	
+		[request release];
+		
+		
+		[_closestStationsStopsArray addObject:stopsArray];
+		
+		//Go through and get the run times for each stop that we list
+		NSMutableArray *runsArray = [[NSMutableArray alloc] initWithCapacity:[stopsArray count]];
+		for(Stop *stop in stopsArray)
+		{		
+			NSString *lineName = [[stop line] name];
+			NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
+									  [[stop timeInMinutes] intValue],direction,[[stop run] intValue],lineName];
+			
+			NSFetchRequest *request = [[NSFetchRequest alloc] init];
+			NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
+			[request setEntity:entity];
+			
+			// Order the events by creation date, most recent first.
+			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+			NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+			[request setSortDescriptors:sortDescriptors];
+			[request setPredicate:predicate];
+			[sortDescriptor release];
+			[sortDescriptors release];
+			
+			// Execute the fetch -- create a mutable copy of the result.
+			NSError *error = nil;
+			NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+			if (mutableFetchResults == nil) {
+				// Handle the error.
+			}
+			
+			// Set self's events array to the mutable array, then clean up.
+			[runsArray addObject:mutableFetchResults];
+			[mutableFetchResults release];
+			[request release];
 		}
 		
-		[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-}
-*/
-
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // The table view should not be re-orderable.
-    return NO;
+		[_closestStationsRunsArray addObject:runsArray];
+		[runsArray release];
+		[stopsArray release];
+	}
+		
+	[_closeStationsTableView reloadData];
 }
 
+#pragma mark -
+#pragma mark Location manager
 
-/*
-// NSFetchedResultsControllerDelegate method to notify the delegate that all section and object changes have been processed. 
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
-	[self.tableView reloadData];
+/**
+ Return a location manager -- create one if necessary.
+ */
+- (CLLocationManager *)locationManager {
+	
+    if (_locationManager != nil) {
+		return _locationManager;
+	}
+	
+	_locationManager = [[CLLocationManager alloc] init];
+	[_locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+	[_locationManager setDistanceFilter:100.0];  //The user must move 100 meters before we update
+	[_locationManager setDelegate:self];
+	
+	return _locationManager;
 }
-*/
 
 
-- (NSFetchedResultsController *)fetchedResultsController {
+/**
+ Conditionally enable the Add button:
+ If the location manager is generating updates, then enable the button;
+ If the location manager is failing, then disable the button.
+ */
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+	
+	//we have a location so resort the closest array and display the first three
+	for(Station *station in [self stationsArray])
+	{
+		NSLog(@"newLocation long: %f lat: %f",[newLocation coordinate].longitude,[newLocation coordinate].latitude);
+		NSLog(@"station lcoation long: %f lat: %f",[[station location] coordinate].longitude,
+													[[station location] coordinate].latitude);
+		[station setCurrentDistance:[newLocation getDistanceFrom:[station location]]];
+	}
+	
+	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];
+	
+	[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
+	[self retrieveStopsForClosestStationsInDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
     
-    if (fetchedResultsController != nil) {
-        return fetchedResultsController;
+}
+
+#pragma mark -
+#pragma mark Table view data source methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	NSInteger stationCount = [[self closestStationsArray] count];
+	return stationCount;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	NSInteger stopsCount = [[[self closestStationsStopsArray] objectAtIndex:section] count];
+	return stopsCount;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+    static NSString *CellIdentifier = @"Cell";
+	
+    StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
     }
-    /*
-	 Set up the fetched results controller.
-	*/
-	// Create the fetch request for the entity.
-	NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-	// Edit the entity name as appropriate.
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:managedObjectContext];
-	[fetchRequest setEntity:entity];
+    
+	// Get the event corresponding to the current index path and configure the table view cell.
+	Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	[cell setStop:stop];
 	
-	// Edit the sort key as appropriate.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	
-	[fetchRequest setSortDescriptors:sortDescriptors];
-	
-	// Edit the section name key path and cache name if appropriate.
-    // nil for section name key path means "no sections".
-	NSFetchedResultsController *aFetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:managedObjectContext sectionNameKeyPath:nil cacheName:@"Root"];
-    aFetchedResultsController.delegate = self;
-	self.fetchedResultsController = aFetchedResultsController;
-	
-	[aFetchedResultsController release];
-	[fetchRequest release];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	
-	return fetchedResultsController;
-}    
+	Stop *endStop = [[[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
+	[cell setEndOfLineStop:endStop];
+    
+	return cell;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	UILabel *header = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 40)] autorelease];
+	[header setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+	[header setText:[[[self closestStationsArray] objectAtIndex:section] name]];
+	return header;
+}
 
 
-- (void)dealloc {
-	[fetchedResultsController release];
-	[managedObjectContext release];
-    [super dealloc];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	NSArray *runArray = [[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+	RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
+	[runController setTitle:[[[self closestStationsArray] objectAtIndex:indexPath.section] name]];
+	[[self navigationController] pushViewController:runController animated:YES];
+	[runController release];
 }
 
 

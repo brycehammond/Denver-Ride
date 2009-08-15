@@ -7,12 +7,15 @@
 //
 
 #import <CoreData/CoreData.h>
+#import <CoreLocation/CoreLocation.h>
 
 @class Line;
 @class Stop;
 
 @interface Station :  NSManagedObject  
 {
+	CLLocationDistance _currentDistance;
+	CLLocation *_location; //have the longitude/latitude stored in a CLLocation  so we can make quick distance comparisons
 }
 
 @property (nonatomic, retain) NSNumber * longitude;
@@ -20,6 +23,10 @@
 @property (nonatomic, retain) NSNumber * latitude;
 @property (nonatomic, retain) NSSet* lines;
 @property (nonatomic, retain) NSSet* stops;
+@property (assign) CLLocationDistance currentDistance;
+@property (nonatomic, retain) CLLocation *location;
+
+-(NSComparisonResult)compareAscending:(Station *)station;
 
 @end
 

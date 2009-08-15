@@ -111,6 +111,7 @@
 	cell.detailTextLabel.frame = currentFrame;
 	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
 	cell.textLabel.text = [NSString stringWithFormat:@"%i:%@%@",hours,formatedMinutes,amOrPm];
+	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	
     cell.detailTextLabel.text =  [[stop station] name];
     

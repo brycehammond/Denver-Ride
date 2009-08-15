@@ -144,41 +144,23 @@
         return persistentStoreCoordinator;
     }
 	
-	NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"]];
-	
-	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"]];
-    if (fileHandle == nil) {
-		defaultDataNeedsFilling = YES;
-	}
-	
-	NSError *error;
-    persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
-    if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
-        // Handle the error.
-    }    
-	
-    return persistentStoreCoordinator;
-	
-	/*
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"]];
 	
 	NSError *error;
 	
-	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"]];
+	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"];
+	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
     if (fileHandle == nil) {
-        NSPersistentStoreCoordinator *defaultDataStoreCoordinator;
         NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"RTD" ofType:@"sqlite"];
         if (defaultPath) {
-            NSURL *defaultURL = [NSURL fileURLWithPath:defaultPath];
-            defaultDataStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-            if(![defaultDataStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:defaultURL options:nil error:&error]) {
-                //Handle error
-            }
-            else {
-                if (![defaultDataStoreCoordinator migratePersistentStore:[defaultDataStoreCoordinator persistentStoreForURL:defaultURL]
-                                                                   toURL:storeUrl options:nil withType:NSSQLiteStoreType error:&error]) {
-                   //handle error
-                }
+			NSError *error;
+			[[NSFileManager defaultManager] copyItemAtPath:defaultPath
+													toPath:filePath error:&error];
+			
+            NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+			persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+			if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:fileURL options:nil error:&error]){
+				//handle error
             }
         }
         else {
@@ -200,7 +182,7 @@
     }
 	
 	return persistentStoreCoordinator;
-	 */
+	 
 }
 
 -(void)setCurrentDirection:(NSString *)direction
@@ -280,8 +262,8 @@
 	
 	Station *station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Belleview"];
-	[station setLongitude:[NSNumber numberWithDouble:39.62763927680147]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.90442395210266]];
+	[station setLatitude:[NSNumber numberWithDouble:39.62763927680147]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.90442395210266]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -289,8 +271,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Orchard"];
-	[station setLongitude:[NSNumber numberWithDouble:39.613540462760014]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.89621102809907]];
+	[station setLatitude:[NSNumber numberWithDouble:39.613540462760014]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.89621102809907]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -298,8 +280,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Arapahoe at Village Center"];
-	[station setLongitude:[NSNumber numberWithDouble:39.60022824942126]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.88846480846406]];
+	[station setLatitude:[NSNumber numberWithDouble:39.60022824942126]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.88846480846406]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -307,8 +289,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Dry Creek"];
-	[station setLongitude:[NSNumber numberWithDouble:39.57885144262927]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.87663626670839]];
+	[station setLatitude:[NSNumber numberWithDouble:39.57885144262927]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.87663626670839]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -316,8 +298,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"County Line"];
-	[station setLongitude:[NSNumber numberWithDouble:39.561967745633034]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.87229108810427]];
+	[station setLatitude:[NSNumber numberWithDouble:39.561967745633034]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.87229108810427]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -325,8 +307,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Lincoln"];
-	[station setLongitude:[NSNumber numberWithDouble:39.54596517069127]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.86963033676147]];
+	[station setLatitude:[NSNumber numberWithDouble:39.54596517069127]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.86963033676147]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
@@ -334,8 +316,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Southmoor"];
-	[station setLongitude:[NSNumber numberWithDouble:39.64859211162123]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.91627395153047]];
+	[station setLatitude:[NSNumber numberWithDouble:39.64859211162123]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.91627395153047]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -343,24 +325,24 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Dayton"];
-	[station setLongitude:[NSNumber numberWithDouble:39.64297446642949]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.87793982028962]];
+	[station setLatitude:[NSNumber numberWithDouble:39.64297446642949]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.87793982028962]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Nine Mile"];
-	[station setLongitude:[NSNumber numberWithDouble:39.65755461509736]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.84510958194734]];
+	[station setLatitude:[NSNumber numberWithDouble:39.65755461509736]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.84510958194734]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Yale"];
-	[station setLongitude:[NSNumber numberWithDouble:39.66863842664354]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.9270886182785]];
+	[station setLatitude:[NSNumber numberWithDouble:39.66863842664354]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.9270886182785]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -368,8 +350,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Colorado"];
-	[station setLongitude:[NSNumber numberWithDouble:39.67962137403389]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.93777990341188]];
+	[station setLatitude:[NSNumber numberWithDouble:39.67962137403389]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.93777990341188]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -377,8 +359,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"University of Denver"];
-	[station setLongitude:[NSNumber numberWithDouble:39.68525668220506]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.96482193470002]];
+	[station setLatitude:[NSNumber numberWithDouble:39.68525668220506]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.96482193470002]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -386,8 +368,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Louisiana/Pearl"];
-	[station setLongitude:[NSNumber numberWithDouble:39.69275732762653]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.97817397117615]];
+	[station setLatitude:[NSNumber numberWithDouble:39.69275732762653]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.97817397117615]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -395,8 +377,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"I-25/Broadway"];
-	[station setLongitude:[NSNumber numberWithDouble:39.701396301610046]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99018490314485]];
+	[station setLatitude:[NSNumber numberWithDouble:39.701396301610046]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99018490314485]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
@@ -406,8 +388,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Alameda"];
-	[station setLongitude:[NSNumber numberWithDouble:39.708402033193956]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.9929341673851]];
+	[station setLatitude:[NSNumber numberWithDouble:39.708402033193956]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.9929341673851]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
@@ -417,8 +399,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"10th & Osage"];
-	[station setLongitude:[NSNumber numberWithDouble:39.73199342491363]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00565320253373]];
+	[station setLatitude:[NSNumber numberWithDouble:39.73199342491363]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00565320253373]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
@@ -428,8 +410,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Colfax at Auraria"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74030780179325]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00194370746614]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74030780179325]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00194370746614]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -437,8 +419,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Convention Center/Performing Arts"];
-	[station setLongitude:[NSNumber numberWithDouble:39.743172533347014]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99736249446872]];
+	[station setLatitude:[NSNumber numberWithDouble:39.743172533347014]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99736249446872]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -446,8 +428,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"16th & California"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74497504636902]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99235212802888]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74497504636902]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99235212802888]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -455,8 +437,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"18th & California"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74679813514468]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99003201723099]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74679813514468]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99003201723099]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -464,8 +446,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"18th & Stout"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74792826097969]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99052286148071]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74792826097969]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99052286148071]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -473,8 +455,8 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"16th & Stout"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74604333274745]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99292880296706]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74604333274745]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99292880296706]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
@@ -482,103 +464,103 @@
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"20th & Welton"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74786433099829]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.98696625232695]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74786433099829]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.98696625232695]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"25th & Welton"];
-	[station setLongitude:[NSNumber numberWithDouble:39.75315382078058]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.98006761074067]];
+	[station setLatitude:[NSNumber numberWithDouble:39.75315382078058]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.98006761074067]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"27th & Welton"];
-	[station setLongitude:[NSNumber numberWithDouble:39.75525713075179]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.97734785079956]];
+	[station setLatitude:[NSNumber numberWithDouble:39.75525713075179]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.97734785079956]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"29th & Welton"];
-	[station setLongitude:[NSNumber numberWithDouble:39.757084071406425]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.9750304222107]];
+	[station setLatitude:[NSNumber numberWithDouble:39.757084071406425]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.9750304222107]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"30th & Downing"];
-	[station setLongitude:[NSNumber numberWithDouble:39.758807867137385]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.9734452366829]];
+	[station setLatitude:[NSNumber numberWithDouble:39.758807867137385]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.9734452366829]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Auraria West Campus"];
-	[station setLongitude:[NSNumber numberWithDouble:39.741285412555925]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00901401042938]];
+	[station setLatitude:[NSNumber numberWithDouble:39.741285412555925]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00901401042938]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Invesco Field at Mile High"];
-	[station setLongitude:[NSNumber numberWithDouble:39.743446831848615]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.01322239637376]];
+	[station setLatitude:[NSNumber numberWithDouble:39.743446831848615]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.01322239637376]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Pepsi Center/Six Flags"];
-	[station setLongitude:[NSNumber numberWithDouble:39.74860055332102]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00974088907243]];
+	[station setLatitude:[NSNumber numberWithDouble:39.74860055332102]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00974088907243]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Union Station"];
-	[station setLongitude:[NSNumber numberWithDouble:39.753630164252605]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00158697366714]];
+	[station setLatitude:[NSNumber numberWithDouble:39.753630164252605]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00158697366714]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Evans"];
-	[station setLongitude:[NSNumber numberWithDouble:39.677666454577476]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99285370111467]];
+	[station setLatitude:[NSNumber numberWithDouble:39.677666454577476]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99285370111467]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Englewood"];
-	[station setLongitude:[NSNumber numberWithDouble:39.65560939625744]];
-	[station setLatitude:[NSNumber numberWithDouble:-104.99995082616807]];
+	[station setLatitude:[NSNumber numberWithDouble:39.65560939625744]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.99995082616807]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Oxford"];
-	[station setLongitude:[NSNumber numberWithDouble:39.64290011218291]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.00482439994812]];
+	[station setLatitude:[NSNumber numberWithDouble:39.64290011218291]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.00482439994812]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Littleton/Downtown"];
-	[station setLongitude:[NSNumber numberWithDouble:39.611965944477035]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.01486659049989]];
+	[station setLatitude:[NSNumber numberWithDouble:39.611965944477035]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.01486659049989]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Littleton/Mineral"];
-	[station setLongitude:[NSNumber numberWithDouble:39.58011869115301]];
-	[station setLatitude:[NSNumber numberWithDouble:-105.02493560314178]];
+	[station setLatitude:[NSNumber numberWithDouble:39.58011869115301]];
+	[station setLongitude:[NSNumber numberWithDouble:-105.02493560314178]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[stationsByName setObject:station forKey:[station name]];

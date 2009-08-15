@@ -11,6 +11,7 @@
 #import "Station.h"
 #import "Stop.h"
 #import "Line.h"
+#import "StationStopTableViewCell.h"
 
 @interface StationViewController (Private)
 -(void)retrieveStopsInDirection:(NSString *)direction;
@@ -130,32 +131,20 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
 	
     static NSString *CellIdentifier = @"Cell";
 	
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
     }
     
 	// Get the event corresponding to the current index path and configure the table view cell.
-	Stop *stop = (Stop *)[[self stopsArray] objectAtIndex:indexPath.row];
+	Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+	[cell setStop:stop];
 	
-	NSString *amOrPm = @"A";
-	int hours = [[stop timeInMinutes] intValue] / 60;
-	if(hours > 12)
-	{
-		hours -= 12;
-		amOrPm = @"P";
-	}	
-	int minutes = [[stop timeInMinutes] intValue] % 60;
-	NSString *formatedMinutes =(minutes < 10) ? [NSString stringWithFormat:@"0%i",minutes] : [NSString stringWithFormat:@"%i",minutes];
-	
-	cell.textLabel.text = [NSString stringWithFormat:@"%i:%@%@",hours,formatedMinutes,amOrPm];
-	
-    cell.detailTextLabel.text = [NSString stringWithFormat:@"%@ Line (%@)",[[stop line] name],
-								 [[[[[self runsArray] objectAtIndex:indexPath.row] lastObject] station] name]];
+	Stop *endStop = [[[self runsArray] objectAtIndex:indexPath.row] lastObject];
+	[cell setEndOfLineStop:endStop];
     
 	return cell;
 }
@@ -173,15 +162,6 @@
     // The table view should not be re-orderable.
     return NO;
 }
-
-
-/*
- // NSFetchedResultsControllerDelegate method to notify the delegate that all section and object changes have been processed. 
- - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller {
- [self.tableView reloadData];
- }
- */  
-
 
 -(void)retrieveStopsInDirection:(NSString *)direction
 {	
