@@ -34,12 +34,13 @@
 }
 */
 
-/*
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self setTitle:[[[[self runArray] objectAtIndex:0] station] name]];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -125,7 +126,6 @@
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] withCurrentTimeInMinutes:[[stop timeInMinutes] intValue]];
 	[stationController setManagedObjectContext:[(RTDAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]];
-	[stationController setTitle:[[stop station] name]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];
 }

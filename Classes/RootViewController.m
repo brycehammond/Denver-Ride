@@ -90,14 +90,19 @@
     [super dealloc];
 }
 
+-(void)updateDirection:(NSString *)direction
+{
+	[self retrieveStopsForClosestStationsInDirection:direction];
+	[_closeStationsTableView reloadData];
+}
+
 -(IBAction)changeDirection:(UISegmentedControl *)sender
 {
 	NSLog(@"%i",[sender selectedSegmentIndex]);
 	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
 							substringToIndex:1] uppercaseString];
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[self retrieveStopsForClosestStationsInDirection:direction];
-	[_closeStationsTableView reloadData];
+	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
 }
 
 -(NSInteger)currentTimeInMinutes
@@ -384,6 +389,7 @@
 	UILabel *header = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 40)] autorelease];
 	[header setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
 	[header setTextAlignment:UITextAlignmentCenter];
+	[header setAdjustsFontSizeToFitWidth:YES];
 	[header setText:[[[self closestStationsArray] objectAtIndex:section] name]];
 	[header setBackgroundColor:[UIColor clearColor]];
 	return header;
@@ -408,7 +414,6 @@
 	{
 		NSArray *runArray = [[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 		RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
-		[runController setTitle:[[[self closestStationsArray] objectAtIndex:indexPath.section] name]];
 		[[self navigationController] pushViewController:runController animated:YES];
 		[runController release];
 	}

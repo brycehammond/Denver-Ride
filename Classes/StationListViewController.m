@@ -125,7 +125,6 @@
 	Station *station = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:station withCurrentTimeInMinutes:timeInMinutes];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
-	[stationController setTitle:[station name]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];
 }

@@ -8,6 +8,7 @@
 
 #import "StationStopTableViewCell.h"
 #import "Line.h"
+#import "RTDAppDelegate.h"
 
 @implementation StationStopTableViewCell
 
@@ -39,6 +40,10 @@
 	
 	self.detailTextLabel.text = [NSString stringWithFormat:@"%@ Line (%@)",[[stop line] name],
 								 [[stop station] name]];
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	self.detailTextLabel.textColor = [[appDelegate linesToColors] objectForKey:[[stop line] name]];
+	
+	
 }
 
 -(StationStopTableViewCell *)initWithReuseIdentifier:(NSString *)cellIdentifier;

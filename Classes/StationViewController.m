@@ -59,7 +59,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
+	[self setTitle:[[self station] name]];
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if([direction isEqualToString:@"N"])
@@ -153,7 +153,6 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	NSArray *runArray = [[self runsArray] objectAtIndex:indexPath.row];
 	RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
-	[runController setTitle:[[self station] name]];
 	[[self navigationController] pushViewController:runController animated:YES];
 	[runController release];
 }

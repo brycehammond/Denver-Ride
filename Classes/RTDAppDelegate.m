@@ -16,6 +16,7 @@
 #import "FLine.h"
 #import "ELine.h"
 #import "HLine.h"
+#import "UIColorCategories.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -32,6 +33,7 @@
 @synthesize window;
 @synthesize navigationController;
 @synthesize currentDirection = _currentDirection;
+@synthesize linesToColors = _linesToColors;
 
 
 #pragma mark -
@@ -49,7 +51,15 @@
 	{
 		[self populateStore];
 	}
-
+	
+	_linesToColors = [[NSDictionary alloc] initWithObjectsAndKeys:
+							[UIColor colorFromHex:@"F79238" withAlpha:1], @"C",
+							[UIColor colorFromHex:@"038349" withAlpha:1], @"D",
+							[UIColor colorFromHex:@"552485" withAlpha:1], @"E",
+							[UIColor colorFromHex:@"EF3931" withAlpha:1], @"F",
+							[UIColor colorFromHex:@"0073BD" withAlpha:1], @"H",nil];
+	
+	
 	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
 	rootViewController.managedObjectContext = context;
 	
@@ -264,7 +274,7 @@
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
-	[station setName:@"Arapahoe at Village Center"];
+	[station setName:@"Arapahoe"];
 	[station setLatitude:[NSNumber numberWithDouble:39.60022824942126]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.88846480846406]];
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
@@ -403,7 +413,7 @@
 	[stationsByName setObject:station forKey:[station name]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
-	[station setName:@"Convention Center/Performing Arts"];
+	[station setName:@"Convention Center"];
 	[station setLatitude:[NSNumber numberWithDouble:39.743172533347014]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.99736249446872]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
@@ -576,6 +586,8 @@
     [managedObjectContext release];
     [managedObjectModel release];
     [persistentStoreCoordinator release];
+	[_linesToColors release];
+	[_currentDirection release];
     
 	[navigationController release];
 	[window release];
