@@ -158,8 +158,14 @@
 		
 		//Go through and get the run times for each stop that we list
 		NSMutableArray *runsArray = [[NSMutableArray alloc] initWithCapacity:[stopsArray count]];
-		for(Stop *stop in stopsArray)
-		{		
+		
+		//keep an index set so if we need to delete a stop due to an endline run we can
+		NSMutableIndexSet *deleteIndexes = [NSMutableIndexSet indexSet];
+		
+		for(NSUInteger stopIdx = 0; stopIdx < [stopsArray count]; ++stopIdx)
+		{	
+			Stop *stop = [stopsArray objectAtIndex:stopIdx];
+			
 			NSString *lineName = [[stop line] name];
 			NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
 									  [[stop timeInMinutes] intValue],direction,[[stop run] intValue],lineName];
@@ -186,12 +192,26 @@
 				// Handle the error.
 			}
 			
-			// Set self's runs array to the mutable array, then clean up.
-			[runsArray addObject:mutableFetchResults];
+			//if there is only one stop in the array then it is the end of the line so don't add it and 
+			if([mutableFetchResults count] == 1)
+			{
+				[deleteIndexes addIndex:stopIdx];
+			}
+			else
+			{
+				// Set self's runs array to the mutable array.
+				[runsArray addObject:mutableFetchResults];
+			}
+			
+			//cleanup
 			[mutableFetchResults release];
 			[request release];
 		}
 		
+		//remove any stops that were end of lines
+		[stopsArray removeObjectsAtIndexes:deleteIndexes];
+		
+		//Add the runs array
 		[_closestStationsRunsArray addObject:runsArray];
 		[runsArray release];
 		[stopsArray release];
@@ -318,8 +338,8 @@
 		{
 			direction = @"Southbound";
 		}
-		
-		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Trains",direction];
+
+		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit",direction];
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		
@@ -334,7 +354,7 @@
 			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
 		}
 		
-		// Get the event corresponding to the current index path and configure the table view cell.
+		// Get the stop corresponding to the current index path and configure the table view cell.
 		Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
 		[cell setStop:stop];
 		
