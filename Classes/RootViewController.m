@@ -12,6 +12,7 @@
 #import "Stop.h"
 #import "StationStopTableViewCell.h"
 #import "RunViewController.h"
+#import "StationListViewController.h"
 
 @interface RootViewController (Private)
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
@@ -30,6 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self setTitle:@"Closest Stations"];
+	
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	if([direction isEqualToString:@"N"])
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:0];
+	}
+	else
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:1];
+	}
 	
 	//We haven't gotten a closest location yet so set the
 	//closest location array to empty
@@ -125,10 +136,13 @@
 		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
 		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 		[request setSortDescriptors:sortDescriptors];
+		NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+		[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 		[request setFetchLimit:5];
 		[request setPredicate:predicate];
 		[sortDescriptor release];
 		[sortDescriptors release];
+		[prefetchKeys release];
 		
 		// Execute the fetch -- create a mutable copy of the result.
 		NSError *error = nil;
@@ -158,9 +172,12 @@
 			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
 			NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 			[request setSortDescriptors:sortDescriptors];
+			NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+			[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 			[request setPredicate:predicate];
 			[sortDescriptor release];
 			[sortDescriptors release];
+			[prefetchKeys release];
 			
 			// Execute the fetch -- create a mutable copy of the result.
 			NSError *error = nil;
@@ -169,7 +186,7 @@
 				// Handle the error.
 			}
 			
-			// Set self's events array to the mutable array, then clean up.
+			// Set self's runs array to the mutable array, then clean up.
 			[runsArray addObject:mutableFetchResults];
 			[mutableFetchResults release];
 			[request release];
@@ -238,50 +255,144 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 	NSInteger stationCount = [[self closestStationsArray] count];
-	return stationCount;
+	if(stationCount == 0)
+	{
+		return 0;
+	}
+	
+	return stationCount + 1;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	NSInteger stopsCount = [[[self closestStationsStopsArray] objectAtIndex:section] count];
-	return stopsCount;
+	if(section == [[self closestStationsArray] count])
+	{
+		return 1;
+	}
+	else
+	{
+		NSInteger stopsCount = [[[self closestStationsStopsArray] objectAtIndex:section] count];
+		if(stopsCount == 0)
+		{
+			stopsCount = 1;
+		}
+		return stopsCount;
+	}
+	
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-    static NSString *CellIdentifier = @"Cell";
+	if(indexPath.section == [[self closestStationsArray] count])
+	{
+		//show the show more stations row
+		static NSString *CellIdentifier = @"ShowMoreStationsCell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		cell.textLabel.text = @"All Stations";
+		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+		
+		return cell;
+		
+	}
+	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	{
+		//There are no train in the direction from this station so say so
+		static NSString *CellIdentifier = @"No Trains";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		NSString *direction = nil;
+		if([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"])
+		{
+			direction = @"Northbound";
+		}
+		else
+		{
+			direction = @"Southbound";
+		}
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Trains",direction];
+		[cell setAccessoryType:UITableViewCellAccessoryNone];
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		
+		return cell;
+	}
+	else
+	{
+		static NSString *CellIdentifier = @"Cell";
+		
+		StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		// Get the event corresponding to the current index path and configure the table view cell.
+		Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+		[cell setStop:stop];
+		
+		Stop *endStop = [[[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
+		[cell setEndOfLineStop:endStop];
+		
+		return cell;
+	}
 	
-    StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
-    }
+	return nil;
     
-	// Get the event corresponding to the current index path and configure the table view cell.
-	Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-	[cell setStop:stop];
-	
-	Stop *endStop = [[[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
-	[cell setEndOfLineStop:endStop];
-    
-	return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 40;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+	if(section == [[self closestStationsArray] count])
+	{
+		//no header for the show more stations row
+		return nil;
+	}
+	
 	UILabel *header = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 40)] autorelease];
 	[header setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+	[header setTextAlignment:UITextAlignmentCenter];
 	[header setText:[[[self closestStationsArray] objectAtIndex:section] name]];
+	[header setBackgroundColor:[UIColor clearColor]];
 	return header;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSArray *runArray = [[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-	RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
-	[runController setTitle:[[[self closestStationsArray] objectAtIndex:indexPath.section] name]];
-	[[self navigationController] pushViewController:runController animated:YES];
-	[runController release];
+	
+	if(indexPath.section == [[self closestStationsArray] count])
+	{
+		StationListViewController *listController = [[StationListViewController alloc] initWithNibName:@"StationListViewController" bundle:nil];
+		[listController setManagedObjectContext:[self managedObjectContext]];
+		[[self navigationController] pushViewController:listController animated:YES];
+		[listController release];
+	}
+	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	{
+		//Do nothing on a no train display
+		return;
+	}
+	else
+	{
+		NSArray *runArray = [[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+		RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
+		[runController setTitle:[[[self closestStationsArray] objectAtIndex:indexPath.section] name]];
+		[[self navigationController] pushViewController:runController animated:YES];
+		[runController release];
+	}
+	
 }
 
 

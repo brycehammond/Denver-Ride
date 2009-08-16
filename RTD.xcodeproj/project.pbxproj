@@ -22,7 +22,6 @@
 		14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D90A10370DE600640D8B /* CoreLocation.framework */; };
 		14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */; };
 		14E4DAB91037535600640D8B /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E4DAB81037535600640D8B /* RootViewController.xib */; };
-		14E4DBB51037689000640D8B /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14E4DBB41037689000640D8B /* RTD.sqlite */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
@@ -63,7 +62,6 @@
 		14E4D9DC10373C0D00640D8B /* StationStopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationStopTableViewCell.h; sourceTree = "<group>"; };
 		14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationStopTableViewCell.m; sourceTree = "<group>"; };
 		14E4DAB81037535600640D8B /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
-		14E4DBB41037689000640D8B /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14EC9CF11026370F00F375E2 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		14EC9CF21026370F00F375E2 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				14E4DBB41037689000640D8B /* RTD.sqlite */,
 				14E4DAB81037535600640D8B /* RootViewController.xib */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
@@ -281,7 +278,6 @@
 				14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */,
 				14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */,
 				14E4DAB91037535600640D8B /* RootViewController.xib in Resources */,
-				14E4DBB51037689000640D8B /* RTD.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

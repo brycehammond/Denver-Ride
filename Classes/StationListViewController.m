@@ -102,9 +102,10 @@
     
 	// Configure the cell.
 	
-	NSManagedObject *managedObject = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	Station *station = (Station *)[[self fetchedResultsController] objectAtIndexPath:indexPath];
 	
-	cell.textLabel.text = [managedObject valueForKey:@"name"];
+	cell.textLabel.text = station.name;
+	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 	
     return cell;
 }

@@ -80,22 +80,7 @@
 }
 
 
-#pragma mark -
-#pragma mark Saving
 
-/**
- Performs the save action for the application, which is to send the save:
- message to the application's managed object context.
- */
-- (IBAction)saveAction:(id)sender {
-	
-    NSError *error;
-    if (![[self managedObjectContext] save:&error]) {
-		// Handle error
-		NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
-		exit(-1);  // Fail
-    }
-}
 
 
 #pragma mark -
@@ -164,13 +149,13 @@
             }
         }
         else {
+			defaultDataNeedsFilling = YES;
+			
             // create a store and file from scratch
             persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
             if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]){
                 //handle error
             }
-			
-			defaultDataNeedsFilling = YES;
         }
     }
     // load data from stored user support folder

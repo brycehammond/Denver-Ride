@@ -114,6 +114,8 @@
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	
     cell.detailTextLabel.text =  [[stop station] name];
+	
+	[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     
 	return cell;
 }
