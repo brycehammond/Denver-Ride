@@ -16,6 +16,7 @@
 
 @interface RootViewController (Private)
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
+-(void)updateDirection:(NSString *)direction;
 @end
 
 
@@ -41,6 +42,9 @@
 	{
 		[_northOrSouthControl setSelectedSegmentIndex:1];
 	}
+	
+	[_closeStationsTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
 	
 	//We haven't gotten a closest location yet so set the
 	//closest location array to empty
@@ -68,6 +72,12 @@
 	[mutableFetchResults release];
 	[request release];
 	
+	if(! [_loadingView superview])
+	{
+		[_loadingView setMessage:@"Finding Closest Stations"];
+		[[self view] addSubview:_loadingView];
+	}
+	
 	// Start the location manager.
 	[[self locationManager] startUpdatingLocation];
 }
@@ -93,11 +103,16 @@
 -(void)updateDirection:(NSString *)direction
 {
 	[self retrieveStopsForClosestStationsInDirection:direction];
-	[_closeStationsTableView reloadData];
 }
 
 -(IBAction)changeDirection:(UISegmentedControl *)sender
 {
+	if(! [_loadingView superview])
+	{
+		[_loadingView setMessage:@"Loading"];
+		[[self view] addSubview:_loadingView];
+	}
+	
 	NSLog(@"%i",[sender selectedSegmentIndex]);
 	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
 							substringToIndex:1] uppercaseString];
@@ -223,6 +238,12 @@
 	}
 		
 	[_closeStationsTableView reloadData];
+	if([_loadingView superview])
+	{
+		[_loadingView removeFromSuperview];
+	}
+	
+	
 }
 
 #pragma mark -

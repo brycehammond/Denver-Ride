@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import "LoadingView.h"
 
 @interface RootViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource> {
 	
@@ -21,6 +22,7 @@
 	
 	IBOutlet UITableView *_closeStationsTableView;
 	IBOutlet UISegmentedControl *_northOrSouthControl;
+	LoadingView *_loadingView;
 	
 	
 }

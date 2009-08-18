@@ -23,6 +23,7 @@
 		14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */; };
 		14E4DAB91037535600640D8B /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E4DAB81037535600640D8B /* RootViewController.xib */; };
 		14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DD891038B8BB00640D8B /* UIColorCategories.m */; };
+		14E4DE221038CF7000640D8B /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DE211038CF7000640D8B /* LoadingView.m */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
@@ -65,6 +66,9 @@
 		14E4DAB81037535600640D8B /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		14E4DD891038B8BB00640D8B /* UIColorCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorCategories.m; path = ../UIColorCategories.m; sourceTree = "<group>"; };
 		14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorCategories.h; path = ../UIColorCategories.h; sourceTree = "<group>"; };
+		14E4DE191038CB6F00640D8B /* Readme.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Readme.txt; sourceTree = "<group>"; };
+		14E4DE201038CF7000640D8B /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		14E4DE211038CF7000640D8B /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14EC9CF11026370F00F375E2 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		14EC9CF21026370F00F375E2 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -170,6 +174,8 @@
 			children = (
 				14E4D9DC10373C0D00640D8B /* StationStopTableViewCell.h */,
 				14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */,
+				14E4DE201038CF7000640D8B /* LoadingView.h */,
+				14E4DE211038CF7000640D8B /* LoadingView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -214,6 +220,7 @@
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
+				14E4DE191038CB6F00640D8B /* Readme.txt */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -311,6 +318,7 @@
 				14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */,
 				14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */,
 				14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */,
+				14E4DE221038CF7000640D8B /* LoadingView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
