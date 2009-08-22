@@ -34,8 +34,6 @@
 @property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
 @property (nonatomic, retain) NSMutableArray *closestStationsRunsArray;
 
--(NSInteger)currentTimeInMinutes;
-
 -(IBAction)changeDirection:(id)sender;
 
 @end

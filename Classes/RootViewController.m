@@ -13,6 +13,7 @@
 #import "StationStopTableViewCell.h"
 #import "RunViewController.h"
 #import "StationListViewController.h"
+#import "NSDate+TimeInMinutes.h"
 
 @interface RootViewController (Private)
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
@@ -120,20 +121,6 @@
 	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
 }
 
--(NSInteger)currentTimeInMinutes
-{
-	//get the current hours and minutes to get stops that are in the future
-	NSDate *now = [NSDate date];
-	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
-	[dateFormatter setDateFormat:@"H"];
-	int hours = [[dateFormatter stringFromDate:now] intValue];
-	[dateFormatter setDateFormat:@"m"];
-	int minutes = [[dateFormatter stringFromDate:now] intValue];
-	int timeInMinutes = hours * 60 + minutes;
-	
-	return timeInMinutes;
-}
-
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
 {
 	[[self closestStationsStopsArray] removeAllObjects];
@@ -141,7 +128,7 @@
 	for(Station *station in [self closestStationsArray])
 	{
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@",
-								  [self currentTimeInMinutes],[station name],direction];
+								  [[NSDate date] minutesIntoCurrentDay],[station name],direction];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
 		/*

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
+		1450A4B7103CB4D00069B04C /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4B6103CB4D00069B04C /* RTD.sqlite */; };
+		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		14A2D85C1030F1F6009411CD /* CLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85B1030F1F6009411CD /* CLine.m */; };
 		14A2D8601030F22F009411CD /* DLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85F1030F22F009411CD /* DLine.m */; };
@@ -39,6 +42,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
+		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
+		1450A4B6103CB4D00069B04C /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
+		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
 		14A2D85A1030F1F6009411CD /* CLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLine.h; sourceTree = "<group>"; };
@@ -118,6 +125,8 @@
 				1D3623250D0F684500981E51 /* RTDAppDelegate.m */,
 				14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */,
 				14E4DD891038B8BB00640D8B /* UIColorCategories.m */,
+				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
+				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -213,6 +222,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1450A4C1103CB5990069B04C /* Entitlements.plist */,
+				1450A4B6103CB4D00069B04C /* RTD.sqlite */,
 				14E4DAB81037535600640D8B /* RootViewController.xib */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
@@ -290,6 +301,8 @@
 				14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */,
 				14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */,
 				14E4DAB91037535600640D8B /* RootViewController.xib in Resources */,
+				1450A4B7103CB4D00069B04C /* RTD.sqlite in Resources */,
+				1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +332,40 @@
 				14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */,
 				14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */,
 				14E4DE221038CF7000640D8B /* LoadingView.m in Sources */,
+				1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		1450A4B3103CB4BC0069B04C /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bryce Hammond";
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE1FBEBF-7DB0-476C-947C-DA2DA93CAAA4";
+				SDKROOT = iphoneos3.0;
+			};
+			name = Distribution;
+		};
+		1450A4B4103CB4BC0069B04C /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = RTD_Prefix.pch;
+				INFOPLIST_FILE = "RTD-Info.plist";
+				PRODUCT_NAME = RTD;
+			};
+			name = Distribution;
+		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -385,6 +426,7 @@
 			buildConfigurations = (
 				1D6058940D05DD3E006BFB54 /* Debug */,
 				1D6058950D05DD3E006BFB54 /* Release */,
+				1450A4B4103CB4BC0069B04C /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -394,6 +436,7 @@
 			buildConfigurations = (
 				C01FCF4F08A954540054247B /* Debug */,
 				C01FCF5008A954540054247B /* Release */,
+				1450A4B3103CB4BC0069B04C /* Distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
