@@ -21,39 +21,7 @@
 @implementation StationViewController
 
 @synthesize managedObjectContext = _managedObjectContext, station = _station, 
-			stopsArray = _stopsArray, runsArray = _runsArray, currentTimeInMinutes = _currentTimeInMinutes;
-
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-	[super loadView];
-	
-	_northOrSouthControl = [[UISegmentedControl alloc] initWithItems:[NSArray arrayWithObjects:@"North",@"South",nil]];
-	CGRect currentFrame = _northOrSouthControl.frame;
-	[[self view] addSubview:_northOrSouthControl];
-	
-	CGRect frame = [[self view] frame];
-	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, _northOrSouthControl.frame.origin.y + _northOrSouthControl.frame.size.height,
-																	[[UIScreen mainScreen] bounds].size.width, 
-																	frame.size.height - _northOrSouthControl.frame.size.height)];
-	[_stopsTableView setDelegate:self];
-	[_stopsTableView setDataSource:self];
-	[[self view] addSubview:_stopsTableView];
-	
-}
- 
- */
+			stopsArray = _stopsArray, currentTimeInMinutes = _currentTimeInMinutes;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -73,15 +41,6 @@
 	
 	[self retrieveStopsInDirection:direction];
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
 {
@@ -141,18 +100,16 @@
     
 	// Get the event corresponding to the current index path and configure the table view cell.
 	Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
-	[cell setStop:stop];
-	
-	Stop *endStop = [[[self runsArray] objectAtIndex:indexPath.row] lastObject];
-	[cell setEndOfLineStop:endStop];
+	[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
     
 	return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	NSArray *runArray = [[self runsArray] objectAtIndex:indexPath.row];
-	RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
+	Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+	RunViewController *runController = [[RunViewController alloc] initWithStop:stop];
+	[runController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:runController animated:YES];
 	[runController release];
 }
@@ -197,47 +154,11 @@
 	[mutableFetchResults release];
 	[request release];
 	
-	
-	//Go through and get the run times for each stop that we list
-	[_runsArray release];
-	_runsArray = [[NSMutableArray alloc] initWithCapacity:[[self stopsArray] count]];
-	for(Stop *stop in [self stopsArray])
-	{		
-		NSString *lineName = [[stop line] name];
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
-								  [[stop timeInMinutes] intValue],direction,[[stop run] intValue],lineName];
-		
-		NSFetchRequest *request = [[NSFetchRequest alloc] init];
-		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
-		[request setEntity:entity];
-		
-		// Order the events by creation date, most recent first.
-		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
-		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-		[request setSortDescriptors:sortDescriptors];
-		[request setPredicate:predicate];
-		[sortDescriptor release];
-		[sortDescriptors release];
-		
-		// Execute the fetch -- create a mutable copy of the result.
-		NSError *error = nil;
-		NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
-		if (mutableFetchResults == nil) {
-			// Handle the error.
-		}
-		
-		// Set self's events array to the mutable array, then clean up.
-		[[self runsArray] addObject:mutableFetchResults];
-		[mutableFetchResults release];
-		[request release];
-	}
-	
 	[_stopsTableView reloadData];
 }
 
 - (void)dealloc {
 	[_stopsArray release];
-	[_runsArray release];
 	[_managedObjectContext release];
 	[_stopsTableView release];
 	[_northOrSouthControl release];

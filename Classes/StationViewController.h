@@ -13,7 +13,6 @@
 @interface StationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 
 	NSMutableArray *_stopsArray;
-	NSMutableArray *_runsArray;
 	NSManagedObjectContext *_managedObjectContext;
 	Station *_station;
 	
@@ -25,7 +24,6 @@
 }
 
 @property (nonatomic, retain) NSMutableArray *stopsArray;
-@property (nonatomic, retain) NSMutableArray *runsArray;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) Station *station;
 @property (assign) NSInteger currentTimeInMinutes;

@@ -8,18 +8,17 @@
 
 #import "RunViewController.h"
 #import "Stop.h"
-#import "RTDAppDelegate.h"
 #import "StationViewController.h"
 
 @implementation RunViewController
 
-@synthesize runArray = _runArray;
+@synthesize runArray = _runArray, stop = _stop, managedObjectContext = _managedObjectContext;
 
--(id)initWithRunArray:(NSArray *)runArray
+-(id)initWithStop:(Stop *)stop
 {
 	if(self = [self initWithNibName:@"RunViewController" bundle:nil])
 	{
-		[self setRunArray:runArray];
+		[self setStop:stop];
 	}
 	return self;
 }
@@ -38,6 +37,37 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	//get the run array from the stop
+	Stop *stop = [self stop];
+	NSString *lineName = [[stop line] name];
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
+							  [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName];
+	
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+	
+	// Order the events by creation date, most recent first.
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
+	[request setPredicate:predicate];
+	[sortDescriptor release];
+	[sortDescriptors release];
+	[prefetchKeys release];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+	
+	[self setRunArray:mutableFetchResults];
+	[mutableFetchResults release];
+	
 	[self setTitle:[[[[self runArray] objectAtIndex:0] station] name]];
 }
 
@@ -125,7 +155,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] withCurrentTimeInMinutes:[[stop timeInMinutes] intValue]];
-	[stationController setManagedObjectContext:[(RTDAppDelegate *)[[UIApplication sharedApplication] delegate] managedObjectContext]];
+	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];
 }

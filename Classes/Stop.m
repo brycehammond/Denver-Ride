@@ -18,6 +18,7 @@
 @dynamic direction;
 @dynamic dayType;
 @dynamic station;
+@dynamic terminalStation;
 @dynamic line;
 
 @end

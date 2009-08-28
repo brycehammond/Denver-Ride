@@ -18,12 +18,12 @@
 	NSMutableArray *_stationsArray;
 	NSArray *_closestStationsArray;  //This is the first three stations of the sorted stationsArray by distance
 	NSMutableArray *_closestStationsStopsArray;
-	NSMutableArray *_closestStationsRunsArray;
 	
 	IBOutlet UITableView *_closeStationsTableView;
 	IBOutlet UISegmentedControl *_northOrSouthControl;
 	LoadingView *_loadingView;
 	
+	NSTimer *_delayTimer;
 	
 }
 
@@ -32,7 +32,6 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSArray *closestStationsArray;
 @property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
-@property (nonatomic, retain) NSMutableArray *closestStationsRunsArray;
 
 -(IBAction)changeDirection:(id)sender;
 
