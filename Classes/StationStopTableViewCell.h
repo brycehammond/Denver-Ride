@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Stop.h"
-
+#import "Station.h"
 
 @interface StationStopTableViewCell : UITableViewCell {
 
@@ -18,7 +18,7 @@
 -(StationStopTableViewCell *)initWithReuseIdentifier:(NSString *)cellIdentifier;
 
 -(void)setStop:(Stop *)stop;
--(void)setEndOfLineStop:(Stop *)stop;
+-(void)setEndOfLineStation:(Station *)station withStartStop:(Stop *)stop;
 
 
 

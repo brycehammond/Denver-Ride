@@ -23,6 +23,7 @@
 		[stop setLine:[linesByName objectForKey:[stopArray objectAtIndex:3]]];
 		[stop setStation:[stationsByName objectForKey:[stopArray objectAtIndex:4]]];
 		[stop setRun:[NSNumber numberWithInt:[[stopArray objectAtIndex:5] intValue]]];
+		[stop setTerminalStation:[stationsByName objectForKey:[stopArray objectAtIndex:6]]];
 	}
 	[newStops release];
 }

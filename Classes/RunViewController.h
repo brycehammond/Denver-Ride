@@ -8,15 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class Stop;
 
 @interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	NSArray *_runArray;
+	Stop *_stop;
+	NSManagedObjectContext *_managedObjectContext;
 	IBOutlet UITableView *_runTableView;
 }
 
 @property (nonatomic, retain) NSArray *runArray;
+@property (nonatomic, retain) Stop *stop;
+@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 
 
--(id)initWithRunArray:(NSArray *)runArray;
+-(id)initWithStop:(Stop *)stop;
 
 @end

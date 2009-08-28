@@ -27,8 +27,7 @@
 			stationsArray = _stationsArray,
 			locationManager = _locationManager,
 			closestStationsArray = _closestStationsArray,
-			closestStationsStopsArray = _closestStationsStopsArray,
-			closestStationsRunsArray = _closestStationsRunsArray;
+			closestStationsStopsArray = _closestStationsStopsArray;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -51,7 +50,6 @@
 	//closest location array to empty
 	[self setClosestStationsArray:[NSArray array]];
 	[self setClosestStationsStopsArray:[NSMutableArray array]];
-	[self setClosestStationsRunsArray:[NSMutableArray array]];
 	
 	/*
 	 Fetch existing stations.
@@ -124,10 +122,9 @@
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
 {
 	[[self closestStationsStopsArray] removeAllObjects];
-	[[self closestStationsRunsArray] removeAllObjects];
 	for(Station *station in [self closestStationsArray])
 	{
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@",
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name",
 								  [[NSDate date] minutesIntoCurrentDay],[station name],direction];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
@@ -162,65 +159,6 @@
 		
 		
 		[_closestStationsStopsArray addObject:stopsArray];
-		
-		//Go through and get the run times for each stop that we list
-		NSMutableArray *runsArray = [[NSMutableArray alloc] initWithCapacity:[stopsArray count]];
-		
-		//keep an index set so if we need to delete a stop due to an endline run we can
-		NSMutableIndexSet *deleteIndexes = [NSMutableIndexSet indexSet];
-		
-		for(NSUInteger stopIdx = 0; stopIdx < [stopsArray count]; ++stopIdx)
-		{	
-			Stop *stop = [stopsArray objectAtIndex:stopIdx];
-			
-			NSString *lineName = [[stop line] name];
-			NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
-									  [[stop timeInMinutes] intValue],direction,[[stop run] intValue],lineName];
-			
-			NSFetchRequest *request = [[NSFetchRequest alloc] init];
-			NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
-			[request setEntity:entity];
-			
-			// Order the events by creation date, most recent first.
-			NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
-			NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-			[request setSortDescriptors:sortDescriptors];
-			NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
-			[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
-			[request setPredicate:predicate];
-			[sortDescriptor release];
-			[sortDescriptors release];
-			[prefetchKeys release];
-			
-			// Execute the fetch -- create a mutable copy of the result.
-			NSError *error = nil;
-			NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
-			if (mutableFetchResults == nil) {
-				// Handle the error.
-			}
-			
-			//if there is only one stop in the array then it is the end of the line so don't add it and 
-			if([mutableFetchResults count] == 1)
-			{
-				[deleteIndexes addIndex:stopIdx];
-			}
-			else
-			{
-				// Set self's runs array to the mutable array.
-				[runsArray addObject:mutableFetchResults];
-			}
-			
-			//cleanup
-			[mutableFetchResults release];
-			[request release];
-		}
-		
-		//remove any stops that were end of lines
-		[stopsArray removeObjectsAtIndexes:deleteIndexes];
-		
-		//Add the runs array
-		[_closestStationsRunsArray addObject:runsArray];
-		[runsArray release];
 		[stopsArray release];
 	}
 		
@@ -263,24 +201,35 @@
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 	
+	[_delayTimer invalidate];
+	[_delayTimer release];
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(processUpdate:)]];
+	[invocation setTarget:self];
+	[invocation setSelector:@selector(processUpdate:)];
+	[invocation setArgument:&newLocation atIndex:2];
+	_delayTimer = [[NSTimer scheduledTimerWithTimeInterval:0.5 invocation:invocation repeats:NO] retain];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    
+}
+
+- (void)processUpdate:(CLLocation *)location
+{
 	//we have a location so resort the closest array and display the first three
 	for(Station *station in [self stationsArray])
 	{
-		NSLog(@"newLocation long: %f lat: %f",[newLocation coordinate].longitude,[newLocation coordinate].latitude);
+		NSLog(@"newLocation long: %f lat: %f",[location coordinate].longitude,[location coordinate].latitude);
 		NSLog(@"station lcoation long: %f lat: %f",[[station location] coordinate].longitude,
-													[[station location] coordinate].latitude);
-		[station setCurrentDistance:[newLocation getDistanceFrom:[station location]]];
+			  [[station location] coordinate].latitude);
+		[station setCurrentDistance:[location getDistanceFrom:[station location]]];
 	}
 	
 	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];
 	
 	[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
 	[self retrieveStopsForClosestStationsInDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
-}
-
-- (void)locationManager:(CLLocationManager *)manager
-       didFailWithError:(NSError *)error {
-    
 }
 
 #pragma mark -
@@ -369,10 +318,8 @@
 		
 		// Get the stop corresponding to the current index path and configure the table view cell.
 		Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-		[cell setStop:stop];
 		
-		Stop *endStop = [[[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row] lastObject];
-		[cell setEndOfLineStop:endStop];
+		[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
 		
 		return cell;
 	}
@@ -420,8 +367,8 @@
 	}
 	else
 	{
-		NSArray *runArray = [[[self closestStationsRunsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-		RunViewController *runController = [[RunViewController alloc] initWithRunArray:runArray];
+		RunViewController *runController = [[RunViewController alloc] initWithStop:[[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
 		[runController release];
 	}

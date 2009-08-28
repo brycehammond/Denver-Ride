@@ -35,11 +35,12 @@
 	[self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 }
 
--(void)setEndOfLineStop:(Stop *)stop
+-(void)setEndOfLineStation:(Station *)station withStartStop:(Stop *)stop
 {
+	[self setStop:stop];
 	
 	self.detailTextLabel.text = [NSString stringWithFormat:@"%@ Line (%@)",[[stop line] name],
-								 [[stop station] name]];
+								 [station name]];
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	self.detailTextLabel.textColor = [[appDelegate linesToColors] objectForKey:[[stop line] name]];
 	

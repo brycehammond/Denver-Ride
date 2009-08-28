@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
-		1450A4B7103CB4D00069B04C /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4B6103CB4D00069B04C /* RTD.sqlite */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		14A2D85C1030F1F6009411CD /* CLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85B1030F1F6009411CD /* CLine.m */; };
@@ -44,7 +43,6 @@
 /* Begin PBXFileReference section */
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
-		1450A4B6103CB4D00069B04C /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
@@ -223,7 +221,6 @@
 			isa = PBXGroup;
 			children = (
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
-				1450A4B6103CB4D00069B04C /* RTD.sqlite */,
 				14E4DAB81037535600640D8B /* RootViewController.xib */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
@@ -301,7 +298,6 @@
 				14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */,
 				14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */,
 				14E4DAB91037535600640D8B /* RootViewController.xib in Resources */,
-				1450A4B7103CB4D00069B04C /* RTD.sqlite in Resources */,
 				1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

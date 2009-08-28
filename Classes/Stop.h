@@ -20,6 +20,7 @@
 @property (nonatomic, retain) NSString * direction;
 @property (nonatomic, retain) NSString * dayType;
 @property (nonatomic, retain) Station * station;
+@property (nonatomic, retain) Station *terminalStation;
 @property (nonatomic, retain) Line * line;
 
 @end
