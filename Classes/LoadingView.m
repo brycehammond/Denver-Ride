@@ -18,7 +18,7 @@
 		
 		
 		CGRect frame = [self frame];
-		_loadingTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, (frame.size.height / 2)-40, 320, 20)];
+		_loadingTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, round(frame.size.height / 2)-40, 320, 24)];
 		
 		[_loadingTextLabel setTextAlignment:UITextAlignmentCenter];
 		[_loadingTextLabel setBackgroundColor:[UIColor clearColor]];

@@ -77,7 +77,21 @@
 	[self setRunArray:mutableFetchResults];
 	[mutableFetchResults release];
 	
-	[self setTitle:[[[[self runArray] objectAtIndex:0] station] name]];
+	[self setTitle:@"Arrivals"];
+	
+}
+
+-(void)dealloc
+{
+	[_runArray release];
+	[_stop release];
+	[_managedObjectContext release];
+	[_runTableView release];
+	
+	[_topLine release];
+	[_middleLine release];
+	[_bottomLine release];
+	[super dealloc];
 }
 
 
@@ -101,12 +115,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-
-- (void)dealloc {
-	[_runTableView release];
-	[_runArray release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Table view data source methods
