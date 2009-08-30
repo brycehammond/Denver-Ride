@@ -14,6 +14,7 @@
 #import "RunViewController.h"
 #import "StationListViewController.h"
 #import "NSDate+TimeInMinutes.h"
+#import "RTDAppDelegate.h"
 
 @interface RootViewController (Private)
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
@@ -121,11 +122,18 @@
 
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
 {
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	NSDate *currentDate = [NSDate date];
+	NSInteger minutesIntoCurrentDay = [currentDate minutesIntoCurrentDay] - 2;
+	NSString *dayType = [currentDate dayType];
+	[appDelegate setCurrentDayType:dayType];
+	
 	[[self closestStationsStopsArray] removeAllObjects];
 	for(Station *station in [self closestStationsArray])
 	{
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name",
-								  [[NSDate date] minutesIntoCurrentDay],[station name],direction];
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+								  minutesIntoCurrentDay,[station name],direction,dayType];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
 		/*

@@ -9,6 +9,7 @@
 #import "RunViewController.h"
 #import "Stop.h"
 #import "StationViewController.h"
+#import "RTDAppDelegate.h"
 
 @implementation RunViewController
 
@@ -40,8 +41,16 @@
 	//get the run array from the stop
 	Stop *stop = [self stop];
 	NSString *lineName = [[stop line] name];
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes >= %i AND direction == %@ AND run == %i AND line.name == %@",
-							  [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName];
+	NSString *direction = ([[stop direction] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+						   
+	[_topLine setText:[NSString stringWithFormat:@"Arrival times of %@ %@ Line", direction, lineName]];
+	[_middleLine setText:[NSString stringWithFormat:@"leaving from %@",[[stop station] name]]];
+	[_bottomLine setText:[NSString stringWithFormat:@"at %@",[stop formattedTime]]];
+	
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
+							  [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
 	
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
@@ -127,21 +136,10 @@
 	// Get the event corresponding to the current index path and configure the table view cell.
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
 	
-	
-	NSString *amOrPm = @"A";
-	int hours = [[stop timeInMinutes] intValue] / 60;
-	if(hours > 12)
-	{
-		hours -= 12;
-		amOrPm = @"P";
-	}	
-	int minutes = [[stop timeInMinutes] intValue] % 60;
-	NSString *formatedMinutes =(minutes < 10) ? [NSString stringWithFormat:@"0%i",minutes] : [NSString stringWithFormat:@"%i",minutes];
-	
 	CGRect currentFrame = cell.detailTextLabel.frame;
 	cell.detailTextLabel.frame = currentFrame;
 	cell.detailTextLabel.adjustsFontSizeToFitWidth = YES;
-	cell.textLabel.text = [NSString stringWithFormat:@"%i:%@%@",hours,formatedMinutes,amOrPm];
+	cell.textLabel.text = [stop formattedTime];
 	cell.textLabel.adjustsFontSizeToFitWidth = YES;
 	
     cell.detailTextLabel.text =  [[stop station] name];

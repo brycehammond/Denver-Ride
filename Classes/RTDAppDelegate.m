@@ -16,6 +16,12 @@
 #import "FLine.h"
 #import "ELine.h"
 #import "HLine.h"
+#import "DLineSaturday.h"
+#import "DLineSunday.h"
+#import "ELineSunday.h"
+#import "ELineSaturday.h"
+#import "HLineSaturday.h"
+#import "HLineSunday.h"
 #import "UIColorCategories.h"
 
 @interface RTDAppDelegate (Private)
@@ -34,6 +40,7 @@
 @synthesize navigationController;
 @synthesize currentDirection = _currentDirection;
 @synthesize linesToColors = _linesToColors;
+@synthesize currentDayType;
 
 
 #pragma mark -
@@ -72,6 +79,7 @@
 		currentDirection = @"N";
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
 	}
+	
 }
 
 /**
@@ -576,6 +584,12 @@
 	[ELine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
 	[FLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
 	[HLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[DLineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[DLineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[ELineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[ELineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[HLineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	[HLineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
 }
 
 #pragma mark -

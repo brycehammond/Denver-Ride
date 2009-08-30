@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NSDate (TimeInMinutes)
 -(NSInteger)minutesIntoCurrentDay;
+-(NSInteger)weekdayNumber;
+-(NSString *)dayType;
+
 @end
+

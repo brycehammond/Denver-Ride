@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		14191C61104ACDBC00C87383 /* DLineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C60104ACDBC00C87383 /* DLineSaturday.m */; };
+		14191C64104ACDC700C87383 /* DLineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C63104ACDC700C87383 /* DLineSunday.m */; };
+		14191C67104ACE1100C87383 /* ELineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C66104ACE1100C87383 /* ELineSaturday.m */; };
+		14191C6A104ACE1E00C87383 /* ELineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C69104ACE1E00C87383 /* ELineSunday.m */; };
+		14191C70104AD08300C87383 /* HLineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C6F104AD08300C87383 /* HLineSaturday.m */; };
+		14191C73104AD09200C87383 /* HLineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C72104AD09200C87383 /* HLineSunday.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -41,6 +47,18 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		14191C5F104ACDBC00C87383 /* DLineSaturday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLineSaturday.h; sourceTree = "<group>"; };
+		14191C60104ACDBC00C87383 /* DLineSaturday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLineSaturday.m; sourceTree = "<group>"; };
+		14191C62104ACDC700C87383 /* DLineSunday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLineSunday.h; sourceTree = "<group>"; };
+		14191C63104ACDC700C87383 /* DLineSunday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLineSunday.m; sourceTree = "<group>"; };
+		14191C65104ACE1100C87383 /* ELineSaturday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELineSaturday.h; sourceTree = "<group>"; };
+		14191C66104ACE1100C87383 /* ELineSaturday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELineSaturday.m; sourceTree = "<group>"; };
+		14191C68104ACE1E00C87383 /* ELineSunday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ELineSunday.h; sourceTree = "<group>"; };
+		14191C69104ACE1E00C87383 /* ELineSunday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ELineSunday.m; sourceTree = "<group>"; };
+		14191C6E104AD08300C87383 /* HLineSaturday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLineSaturday.h; sourceTree = "<group>"; };
+		14191C6F104AD08300C87383 /* HLineSaturday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLineSaturday.m; sourceTree = "<group>"; };
+		14191C71104AD09200C87383 /* HLineSunday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLineSunday.h; sourceTree = "<group>"; };
+		14191C72104AD09200C87383 /* HLineSunday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLineSunday.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -144,6 +162,18 @@
 				14C6CB0B1032515000368298 /* FLine.m */,
 				14C6CB16103266B000368298 /* HLine.h */,
 				14C6CB17103266B000368298 /* HLine.m */,
+				14191C5F104ACDBC00C87383 /* DLineSaturday.h */,
+				14191C60104ACDBC00C87383 /* DLineSaturday.m */,
+				14191C62104ACDC700C87383 /* DLineSunday.h */,
+				14191C63104ACDC700C87383 /* DLineSunday.m */,
+				14191C65104ACE1100C87383 /* ELineSaturday.h */,
+				14191C66104ACE1100C87383 /* ELineSaturday.m */,
+				14191C68104ACE1E00C87383 /* ELineSunday.h */,
+				14191C69104ACE1E00C87383 /* ELineSunday.m */,
+				14191C6E104AD08300C87383 /* HLineSaturday.h */,
+				14191C6F104AD08300C87383 /* HLineSaturday.m */,
+				14191C71104AD09200C87383 /* HLineSunday.h */,
+				14191C72104AD09200C87383 /* HLineSunday.m */,
 			);
 			name = Lines;
 			sourceTree = "<group>";
@@ -329,6 +359,12 @@
 				14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */,
 				14E4DE221038CF7000640D8B /* LoadingView.m in Sources */,
 				1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */,
+				14191C61104ACDBC00C87383 /* DLineSaturday.m in Sources */,
+				14191C64104ACDC700C87383 /* DLineSunday.m in Sources */,
+				14191C67104ACE1100C87383 /* ELineSaturday.m in Sources */,
+				14191C6A104ACE1E00C87383 /* ELineSunday.m in Sources */,
+				14191C70104AD08300C87383 /* HLineSaturday.m in Sources */,
+				14191C73104AD09200C87383 /* HLineSunday.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

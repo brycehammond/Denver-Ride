@@ -20,6 +20,8 @@
 	NSString *_currentDirection;
 	
 	NSDictionary *_linesToColors;
+	
+	NSString *currentDayType;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
@@ -28,6 +30,7 @@
 @property (nonatomic, retain) NSString *currentDirection;
 @property (readonly) NSDictionary *linesToColors;
 
+@property (nonatomic, retain) NSString *currentDayType;
 
 @property (nonatomic, readonly) NSString *applicationDocumentsDirectory;
 

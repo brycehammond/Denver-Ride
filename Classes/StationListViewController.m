@@ -9,6 +9,8 @@
 #import "StationListViewController.h"
 #import "StationViewController.h"
 #import "Station.h"
+#import "RTDAppDelegate.h"
+#import "NSDate+TimeInMinutes.h"
 
 @implementation StationListViewController
 
@@ -31,6 +33,10 @@
     [super viewDidLoad];
 	
 	[self setTitle:@"All Stations"];
+	
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	NSString *dayType = [[NSDate date] dayType];
+	[appDelegate setCurrentDayType:dayType];
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {

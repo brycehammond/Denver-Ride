@@ -23,4 +23,38 @@
 	return timeInMinutes;
 }
 
+-(NSInteger)weekdayNumber
+{
+	NSCalendar *gregorian = [[NSCalendar alloc] 
+							 initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *weekDayComponents = [gregorian 
+										   components:NSWeekdayCalendarUnit fromDate:self];
+	NSInteger weekday = [weekDayComponents weekday];
+	
+	[gregorian release];
+	
+	return weekday;
+}
+
+-(NSString *)dayType
+{
+	NSInteger weekdayNum = [self weekdayNumber];
+	NSString *returnDay;
+	
+	switch(weekdayNum)
+	{
+		case 7:
+			returnDay = @"Saturday";
+			break;
+		case 1:
+			returnDay = @"Sunday";
+			break;
+		default:
+			returnDay = @"Weekday";
+			break;
+	}
+	
+	return returnDay;
+}
+
 @end

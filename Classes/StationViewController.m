@@ -12,6 +12,7 @@
 #import "Stop.h"
 #import "Line.h"
 #import "StationStopTableViewCell.h"
+#import "RTDAppDelegate.h"
 
 @interface StationViewController (Private)
 -(void)retrieveStopsInDirection:(NSString *)direction;
@@ -85,7 +86,13 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 	// As many rows as there are obects in the events array.
-    return [[self stopsArray] count];
+	
+	if([[self stopsArray] count] > 0)
+	{
+		return [[self stopsArray] count];
+	}
+    
+	return 1;
 }
 
 
@@ -93,25 +100,53 @@
 	
     static NSString *CellIdentifier = @"Cell";
 	
-    StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
-    }
+   
     
-	// Get the event corresponding to the current index path and configure the table view cell.
-	Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
-	[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+	if([[self stopsArray] count] > 0)
+	{
+		StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		// Get the event corresponding to the current index path and configure the table view cell.
+		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+		[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+		
+		return cell;
+	}
+	else
+	{
+		static NSString *CellIdentifier = @"NoTransitCell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit", direction];
+		[cell setAccessoryType:UITableViewCellAccessoryNone];
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		
+		return cell;
+	}
+	
     
-	return cell;
+	return nil;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
-	RunViewController *runController = [[RunViewController alloc] initWithStop:stop];
-	[runController setManagedObjectContext:[self managedObjectContext]];
-	[[self navigationController] pushViewController:runController animated:YES];
-	[runController release];
+	if([[self stopsArray] count] > 0)
+	{
+		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+		RunViewController *runController = [[RunViewController alloc] initWithStop:stop];
+		[runController setManagedObjectContext:[self managedObjectContext]];
+		[[self navigationController] pushViewController:runController animated:YES];
+		[runController release];
+	}
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -121,8 +156,10 @@
 
 -(void)retrieveStopsInDirection:(NSString *)direction
 {	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@",
-							  [self currentTimeInMinutes],[[self station] name],direction];
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != %@",
+							  [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType], [[self station] name]];
 	NSLog(@"predicate format: %@",[predicate predicateFormat]);
 	
 	/*

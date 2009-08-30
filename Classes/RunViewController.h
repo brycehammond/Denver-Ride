@@ -15,6 +15,10 @@
 	Stop *_stop;
 	NSManagedObjectContext *_managedObjectContext;
 	IBOutlet UITableView *_runTableView;
+	
+	IBOutlet UILabel *_topLine;
+	IBOutlet UILabel *_middleLine;
+	IBOutlet UILabel *_bottomLine;
 }
 
 @property (nonatomic, retain) NSArray *runArray;

@@ -13,6 +13,7 @@
 
 @interface Stop :  NSManagedObject  
 {
+	
 }
 
 @property (nonatomic, retain) NSNumber * timeInMinutes;
@@ -22,6 +23,8 @@
 @property (nonatomic, retain) Station * station;
 @property (nonatomic, retain) Station *terminalStation;
 @property (nonatomic, retain) Line * line;
+
+- (NSString *)formattedTime;
 
 @end
 

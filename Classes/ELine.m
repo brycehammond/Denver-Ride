@@ -1402,8 +1402,6 @@
 									  [NSArray arrayWithObjects:@"145",@"S",@"Weekday",@"E",@"Lincoln",@"36",@"Lincoln",nil],
 									  
 									  nil]];
-									  
-	
 	return returnArray;
 }
 

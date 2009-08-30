@@ -835,6 +835,32 @@
 									  
 									  
 								   nil]];
+#pragma mark -
+#pragma mark C Line Northbound Saturday
+	[returnArray addObjectsFromArray:[NSArray arrayWithObjects:
+									  [NSArray arrayWithObjects:@"107",@"N",@"Saturday",@"C",@"Evans",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"110",@"N",@"Saturday",@"C",@"I-25/Broadway",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"112",@"N",@"Saturday",@"C",@"Alameda",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"115",@"N",@"Saturday",@"C",@"10th & Osage",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"119",@"N",@"Saturday",@"C",@"Auraria West Campus",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"120",@"N",@"Saturday",@"C",@"Invesco Field at Mile High",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"122",@"N",@"Saturday",@"C",@"Pepsi Center/Six Flags",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"124",@"N",@"Saturday",@"C",@"Union Station",@"1",@"Union Station",nil],
+									  nil]];
+#pragma mark -
+#pragma mark C Line Northbound Sunday
+	[returnArray addObjectsFromArray:[NSArray arrayWithObjects:
+									  [NSArray arrayWithObjects:@"107",@"N",@"Sunday",@"C",@"Evans",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"110",@"N",@"Sunday",@"C",@"I-25/Broadway",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"112",@"N",@"Sunday",@"C",@"Alameda",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"115",@"N",@"Sunday",@"C",@"10th & Osage",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"119",@"N",@"Sunday",@"C",@"Auraria West Campus",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"120",@"N",@"Sunday",@"C",@"Invesco Field at Mile High",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"122",@"N",@"Sunday",@"C",@"Pepsi Center/Six Flags",@"1",@"Union Station",nil],
+									  [NSArray arrayWithObjects:@"124",@"N",@"Sunday",@"C",@"Union Station",@"1",@"Union Station",nil],
+									  nil]];
+	
+#
 	
 	return returnArray;
 }
