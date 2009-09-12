@@ -3,44 +3,85 @@
 //  RTD
 //
 //  Created by bryce.hammond on 9/12/09.
-//  Copyright 2009 Wall Street On Demand, Inc.. All rights reserved.
+//  Copyright 2009 Fluidvision Design. All rights reserved.
 //
 
 #import "ClosestSelectViewController.h"
+#import "StationViewController.h"
+#import "Station.h"
+#import "Stop.h"
+#import "StationStopTableViewCell.h"
+#import "RunViewController.h"
+#import "StationListViewController.h"
+#import "NSDate+TimeInMinutes.h"
+#import "RTDAppDelegate.h"
+
+@interface ClosestSelectViewController (Private)
+-(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
+-(void)updateDirection:(NSString *)direction;
+@end
 
 
 @implementation ClosestSelectViewController
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+@synthesize  managedObjectContext = _managedObjectContext, 
+stationsArray = _stationsArray,
+locationManager = _locationManager,
+closestStationsArray = _closestStationsArray,
+closestStationsStopsArray = _closestStationsStopsArray,
+navigationController = _navigationController;
 
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[self setTitle:@"Closest Stations"];
+	
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	if([direction isEqualToString:@"N"])
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:0];
+	}
+	else
+	{
+		[_northOrSouthControl setSelectedSegmentIndex:1];
+	}
+	
+	[_closeStationsTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
+	
+	//We haven't gotten a closest location yet so set the
+	//closest location array to empty
+	[self setClosestStationsArray:[NSArray array]];
+	[self setClosestStationsStopsArray:[NSMutableArray array]];
+	
+	/*
+	 Fetch existing stations.
+	 Create a fetch request; find the Station entity and assign it to the request; add a sort descriptor; then execute the fetch.
+	 */
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+	
+	// Execute the fetch -- create a mutable copy of the result.
+	NSError *error = nil;
+	NSMutableArray *mutableFetchResults = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+	if (mutableFetchResults == nil) {
+		// Handle the error.
+	}
+	
+	// Set the station array to the mutable array, then clean up.
+	[self setStationsArray:mutableFetchResults];
+	[mutableFetchResults release];
+	[request release];
+	
+	if(! [_loadingView superview])
+	{
+		[_loadingView setMessage:@"Finding Closest Stations"];
+		[[self view] addSubview:_loadingView];
+	}
+	
+	// Start the location manager.
+	[[self locationManager] startUpdatingLocation];
 }
-*/
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -50,14 +91,297 @@
 }
 
 - (void)viewDidUnload {
-	// Release any retained subviews of the main view.
+	// Release anything that can be recreated in viewDidLoad or on demand.
 	// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
+	[_managedObjectContext release];
     [super dealloc];
 }
 
+-(void)updateDirection:(NSString *)direction
+{
+	[self retrieveStopsForClosestStationsInDirection:direction];
+}
+
+-(IBAction)changeDirection:(UISegmentedControl *)sender
+{
+	if(! [_loadingView superview])
+	{
+		[_loadingView setMessage:@"Loading"];
+		[[self view] addSubview:_loadingView];
+	}
+	
+	NSLog(@"%i",[sender selectedSegmentIndex]);
+	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
+							substringToIndex:1] uppercaseString];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
+}
+
+-(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
+{
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	
+	NSDate *currentDate = [NSDate date];
+	NSInteger minutesIntoCurrentDay = [currentDate minutesIntoCurrentDay] - 2;
+	NSString *dayType = [currentDate dayType];
+	[appDelegate setCurrentDayType:dayType];
+	
+	[[self closestStationsStopsArray] removeAllObjects];
+	for(Station *station in [self closestStationsArray])
+	{
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+								  minutesIntoCurrentDay,[station name],direction,dayType];
+		NSLog(@"predicate format: %@",[predicate predicateFormat]);
+		
+		/*
+		 Fetch existing events.
+		 Create a fetch request; find the Event entity and assign it to the request; add a sort descriptor; then execute the fetch.
+		 */
+		NSFetchRequest *request = [[NSFetchRequest alloc] init];
+		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
+		[request setEntity:entity];
+		
+		// Order the events by creation date, most recent first.
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+		[request setSortDescriptors:sortDescriptors];
+		NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+		[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
+		[request setFetchLimit:5];
+		[request setPredicate:predicate];
+		[sortDescriptor release];
+		[sortDescriptors release];
+		[prefetchKeys release];
+		
+		// Execute the fetch -- create a mutable copy of the result.
+		NSError *error = nil;
+		NSMutableArray *stopsArray = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
+		if (stopsArray == nil) {
+			// Handle the error.
+		}
+		
+		[request release];
+		
+		
+		[_closestStationsStopsArray addObject:stopsArray];
+		[stopsArray release];
+	}
+	
+	[_closeStationsTableView reloadData];
+	if([_loadingView superview])
+	{
+		[_loadingView removeFromSuperview];
+	}
+	
+	
+}
+
+#pragma mark -
+#pragma mark Location manager
+
+/**
+ Return a location manager -- create one if necessary.
+ */
+- (CLLocationManager *)locationManager {
+	
+    if (_locationManager != nil) {
+		return _locationManager;
+	}
+	
+	_locationManager = [[CLLocationManager alloc] init];
+	[_locationManager setDesiredAccuracy:kCLLocationAccuracyHundredMeters];
+	[_locationManager setDistanceFilter:100.0];  //The user must move 100 meters before we update
+	[_locationManager setDelegate:self];
+	
+	return _locationManager;
+}
+
+
+/**
+ Conditionally enable the Add button:
+ If the location manager is generating updates, then enable the button;
+ If the location manager is failing, then disable the button.
+ */
+- (void)locationManager:(CLLocationManager *)manager
+    didUpdateToLocation:(CLLocation *)newLocation
+           fromLocation:(CLLocation *)oldLocation {
+	
+	[_delayTimer invalidate];
+	[_delayTimer release];
+	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(processUpdate:)]];
+	[invocation setTarget:self];
+	[invocation setSelector:@selector(processUpdate:)];
+	[invocation setArgument:&newLocation atIndex:2];
+	_delayTimer = [[NSTimer scheduledTimerWithTimeInterval:0.5 invocation:invocation repeats:NO] retain];
+}
+
+- (void)locationManager:(CLLocationManager *)manager
+       didFailWithError:(NSError *)error {
+    
+}
+
+- (void)processUpdate:(CLLocation *)location
+{
+	//we have a location so resort the closest array and display the first three
+	for(Station *station in [self stationsArray])
+	{
+		NSLog(@"newLocation long: %f lat: %f",[location coordinate].longitude,[location coordinate].latitude);
+		NSLog(@"station lcoation long: %f lat: %f",[[station location] coordinate].longitude,
+			  [[station location] coordinate].latitude);
+		[station setCurrentDistance:[location getDistanceFrom:[station location]]];
+	}
+	
+	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];
+	
+	[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
+	[self retrieveStopsForClosestStationsInDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+}
+
+#pragma mark -
+#pragma mark Table view data source methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+	NSInteger stationCount = [[self closestStationsArray] count];
+	if(stationCount == 0)
+	{
+		return 0;
+	}
+	
+	return stationCount + 1;
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+	if(section == [[self closestStationsArray] count])
+	{
+		return 1;
+	}
+	else
+	{
+		NSInteger stopsCount = [[[self closestStationsStopsArray] objectAtIndex:section] count];
+		if(stopsCount == 0)
+		{
+			stopsCount = 1;
+		}
+		return stopsCount;
+	}
+	
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if(indexPath.section == [[self closestStationsArray] count])
+	{
+		//show the show more stations row
+		static NSString *CellIdentifier = @"ShowMoreStationsCell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		cell.textLabel.text = @"All Stations";
+		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+		
+		return cell;
+		
+	}
+	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	{
+		//There are no train in the direction from this station so say so
+		static NSString *CellIdentifier = @"No Trains";
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		NSString *direction = nil;
+		if([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"])
+		{
+			direction = @"Northbound";
+		}
+		else
+		{
+			direction = @"Southbound";
+		}
+		
+		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit",direction];
+		[cell setAccessoryType:UITableViewCellAccessoryNone];
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		
+		return cell;
+	}
+	else
+	{
+		static NSString *CellIdentifier = @"Cell";
+		
+		StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+		}
+		
+		// Get the stop corresponding to the current index path and configure the table view cell.
+		Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+		
+		[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+		
+		return cell;
+	}
+	
+	return nil;
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+	return 40;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+	if(section == [[self closestStationsArray] count])
+	{
+		//no header for the show more stations row
+		return nil;
+	}
+	
+	UILabel *header = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 40)] autorelease];
+	[header setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
+	[header setTextAlignment:UITextAlignmentCenter];
+	[header setAdjustsFontSizeToFitWidth:YES];
+	[header setText:[[[self closestStationsArray] objectAtIndex:section] name]];
+	[header setBackgroundColor:[UIColor clearColor]];
+	return header;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+	
+	if(indexPath.section == [[self closestStationsArray] count])
+	{
+		StationListViewController *listController = [[StationListViewController alloc] initWithNibName:@"StationListViewController" bundle:nil];
+		[listController setManagedObjectContext:[self managedObjectContext]];
+		[[self navigationController] pushViewController:listController animated:YES];
+		[listController release];
+	}
+	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	{
+		//Do nothing on a no train display
+		return;
+	}
+	else
+	{
+		RunViewController *runController = [[RunViewController alloc] initWithStop:[[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+		[runController setManagedObjectContext:[self managedObjectContext]];
+		[[self navigationController] pushViewController:runController animated:YES];
+		[runController release];
+	}
+	
+}
 
 @end

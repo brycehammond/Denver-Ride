@@ -3,36 +3,24 @@
 //  RTD
 //
 //  Created by bryce.hammond on 8/2/09.
-//  Copyright Wall Street On Demand, Inc. 2009. All rights reserved.
+//  Copyright Fluidvision Design 2009. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
-#import "LoadingView.h"
 
-@interface RootViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource> {
+@class ClosestSelectViewController, ManualSelectViewController;
+
+@interface RootViewController : UIViewController {
 	
 	NSManagedObjectContext *_managedObjectContext;
-	CLLocationManager *_locationManager;
 	
-	NSMutableArray *_stationsArray;
-	NSArray *_closestStationsArray;  //This is the first three stations of the sorted stationsArray by distance
-	NSMutableArray *_closestStationsStopsArray;
+	IBOutlet UIView *_containerView;
 	
-	IBOutlet UITableView *_closeStationsTableView;
-	IBOutlet UISegmentedControl *_northOrSouthControl;
-	LoadingView *_loadingView;
-	
-	NSTimer *_delayTimer;
+	ClosestSelectViewController *_closestViewController;
+	ManualSelectViewController *_manualViewController;
 	
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSMutableArray *stationsArray;
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, retain) NSArray *closestStationsArray;
-@property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
-
--(IBAction)changeDirection:(id)sender;
 
 @end

@@ -3,7 +3,7 @@
 //  RTD
 //
 //  Created by bryce.hammond on 8/11/09.
-//  Copyright 2009 Wall Street On Demand, Inc.. All rights reserved.
+//  Copyright 2009 Fluidvision Design. All rights reserved.
 //
 
 #import "FLine.h"
