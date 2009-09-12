@@ -13,9 +13,13 @@
 		14191C6A104ACE1E00C87383 /* ELineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C69104ACE1E00C87383 /* ELineSunday.m */; };
 		14191C70104AD08300C87383 /* HLineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C6F104AD08300C87383 /* HLineSaturday.m */; };
 		14191C73104AD09200C87383 /* HLineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C72104AD09200C87383 /* HLineSunday.m */; };
+		14191D3C104AED9E00C87383 /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3B104AED9E00C87383 /* RTD.sqlite */; };
+		14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon.png */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
+		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		14A2D85C1030F1F6009411CD /* CLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85B1030F1F6009411CD /* CLine.m */; };
 		14A2D8601030F22F009411CD /* DLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D85F1030F22F009411CD /* DLine.m */; };
 		14A2D8651030F542009411CD /* BaseLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 14A2D8641030F542009411CD /* BaseLine.m */; };
@@ -59,11 +63,17 @@
 		14191C6F104AD08300C87383 /* HLineSaturday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLineSaturday.m; sourceTree = "<group>"; };
 		14191C71104AD09200C87383 /* HLineSunday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HLineSunday.h; sourceTree = "<group>"; };
 		14191C72104AD09200C87383 /* HLineSunday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HLineSunday.m; sourceTree = "<group>"; };
+		14191D3B104AED9E00C87383 /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
+		14191D3E104AEF0C00C87383 /* RTDIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon.png; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
+		14842559105BD87900DCB458 /* ManualSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualSelectViewController.m; sourceTree = "<group>"; };
+		1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosestSelectViewController.h; sourceTree = "<group>"; };
+		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		14A2D85A1030F1F6009411CD /* CLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLine.h; sourceTree = "<group>"; };
 		14A2D85B1030F1F6009411CD /* CLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CLine.m; sourceTree = "<group>"; };
 		14A2D85E1030F22F009411CD /* DLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLine.h; sourceTree = "<group>"; };
@@ -202,6 +212,10 @@
 				14C6CBD71033038D00368298 /* RunViewController.m */,
 				14E4D5E21034FD5700640D8B /* StationListViewController.h */,
 				14E4D5E31034FD5700640D8B /* StationListViewController.m */,
+				14842558105BD87900DCB458 /* ManualSelectViewController.h */,
+				14842559105BD87900DCB458 /* ManualSelectViewController.m */,
+				1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */,
+				1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -250,6 +264,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				14191D3E104AEF0C00C87383 /* RTDIcon.png */,
+				14191D3B104AED9E00C87383 /* RTD.sqlite */,
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
 				14E4DAB81037535600640D8B /* RootViewController.xib */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
@@ -329,6 +345,8 @@
 				14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */,
 				14E4DAB91037535600640D8B /* RootViewController.xib in Resources */,
 				1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */,
+				14191D3C104AED9E00C87383 /* RTD.sqlite in Resources */,
+				14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -365,6 +383,8 @@
 				14191C6A104ACE1E00C87383 /* ELineSunday.m in Sources */,
 				14191C70104AD08300C87383 /* HLineSaturday.m in Sources */,
 				14191C73104AD09200C87383 /* HLineSunday.m in Sources */,
+				1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */,
+				1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +401,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FE1FBEBF-7DB0-476C-947C-DA2DA93CAAA4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "966DAD5F-FA8F-402D-A668-DD172A78B6D8";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Distribution;
