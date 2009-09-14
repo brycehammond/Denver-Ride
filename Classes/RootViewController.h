@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ChangeDirectionProtocol.h"
 
 @class ClosestSelectViewController, ManualSelectViewController;
 
@@ -15,12 +16,19 @@
 	NSManagedObjectContext *_managedObjectContext;
 	
 	IBOutlet UIView *_containerView;
+	IBOutlet UISegmentedControl *_northOrSouthControl;
 	
 	ClosestSelectViewController *_closestViewController;
 	ManualSelectViewController *_manualViewController;
 	
+	UIViewController<ChangeDirectionProtocol> *_activeViewController;
+	
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, retain) ClosestSelectViewController *closestViewController;
+@property (nonatomic, retain) ManualSelectViewController *manualViewController;
+
+-(IBAction)changeDirection:(id)sender;
 
 @end

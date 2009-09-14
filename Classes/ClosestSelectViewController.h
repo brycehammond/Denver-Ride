@@ -9,8 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LoadingView.h"
+#import "ChangeDirectionProtocol.h"
 
-@interface ClosestSelectViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface ClosestSelectViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate, 
+														UITableViewDataSource, ChangeDirectionProtocol> {
 	
 	NSManagedObjectContext *_managedObjectContext;
 	CLLocationManager *_locationManager;
@@ -20,7 +22,6 @@
 	NSMutableArray *_closestStationsStopsArray;
 	
 	IBOutlet UITableView *_closeStationsTableView;
-	IBOutlet UISegmentedControl *_northOrSouthControl;
 	LoadingView *_loadingView;
 	
 	NSTimer *_delayTimer;
@@ -35,7 +36,5 @@
 @property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
 
 @property (nonatomic, retain) UINavigationController *navigationController;
-
--(IBAction)changeDirection:(id)sender;
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
+		140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */; };
 		14191C61104ACDBC00C87383 /* DLineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C60104ACDBC00C87383 /* DLineSaturday.m */; };
 		14191C64104ACDC700C87383 /* DLineSunday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C63104ACDC700C87383 /* DLineSunday.m */; };
 		14191C67104ACE1100C87383 /* ELineSaturday.m in Sources */ = {isa = PBXBuildFile; fileRef = 14191C66104ACE1100C87383 /* ELineSaturday.m */; };
@@ -18,6 +20,7 @@
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */; };
@@ -52,6 +55,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
+		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
+		140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = Classes/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14191C5F104ACDBC00C87383 /* DLineSaturday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLineSaturday.h; sourceTree = "<group>"; };
 		14191C60104ACDBC00C87383 /* DLineSaturday.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLineSaturday.m; sourceTree = "<group>"; };
 		14191C62104ACDC700C87383 /* DLineSunday.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLineSunday.h; sourceTree = "<group>"; };
@@ -71,6 +77,8 @@
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManualSelectViewController.xib; sourceTree = "<group>"; };
+		147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDirectionProtocol.h; sourceTree = "<group>"; };
 		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
 		14842559105BD87900DCB458 /* ManualSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualSelectViewController.m; sourceTree = "<group>"; };
 		1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosestSelectViewController.h; sourceTree = "<group>"; };
@@ -218,6 +226,9 @@
 				14842559105BD87900DCB458 /* ManualSelectViewController.m */,
 				1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */,
 				1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */,
+				147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */,
+				140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */,
+				140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -266,6 +277,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
 				1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */,
 				14191D3E104AEF0C00C87383 /* RTDIcon.png */,
 				14191D3B104AED9E00C87383 /* RTD.sqlite */,
@@ -278,6 +290,7 @@
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
 				14E4DE191038CB6F00640D8B /* Readme.txt */,
 				14842560105BE1D500DCB458 /* RootViewController.xib */,
+				147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -351,6 +364,8 @@
 				14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */,
 				1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */,
 				14842561105BE1D500DCB458 /* RootViewController.xib in Resources */,
+				147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */,
+				140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +404,7 @@
 				14191C73104AD09200C87383 /* HLineSunday.m in Sources */,
 				1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */,
 				1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */,
+				140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,11 +481,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3A8CB9E-B81F-487C-8868-887E29BBAE3D";
 				SDKROOT = iphoneos3.0;
 			};
 			name = Release;

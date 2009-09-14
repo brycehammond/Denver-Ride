@@ -33,17 +33,6 @@ navigationController = _navigationController;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[self setTitle:@"Closest Stations"];
-	
-	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
-	if([direction isEqualToString:@"N"])
-	{
-		[_northOrSouthControl setSelectedSegmentIndex:0];
-	}
-	else
-	{
-		[_northOrSouthControl setSelectedSegmentIndex:1];
-	}
 	
 	[_closeStationsTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
 	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
@@ -106,7 +95,7 @@ navigationController = _navigationController;
 	[self retrieveStopsForClosestStationsInDirection:direction];
 }
 
--(IBAction)changeDirection:(UISegmentedControl *)sender
+-(void)changeDirectionTo:(NSString *)direction
 {
 	if(! [_loadingView superview])
 	{
@@ -114,12 +103,10 @@ navigationController = _navigationController;
 		[[self view] addSubview:_loadingView];
 	}
 	
-	NSLog(@"%i",[sender selectedSegmentIndex]);
-	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
-							substringToIndex:1] uppercaseString];
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
 }
+
+
 
 -(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
 {
@@ -133,7 +120,8 @@ navigationController = _navigationController;
 	[[self closestStationsStopsArray] removeAllObjects];
 	for(Station *station in [self closestStationsArray])
 	{
-		NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+		NSPredicate *predicate = [NSPredicate predicateWithFormat:
+								  @"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 								  minutesIntoCurrentDay,[station name],direction,dayType];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
