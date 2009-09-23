@@ -11,18 +11,8 @@
 #import "Line.h"
 #import "Station.h"
 #import "Stop.h"
-#import "CLine.h"
-#import "DLine.h"
-#import "FLine.h"
-#import "ELine.h"
-#import "HLine.h"
-#import "DLineSaturday.h"
-#import "DLineSunday.h"
-#import "ELineSunday.h"
-#import "ELineSaturday.h"
-#import "HLineSaturday.h"
-#import "HLineSunday.h"
 #import "UIColorCategories.h"
+#import "LineLoader.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -30,6 +20,7 @@
 -(NSDictionary *)setupLines;
 -(NSDictionary *)setupStationsWithLines:(NSDictionary *)linesByName;
 -(void)setupStopsWithLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName;
+-(void)loadStopsFromPath:(NSString *)path withLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName;
 
 @end
 
@@ -270,7 +261,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:1]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Orchard"];
@@ -279,7 +271,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:2]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Arapahoe"];
@@ -288,7 +281,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:3]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Dry Creek"];
@@ -297,7 +291,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:4]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"County Line"];
@@ -306,7 +301,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:5]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Lincoln"];
@@ -315,7 +311,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:6]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Southmoor"];
@@ -324,7 +321,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:7]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Dayton"];
@@ -332,7 +330,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-104.87793982028962]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:8]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Nine Mile"];
@@ -340,7 +339,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-104.84510958194734]];
 	[station addLinesObject:[linesByName objectForKey:@"G"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:9]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Yale"];
@@ -349,7 +349,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:10]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Colorado"];
@@ -358,7 +359,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:11]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"University of Denver"];
@@ -367,7 +369,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:12]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Louisiana/Pearl"];
@@ -376,7 +379,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:13]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"I-25/Broadway"];
@@ -387,7 +391,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:14]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Alameda"];
@@ -398,7 +403,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:15]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"10th & Osage"];
@@ -409,7 +415,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"E"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:16]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Colfax at Auraria"];
@@ -418,7 +425,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:17]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Convention Center"];
@@ -427,7 +435,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:18]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"16th & California"];
@@ -436,7 +445,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:19]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"18th & California"];
@@ -445,7 +455,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:20]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"18th & Stout"];
@@ -454,7 +465,8 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:21]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"16th & Stout"];
@@ -463,70 +475,72 @@
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
 	[station addLinesObject:[linesByName objectForKey:@"F"]];
 	[station addLinesObject:[linesByName objectForKey:@"H"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:22]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"20th & Welton"];
 	[station setLatitude:[NSNumber numberWithDouble:39.74786433099829]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.98696625232695]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:23]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"25th & Welton"];
 	[station setLatitude:[NSNumber numberWithDouble:39.75315382078058]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.98006761074067]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
-	
-	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
-	[station setName:@"27th & Welton"];
-	[station setLatitude:[NSNumber numberWithDouble:39.75525713075179]];
-	[station setLongitude:[NSNumber numberWithDouble:-104.97734785079956]];
-	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:24]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"29th & Welton"];
 	[station setLatitude:[NSNumber numberWithDouble:39.757084071406425]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.9750304222107]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:25]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"30th & Downing"];
 	[station setLatitude:[NSNumber numberWithDouble:39.758807867137385]];
 	[station setLongitude:[NSNumber numberWithDouble:-104.9734452366829]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:26]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Auraria West Campus"];
 	[station setLatitude:[NSNumber numberWithDouble:39.741285412555925]];
 	[station setLongitude:[NSNumber numberWithDouble:-105.00901401042938]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:27]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Invesco Field at Mile High"];
 	[station setLatitude:[NSNumber numberWithDouble:39.743446831848615]];
 	[station setLongitude:[NSNumber numberWithDouble:-105.01322239637376]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:28]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Pepsi Center/Six Flags"];
 	[station setLatitude:[NSNumber numberWithDouble:39.74860055332102]];
 	[station setLongitude:[NSNumber numberWithDouble:-105.00974088907243]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:29]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Union Station"];
 	[station setLatitude:[NSNumber numberWithDouble:39.753630164252605]];
 	[station setLongitude:[NSNumber numberWithDouble:-105.00158697366714]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:30]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Evans"];
@@ -534,7 +548,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-104.99285370111467]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:31]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Englewood"];
@@ -542,7 +557,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-104.99995082616807]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:32]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Oxford"];
@@ -550,7 +566,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-105.00482439994812]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:33]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Littleton/Downtown"];
@@ -558,7 +575,8 @@
 	[station setLongitude:[NSNumber numberWithDouble:-105.01486659049989]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:34]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
 	[station setName:@"Littleton/Mineral"];
@@ -566,7 +584,16 @@
 	[station setLongitude:[NSNumber numberWithDouble:-105.02493560314178]];
 	[station addLinesObject:[linesByName objectForKey:@"C"]];
 	[station addLinesObject:[linesByName objectForKey:@"D"]];
-	[stationsByName setObject:station forKey:[station name]];
+	[station setStationID:[NSNumber numberWithInt:35]];
+	[stationsByName setObject:station forKey:[station stationID]];
+	
+	station = (Station *)[NSEntityDescription insertNewObjectForEntityForName:@"Station" inManagedObjectContext:managedObjectContext];
+	[station setName:@"27th & Welton"];
+	[station setLatitude:[NSNumber numberWithDouble:39.75525713075179]];
+	[station setLongitude:[NSNumber numberWithDouble:-104.97734785079956]];
+	[station addLinesObject:[linesByName objectForKey:@"D"]];
+	[station setStationID:[NSNumber numberWithInt:36]];
+	[stationsByName setObject:station forKey:[station stationID]];
 	
 	if(! [managedObjectContext save:&error])
 	{
@@ -579,17 +606,74 @@
 
 -(void)setupStopsWithLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName
 {
-	[CLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[DLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[ELine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[FLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[HLine createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[DLineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[DLineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[ELineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[ELineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[HLineSaturday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
-	[HLineSunday createStopswithLines:linesByName andStations:stationsByName inContext:[self managedObjectContext]];
+	NSError *error = nil;
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"C_N_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"C_N_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"C_N_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"C_S_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_N_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_N_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_N_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_S_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_S_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"D_S_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_N_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_N_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_N_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_S_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_S_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"E_S_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_N_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_N_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_N_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_N_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_S_H" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_S_S" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"H_S_W" ofType:@"txt"]
+				  withLines:linesByName andStations:stationsByName];
+	
+	if(! [managedObjectContext save:&error])
+	{
+		NSLog(@"%@ %@",error,[error userInfo]);
+		//handle error
+	}
+	
+}
+
+-(void)loadStopsFromPath:(NSString *)path withLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName
+{
+	NSError *error = nil;
+	NSString *fileString = [[NSString alloc] initWithContentsOfFile:path encoding:NSASCIIStringEncoding error:&error];
+	[LineLoader loadStopData:fileString withLinesByName:linesByName andStationsByID:stationsByName inManagedObjectContext:[self managedObjectContext]];
+	[fileString release];
 }
 
 #pragma mark -

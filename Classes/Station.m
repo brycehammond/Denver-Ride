@@ -16,6 +16,7 @@
 @synthesize currentDistance = _currentDistance,
 			location = _location;
 
+@dynamic stationID;
 @dynamic longitude;
 @dynamic name;
 @dynamic latitude;

@@ -44,13 +44,13 @@
 	switch(weekdayNum)
 	{
 		case 7:
-			returnDay = @"Saturday";
+			returnDay = @"S";
 			break;
 		case 1:
-			returnDay = @"Sunday";
+			returnDay = @"H";
 			break;
 		default:
-			returnDay = @"Weekday";
+			returnDay = @"W";
 			break;
 	}
 	
