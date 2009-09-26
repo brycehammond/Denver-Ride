@@ -119,26 +119,24 @@
 		if (cell == nil) {
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		}
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		[cell setAccessoryType:UITableViewCellAccessoryNone];
 		
 		if(indexPath.section == 0)
 		{
 			cell.textLabel.text = @"Time";
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.detailTextLabel.text = [self formattedTimeInMinutes];
 			
 		}
 		else if(indexPath.section == 1)
 		{
 			cell.textLabel.text = @"Station";
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"];
 		}
 		else if(indexPath.section == 2)
 		{
-			RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 			cell.textLabel.text = @"Schedule Type";
-			cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-			cell.detailTextLabel.text = [appDelegate currentDayType];
+			cell.detailTextLabel.text = [[NSDate fullDayTypesByCode] objectForKey:[self currentDayType]];
 		}
 		
 		return cell;
@@ -198,7 +196,44 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if(indexPath.section == 3)
+	if(indexPath.section == 0)
+	{
+		if(! _timeChangeController)
+		{
+			_timeChangeController = [[TimeChangeViewController alloc] initWithNibName:@"TimeChangeViewController" bundle:nil];
+			[_timeChangeController setDelegate:self];
+		}
+		
+		CGRect frame = [[_timeChangeController view] frame];
+		frame.origin.y = self.view.frame.size.height;
+		_timeChangeController.view.frame = frame;
+		
+		[[[self view] window] addSubview:[_timeChangeController view]];
+		[_timeChangeController setTimeInMinutes:[self timeInMinutes]];
+		[_timeChangeController animateIn];
+	}
+	else if(indexPath.section == 1)
+	{
+		
+	}
+	else if(indexPath.section == 2)
+	{
+		if( ! _dayTypeChangeController)
+		{
+			_dayTypeChangeController = [[DayTypeChangeViewController alloc] initWithNibName:@"DayTypeChangeViewController" bundle:nil];
+			[_dayTypeChangeController setDelegate:self];
+		}
+		
+		CGRect frame = [[_dayTypeChangeController view] frame];
+		frame.origin.y = self.view.frame.size.height;
+		_dayTypeChangeController.view.frame = frame;
+		
+		[[[self view] window] addSubview:[_dayTypeChangeController view]];
+		[_dayTypeChangeController setDayType:[self currentDayType]];
+		[_dayTypeChangeController animateIn];
+		
+	}
+	else if(indexPath.section == 3)
 	{
 		if([[self currentStops] count] == 0)
 		{
@@ -282,6 +317,38 @@
 	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%i:0%i%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%i:%i%@",hours,minutes,amOrPm];
 	
 	return formattedTime;
+}
+
+#pragma mark -
+#pragma mark TimeChangeViewControllerDelegate
+
+-(void)doneButtonClickedOnTimeChangeViewController:(TimeChangeViewController *)viewController
+{
+	[self setTimeInMinutes:[viewController timeInMinutes]];
+	[viewController animateOut];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+}
+
+-(void)cancelButtonClickedOnTimeChangeViewController:(TimeChangeViewController *)viewController
+{
+	[viewController animateOut];
+}
+
+#pragma mark -
+#pragma mark DayTypeChangeViewControllerDelegate
+
+-(void)doneButtonClickedOnDayTypeChangeViewController:(DayTypeChangeViewController *)viewController
+{
+	[self setCurrentDayType:[viewController dayType]];
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[appDelegate setCurrentDayType:[self currentDayType]];
+	[viewController animateOut];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+}
+
+-(void)cancelButtonClickedOnDayTypeChangeViewController:(DayTypeChangeViewController *)viewController
+{
+	[viewController animateOut];
 }
 
 

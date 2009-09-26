@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ChangeDirectionProtocol.h"
+#import "TimeChangeViewController.h"
+#import "DayTypeChangeViewController.h"
 
-@interface ManualSelectViewController : UIViewController <ChangeDirectionProtocol, UITableViewDelegate, UITableViewDataSource> {
+@interface ManualSelectViewController : UIViewController <ChangeDirectionProtocol, 
+UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, DayTypeChangeViewControllerDelegate> {
 	UINavigationController *_navigationController;
 	NSManagedObjectContext *_managedObjectContext;
 	
@@ -18,6 +21,10 @@
 	
 	NSArray *_currentStops;
 	NSString *_currentDayType;
+	
+	TimeChangeViewController *_timeChangeController;
+	DayTypeChangeViewController *_dayTypeChangeController;
+	
 	
 }
 

@@ -57,6 +57,8 @@
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
+		14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */; };
+		14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */; };
 		1D3623260D0F684500981E51 /* RTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* RTDAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -135,6 +137,9 @@
 		14EC9CF31026370F00F375E2 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
 		14EC9CF41026370F00F375E2 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		14EC9CF51026370F00F375E2 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
+		14FBCD8A106E8D5F002D6185 /* DayTypeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTypeChangeViewController.h; sourceTree = "<group>"; };
+		14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTypeChangeViewController.m; sourceTree = "<group>"; };
+		14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = Classes/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* RTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* RTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDAppDelegate.m; sourceTree = "<group>"; };
@@ -249,6 +254,8 @@
 				147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */,
 				140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */,
 				140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */,
+				14FBCD8A106E8D5F002D6185 /* DayTypeChangeViewController.h */,
+				14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -299,6 +306,7 @@
 			children = (
 				146FCE4E1069E9B9006CE53C /* Stop Files */,
 				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
+				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
 				1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */,
 				14191D3E104AEF0C00C87383 /* RTDIcon.png */,
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
@@ -414,6 +422,7 @@
 				146FCE801069E9EF006CE53C /* H_S_H.txt in Resources */,
 				146FCE811069E9EF006CE53C /* H_S_S.txt in Resources */,
 				146FCE821069E9EF006CE53C /* H_S_W.txt in Resources */,
+				14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,6 +451,7 @@
 				1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */,
 				140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */,
 				14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */,
+				14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

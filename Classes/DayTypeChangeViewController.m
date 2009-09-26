@@ -1,56 +1,44 @@
 //
-//  TimeChangeViewController.m
+//  DayTypeChangeViewController.m
 //  RTD
 //
-//  Created by bryce.hammond on 9/13/09.
-//  Copyright 2009 Wall Street On Demand, Inc.. All rights reserved.
+//  Created by bryce.hammond on 9/26/09.
+//  Copyright 2009 Fluidvisiong Design. All rights reserved.
 //
 
-#import "TimeChangeViewController.h"
+#import "DayTypeChangeViewController.h"
+#import "NSDate+TimeInMinutes.h"
+
+@implementation DayTypeChangeViewController
 
 
-@implementation TimeChangeViewController
+- (void)viewDidLoad {
+    [super viewDidLoad];
+	_dayTypes = [[NSDate fullDayTypes] retain];
+}
+
 
 @synthesize delegate;
 
 -(IBAction)doneButtonClicked
 {
-	[delegate doneButtonClickedOnTimeChangeViewController:self];
+	[delegate doneButtonClickedOnDayTypeChangeViewController:self];
 }
 
 -(IBAction)cancelButtonClicked
 {
-	[delegate cancelButtonClickedOnTimeChangeViewController:self];
+	[delegate cancelButtonClickedOnDayTypeChangeViewController:self];
 }
 
--(void)setTimeInMinutes:(NSInteger)timeInMinutes
+-(void)setDayType:(NSString *)dayTypeCode
 {
-	NSCalendar *gregorian = [NSCalendar currentCalendar];
-	
-	NSDate *currentDate = [NSDate date];
-	//subtract the hours and minutes of the day to get the start of the day
-	NSDateComponents *components = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:currentDate];
-	[components setHour:-[components hour]];
-	[components setMinute:-[components minute]];
-	currentDate = [gregorian dateByAddingComponents:components toDate:currentDate options:0];
-	int hours = timeInMinutes / 60;
-	int minutes = timeInMinutes % 60;
-	[components setHour:hours];
-	[components setMinute:minutes];
-	currentDate = [gregorian dateByAddingComponents:components toDate:currentDate options:0];
-	
-	[_timePicker setDate:currentDate];
-	
+	NSUInteger row = [_dayTypes indexOfObject:[[NSDate fullDayTypesByCode] objectForKey:dayTypeCode]];
+	[_picker selectRow:row inComponent:0 animated:NO];
 }
 
--(NSInteger)timeInMinutes
+-(NSString *)dayType
 {
-	NSCalendar *gregorian = [NSCalendar currentCalendar];
-	NSDateComponents *components = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:[_timePicker date]];
-	int hours = [components hour];
-	int minutes = [components minute];
-	
-	return (hours * 60) + minutes;
+	return [[NSDate codesByfullDayTypes] objectForKey:[_dayTypes objectAtIndex:[_picker selectedRowInComponent:0]]];
 }
 
 -(void)animateIn
@@ -104,36 +92,6 @@
 	}
 }
 
-/*
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-*/
-
-/*
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-}
-*/
-/*
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-}
-*/
-/*
-- (void)viewWillDisappear:(BOOL)animated {
-	[super viewWillDisappear:animated];
-}
-*/
-/*
-- (void)viewDidDisappear:(BOOL)animated {
-	[super viewDidDisappear:animated];
-}
-*/
-
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
     [super didReceiveMemoryWarning];
@@ -146,8 +104,26 @@
 	// e.g. self.myOutlet = nil;
 }
 
+
 - (void)dealloc {
     [super dealloc];
+}
+
+#pragma mark -
+#pragma mark UIPickerView methods
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+	return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+	return [_dayTypes count];
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+	return [_dayTypes objectAtIndex:row];
 }
 
 

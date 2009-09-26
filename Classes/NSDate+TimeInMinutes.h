@@ -13,5 +13,8 @@
 -(NSInteger)weekdayNumber;
 -(NSString *)dayType;
 
++(NSArray *)fullDayTypes;
++(NSDictionary *)fullDayTypesByCode;
++(NSDictionary *)codesByfullDayTypes;
 @end
 

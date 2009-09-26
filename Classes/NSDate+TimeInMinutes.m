@@ -11,6 +11,10 @@
 
 @implementation NSDate (TimeInMinutes)
 
+static NSArray *_fullDayTypes;
+static NSDictionary *_fullDayTypesByCode;
+static NSDictionary *_codesByfullDayTypes;
+
 -(NSInteger)minutesIntoCurrentDay
 {
 	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
@@ -55,6 +59,38 @@
 	}
 	
 	return returnDay;
+}
+
++(NSArray *)fullDayTypes
+{
+	if(! _fullDayTypes)
+	{
+		_fullDayTypes = [[NSArray alloc] initWithObjects:@"Weekday",@"Saturday",@"Sunday/Holiday",nil];
+	}
+	
+	return _fullDayTypes;
+}
+
++(NSDictionary *)fullDayTypesByCode
+{
+	if( ! _fullDayTypesByCode)
+	{
+		_fullDayTypesByCode = [[NSDictionary alloc] initWithObjects:[NSDate fullDayTypes] 
+															forKeys:[NSArray arrayWithObjects:@"W",@"S",@"H",nil]];
+	}
+	
+	return _fullDayTypesByCode;
+}
+
++(NSDictionary *)codesByfullDayTypes
+{
+	if( ! _codesByfullDayTypes)
+	{
+		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"W",@"S",@"H",nil]
+															 forKeys:[NSDate fullDayTypes]];
+	}
+	
+	return _codesByfullDayTypes;
 }
 
 @end

@@ -37,4 +37,7 @@
 -(void)setTimeInMinutes:(NSInteger)timeInMinutes;
 -(NSInteger)timeInMinutes;
 
+-(void)animateIn;
+-(void)animateOut;
+
 @end
