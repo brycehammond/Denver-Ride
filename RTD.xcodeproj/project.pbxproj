@@ -59,6 +59,8 @@
 		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
 		14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */; };
 		14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */; };
+		14FBCE39106EBDE3002D6185 /* StationChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCE37106EBDE3002D6185 /* StationChangeViewController.m */; };
+		14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14FBCE38106EBDE3002D6185 /* StationChangeViewController.xib */; };
 		1D3623260D0F684500981E51 /* RTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* RTDAppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -140,6 +142,9 @@
 		14FBCD8A106E8D5F002D6185 /* DayTypeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTypeChangeViewController.h; sourceTree = "<group>"; };
 		14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTypeChangeViewController.m; sourceTree = "<group>"; };
 		14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = Classes/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
+		14FBCE36106EBDE3002D6185 /* StationChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationChangeViewController.h; sourceTree = "<group>"; };
+		14FBCE37106EBDE3002D6185 /* StationChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationChangeViewController.m; sourceTree = "<group>"; };
+		14FBCE38106EBDE3002D6185 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = Classes/StationChangeViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* RTDAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDAppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* RTDAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDAppDelegate.m; sourceTree = "<group>"; };
@@ -256,6 +261,8 @@
 				140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */,
 				14FBCD8A106E8D5F002D6185 /* DayTypeChangeViewController.h */,
 				14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */,
+				14FBCE36106EBDE3002D6185 /* StationChangeViewController.h */,
+				14FBCE37106EBDE3002D6185 /* StationChangeViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -312,6 +319,7 @@
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
+				14FBCE38106EBDE3002D6185 /* StationChangeViewController.xib */,
 				14C6CBD81033038D00368298 /* RunViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
@@ -423,6 +431,7 @@
 				146FCE811069E9EF006CE53C /* H_S_S.txt in Resources */,
 				146FCE821069E9EF006CE53C /* H_S_W.txt in Resources */,
 				14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */,
+				14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +461,7 @@
 				140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */,
 				14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */,
 				14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */,
+				14FBCE39106EBDE3002D6185 /* StationChangeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

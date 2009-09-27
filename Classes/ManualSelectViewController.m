@@ -214,7 +214,14 @@
 	}
 	else if(indexPath.section == 1)
 	{
+		if( ! _stationChangeController)
+		{
+			_stationChangeController = [[StationChangeViewController alloc] initWithNibName:@"StationChangeViewController" bundle:nil];
+			[_stationChangeController setDelegate:self];
+			[_stationChangeController setManagedObjectContext:[self managedObjectContext]];
+		}
 		
+		[[self navigationController] presentModalViewController:_stationChangeController animated:YES];
 	}
 	else if(indexPath.section == 2)
 	{
@@ -349,6 +356,21 @@
 -(void)cancelButtonClickedOnDayTypeChangeViewController:(DayTypeChangeViewController *)viewController
 {
 	[viewController animateOut];
+}
+
+#pragma mark -
+#pragma mark StationChangeViewControllerDelegate
+
+-(void)stationWasSelected:(NSString *)station
+{
+	[[NSUserDefaults standardUserDefaults] setObject:station forKey:@"ManualStation"];
+	[[self navigationController] dismissModalViewControllerAnimated:YES];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+}
+
+-(void)viewWasCancelled
+{
+	[[self navigationController] dismissModalViewControllerAnimated:YES];
 }
 
 

@@ -10,9 +10,11 @@
 #import "ChangeDirectionProtocol.h"
 #import "TimeChangeViewController.h"
 #import "DayTypeChangeViewController.h"
+#import "StationChangeViewController.h"
 
 @interface ManualSelectViewController : UIViewController <ChangeDirectionProtocol, 
-UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, DayTypeChangeViewControllerDelegate> {
+UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, DayTypeChangeViewControllerDelegate,
+StationChangeViewControllerDelegate> {
 	UINavigationController *_navigationController;
 	NSManagedObjectContext *_managedObjectContext;
 	
@@ -24,6 +26,7 @@ UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, Da
 	
 	TimeChangeViewController *_timeChangeController;
 	DayTypeChangeViewController *_dayTypeChangeController;
+	StationChangeViewController *_stationChangeController;
 	
 	
 }
