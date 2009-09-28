@@ -17,7 +17,6 @@
 #import "RTDAppDelegate.h"
 
 @interface ClosestSelectViewController (Private)
--(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
 -(void)updateDirection:(NSString *)direction;
 @end
 
@@ -70,6 +69,15 @@ navigationController = _navigationController;
 	
 	// Start the location manager.
 	[[self locationManager] startUpdatingLocation];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
+	NSDate *currentDate = [NSDate date];
+	NSString *dayType = [currentDate dayType];
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	[appDelegate setCurrentDayType:dayType];
 }
 
 - (void)didReceiveMemoryWarning {

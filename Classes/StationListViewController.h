@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 
-@interface StationListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, NSFetchedResultsControllerDelegate> {
+@interface StationListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, 
+NSFetchedResultsControllerDelegate, UISearchBarDelegate> {
 	NSFetchedResultsController *_fetchedResultsController;
 	NSManagedObjectContext *_managedObjectContext;
 	

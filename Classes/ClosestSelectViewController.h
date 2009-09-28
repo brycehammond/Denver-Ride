@@ -37,4 +37,6 @@
 
 @property (nonatomic, retain) UINavigationController *navigationController;
 
+-(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction;
+
 @end

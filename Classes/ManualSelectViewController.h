@@ -37,4 +37,6 @@ StationChangeViewControllerDelegate> {
 @property (nonatomic, retain) NSArray *currentStops;
 @property (nonatomic, retain) NSString *currentDayType;
 
+-(void)retrieveStopsDirection:(NSString *)direction;
+
 @end

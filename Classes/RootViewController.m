@@ -74,8 +74,6 @@
         [UIView commitAnimations];
 	}
 
-	
-	NSLog(@"%@",[sender title]);
 }
 
 -(IBAction)changeDirection:(UISegmentedControl *)sender

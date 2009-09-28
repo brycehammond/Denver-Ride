@@ -14,7 +14,6 @@
 
 @interface ManualSelectViewController (Private)
 -(NSString *)formattedTimeInMinutes;
--(void)retrieveStopsDirection:(NSString *)direction;
 
 @end
 

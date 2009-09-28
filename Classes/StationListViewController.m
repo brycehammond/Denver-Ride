@@ -135,35 +135,6 @@
 	[stationController release];
 }
 
-
-/*
- // Override to support conditional editing of the table view.
- - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
- // Return NO if you do not want the specified item to be editable.
- return YES;
- }
- */
-
-/*
- // Override to support editing the table view.
- - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
- 
- if (editingStyle == UITableViewCellEditingStyleDelete) {
- // Delete the managed object for the given index path
- NSManagedObjectContext *context = [fetchedResultsController managedObjectContext];
- [context deleteObject:[fetchedResultsController objectAtIndexPath:indexPath]];
- 
- // Save the context.
- NSError *error;
- if (![context save:&error]) {
- // Handle the error...
- }
- 
- [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
- }   
- }
- */
-
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
     // The table view should not be re-orderable.
     return NO;
@@ -201,8 +172,39 @@
 	[sortDescriptors release];
 	
 	return _fetchedResultsController;
-}    
+}
 
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+	NSPredicate *reduction = nil;
+	if(! [searchText isEqualToString:@""])
+	{
+		NSString *searchString = [NSString stringWithFormat:@"name contains[cd] \"%@\"",searchText];
+		reduction = [NSPredicate predicateWithFormat:searchString];
+	}
+	else {
+		[searchBar resignFirstResponder];
+	}
+
+	
+	[[[self fetchedResultsController] fetchRequest] setPredicate:reduction];
+	
+	NSError *error;
+	if (![[self fetchedResultsController] performFetch:&error]) {
+		// Handle the error...
+	}
+	
+	[_stationsTableView reloadData];
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+	[searchBar resignFirstResponder];
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
 
 - (void)dealloc {
 	[_stationsTableView release];
