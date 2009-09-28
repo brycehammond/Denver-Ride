@@ -29,6 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self setTitle:[[self station] name]];
+	[_stopsTableView setBackgroundColor:[UIColor clearColor]];
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if([direction isEqualToString:@"N"])

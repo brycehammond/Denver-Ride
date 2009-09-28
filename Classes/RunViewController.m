@@ -38,6 +38,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[_runTableView setBackgroundColor:[UIColor clearColor]];
 	//get the run array from the stop
 	Stop *stop = [self stop];
 	NSString *lineName = [[stop line] name];

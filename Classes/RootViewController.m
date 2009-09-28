@@ -56,6 +56,8 @@
 		_activeViewController = [self manualViewController];
         [_containerView addSubview:[[self manualViewController] view]];
         [UIView commitAnimations];
+		[[self manualViewController] viewWillAppear:YES];
+		[[self manualViewController] viewDidAppear:YES];
 		
 	}
 	else {
@@ -72,6 +74,8 @@
 		_activeViewController = [self closestViewController];
         [_containerView addSubview:[[self closestViewController] view]];
         [UIView commitAnimations];
+		[[self closestViewController] viewWillAppear:YES];
+		[[self closestViewController] viewDidAppear:YES];
 	}
 
 }
