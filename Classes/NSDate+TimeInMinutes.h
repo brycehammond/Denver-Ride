@@ -11,6 +11,7 @@
 @interface NSDate (TimeInMinutes)
 -(NSInteger)minutesIntoCurrentDay;
 -(NSInteger)weekdayNumber;
+-(BOOL)isHoliday;
 -(NSString *)dayType;
 
 +(NSArray *)fullDayTypes;

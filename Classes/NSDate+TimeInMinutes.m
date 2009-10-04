@@ -14,6 +14,7 @@
 static NSArray *_fullDayTypes;
 static NSDictionary *_fullDayTypesByCode;
 static NSDictionary *_codesByfullDayTypes;
+static NSSet *_holidays;
 
 -(NSInteger)minutesIntoCurrentDay
 {
@@ -40,9 +41,62 @@ static NSDictionary *_codesByfullDayTypes;
 	return weekday;
 }
 
+-(BOOL)isHoliday
+{
+	if(! _holidays)
+	{
+		_holidays = [[NSSet alloc] initWithObjects:
+					  @"11/26/2009",
+					  @"12/25/2009",
+					  
+					  @"1/1/2010",
+					  @"5/31/2010",
+					  @"7/5/2010",
+					  @"9/6/2010",
+					  @"11/25/2010",
+					  @"12/25/2010",
+					  
+					  @"1/1/2011",
+					  @"5/31/2011",
+					  @"7/4/2011",
+					  @"9/5/2011",
+					  @"11/24/2011",
+					  @"12/26/2011",
+					  
+					  @"1/2/2012",
+					  @"5/28/2012",
+					  @"7/4/2012",
+					  @"9/3/2012",
+					  @"11/22/2012",
+					  @"12/25/2012",
+					  nil];
+	}
+	
+	NSCalendar *gregorian = [[NSCalendar alloc] 
+							 initWithCalendarIdentifier:NSGregorianCalendar];
+	NSDateComponents *dayComponents = [gregorian 
+									   components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:self];
+
+	NSInteger day = [dayComponents day];
+	NSInteger month = [dayComponents month];
+	NSInteger year = [dayComponents year];
+	
+	return [_holidays containsObject:[NSString stringWithFormat:@"%i/%i/%i",month,day,year]];				 
+					 
+	[gregorian release];
+	
+	
+}
+
 -(NSString *)dayType
 {
+	if([self isHoliday])
+	{
+		return @"H";
+	}
+	
 	NSInteger weekdayNum = [self weekdayNumber];
+	
 	NSString *returnDay;
 	
 	switch(weekdayNum)

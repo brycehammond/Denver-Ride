@@ -225,9 +225,6 @@ navigationController = _navigationController;
 	//we have a location so resort the closest array and display the first three
 	for(Station *station in [self stationsArray])
 	{
-		NSLog(@"newLocation long: %f lat: %f",[location coordinate].longitude,[location coordinate].latitude);
-		NSLog(@"station lcoation long: %f lat: %f",[[station location] coordinate].longitude,
-			  [[station location] coordinate].latitude);
 		[station setCurrentDistance:[location getDistanceFrom:[station location]]];
 	}
 	
