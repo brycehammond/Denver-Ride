@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RunViewController.h"
 
 @class Station;
 
@@ -21,6 +22,8 @@
 	
 	NSInteger _currentTimeInMinutes;
 	
+	TimeDirection _timeDirection;
+	
 }
 
 @property (nonatomic, retain) NSMutableArray *stopsArray;
@@ -29,6 +32,8 @@
 @property (assign) NSInteger currentTimeInMinutes;
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
+-(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
+				andTimeDirection:(TimeDirection)timeDirection;
 
 -(IBAction)changeDirection:(id)sender;
 

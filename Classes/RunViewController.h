@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+	FORWARD = 0,
+	BACKWARD = 1
+} TimeDirection;
+
 @class Stop;
 
 @interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
@@ -19,6 +24,8 @@
 	IBOutlet UILabel *_topLine;
 	IBOutlet UILabel *_middleLine;
 	IBOutlet UILabel *_bottomLine;
+	
+	TimeDirection _timeDirection;
 }
 
 @property (nonatomic, retain) NSArray *runArray;
@@ -27,5 +34,6 @@
 
 
 -(id)initWithStop:(Stop *)stop;
+-(id)initWithStop:(Stop *)stop withTimeDirection:(TimeDirection)timeDirection;
 
 @end

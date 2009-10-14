@@ -10,7 +10,7 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "StationStopTableViewCell.h"
-#import "RunViewController.h"
+#import "UIColorCategories.h"
 
 @interface ManualSelectViewController (Private)
 -(NSString *)formattedTimeInMinutes;
@@ -20,6 +20,13 @@
 
 
 @implementation ManualSelectViewController
+
+#define kTimeDirectionSection 0
+#define kStationSection 1
+#define kTimeSection 2
+#define kScheduleTypeSection 3
+#define kStopsSection 4
+
 
 @synthesize navigationController = _navigationController,
 			managedObjectContext = _managedObjectContext,
@@ -41,6 +48,8 @@
 	NSString *dayType = [[NSDate date] dayType];
 	[self setCurrentDayType:dayType];
 	[appDelegate setCurrentDayType:dayType];
+	
+	_timeDirection = FORWARD;
 	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 }
 
@@ -78,24 +87,17 @@
 #pragma mark Table view data source methods
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-	return 4;
+	return 5;
 }
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-	if(section == 0)
+	if(section == kTimeDirectionSection || section == kTimeSection ||
+	   section == kStationSection || section == kScheduleTypeSection)
 	{
 		return 1;
 	}
-	else if(section == 1)
-	{
-		return 1;
-	}
-	else if(section == 2)
-	{
-		return 1;
-	}
-	else if(section == 3)
+	else if(section == kStopsSection)
 	{
 		NSInteger stopCount = [[self currentStops] count];
 		if(stopCount == 0)
@@ -111,7 +113,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if(indexPath.section == 0 || indexPath.section == 1 || indexPath.section == 2)
+	if(indexPath.section == kTimeDirectionSection)
+	{
+		static NSString *CellIdentifier = @"TimeDirectionCell";
+		
+		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+		if (cell == nil) {
+			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		}
+		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
+		[cell setAccessoryType:UITableViewCellAccessoryNone];
+		if(_timeDirection == FORWARD)
+		{
+			cell.textLabel.text = @"Departing from";
+		}
+		else {
+			cell.textLabel.text = @"Arriving at";
+		}
+		cell.textLabel.textAlignment = UITextAlignmentCenter;
+		cell.textLabel.textColor = [UIColor colorFromHex:@"385487" withAlpha:1];
+
+		return cell;
+	}
+	if(indexPath.section == kTimeSection ||
+	   indexPath.section == kStationSection || indexPath.section == kScheduleTypeSection)
 	{
 		static NSString *CellIdentifier = @"Cell";
 		
@@ -122,18 +147,18 @@
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
 		
-		if(indexPath.section == 0)
+		if(indexPath.section == kTimeSection)
 		{
 			cell.textLabel.text = @"Time";
 			cell.detailTextLabel.text = [self formattedTimeInMinutes];
 			
 		}
-		else if(indexPath.section == 1)
+		else if(indexPath.section == kStationSection)
 		{
 			cell.textLabel.text = @"Station";
 			cell.detailTextLabel.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"];
 		}
-		else if(indexPath.section == 2)
+		else if(indexPath.section == kScheduleTypeSection)
 		{
 			cell.textLabel.text = @"Schedule Type";
 			cell.detailTextLabel.text = [[NSDate fullDayTypesByCode] objectForKey:[self currentDayType]];
@@ -141,7 +166,7 @@
 		
 		return cell;
 	}
-	else if(indexPath.section == 3)
+	else if(indexPath.section == kStopsSection)
 	{
 		if([[self currentStops] count] == 0)
 		{
@@ -196,7 +221,20 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	if(indexPath.section == 0)
+	if(indexPath.section == kTimeDirectionSection)
+	{
+		if(_timeDirection == FORWARD)
+		{
+			_timeDirection = BACKWARD;
+		}
+		else {
+			_timeDirection = FORWARD;
+		}
+
+		[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+		[tableView reloadData];
+	}
+	else if(indexPath.section == kTimeSection)
 	{
 		if(! _timeChangeController)
 		{
@@ -212,7 +250,7 @@
 		[_timeChangeController setTimeInMinutes:[self timeInMinutes]];
 		[_timeChangeController animateIn];
 	}
-	else if(indexPath.section == 1)
+	else if(indexPath.section == kStationSection)
 	{
 		if( ! _stationChangeController)
 		{
@@ -223,7 +261,7 @@
 		
 		[[self navigationController] presentModalViewController:_stationChangeController animated:YES];
 	}
-	else if(indexPath.section == 2)
+	else if(indexPath.section == kScheduleTypeSection)
 	{
 		if( ! _dayTypeChangeController)
 		{
@@ -240,7 +278,7 @@
 		[_dayTypeChangeController animateIn];
 		
 	}
-	else if(indexPath.section == 3)
+	else if(indexPath.section == kStopsSection)
 	{
 		if([[self currentStops] count] == 0)
 		{
@@ -249,7 +287,9 @@
 		}
 		else
 		{
-			RunViewController *runController = [[RunViewController alloc] initWithStop:[[self currentStops] objectAtIndex:indexPath.row]];
+			RunViewController *runController = [[RunViewController alloc] 
+												initWithStop:[[self currentStops] objectAtIndex:indexPath.row]
+												withTimeDirection:_timeDirection];
 			[runController setManagedObjectContext:[self managedObjectContext]];
 			[[self navigationController] pushViewController:runController animated:YES];
 			[runController release];
@@ -261,12 +301,28 @@
 
 -(void)retrieveStopsDirection:(NSString *)direction
 {
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:
-							  @"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
-							  [self timeInMinutes],
-							  [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
-							  direction,
-							  [self currentDayType]];
+	NSPredicate *predicate = nil;
+	
+	if(_timeDirection == FORWARD)
+	{
+		predicate = [NSPredicate predicateWithFormat:
+					 @"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+					 [self timeInMinutes],
+					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 direction,
+					 [self currentDayType]];
+	  
+	}
+	else {
+		predicate = [NSPredicate predicateWithFormat:
+					 @"timeInMinutes <= %i AND station.name = %@ AND direction = %@ AND dayType = %@",
+					 [self timeInMinutes],
+					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 direction,
+					 [self currentDayType]];
+	}
+
+							  
 	
 	/*
 	 Fetch existing events.
@@ -277,7 +333,10 @@
 	[request setEntity:entity];
 	
 	// Order the events by creation date, most recent first.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+	
+	BOOL ascending = (_timeDirection == FORWARD);
+	
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];

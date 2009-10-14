@@ -11,6 +11,7 @@
 #import "TimeChangeViewController.h"
 #import "DayTypeChangeViewController.h"
 #import "StationChangeViewController.h"
+#import "RunViewController.h"
 
 @interface ManualSelectViewController : UIViewController <ChangeDirectionProtocol, 
 UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, DayTypeChangeViewControllerDelegate,
@@ -27,6 +28,8 @@ StationChangeViewControllerDelegate> {
 	TimeChangeViewController *_timeChangeController;
 	DayTypeChangeViewController *_dayTypeChangeController;
 	StationChangeViewController *_stationChangeController;
+	
+	TimeDirection _timeDirection;
 	
 	
 }

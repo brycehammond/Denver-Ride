@@ -17,9 +17,15 @@
 
 -(id)initWithStop:(Stop *)stop
 {
+	return [self initWithStop:stop withTimeDirection:FORWARD];
+}
+
+-(id)initWithStop:(Stop *)stop withTimeDirection:(TimeDirection)timeDirection
+{
 	if(self = [self initWithNibName:@"RunViewController" bundle:nil])
 	{
 		[self setStop:stop];
+		_timeDirection = timeDirection;
 	}
 	return self;
 }
@@ -43,22 +49,44 @@
 	Stop *stop = [self stop];
 	NSString *lineName = [[stop line] name];
 	NSString *direction = ([[stop direction] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
-						   
-	[_topLine setText:[NSString stringWithFormat:@"Arrival times of %@ %@ Line", direction, lineName]];
-	[_middleLine setText:[NSString stringWithFormat:@"leaving from %@",[[stop station] name]]];
+	
+	if(_timeDirection == FORWARD)
+	{
+		[_topLine setText:[NSString stringWithFormat:@"Arrival times of %@ %@ Line", direction, lineName]];
+		[_middleLine setText:[NSString stringWithFormat:@"leaving from %@",[[stop station] name]]];
+		
+	}
+	else {
+		[_topLine setText:[NSString stringWithFormat:@"Departure times of %@ %@ Line", direction, lineName]];
+		[_middleLine setText:[NSString stringWithFormat:@"arriving at %@",[[stop station] name]]];
+	}
+
+	
 	[_bottomLine setText:[NSString stringWithFormat:@"at %@",[stop formattedTime]]];
+	
 	
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
-							  [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
+	NSPredicate *predicate = nil;
 	
+	if(_timeDirection == FORWARD)
+	{
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
+			[[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
+	}
+	else {
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
+					 [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
+		
+	}
+
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];
 	
 	// Order the events by creation date, most recent first.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+	BOOL ascending = (_timeDirection == FORWARD);
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
@@ -78,7 +106,14 @@
 	[self setRunArray:mutableFetchResults];
 	[mutableFetchResults release];
 	
-	[self setTitle:@"Arrivals"];
+	if(_timeDirection == FORWARD)
+	{
+		[self setTitle:@"Arrivals"];
+	}
+	else {
+		[self setTitle:@"Departures"];
+	}
+
 	
 }
 
@@ -161,7 +196,9 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
-	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] withCurrentTimeInMinutes:[[stop timeInMinutes] intValue]];
+	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] 
+																	 withCurrentTimeInMinutes:[[stop timeInMinutes] intValue]
+																			 andTimeDirection:_timeDirection];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];

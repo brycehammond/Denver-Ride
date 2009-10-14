@@ -19,6 +19,7 @@
 @dynamic dayType;
 @dynamic station;
 @dynamic terminalStation;
+@dynamic startStation;
 @dynamic line;
 
 - (NSString *)formattedTime

@@ -30,6 +30,7 @@
 			[stop setStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:4] intValue]]]];
 			[stop setRun:[NSNumber numberWithInt:[[stopArray objectAtIndex:5] intValue]]];
 			[stop setTerminalStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:6] intValue]]]];
+			[stop setStartStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:7] intValue]]]];
 			
 		}
 	}

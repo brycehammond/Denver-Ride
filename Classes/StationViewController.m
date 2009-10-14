@@ -7,7 +7,6 @@
 //
 
 #import "StationViewController.h"
-#import "RunViewController.h"
 #import "Station.h"
 #import "Stop.h"
 #import "Line.h"
@@ -46,10 +45,17 @@
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
 {
+	return [self initWithStation:station withCurrentTimeInMinutes:currentTimeInMinutes andTimeDirection:FORWARD];
+}
+
+-(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
+	andTimeDirection:(TimeDirection)timeDirection
+{
 	if(self = [self initWithNibName:@"StationViewController" bundle:nil])
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
+		_timeDirection = timeDirection;
 	}
 	return self;
 }
@@ -143,7 +149,7 @@
 	if([[self stopsArray] count] > 0)
 	{
 		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
-		RunViewController *runController = [[RunViewController alloc] initWithStop:stop];
+		RunViewController *runController = [[RunViewController alloc] initWithStop:stop withTimeDirection:_timeDirection];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
 		[runController release];
@@ -159,8 +165,19 @@
 {	
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
-	NSPredicate *predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != %@",
-							  [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType], [[self station] name]];
+	NSPredicate *predicate = nil;
+	
+	if(_timeDirection == FORWARD)
+	{
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != %@",
+		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
+	}
+	else {
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@",
+		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
+	}
+
+	
 	NSLog(@"predicate format: %@",[predicate predicateFormat]);
 	
 	/*
@@ -172,7 +189,8 @@
 	[request setEntity:entity];
 	
 	// Order the events by creation date, most recent first.
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+	BOOL ascending = (_timeDirection == FORWARD);
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	[request setFetchLimit:5];

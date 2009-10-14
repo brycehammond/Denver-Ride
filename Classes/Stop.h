@@ -22,6 +22,7 @@
 @property (nonatomic, retain) NSString * dayType;
 @property (nonatomic, retain) Station * station;
 @property (nonatomic, retain) Station *terminalStation;
+@property (nonatomic, retain) Station *startStation;
 @property (nonatomic, retain) Line * line;
 
 - (NSString *)formattedTime;
