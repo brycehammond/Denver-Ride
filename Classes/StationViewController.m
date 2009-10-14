@@ -118,7 +118,15 @@
 		
 		// Get the event corresponding to the current index path and configure the table view cell.
 		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
-		[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+		
+		if(_timeDirection == FORWARD)
+		{
+			[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+		}
+		else
+		{
+			[cell setEndOfLineStation:[stop startStation] withStartStop:stop];
+		}
 		
 		return cell;
 	}
@@ -131,9 +139,13 @@
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
+		
+		NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
 		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit", direction];
+		cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
+		
+		cell.textLabel.adjustsFontSizeToFitWidth = YES;
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		
@@ -169,11 +181,11 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != %@",
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != station.name",
 		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@",
+		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND startStation.name != station.name",
 		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
 	}
 

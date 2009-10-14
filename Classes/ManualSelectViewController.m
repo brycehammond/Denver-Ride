@@ -177,17 +177,11 @@
 				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 			}
 			
-			NSString *direction = nil;
-			if([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"])
-			{
-				direction = @"Northbound";
-			}
-			else
-			{
-				direction = @"Southbound";
-			}
+			NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
+			NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 			
-			cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit",direction];
+			cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
+			cell.textLabel.adjustsFontSizeToFitWidth = YES;
 			[cell setAccessoryType:UITableViewCellAccessoryNone];
 			[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 			
@@ -204,7 +198,14 @@
 			// Get the stop corresponding to the current index path and configure the table view cell.
 			Stop *stop = [[self currentStops] objectAtIndex:indexPath.row];
 			
-			[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+			if(_timeDirection == FORWARD)
+			{
+				[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
+			}
+			else {
+				[cell setEndOfLineStation:[stop startStation] withStartStop:stop];
+			}
+
 			
 			
 			return cell;
@@ -315,7 +316,7 @@
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:
-					 @"timeInMinutes <= %i AND station.name = %@ AND direction = %@ AND dayType = %@",
+					 @"timeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
 					 [self timeInMinutes],
 					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
 					 direction,

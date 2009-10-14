@@ -293,17 +293,11 @@ navigationController = _navigationController;
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
-		NSString *direction = nil;
-		if([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"])
-		{
-			direction = @"Northbound";
-		}
-		else
-		{
-			direction = @"Southbound";
-		}
+		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"No %@ Transit",direction];
+		cell.textLabel.text = [NSString stringWithFormat:@"End of line for %@ transit",direction];
+		
+		cell.textLabel.adjustsFontSizeToFitWidth = YES;
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		
