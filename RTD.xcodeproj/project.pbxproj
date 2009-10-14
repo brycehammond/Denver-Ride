@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1405273410704C00004E525D /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1405273310704C00004E525D /* RTD.sqlite */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */; };
 		14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon.png */; };
@@ -23,6 +22,32 @@
 		14C6CB551032776900368298 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CB541032776900368298 /* StationViewController.xib */; };
 		14C6CBD91033038D00368298 /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* RunViewController.m */; };
 		14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CBD81033038D00368298 /* RunViewController.xib */; };
+		14DDBC1A1085597200583F84 /* C_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC001085597200583F84 /* C_N_H.txt */; };
+		14DDBC1B1085597200583F84 /* C_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC011085597200583F84 /* C_N_S.txt */; };
+		14DDBC1C1085597200583F84 /* C_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC021085597200583F84 /* C_N_W.txt */; };
+		14DDBC1D1085597200583F84 /* C_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC031085597200583F84 /* C_S_W.txt */; };
+		14DDBC1E1085597200583F84 /* D_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC041085597200583F84 /* D_N_H.txt */; };
+		14DDBC1F1085597200583F84 /* D_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC051085597200583F84 /* D_N_S.txt */; };
+		14DDBC201085597200583F84 /* D_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC061085597200583F84 /* D_N_W.txt */; };
+		14DDBC211085597200583F84 /* D_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC071085597200583F84 /* D_S_H.txt */; };
+		14DDBC221085597200583F84 /* D_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC081085597200583F84 /* D_S_S.txt */; };
+		14DDBC231085597200583F84 /* D_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC091085597200583F84 /* D_S_W.txt */; };
+		14DDBC241085597200583F84 /* E_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0A1085597200583F84 /* E_N_H.txt */; };
+		14DDBC251085597200583F84 /* E_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0B1085597200583F84 /* E_N_S.txt */; };
+		14DDBC261085597200583F84 /* E_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0C1085597200583F84 /* E_N_W.txt */; };
+		14DDBC271085597200583F84 /* E_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0D1085597200583F84 /* E_S_H.txt */; };
+		14DDBC281085597200583F84 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0E1085597200583F84 /* E_S_S.txt */; };
+		14DDBC291085597200583F84 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0F1085597200583F84 /* E_S_W.txt */; };
+		14DDBC2A1085597200583F84 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC101085597200583F84 /* F_N_W.txt */; };
+		14DDBC2B1085597200583F84 /* F_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC111085597200583F84 /* F_S_H.txt */; };
+		14DDBC2C1085597200583F84 /* F_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC121085597200583F84 /* F_S_S.txt */; };
+		14DDBC2D1085597200583F84 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC131085597200583F84 /* F_S_W.txt */; };
+		14DDBC2E1085597200583F84 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC141085597200583F84 /* H_N_H.txt */; };
+		14DDBC2F1085597200583F84 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC151085597200583F84 /* H_N_S.txt */; };
+		14DDBC301085597200583F84 /* H_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC161085597200583F84 /* H_N_W.txt */; };
+		14DDBC311085597200583F84 /* H_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC171085597200583F84 /* H_S_H.txt */; };
+		14DDBC321085597200583F84 /* H_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC181085597200583F84 /* H_S_S.txt */; };
+		14DDBC331085597200583F84 /* H_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC191085597200583F84 /* H_S_W.txt */; };
 		14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D5E31034FD5700640D8B /* StationListViewController.m */; };
 		14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14E4D5E41034FD5700640D8B /* StationListViewController.xib */; };
 		14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D90A10370DE600640D8B /* CoreLocation.framework */; };
@@ -48,7 +73,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1405273310704C00004E525D /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = Classes/TimeChangeViewController.xib; sourceTree = "<group>"; };
@@ -58,32 +82,6 @@
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
-		146FCE4F1069E9EF006CE53C /* C_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_H.txt; sourceTree = "<group>"; };
-		146FCE501069E9EF006CE53C /* C_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_S.txt; sourceTree = "<group>"; };
-		146FCE511069E9EF006CE53C /* C_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_W.txt; sourceTree = "<group>"; };
-		146FCE521069E9EF006CE53C /* C_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_S_W.txt; sourceTree = "<group>"; };
-		146FCE531069E9EF006CE53C /* D_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_H.txt; sourceTree = "<group>"; };
-		146FCE541069E9EF006CE53C /* D_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_S.txt; sourceTree = "<group>"; };
-		146FCE551069E9EF006CE53C /* D_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_W.txt; sourceTree = "<group>"; };
-		146FCE561069E9EF006CE53C /* D_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_H.txt; sourceTree = "<group>"; };
-		146FCE571069E9EF006CE53C /* D_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_S.txt; sourceTree = "<group>"; };
-		146FCE581069E9EF006CE53C /* D_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_W.txt; sourceTree = "<group>"; };
-		146FCE591069E9EF006CE53C /* E_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_H.txt; sourceTree = "<group>"; };
-		146FCE5A1069E9EF006CE53C /* E_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_S.txt; sourceTree = "<group>"; };
-		146FCE5B1069E9EF006CE53C /* E_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_W.txt; sourceTree = "<group>"; };
-		146FCE5C1069E9EF006CE53C /* E_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_H.txt; sourceTree = "<group>"; };
-		146FCE5D1069E9EF006CE53C /* E_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_S.txt; sourceTree = "<group>"; };
-		146FCE5E1069E9EF006CE53C /* E_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_W.txt; sourceTree = "<group>"; };
-		146FCE5F1069E9EF006CE53C /* F_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_N_W.txt; sourceTree = "<group>"; };
-		146FCE601069E9EF006CE53C /* F_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_H.txt; sourceTree = "<group>"; };
-		146FCE611069E9EF006CE53C /* F_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_S.txt; sourceTree = "<group>"; };
-		146FCE621069E9EF006CE53C /* F_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_W.txt; sourceTree = "<group>"; };
-		146FCE631069E9EF006CE53C /* H_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_H.txt; sourceTree = "<group>"; };
-		146FCE641069E9EF006CE53C /* H_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_S.txt; sourceTree = "<group>"; };
-		146FCE651069E9EF006CE53C /* H_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_W.txt; sourceTree = "<group>"; };
-		146FCE661069E9EF006CE53C /* H_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_H.txt; sourceTree = "<group>"; };
-		146FCE671069E9EF006CE53C /* H_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_S.txt; sourceTree = "<group>"; };
-		146FCE681069E9EF006CE53C /* H_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_W.txt; sourceTree = "<group>"; };
 		147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManualSelectViewController.xib; sourceTree = "<group>"; };
 		147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDirectionProtocol.h; sourceTree = "<group>"; };
 		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
@@ -98,6 +96,32 @@
 		14C6CBD61033038D00368298 /* RunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunViewController.h; sourceTree = "<group>"; };
 		14C6CBD71033038D00368298 /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunViewController.m; sourceTree = "<group>"; };
 		14C6CBD81033038D00368298 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = Classes/RunViewController.xib; sourceTree = "<group>"; };
+		14DDBC001085597200583F84 /* C_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_H.txt; sourceTree = "<group>"; };
+		14DDBC011085597200583F84 /* C_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_S.txt; sourceTree = "<group>"; };
+		14DDBC021085597200583F84 /* C_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_W.txt; sourceTree = "<group>"; };
+		14DDBC031085597200583F84 /* C_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_S_W.txt; sourceTree = "<group>"; };
+		14DDBC041085597200583F84 /* D_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_H.txt; sourceTree = "<group>"; };
+		14DDBC051085597200583F84 /* D_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_S.txt; sourceTree = "<group>"; };
+		14DDBC061085597200583F84 /* D_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_W.txt; sourceTree = "<group>"; };
+		14DDBC071085597200583F84 /* D_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_H.txt; sourceTree = "<group>"; };
+		14DDBC081085597200583F84 /* D_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_S.txt; sourceTree = "<group>"; };
+		14DDBC091085597200583F84 /* D_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_W.txt; sourceTree = "<group>"; };
+		14DDBC0A1085597200583F84 /* E_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_H.txt; sourceTree = "<group>"; };
+		14DDBC0B1085597200583F84 /* E_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_S.txt; sourceTree = "<group>"; };
+		14DDBC0C1085597200583F84 /* E_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_W.txt; sourceTree = "<group>"; };
+		14DDBC0D1085597200583F84 /* E_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_H.txt; sourceTree = "<group>"; };
+		14DDBC0E1085597200583F84 /* E_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_S.txt; sourceTree = "<group>"; };
+		14DDBC0F1085597200583F84 /* E_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_W.txt; sourceTree = "<group>"; };
+		14DDBC101085597200583F84 /* F_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_N_W.txt; sourceTree = "<group>"; };
+		14DDBC111085597200583F84 /* F_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_H.txt; sourceTree = "<group>"; };
+		14DDBC121085597200583F84 /* F_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_S.txt; sourceTree = "<group>"; };
+		14DDBC131085597200583F84 /* F_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_W.txt; sourceTree = "<group>"; };
+		14DDBC141085597200583F84 /* H_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_H.txt; sourceTree = "<group>"; };
+		14DDBC151085597200583F84 /* H_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_S.txt; sourceTree = "<group>"; };
+		14DDBC161085597200583F84 /* H_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_W.txt; sourceTree = "<group>"; };
+		14DDBC171085597200583F84 /* H_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_H.txt; sourceTree = "<group>"; };
+		14DDBC181085597200583F84 /* H_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_S.txt; sourceTree = "<group>"; };
+		14DDBC191085597200583F84 /* H_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_W.txt; sourceTree = "<group>"; };
 		14E4D5E21034FD5700640D8B /* StationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationListViewController.h; sourceTree = "<group>"; };
 		14E4D5E31034FD5700640D8B /* StationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationListViewController.m; sourceTree = "<group>"; };
 		14E4D5E41034FD5700640D8B /* StationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationListViewController.xib; path = Classes/StationListViewController.xib; sourceTree = "<group>"; };
@@ -174,32 +198,32 @@
 		146FCE4E1069E9B9006CE53C /* Stop Files */ = {
 			isa = PBXGroup;
 			children = (
-				146FCE4F1069E9EF006CE53C /* C_N_H.txt */,
-				146FCE501069E9EF006CE53C /* C_N_S.txt */,
-				146FCE511069E9EF006CE53C /* C_N_W.txt */,
-				146FCE521069E9EF006CE53C /* C_S_W.txt */,
-				146FCE531069E9EF006CE53C /* D_N_H.txt */,
-				146FCE541069E9EF006CE53C /* D_N_S.txt */,
-				146FCE551069E9EF006CE53C /* D_N_W.txt */,
-				146FCE561069E9EF006CE53C /* D_S_H.txt */,
-				146FCE571069E9EF006CE53C /* D_S_S.txt */,
-				146FCE581069E9EF006CE53C /* D_S_W.txt */,
-				146FCE591069E9EF006CE53C /* E_N_H.txt */,
-				146FCE5A1069E9EF006CE53C /* E_N_S.txt */,
-				146FCE5B1069E9EF006CE53C /* E_N_W.txt */,
-				146FCE5C1069E9EF006CE53C /* E_S_H.txt */,
-				146FCE5D1069E9EF006CE53C /* E_S_S.txt */,
-				146FCE5E1069E9EF006CE53C /* E_S_W.txt */,
-				146FCE5F1069E9EF006CE53C /* F_N_W.txt */,
-				146FCE601069E9EF006CE53C /* F_S_H.txt */,
-				146FCE611069E9EF006CE53C /* F_S_S.txt */,
-				146FCE621069E9EF006CE53C /* F_S_W.txt */,
-				146FCE631069E9EF006CE53C /* H_N_H.txt */,
-				146FCE641069E9EF006CE53C /* H_N_S.txt */,
-				146FCE651069E9EF006CE53C /* H_N_W.txt */,
-				146FCE661069E9EF006CE53C /* H_S_H.txt */,
-				146FCE671069E9EF006CE53C /* H_S_S.txt */,
-				146FCE681069E9EF006CE53C /* H_S_W.txt */,
+				14DDBC001085597200583F84 /* C_N_H.txt */,
+				14DDBC011085597200583F84 /* C_N_S.txt */,
+				14DDBC021085597200583F84 /* C_N_W.txt */,
+				14DDBC031085597200583F84 /* C_S_W.txt */,
+				14DDBC041085597200583F84 /* D_N_H.txt */,
+				14DDBC051085597200583F84 /* D_N_S.txt */,
+				14DDBC061085597200583F84 /* D_N_W.txt */,
+				14DDBC071085597200583F84 /* D_S_H.txt */,
+				14DDBC081085597200583F84 /* D_S_S.txt */,
+				14DDBC091085597200583F84 /* D_S_W.txt */,
+				14DDBC0A1085597200583F84 /* E_N_H.txt */,
+				14DDBC0B1085597200583F84 /* E_N_S.txt */,
+				14DDBC0C1085597200583F84 /* E_N_W.txt */,
+				14DDBC0D1085597200583F84 /* E_S_H.txt */,
+				14DDBC0E1085597200583F84 /* E_S_S.txt */,
+				14DDBC0F1085597200583F84 /* E_S_W.txt */,
+				14DDBC101085597200583F84 /* F_N_W.txt */,
+				14DDBC111085597200583F84 /* F_S_H.txt */,
+				14DDBC121085597200583F84 /* F_S_S.txt */,
+				14DDBC131085597200583F84 /* F_S_W.txt */,
+				14DDBC141085597200583F84 /* H_N_H.txt */,
+				14DDBC151085597200583F84 /* H_N_S.txt */,
+				14DDBC161085597200583F84 /* H_N_W.txt */,
+				14DDBC171085597200583F84 /* H_S_H.txt */,
+				14DDBC181085597200583F84 /* H_S_S.txt */,
+				14DDBC191085597200583F84 /* H_S_W.txt */,
 			);
 			name = "Stop Files";
 			sourceTree = "<group>";
@@ -287,7 +311,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				1405273310704C00004E525D /* RTD.sqlite */,
 				146FCE4E1069E9B9006CE53C /* Stop Files */,
 				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
 				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
@@ -383,7 +406,32 @@
 				140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */,
 				14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */,
 				14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */,
-				1405273410704C00004E525D /* RTD.sqlite in Resources */,
+				14DDBC1A1085597200583F84 /* C_N_H.txt in Resources */,
+				14DDBC1B1085597200583F84 /* C_N_S.txt in Resources */,
+				14DDBC1C1085597200583F84 /* C_N_W.txt in Resources */,
+				14DDBC1D1085597200583F84 /* C_S_W.txt in Resources */,
+				14DDBC1E1085597200583F84 /* D_N_H.txt in Resources */,
+				14DDBC1F1085597200583F84 /* D_N_S.txt in Resources */,
+				14DDBC201085597200583F84 /* D_N_W.txt in Resources */,
+				14DDBC211085597200583F84 /* D_S_H.txt in Resources */,
+				14DDBC221085597200583F84 /* D_S_S.txt in Resources */,
+				14DDBC231085597200583F84 /* D_S_W.txt in Resources */,
+				14DDBC241085597200583F84 /* E_N_H.txt in Resources */,
+				14DDBC251085597200583F84 /* E_N_S.txt in Resources */,
+				14DDBC261085597200583F84 /* E_N_W.txt in Resources */,
+				14DDBC271085597200583F84 /* E_S_H.txt in Resources */,
+				14DDBC281085597200583F84 /* E_S_S.txt in Resources */,
+				14DDBC291085597200583F84 /* E_S_W.txt in Resources */,
+				14DDBC2A1085597200583F84 /* F_N_W.txt in Resources */,
+				14DDBC2B1085597200583F84 /* F_S_H.txt in Resources */,
+				14DDBC2C1085597200583F84 /* F_S_S.txt in Resources */,
+				14DDBC2D1085597200583F84 /* F_S_W.txt in Resources */,
+				14DDBC2E1085597200583F84 /* H_N_H.txt in Resources */,
+				14DDBC2F1085597200583F84 /* H_N_S.txt in Resources */,
+				14DDBC301085597200583F84 /* H_N_W.txt in Resources */,
+				14DDBC311085597200583F84 /* H_S_H.txt in Resources */,
+				14DDBC321085597200583F84 /* H_S_S.txt in Resources */,
+				14DDBC331085597200583F84 /* H_S_W.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
