@@ -6,6 +6,8 @@
 //  Copyright Fluidvision Design 2009. All rights reserved.
 //
 
+@class LineScheduleUpdater;
+
 @interface RTDAppDelegate : NSObject <UIApplicationDelegate> {
     
     NSManagedObjectModel *managedObjectModel;
@@ -22,6 +24,8 @@
 	NSDictionary *_linesToColors;
 	
 	NSString *currentDayType;
+	
+	LineScheduleUpdater *_lineUpdater;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

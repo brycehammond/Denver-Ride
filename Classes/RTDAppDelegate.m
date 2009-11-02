@@ -13,6 +13,7 @@
 #import "Stop.h"
 #import "UIColorCategories.h"
 #import "LineLoader.h"
+#import "LineScheduleUpdater.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -70,6 +71,9 @@
 		currentDirection = @"N";
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
 	}
+	
+	_lineUpdater = [[LineScheduleUpdater alloc] initWithMainWindow:window andManagedObjectContext:context];
+	[_lineUpdater startUpdate];
 	
 }
 
@@ -677,6 +681,11 @@
 }
 
 #pragma mark -
+#pragma mark Line updating
+
+
+
+#pragma mark -
 #pragma mark Memory management
 
 - (void)dealloc {
@@ -691,6 +700,7 @@
 	[window release];
 	[super dealloc];
 }
+\
 
 
 @end
