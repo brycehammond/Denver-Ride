@@ -230,7 +230,15 @@ navigationController = _navigationController;
 	
 	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];
 	
-	[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
+	if([[self stationsArray] count] >= 4)
+	{
+		[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
+	}
+	else {
+		[self setClosestStationsArray:[self stationsArray]];
+	}
+
+	
 	[self retrieveStopsForClosestStationsInDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 }
 

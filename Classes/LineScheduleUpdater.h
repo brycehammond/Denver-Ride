@@ -8,14 +8,26 @@
 
 #import <Foundation/Foundation.h>
 #import "EncapsulatedConnection.h"
+#import "LoadingView.h"
 
-@interface LineScheduleUpdater : NSObject <EncapsulatedConnectionDelegate> {
+@interface LineScheduleUpdater : NSObject <EncapsulatedConnectionDelegate, UIAlertViewDelegate> {
 	UIWindow *_window;
 	NSManagedObjectContext *_managedObjectContext;
 	
 	EncapsulatedConnection *_updateCheckConnection;
 	
 	EncapsulatedConnection *_lineUpdateConnection;
+	
+	NSMutableDictionary *_linesToRoutesToUpdate;
+	
+	NSString *_currentUpdateLine;
+	NSString *_currentUpdateRoute;
+	
+	NSMutableDictionary *_routesToNewDates;
+	NSMutableDictionary *_linesByName;
+	NSMutableDictionary *_stationsByID;
+	
+	LoadingView *_loadingView;
 }
 
 -(id)initWithMainWindow:(UIWindow *)window andManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;

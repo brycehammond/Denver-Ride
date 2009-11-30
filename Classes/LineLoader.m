@@ -15,6 +15,9 @@
 +(void)loadStopData:(NSString *)stopData withLinesByName:(NSDictionary *)linesByName 
 	andStationsByID:(NSDictionary *)stationsByID inManagedObjectContext:(NSManagedObjectContext *)context
 {
+	
+	BOOL haveDeletedCurrentData = NO;
+	
 	NSArray *stops = [stopData componentsSeparatedByString:@"\n"];
 	for(NSString *stopEntry in stops)
 	{
@@ -31,6 +34,35 @@
 			[stop setRun:[NSNumber numberWithInt:[[stopArray objectAtIndex:5] intValue]]];
 			[stop setTerminalStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:6] intValue]]]];
 			[stop setStartStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:7] intValue]]]];
+			
+			if(! haveDeletedCurrentData)
+			{
+				//Delete any current schedule information
+				NSFetchRequest *request = [[NSFetchRequest alloc] init];
+				NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:context];
+				[request setEntity:entity];
+				
+				NSPredicate *predicate = [NSPredicate predicateWithFormat:@"direction == %@ AND line.name == %@ AND dayType = %@",
+							[stop direction],[[stop line] name],[stop dayType]];
+				[request setPredicate:predicate];
+				
+				// Execute the fetch -- create a mutable copy of the result.
+				NSError *error = nil;
+				NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
+				if (mutableFetchResults == nil) {
+					// Handle the error.
+				}
+				
+				for(Stop *stop in mutableFetchResults)
+				{
+					[context deleteObject:stop];
+				}
+				
+				[mutableFetchResults release];
+				[request release];
+				
+				haveDeletedCurrentData = YES;
+			}
 			
 		}
 	}

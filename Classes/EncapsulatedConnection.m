@@ -18,7 +18,7 @@
 		_identifier = [ident retain];
 		_connectionRequest = [request retain];
 		_returnData = [[NSMutableData alloc] init];
-		_connection = [[NSURLConnection alloc] initWithRequest:_connectionRequest delegate:self];
+		_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	}
 	
 	return self;
@@ -26,9 +26,15 @@
 
 -(void)dealloc
 {
-	[_identifier release];
 	[_connectionRequest release];
+	_connectionRequest = nil;
+	[_connection cancel];
+	[_connection release];
+	_connection = nil;
+	[_identifier release];
+	_identifier = nil;
 	[_returnData release];
+	_returnData = nil;
 	[super dealloc];
 }
 

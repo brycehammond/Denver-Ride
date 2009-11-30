@@ -105,6 +105,7 @@
 	
 	[self setRunArray:mutableFetchResults];
 	[mutableFetchResults release];
+	[request release];
 	
 	if(_timeDirection == FORWARD)
 	{
