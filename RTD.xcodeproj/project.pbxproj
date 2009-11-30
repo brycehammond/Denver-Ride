@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */; };
+		141531F610C35E0200524B84 /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 141531F510C35E0200524B84 /* RTD.sqlite */; };
 		14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon.png */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
@@ -84,6 +85,7 @@
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = Classes/TimeChangeViewController.xib; sourceTree = "<group>"; };
+		141531F510C35E0200524B84 /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
 		14191D3E104AEF0C00C87383 /* RTDIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon.png; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				141531F510C35E0200524B84 /* RTD.sqlite */,
 				146FCE4E1069E9B9006CE53C /* Stop Files */,
 				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
 				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
@@ -482,6 +485,7 @@
 				14DDBC311085597200583F84 /* H_S_H.txt in Resources */,
 				14DDBC321085597200583F84 /* H_S_S.txt in Resources */,
 				14DDBC331085597200583F84 /* H_S_W.txt in Resources */,
+				141531F610C35E0200524B84 /* RTD.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
