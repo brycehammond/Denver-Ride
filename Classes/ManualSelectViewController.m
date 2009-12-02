@@ -50,7 +50,6 @@
 	[appDelegate setCurrentDayType:dayType];
 	
 	_timeDirection = FORWARD;
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -58,6 +57,7 @@
 	[super viewWillAppear:animated];
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate setCurrentDayType:[self currentDayType]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 }
 
 -(void)changeDirectionTo:(NSString *)direction

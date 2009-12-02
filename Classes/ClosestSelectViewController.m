@@ -78,6 +78,9 @@ navigationController = _navigationController;
 	NSString *dayType = [currentDate dayType];
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate setCurrentDayType:dayType];
+	
+	[self updateDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+
 }
 
 - (void)didReceiveMemoryWarning {
