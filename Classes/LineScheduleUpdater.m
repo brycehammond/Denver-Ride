@@ -281,7 +281,6 @@
 		request = [[NSFetchRequest alloc] init];
 		entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:_managedObjectContext];
 		[request setEntity:entity];
-		[entity release];
 		
 		mutableFetchResults = [[_managedObjectContext executeFetchRequest:request error:&error] mutableCopy];
 		if (mutableFetchResults == nil) {
