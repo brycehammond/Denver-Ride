@@ -65,6 +65,15 @@
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 	
+	_defaultPngToFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default.png"]];
+	[window addSubview:_defaultPngToFade];
+	[UIView beginAnimations:nil context:nil];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(completedFadingDefaultPng:finished:context:)];
+	[UIView setAnimationDuration:.4];
+	[_defaultPngToFade setAlpha:0];
+	[UIView commitAnimations];
+	
 	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if(! currentDirection)
 	{
@@ -75,6 +84,11 @@
 	_lineUpdater = [[LineScheduleUpdater alloc] initWithMainWindow:window andManagedObjectContext:context];
 	[_lineUpdater startUpdate];
 	
+}
+
+- (void)completedFadingDefaultPng:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
+	[_defaultPngToFade removeFromSuperview];
+	[_defaultPngToFade release];
 }
 
 /**

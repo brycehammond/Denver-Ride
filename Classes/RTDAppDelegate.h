@@ -26,6 +26,8 @@
 	NSString *currentDayType;
 	
 	LineScheduleUpdater *_lineUpdater;
+	
+	UIImageView *_defaultPngToFade;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;

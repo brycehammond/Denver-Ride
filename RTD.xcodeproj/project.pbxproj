@@ -13,6 +13,7 @@
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		14791D1510C8C41B00DB94C3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14791D1410C8C41B00DB94C3 /* Default.png */; };
 		147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
@@ -90,6 +91,7 @@
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		14791D1410C8C41B00DB94C3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ManualSelectViewController.xib; sourceTree = "<group>"; };
 		147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDirectionProtocol.h; sourceTree = "<group>"; };
 		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
@@ -372,6 +374,7 @@
 				14C6CBD81033038D00368298 /* RunViewController.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
+				14791D1410C8C41B00DB94C3 /* Default.png */,
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
 				14E4DE191038CB6F00640D8B /* Readme.txt */,
 				14842560105BE1D500DCB458 /* RootViewController.xib */,
@@ -482,6 +485,7 @@
 				14DDBC311085597200583F84 /* H_S_H.txt in Resources */,
 				14DDBC321085597200583F84 /* H_S_S.txt in Resources */,
 				14DDBC331085597200583F84 /* H_S_W.txt in Resources */,
+				14791D1510C8C41B00DB94C3 /* Default.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
