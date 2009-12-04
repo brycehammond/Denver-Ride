@@ -19,36 +19,11 @@
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */; };
 		14842561105BE1D500DCB458 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14842560105BE1D500DCB458 /* RootViewController.xib */; };
+		148A914910C9D51A00EC8CEE /* RTD.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 148A914810C9D51A00EC8CEE /* RTD.sqlite */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
 		14C6CB551032776900368298 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CB541032776900368298 /* StationViewController.xib */; };
 		14C6CBD91033038D00368298 /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* RunViewController.m */; };
 		14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CBD81033038D00368298 /* RunViewController.xib */; };
-		14DDBC1A1085597200583F84 /* C_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC001085597200583F84 /* C_N_H.txt */; };
-		14DDBC1B1085597200583F84 /* C_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC011085597200583F84 /* C_N_S.txt */; };
-		14DDBC1C1085597200583F84 /* C_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC021085597200583F84 /* C_N_W.txt */; };
-		14DDBC1D1085597200583F84 /* C_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC031085597200583F84 /* C_S_W.txt */; };
-		14DDBC1E1085597200583F84 /* D_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC041085597200583F84 /* D_N_H.txt */; };
-		14DDBC1F1085597200583F84 /* D_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC051085597200583F84 /* D_N_S.txt */; };
-		14DDBC201085597200583F84 /* D_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC061085597200583F84 /* D_N_W.txt */; };
-		14DDBC211085597200583F84 /* D_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC071085597200583F84 /* D_S_H.txt */; };
-		14DDBC221085597200583F84 /* D_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC081085597200583F84 /* D_S_S.txt */; };
-		14DDBC231085597200583F84 /* D_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC091085597200583F84 /* D_S_W.txt */; };
-		14DDBC241085597200583F84 /* E_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0A1085597200583F84 /* E_N_H.txt */; };
-		14DDBC251085597200583F84 /* E_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0B1085597200583F84 /* E_N_S.txt */; };
-		14DDBC261085597200583F84 /* E_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0C1085597200583F84 /* E_N_W.txt */; };
-		14DDBC271085597200583F84 /* E_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0D1085597200583F84 /* E_S_H.txt */; };
-		14DDBC281085597200583F84 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0E1085597200583F84 /* E_S_S.txt */; };
-		14DDBC291085597200583F84 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC0F1085597200583F84 /* E_S_W.txt */; };
-		14DDBC2A1085597200583F84 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC101085597200583F84 /* F_N_W.txt */; };
-		14DDBC2B1085597200583F84 /* F_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC111085597200583F84 /* F_S_H.txt */; };
-		14DDBC2C1085597200583F84 /* F_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC121085597200583F84 /* F_S_S.txt */; };
-		14DDBC2D1085597200583F84 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC131085597200583F84 /* F_S_W.txt */; };
-		14DDBC2E1085597200583F84 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC141085597200583F84 /* H_N_H.txt */; };
-		14DDBC2F1085597200583F84 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC151085597200583F84 /* H_N_S.txt */; };
-		14DDBC301085597200583F84 /* H_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC161085597200583F84 /* H_N_W.txt */; };
-		14DDBC311085597200583F84 /* H_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC171085597200583F84 /* H_S_H.txt */; };
-		14DDBC321085597200583F84 /* H_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC181085597200583F84 /* H_S_S.txt */; };
-		14DDBC331085597200583F84 /* H_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14DDBC191085597200583F84 /* H_S_W.txt */; };
 		14DDBCC71085801F00583F84 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCBC1085801F00583F84 /* NSObject+SBJSON.m */; };
 		14DDBCC81085801F00583F84 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCBE1085801F00583F84 /* NSString+SBJSON.m */; };
 		14DDBCC91085801F00583F84 /* SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCC01085801F00583F84 /* SBJSON.m */; };
@@ -100,6 +75,7 @@
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosestSelectViewController.xib; sourceTree = "<group>"; };
 		14842560105BE1D500DCB458 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		148A914810C9D51A00EC8CEE /* RTD.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD.sqlite; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
 		14C6CB541032776900368298 /* StationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationViewController.xib; sourceTree = "<group>"; };
@@ -375,6 +351,7 @@
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
 				14791D1410C8C41B00DB94C3 /* Default.png */,
+				148A914810C9D51A00EC8CEE /* RTD.sqlite */,
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
 				14E4DE191038CB6F00640D8B /* Readme.txt */,
 				14842560105BE1D500DCB458 /* RootViewController.xib */,
@@ -459,33 +436,8 @@
 				140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */,
 				14FBCD8E106E8D5F002D6185 /* DayTypeChangeViewController.xib in Resources */,
 				14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */,
-				14DDBC1A1085597200583F84 /* C_N_H.txt in Resources */,
-				14DDBC1B1085597200583F84 /* C_N_S.txt in Resources */,
-				14DDBC1C1085597200583F84 /* C_N_W.txt in Resources */,
-				14DDBC1D1085597200583F84 /* C_S_W.txt in Resources */,
-				14DDBC1E1085597200583F84 /* D_N_H.txt in Resources */,
-				14DDBC1F1085597200583F84 /* D_N_S.txt in Resources */,
-				14DDBC201085597200583F84 /* D_N_W.txt in Resources */,
-				14DDBC211085597200583F84 /* D_S_H.txt in Resources */,
-				14DDBC221085597200583F84 /* D_S_S.txt in Resources */,
-				14DDBC231085597200583F84 /* D_S_W.txt in Resources */,
-				14DDBC241085597200583F84 /* E_N_H.txt in Resources */,
-				14DDBC251085597200583F84 /* E_N_S.txt in Resources */,
-				14DDBC261085597200583F84 /* E_N_W.txt in Resources */,
-				14DDBC271085597200583F84 /* E_S_H.txt in Resources */,
-				14DDBC281085597200583F84 /* E_S_S.txt in Resources */,
-				14DDBC291085597200583F84 /* E_S_W.txt in Resources */,
-				14DDBC2A1085597200583F84 /* F_N_W.txt in Resources */,
-				14DDBC2B1085597200583F84 /* F_S_H.txt in Resources */,
-				14DDBC2C1085597200583F84 /* F_S_S.txt in Resources */,
-				14DDBC2D1085597200583F84 /* F_S_W.txt in Resources */,
-				14DDBC2E1085597200583F84 /* H_N_H.txt in Resources */,
-				14DDBC2F1085597200583F84 /* H_N_S.txt in Resources */,
-				14DDBC301085597200583F84 /* H_N_W.txt in Resources */,
-				14DDBC311085597200583F84 /* H_S_H.txt in Resources */,
-				14DDBC321085597200583F84 /* H_S_S.txt in Resources */,
-				14DDBC331085597200583F84 /* H_S_W.txt in Resources */,
 				14791D1510C8C41B00DB94C3 /* Default.png in Resources */,
+				148A914910C9D51A00EC8CEE /* RTD.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +506,7 @@
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
 				INFOPLIST_FILE = "RTD-Info.plist";
 				PRODUCT_NAME = RTD;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "628DE095-50C8-4AAE-B588-0149C3C95BD6";
 			};
 			name = Distribution;
 		};
