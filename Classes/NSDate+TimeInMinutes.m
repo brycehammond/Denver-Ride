@@ -81,11 +81,10 @@ static NSSet *_holidays;
 	NSInteger month = [dayComponents month];
 	NSInteger year = [dayComponents year];
 	
-	return [_holidays containsObject:[NSString stringWithFormat:@"%i/%i/%i",month,day,year]];				 
-					 
 	[gregorian release];
 	
-	
+	return [_holidays containsObject:[NSString stringWithFormat:@"%i/%i/%i",month,day,year]];				 
+						
 }
 
 -(NSString *)dayType
