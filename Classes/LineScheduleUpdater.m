@@ -188,15 +188,20 @@
 }
 
 - (void)connection:(EncapsulatedConnection *)connection returnedWithError:(NSError *)error
-{
+{	
 	//gracefully fail and
 	//move to the next line if the current line is done
 	//otherwise just do the next update
 	//we will see the update next time and ask them to update
-	if(! [_linesToRoutesToUpdate objectForKey:_currentUpdateLine] || 
+	if(! _currentUpdateLine || ! [_linesToRoutesToUpdate objectForKey:_currentUpdateLine] || 
 	   [[_linesToRoutesToUpdate objectForKey:_currentUpdateLine] count] == 0)
 	{
-		[_linesToRoutesToUpdate removeObjectForKey:_currentUpdateLine];
+		
+		if(_currentUpdateLine && [_linesToRoutesToUpdate objectForKey:_currentUpdateLine])
+		{
+			[_linesToRoutesToUpdate removeObjectForKey:_currentUpdateLine];
+		}
+		
 		if([_linesToRoutesToUpdate count] > 0)
 		{
 			[_currentUpdateLine release];

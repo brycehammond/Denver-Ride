@@ -220,7 +220,11 @@ navigationController = _navigationController;
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
-    
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to find location" 
+														message:@"The app is unable to find your current location.  Make sure that your location services are turned on."
+													   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+	[alertView show];
+	[alertView release];
 }
 
 - (void)processUpdate:(CLLocation *)location

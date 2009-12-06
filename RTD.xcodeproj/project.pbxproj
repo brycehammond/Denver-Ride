@@ -20,6 +20,9 @@
 		1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */; };
 		14842561105BE1D500DCB458 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14842560105BE1D500DCB458 /* RootViewController.xib */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
+		14BCE4F110CC4404003E4391 /* RTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* RTDMapViewController.m */; };
+		14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */; };
+		14BCE50D10CC4842003E4391 /* LightRail_mapfile.gif in Resources */ = {isa = PBXBuildFile; fileRef = 14BCE50C10CC4842003E4391 /* LightRail_mapfile.gif */; };
 		14C6CB551032776900368298 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CB541032776900368298 /* StationViewController.xib */; };
 		14C6CBD91033038D00368298 /* RunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* RunViewController.m */; };
 		14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14C6CBD81033038D00368298 /* RunViewController.xib */; };
@@ -102,6 +105,10 @@
 		14842560105BE1D500DCB458 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
+		14BCE4EE10CC4404003E4391 /* RTDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDMapViewController.h; sourceTree = "<group>"; };
+		14BCE4EF10CC4404003E4391 /* RTDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RTDMapViewController.m; sourceTree = "<group>"; };
+		14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RTDMapViewController.xib; path = Classes/RTDMapViewController.xib; sourceTree = "<group>"; };
+		14BCE50C10CC4842003E4391 /* LightRail_mapfile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LightRail_mapfile.gif; sourceTree = "<group>"; };
 		14C6CB541032776900368298 /* StationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationViewController.xib; sourceTree = "<group>"; };
 		14C6CBD61033038D00368298 /* RunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RunViewController.h; sourceTree = "<group>"; };
 		14C6CBD71033038D00368298 /* RunViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RunViewController.m; sourceTree = "<group>"; };
@@ -315,6 +322,8 @@
 				14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */,
 				14FBCE36106EBDE3002D6185 /* StationChangeViewController.h */,
 				14FBCE37106EBDE3002D6185 /* StationChangeViewController.m */,
+				14BCE4EE10CC4404003E4391 /* RTDMapViewController.h */,
+				14BCE4EF10CC4404003E4391 /* RTDMapViewController.m */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -366,12 +375,14 @@
 				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
 				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
 				1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */,
+				14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */,
 				14191D3E104AEF0C00C87383 /* RTDIcon.png */,
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
 				14FBCE38106EBDE3002D6185 /* StationChangeViewController.xib */,
 				14C6CBD81033038D00368298 /* RunViewController.xib */,
+				14BCE50C10CC4842003E4391 /* LightRail_mapfile.gif */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
 				14791D1410C8C41B00DB94C3 /* Default.png */,
@@ -486,6 +497,8 @@
 				14DDBC321085597200583F84 /* H_S_S.txt in Resources */,
 				14DDBC331085597200583F84 /* H_S_W.txt in Resources */,
 				14791D1510C8C41B00DB94C3 /* Default.png in Resources */,
+				14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */,
+				14BCE50D10CC4842003E4391 /* LightRail_mapfile.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -524,6 +537,7 @@
 				14DDBCCC1085801F00583F84 /* SBJsonWriter.m in Sources */,
 				14DDBCD91085881300583F84 /* EncapsulatedConnection.m in Sources */,
 				14DDBCF8108595D600583F84 /* LineScheduleUpdater.m in Sources */,
+				14BCE4F110CC4404003E4391 /* RTDMapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

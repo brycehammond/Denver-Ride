@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "ChangeDirectionProtocol.h"
+#import "RTDMapViewController.h"
 
 @class ClosestSelectViewController, ManualSelectViewController;
 
-@interface RootViewController : UIViewController {
+@interface RootViewController : UIViewController <RTDMapViewControllerDelegate> {
 	
 	NSManagedObjectContext *_managedObjectContext;
 	
@@ -20,6 +21,8 @@
 	
 	ClosestSelectViewController *_closestViewController;
 	ManualSelectViewController *_manualViewController;
+	
+	RTDMapViewController *_mapViewController;
 	
 	UIViewController<ChangeDirectionProtocol> *_activeViewController;
 	

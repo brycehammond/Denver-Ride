@@ -40,6 +40,11 @@
 	[rightButton setPossibleTitles:[NSSet setWithObjects:@"Manual",@"Closest",nil]];
 	[[self navigationItem] setRightBarButtonItem:rightButton];
 	[rightButton release];
+	
+	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
+													target:self action:@selector(topLeftButtonClicked:)];
+	[[self navigationItem] setLeftBarButtonItem:leftButton];
+	[leftButton release];
 }
 
 -(void)topRightButtonClicked:(UIBarButtonItem *)sender
@@ -78,6 +83,21 @@
 		[[self closestViewController] viewDidAppear:YES];
 	}
 
+}
+
+-(void)topLeftButtonClicked:(UIBarButtonItem *)sender
+{
+	if(! _mapViewController)
+	{
+		_mapViewController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
+		[_mapViewController setDelegate:self];
+	}
+	[self presentModalViewController:_mapViewController animated:YES];
+}
+
+-(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
+{
+	[self dismissModalViewControllerAnimated:YES];
 }
 
 -(IBAction)changeDirection:(UISegmentedControl *)sender
