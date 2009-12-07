@@ -19,7 +19,7 @@
     [super viewDidLoad];
 	_scrollView.contentMode = (UIViewContentModeScaleAspectFit);
     _scrollView.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    _scrollView.maximumZoomScale = 4;
+    _scrollView.maximumZoomScale = 2.5;
     _scrollView.minimumZoomScale = 1;
     _scrollView.clipsToBounds = YES;
     _scrollView.delegate = self;

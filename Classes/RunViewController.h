@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTDMapViewController.h"
 
 typedef enum {
 	FORWARD = 0,
@@ -15,7 +16,7 @@ typedef enum {
 
 @class Stop;
 
-@interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
 	NSArray *_runArray;
 	Stop *_stop;
 	NSManagedObjectContext *_managedObjectContext;
@@ -26,6 +27,8 @@ typedef enum {
 	IBOutlet UILabel *_bottomLine;
 	
 	TimeDirection _timeDirection;
+	
+	RTDMapViewController *_mapController;
 }
 
 @property (nonatomic, retain) NSArray *runArray;

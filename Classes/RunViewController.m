@@ -64,6 +64,11 @@
 	
 	[_bottomLine setText:[NSString stringWithFormat:@"at %@",[stop formattedTime]]];
 	
+	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
+																   target:self action:@selector(topRightButtonClicked:)];
+	[[self navigationItem] setRightBarButtonItem:rightButton];
+	[rightButton release];
+	
 	
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
@@ -118,8 +123,24 @@
 	
 }
 
+-(void)topRightButtonClicked:(UIBarButtonItem *)sender
+{
+	if(! _mapController)
+	{
+		_mapController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
+		[_mapController setDelegate:self];
+	}
+	[self presentModalViewController:_mapController animated:YES];
+}
+
+-(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 -(void)dealloc
 {
+	[_mapController release];
 	[_runArray release];
 	[_stop release];
 	[_managedObjectContext release];

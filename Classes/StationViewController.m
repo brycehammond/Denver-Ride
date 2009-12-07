@@ -40,6 +40,11 @@
 		[_northOrSouthControl setSelectedSegmentIndex:1];
 	}
 	
+	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
+																  target:self action:@selector(topRightButtonClicked:)];
+	[[self navigationItem] setRightBarButtonItem:rightButton];
+	[rightButton release];
+	
 	[self retrieveStopsInDirection:direction];
 }
 
@@ -81,6 +86,22 @@
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
 }
+
+-(void)topRightButtonClicked:(UIBarButtonItem *)sender
+{
+	if(! _mapController)
+	{
+		_mapController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
+		[_mapController setDelegate:self];
+	}
+	[self presentModalViewController:_mapController animated:YES];
+}
+
+-(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
+{
+	[self dismissModalViewControllerAnimated:YES];
+}
+
 
 #pragma mark -
 #pragma mark Table view data source methods
@@ -230,6 +251,7 @@
 	[_managedObjectContext release];
 	[_stopsTableView release];
 	[_northOrSouthControl release];
+	[_mapController release];
 	[_station release];
     [super dealloc];
 }

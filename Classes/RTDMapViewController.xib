@@ -49,6 +49,10 @@
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
 						<object class="NSMutableArray" key="IBUIItems">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBUIBarButtonItem" id="341547887">
+								<reference key="IBUIToolbar" ref="362174733"/>
+								<int key="IBUISystemItemIdentifier">5</int>
+							</object>
 							<object class="IBUIBarButtonItem" id="616338228">
 								<string key="IBUITitle">Done</string>
 								<int key="IBUIStyle">1</int>
@@ -62,6 +66,10 @@
 						<string key="NSFrame">{{0, 44}, {326, 421}}</string>
 						<reference key="NSSuperview" ref="191373211"/>
 						<reference key="NSWindow"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">3</int>
+							<bytes key="NSWhite">MC43NDA4NzU5MTI0AA</bytes>
+						</object>
 						<bool key="IBUIClipsSubviews">YES</bool>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<float key="IBUIMaximumZoomScale">4</float>
@@ -145,36 +153,7 @@
 						<object class="NSMutableArray" key="children">
 							<bool key="EncodedWithXMLCoder">YES</bool>
 							<reference ref="616338228"/>
-							<object class="IBUIToolbar" id="200190815">
-								<nil key="NSNextResponder"/>
-								<int key="NSvFlags">266</int>
-								<string key="NSFrame">{{6.95322e-310, 6.95325e-310}, {6.95324e-310, 4.94066e-324}}</string>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-								<object class="NSMutableArray" key="IBUIItems">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUIBarButtonItem" id="185028186">
-										<string key="IBUITitle">Item</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUIToolbar" ref="200190815"/>
-									</object>
-								</object>
-							</object>
-							<object class="IBUIToolbar" id="850063635">
-								<nil key="NSNextResponder"/>
-								<int key="NSvFlags">266</int>
-								<string key="NSFrame">{{6.95322e-310, 6.95325e-310}, {6.95324e-310, 4.94066e-324}}</string>
-								<bool key="IBUIOpaque">NO</bool>
-								<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-								<object class="NSMutableArray" key="IBUIItems">
-									<bool key="EncodedWithXMLCoder">YES</bool>
-									<object class="IBUIBarButtonItem" id="124004744">
-										<string key="IBUITitle">Item</string>
-										<int key="IBUIStyle">1</int>
-										<reference key="IBUIToolbar" ref="850063635"/>
-									</object>
-								</object>
-							</object>
+							<reference ref="341547887"/>
 						</object>
 						<reference key="parent" ref="191373211"/>
 					</object>
@@ -189,32 +168,9 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">8</int>
-						<reference key="object" ref="200190815"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="185028186"/>
-						</object>
+						<int key="objectID">13</int>
+						<reference key="object" ref="341547887"/>
 						<reference key="parent" ref="362174733"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">9</int>
-						<reference key="object" ref="185028186"/>
-						<reference key="parent" ref="200190815"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">10</int>
-						<reference key="object" ref="850063635"/>
-						<object class="NSMutableArray" key="children">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<reference ref="124004744"/>
-						</object>
-						<reference key="parent" ref="362174733"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">11</int>
-						<reference key="object" ref="124004744"/>
-						<reference key="parent" ref="850063635"/>
 					</object>
 				</object>
 			</object>
@@ -227,13 +183,10 @@
 					<string>1.IBEditorWindowLastContentRect</string>
 					<string>1.IBPluginDependency</string>
 					<string>1.IBViewEditorWindowController.showingLayoutRectangles</string>
-					<string>10.IBPluginDependency</string>
-					<string>11.IBPluginDependency</string>
+					<string>13.IBPluginDependency</string>
 					<string>4.IBPluginDependency</string>
 					<string>5.IBPluginDependency</string>
 					<string>6.IBPluginDependency</string>
-					<string>8.IBPluginDependency</string>
-					<string>9.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -242,9 +195,6 @@
 					<string>{{71, 240}, {320, 480}}</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<boolean value="YES"/>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 					<string>com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -267,7 +217,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">12</int>
+			<int key="maxID">13</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

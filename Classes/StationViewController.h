@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "RunViewController.h"
+#import "RTDMapViewController.h"
 
 @class Station;
 
-@interface StationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+@interface StationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
 
 	NSMutableArray *_stopsArray;
 	NSManagedObjectContext *_managedObjectContext;
@@ -23,6 +24,8 @@
 	NSInteger _currentTimeInMinutes;
 	
 	TimeDirection _timeDirection;
+	
+	RTDMapViewController *_mapController;
 	
 }
 
