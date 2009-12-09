@@ -21,17 +21,7 @@
 
 -(void)setStop:(Stop *)stop
 {	
-	NSString *amOrPm = @"A";
-	int hours = [[stop timeInMinutes] intValue] / 60;
-	if(hours > 12)
-	{
-		hours -= 12;
-		amOrPm = @"P";
-	}	
-	int minutes = [[stop timeInMinutes] intValue] % 60;
-	NSString *formatedMinutes =(minutes < 10) ? [NSString stringWithFormat:@"0%i",minutes] : [NSString stringWithFormat:@"%i",minutes];
-	
-	self.textLabel.text = [NSString stringWithFormat:@"%i:%@%@",hours,formatedMinutes,amOrPm];
+	self.textLabel.text = [stop formattedTime];
 	[self setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 }
 
