@@ -220,11 +220,21 @@ navigationController = _navigationController;
 
 - (void)locationManager:(CLLocationManager *)manager
        didFailWithError:(NSError *)error {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to find location" 
-														message:@"The app is unable to find your current location.  Make sure that your location services are turned on."
-													   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-	[alertView show];
-	[alertView release];
+	
+	static BOOL haveShownError = NO;
+	
+	if(! haveShownError)
+	{
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Unable to find location" 
+															message:@"The app is unable to find your current location.  Make sure that your location services are turned on."
+														   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alertView show];
+		[alertView release];
+		
+		haveShownError = YES;
+	}
+	
+    
 }
 
 - (void)processUpdate:(CLLocation *)location
@@ -383,6 +393,8 @@ navigationController = _navigationController;
 		[[self navigationController] pushViewController:runController animated:YES];
 		[runController release];
 	}
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 	
 }
 

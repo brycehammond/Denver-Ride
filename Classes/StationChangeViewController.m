@@ -74,6 +74,9 @@
 	Station *station = [[self fetchedResultsController] objectAtIndexPath:indexPath];
 	
 	[delegate stationWasSelected:[station name]];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
+	
 }
 
 

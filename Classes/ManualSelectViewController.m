@@ -294,6 +294,7 @@
 			[runController setManagedObjectContext:[self managedObjectContext]];
 			[[self navigationController] pushViewController:runController animated:YES];
 			[runController release];
+			[tableView deselectRowAtIndexPath:indexPath animated:NO];
 		}
 	}
 	

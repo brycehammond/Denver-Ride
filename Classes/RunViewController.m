@@ -224,6 +224,8 @@
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];
+	
+	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }
 
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
