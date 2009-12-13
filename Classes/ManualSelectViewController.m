@@ -50,6 +50,8 @@
 	[appDelegate setCurrentDayType:dayType];
 	
 	_timeDirection = FORWARD;
+	
+	[self viewWillAppear:NO];
 }
 
 - (void)viewWillAppear:(BOOL)animated
