@@ -20,7 +20,11 @@
 -(void)viewDidLoad
 {
 	[super viewDidLoad];
-	[self setTitle:@"Closest Stations"];
+	
+	
+	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFinished) 
+												 name:@"UpdateFinishedNotification" object:nil];
+
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if([direction isEqualToString:@"N"])
@@ -32,9 +36,28 @@
 		[_northOrSouthControl setSelectedSegmentIndex:1];
 	}
 	
-	_activeViewController = [self closestViewController];
-	[_containerView addSubview:[[self closestViewController] view]];
-	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Manual" 
+	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
+	if(! lastTypeUsed)
+	{
+		lastTypeUsed = @"Closest";
+		[[NSUserDefaults standardUserDefaults] setObject:lastTypeUsed forKey:@"LastTypeUsed"];
+	}
+	
+	
+	NSString *buttonTitle = nil;
+	if([lastTypeUsed isEqualToString:@"Closest"])
+	{
+		_activeViewController = [self closestViewController];
+		buttonTitle = @"Manual";
+		[self setTitle:@"Closest Stations"];
+	}
+	else {
+		_activeViewController = [self manualViewController];
+		buttonTitle = @"Closest";
+		[self setTitle:@"Manual Mode"];
+	}
+	
+	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
 														style:UIBarButtonItemStylePlain 
 																   target:self action:@selector(topRightButtonClicked:)];
 	[rightButton setPossibleTitles:[NSSet setWithObjects:@"Manual",@"Closest",nil]];
@@ -45,6 +68,21 @@
 													target:self action:@selector(topLeftButtonClicked:)];
 	[[self navigationItem] setLeftBarButtonItem:leftButton];
 	[leftButton release];
+	
+	[_containerView addSubview:[_activeViewController view]];
+}
+
+-(void)updateFinished
+{
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	
+	if([[self navigationController] topViewController] != self)
+	{
+		[[self navigationController] popToRootViewControllerAnimated:NO];
+	}
+	
+	[_activeViewController retrieveStopsDirection:direction];
+	
 }
 
 -(void)topRightButtonClicked:(UIBarButtonItem *)sender
@@ -53,6 +91,7 @@
 	{
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
 		[sender setTitle:@"Closest"];
 		[UIView beginAnimations:nil context:nil];
         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_containerView cache:YES];
@@ -70,6 +109,7 @@
 		//set to closest mode
 		
 		[sender setTitle:@"Manual"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Closest" forKey:@"LastTypeUsed"];
 		[self setTitle:@"Closest Stations"];
 		
 		[UIView beginAnimations:nil context:nil];

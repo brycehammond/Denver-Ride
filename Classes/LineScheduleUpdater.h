@@ -28,6 +28,8 @@
 	NSMutableDictionary *_stationsByID;
 	
 	LoadingView *_loadingView;
+	
+	NSUInteger _schedulesUpdated;
 }
 
 -(id)initWithMainWindow:(UIWindow *)window andManagedObjectContext:(NSManagedObjectContext *)managedObjectContext;

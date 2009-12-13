@@ -67,8 +67,21 @@ navigationController = _navigationController;
 		[[self view] addSubview:_loadingView];
 	}
 	
-	// Start the location manager.
-	[[self locationManager] startUpdatingLocation];
+	
+	if([[self locationManager] locationServicesEnabled])
+	{
+		// Start the location manager.
+		[[self locationManager] startUpdatingLocation];
+	}
+	else {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Location services unavailable" 
+															message:@"You will need to turn on location services in your settings to find the closest stations."
+														   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+		[alertView show];
+		[alertView release];
+	}
+
+	
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -103,7 +116,7 @@ navigationController = _navigationController;
 
 -(void)updateDirection:(NSString *)direction
 {
-	[self retrieveStopsForClosestStationsInDirection:direction];
+	[self retrieveStopsDirection:direction];
 }
 
 -(void)changeDirectionTo:(NSString *)direction
@@ -119,7 +132,7 @@ navigationController = _navigationController;
 
 
 
--(void)retrieveStopsForClosestStationsInDirection:(NSString *)direction
+-(void)retrieveStopsDirection:(NSString *)direction
 {
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
@@ -256,7 +269,7 @@ navigationController = _navigationController;
 	}
 
 	
-	[self retrieveStopsForClosestStationsInDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 }
 
 #pragma mark -

@@ -77,6 +77,7 @@
 		_linesByName = [[NSMutableDictionary alloc] init];
 		_stationsByID = [[NSMutableDictionary alloc] init];
 		_routesToNewDates = [[NSMutableDictionary alloc] init];
+		_schedulesUpdated = 0;
 	}
 	
 	return self;
@@ -148,6 +149,7 @@
 			  inManagedObjectContext:_managedObjectContext];
 			NSError *error = nil;
 			[_managedObjectContext save:&error];
+			_schedulesUpdated++;
 			
 			if(error == nil)
 			{
@@ -172,6 +174,12 @@
 				[self showUpdateAlert];
 			}
 			else {
+				if(_schedulesUpdated > 0)
+				{
+					[[NSNotificationCenter defaultCenter] postNotification:
+					 [NSNotification notificationWithName:@"UpdateFinishedNotification" object:nil]];
+				}
+				
 				//we are done so hide the loading view
 				[self hideLoadingView];
 			}
