@@ -71,7 +71,22 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	
-	Station *station = [[self fetchedResultsController] objectAtIndexPath:indexPath];
+	Station *station = nil;
+	if(indexPath.section == 0) //recently used
+	{
+		if(_recentlyUsedStationsToDisplay)
+		{
+			station = [_recentlyUsedStationsToDisplay objectAtIndex:indexPath.row];
+		}
+		else {
+			station = [_recentlyUsedStations objectAtIndex:indexPath.row];
+		}
+
+	}
+	else {
+		station = [[self fetchedResultsController] objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
+
+	}
 	
 	[delegate stationWasSelected:[station name]];
 	
