@@ -39,7 +39,14 @@
 	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
 	if(! lastTypeUsed)
 	{
-		lastTypeUsed = @"Closest";
+		if([[[UIDevice currentDevice] name] hasPrefix:@"iPod"])
+		{
+			lastTypeUsed = @"Manual";
+		}
+		else {
+			lastTypeUsed = @"Closest";
+		}
+		
 		[[NSUserDefaults standardUserDefaults] setObject:lastTypeUsed forKey:@"LastTypeUsed"];
 	}
 	
