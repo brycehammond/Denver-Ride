@@ -92,6 +92,7 @@
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
+		1453339410EE934F00D74BE0 /* stop_creation.rb */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.ruby; path = stop_creation.rb; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
 		14791D1410C8C41B00DB94C3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
@@ -371,6 +372,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1453339410EE934F00D74BE0 /* stop_creation.rb */,
 				146FCE4E1069E9B9006CE53C /* Stop Files */,
 				140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */,
 				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
@@ -589,13 +591,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bryce Hammond";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
 				INFOPLIST_FILE = "RTD-Info.plist";
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "628DE095-50C8-4AAE-B588-0149C3C95BD6";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A9360723-2EF3-4C47-9E7A-0D8E103D3661";
 			};
 			name = Release;
 		};

@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+#define kMinutesInDay 1440
+
 @interface NSDate (TimeInMinutes)
 -(NSInteger)minutesIntoCurrentDay;
 -(NSInteger)weekdayNumber;
 -(BOOL)isHoliday;
 -(NSString *)dayType;
+
++(NSDate *)previousDateFrom:(NSDate *)date;
++(NSDate *)nextDateFrom:(NSDate *)date;
 
 +(NSArray *)fullDayTypes;
 +(NSDictionary *)fullDayTypesByCode;

@@ -114,6 +114,18 @@ static NSSet *_holidays;
 	return returnDay;
 }
 
++(NSDate *)previousDateFrom:(NSDate *)date
+{
+	//there are 86400 seconds in a day
+	return [[[NSDate alloc] initWithTimeInterval:-86400 sinceDate:date] autorelease];
+}
+
++(NSDate *)nextDateFrom:(NSDate *)date
+{
+	//there are 86400 seconds in a day
+	return [[[NSDate alloc] initWithTimeInterval:86400 sinceDate:date] autorelease];
+}
+
 +(NSArray *)fullDayTypes
 {
 	if(! _fullDayTypes)

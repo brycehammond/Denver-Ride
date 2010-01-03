@@ -691,6 +691,11 @@
 	NSError *error = nil;
 	NSString *fileString = [[NSString alloc] initWithContentsOfFile:path encoding:NSASCIIStringEncoding error:&error];
 	[LineLoader loadStopData:fileString withLinesByName:linesByName andStationsByID:stationsByName inManagedObjectContext:[self managedObjectContext]];
+	[[self managedObjectContext] save:&error];
+	if(error)
+	{
+		NSLog(@"%@",[error description]);
+	}
 	[fileString release];
 }
 

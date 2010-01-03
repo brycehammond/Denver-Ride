@@ -39,6 +39,12 @@
 	{
 		amOrPm = @"P";
 	}
+	
+	if(hours == 0)
+	{
+		hours = 12;
+	}
+	
 	int minutes = [[self timeInMinutes] intValue] % 60;
 	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%i:0%i%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%i:%i%@",hours,minutes,amOrPm];
 	

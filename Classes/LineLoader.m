@@ -8,6 +8,8 @@
 
 #import "LineLoader.h"
 #import "Stop.h"
+#import "Station.h"
+#import "Line.h"
 
 
 @implementation LineLoader
@@ -35,6 +37,11 @@
 			[stop setTerminalStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:6] intValue]]]];
 			[stop setStartStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:7] intValue]]]];
 			
+			if([[stop timeInMinutes] intValue] == 132)
+			{
+				NSLog(@"%@ %@ %@",stop, stop.line.name, stop.station.name);
+			}
+			
 			if(! haveDeletedCurrentData)
 			{
 				//Delete any current schedule information
@@ -50,6 +57,7 @@
 				NSError *error = nil;
 				NSMutableArray *mutableFetchResults = [[context executeFetchRequest:request error:&error] mutableCopy];
 				if (mutableFetchResults == nil) {
+					NSLog(@"%@",[error description]);
 					// Handle the error.
 				}
 				
@@ -62,6 +70,12 @@
 				[request release];
 				
 				haveDeletedCurrentData = YES;
+			}
+			NSError *error = nil;
+			[context save:&error];
+			if(error)
+			{
+				NSLog(@"%@", [error description]);
 			}
 			
 		}
