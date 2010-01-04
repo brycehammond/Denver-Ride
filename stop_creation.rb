@@ -1,3 +1,4 @@
+#!/usr/bin/ruby
 require 'rubygems'
 require 'hpricot'
 
@@ -26,6 +27,9 @@ class Stop
   attr_accessor :timeInMinutes, :direction, :dayType, :line, :station, :run, :terminalStation, :startStation
   
   def to_s
+    if(not timeInMinutes or not direction or not dayType or not line or not station or not run or not terminalStation or not startStation)
+      raise "Invalid stop: #{timeInMinutes},#{direction},#{dayType},#{line},#{station},#{run},#{terminalStation},#{startStation}"
+    end  
     "#{timeInMinutes},#{direction},#{dayType},#{line},#{station},#{run},#{terminalStation},#{startStation}"
   end
 end
@@ -99,6 +103,7 @@ def process_file(file)
   in_next_day = false
   
   doc.search("//tr[@class='row']").each do |row|
+    previousTime = ""
     run = row['id'].gsub("row","")
     runStops = Array.new
     station_index = 0
@@ -113,14 +118,19 @@ def process_file(file)
 	  #if we are moving from PM to AM then we are moving to the next day
 	  #so add a full day	
 	  if(previousTime.length > 0 and previousTime[-1,1] == "P" and stoptime[-1,1] == "A")
-		in_next_day = true
+	    puts "In next day at #{stoptime} with previousTime: #{previousTime}"
+		  in_next_day = true
 	  end
 	  
-	  if(in_next_day)
-		stop.timeInMinutes = stop.timeInMinutes + (24*60)
+	  if(in_next_day and stoptime[-1,1] == "A")
+	    if stop.timeInMinutes == 0
+	      stop.timeInMinutes = 1440
+	    elsif stop.timeInMinutes < 1440
+		    stop.timeInMinutes = stop.timeInMinutes + 1440
+		  end
 	  end
 	  
-	  previousTime = stoptime
+	    previousTime = stoptime
       stop.direction = direction
       stop.dayType = day_type
       stop.line = line
