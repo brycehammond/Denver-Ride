@@ -24,7 +24,7 @@
     _scrollView.clipsToBounds = YES;
     _scrollView.delegate = self;
 	
-	_mapView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"LightRail_mapfile.gif"]];
+	_mapView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Map.png"]];
 	[_scrollView setContentSize:_mapView.frame.size];
 	[_scrollView addSubview:_mapView];
 }
