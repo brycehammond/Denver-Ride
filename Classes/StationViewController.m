@@ -21,7 +21,8 @@
 @implementation StationViewController
 
 @synthesize managedObjectContext = _managedObjectContext, station = _station, 
-			stopsArray = _stopsArray, currentTimeInMinutes = _currentTimeInMinutes;
+			stopsArray = _stopsArray, currentTimeInMinutes = _currentTimeInMinutes,
+			dayType = _dayType;
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -50,17 +51,19 @@
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
 {
-	return [self initWithStation:station withCurrentTimeInMinutes:currentTimeInMinutes andTimeDirection:FORWARD];
+	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+	return [self initWithStation:station withCurrentTimeInMinutes:currentTimeInMinutes andTimeDirection:FORWARD andDayType:[appDelegate currentDayType]];
 }
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
-	andTimeDirection:(TimeDirection)timeDirection
+	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType
 {
 	if(self = [self initWithNibName:@"StationViewController" bundle:nil])
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
 		_timeDirection = timeDirection;
+		[self setDayType:dayType];
 	}
 	return self;
 }
@@ -198,18 +201,17 @@
 
 -(void)retrieveStopsInDirection:(NSString *)direction
 {	
-	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	
 	NSPredicate *predicate = nil;
 	
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != station.name",
-		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
+		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND startStation.name != station.name",
-		 [self currentTimeInMinutes],[[self station] name], direction, [appDelegate currentDayType]];
+		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
 	}
 
 	

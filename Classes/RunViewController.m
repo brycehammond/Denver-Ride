@@ -69,22 +69,20 @@
 	[[self navigationItem] setRightBarButtonItem:rightButton];
 	[rightButton release];
 	
-	
-	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
-	
 	NSPredicate *predicate = nil;
 	
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
-			[[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
+			[[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[[self stop] dayType]];
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
-					 [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[appDelegate currentDayType]];
+					 [[stop timeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[[self stop] dayType]];
 		
 	}
 
+	NSLog(@"Request predicate: %@",predicate);
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];
@@ -220,7 +218,8 @@
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] 
 																	 withCurrentTimeInMinutes:[[stop timeInMinutes] intValue]
-																			 andTimeDirection:_timeDirection];
+																			 andTimeDirection:_timeDirection
+																				   andDayType:[stop dayType]];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
 	[stationController release];

@@ -24,6 +24,7 @@
 	NSInteger _currentTimeInMinutes;
 	
 	TimeDirection _timeDirection;
+	NSString *_dayType;
 	
 	RTDMapViewController *_mapController;
 	
@@ -33,10 +34,11 @@
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) Station *station;
 @property (assign) NSInteger currentTimeInMinutes;
+@property (nonatomic, retain) NSString *dayType;
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
-				andTimeDirection:(TimeDirection)timeDirection;
+	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType;
 
 -(IBAction)changeDirection:(id)sender;
 

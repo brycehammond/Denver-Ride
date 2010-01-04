@@ -327,7 +327,7 @@
 	}
 
 							  
-	
+	NSLog(@"predicate: %@",predicate);
 	/*
 	 Fetch existing events.
 	 Create a fetch request; find the Event entity and assign it to the request; add a sort descriptor; then execute the fetch.
@@ -370,7 +370,7 @@
 {
 	NSString *amOrPm = @"A";
 	int hours = [self timeInMinutes] / 60;
-	if(hours > 24)
+	if(hours >= 24)
 	{
 		hours -= 24;
 	}

@@ -26,7 +26,7 @@
 {
 	NSString *amOrPm = @"A";
 	int hours = [[self timeInMinutes] intValue] / 60;
-	if(hours > 24)
+	if(hours >= 24)
 	{
 		hours -= 24;
 	}
