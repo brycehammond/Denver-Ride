@@ -7,7 +7,7 @@
 //
 
 #import "RTDMapViewController.h"
-
+#import "FlurryAPI.h"
 
 @implementation RTDMapViewController
 
@@ -27,6 +27,12 @@
 	_mapView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Map.png"]];
 	[_scrollView setContentSize:_mapView.frame.size];
 	[_scrollView addSubview:_mapView];
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[FlurryAPI logEvent:@"Map View shown"];
+	[super viewDidAppear:animated];
 }
 
 - (void)didReceiveMemoryWarning {

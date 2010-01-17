@@ -39,6 +39,10 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
+void uncaughtExceptionHandler(NSException *exception) {
+	[FlurryAPI logError:@"Uncaught" message:@"Crash!" exception:exception];
+} 
+
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 	defaultDataNeedsFilling = NO;
@@ -109,10 +113,6 @@
         } 
     }
 }
-
-void uncaughtExceptionHandler(NSException *exception) {
-	[FlurryAPI logError:@"Uncaught" message:@"Crash!" exception:exception];
-} 
 
 #pragma mark -
 #pragma mark Core Data stack

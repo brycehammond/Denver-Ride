@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 #import "ClosestSelectViewController.h"
 #import "ManualSelectViewController.h"
+#import "FlurryAPI.h"
 
 
 @implementation RootViewController
@@ -55,11 +56,13 @@
 	if([lastTypeUsed isEqualToString:@"Closest"])
 	{
 		_activeViewController = [self closestViewController];
+		[FlurryAPI logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
 		buttonTitle = @"Manual";
 		[self setTitle:@"Closest Stations"];
 	}
 	else {
 		_activeViewController = [self manualViewController];
+		[FlurryAPI logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
 		buttonTitle = @"Closest";
 		[self setTitle:@"Manual Mode"];
 	}
@@ -154,6 +157,7 @@
 	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
 							substringToIndex:1] uppercaseString];
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
 	[_activeViewController changeDirectionTo:direction];
 }
 

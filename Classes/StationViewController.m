@@ -12,6 +12,7 @@
 #import "Line.h"
 #import "StationStopTableViewCell.h"
 #import "RTDAppDelegate.h"
+#import "FlurryAPI.h"
 
 @interface StationViewController (Private)
 -(void)retrieveStopsInDirection:(NSString *)direction;
@@ -46,6 +47,7 @@
 	[[self navigationItem] setRightBarButtonItem:rightButton];
 	[rightButton release];
 	
+	[FlurryAPI logEvent:@"Station View" withParameters:[NSDictionary dictionaryWithObject:[_station name] forKey:@"Station"]];
 	[self retrieveStopsInDirection:direction];
 }
 
