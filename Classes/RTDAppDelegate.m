@@ -14,6 +14,7 @@
 #import "UIColorCategories.h"
 #import "LineLoader.h"
 #import "LineScheduleUpdater.h"
+#import "FlurryAPI.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -41,6 +42,9 @@
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 	defaultDataNeedsFilling = NO;
+	
+	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+	[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 	
     // Override point for customization after app launch
     
@@ -106,9 +110,9 @@
     }
 }
 
-
-
-
+void uncaughtExceptionHandler(NSException *exception) {
+	[FlurryAPI logError:@"Uncaught" message:@"Crash!" exception:exception];
+} 
 
 #pragma mark -
 #pragma mark Core Data stack
@@ -156,14 +160,17 @@
         return persistentStoreCoordinator;
     }
 	
-    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"]];
+	NSString *RTDversion = @"RTD1.1";
+	
+    NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent:
+											   [RTDversion stringByAppendingString:@".sqlite"]]];
 	
 	NSError *error;
 	
-	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent: @"RTD.sqlite"];
+	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[RTDversion stringByAppendingString:@".sqlite"]];
 	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
     if (fileHandle == nil) {
-        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:@"RTD" ofType:@"sqlite"];
+        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:RTDversion ofType:@"sqlite"];
         if (defaultPath) {
 			NSError *error;
 			[[NSFileManager defaultManager] copyItemAtPath:defaultPath

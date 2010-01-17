@@ -15,6 +15,7 @@
 #import "StationListViewController.h"
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
+#import "FlurryAPI.h"
 
 @interface ClosestSelectViewController (Private)
 -(void)updateDirection:(NSString *)direction;
@@ -222,6 +223,7 @@ navigationController = _navigationController;
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 	
+	[FlurryAPI setLocation:newLocation];
 	[_delayTimer invalidate];
 	[_delayTimer release];
 	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(processUpdate:)]];

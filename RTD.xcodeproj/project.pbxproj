@@ -47,6 +47,7 @@
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */; };
 		14842561105BE1D500DCB458 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14842560105BE1D500DCB458 /* RootViewController.xib */; };
+		149055581103B2FE0059B5F2 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 149055571103B2FE0059B5F2 /* libFlurryWithLocation.a */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
 		14BCE4F110CC4404003E4391 /* RTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* RTDMapViewController.m */; };
 		14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */; };
@@ -132,6 +133,8 @@
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ClosestSelectViewController.xib; sourceTree = "<group>"; };
 		14842560105BE1D500DCB458 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
+		149055571103B2FE0059B5F2 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryWithLocation.a; sourceTree = "<group>"; };
+		149055591103B3090059B5F2 /* FlurryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAPI.h; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
 		14BCE4EE10CC4404003E4391 /* RTDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDMapViewController.h; sourceTree = "<group>"; };
@@ -207,6 +210,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
+				149055581103B2FE0059B5F2 /* libFlurryWithLocation.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -373,6 +377,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				149055591103B3090059B5F2 /* FlurryAPI.h */,
 				14797BFC10F172830072F052 /* Map.png */,
 				14797BC310F16C230072F052 /* stop_creation.rb */,
 				146FCE4E1069E9B9006CE53C /* Stop Files */,
@@ -400,6 +405,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				149055571103B2FE0059B5F2 /* libFlurryWithLocation.a */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
@@ -571,6 +577,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
 				INFOPLIST_FILE = "RTD-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "Denver Ride";
 			};
 			name = Distribution;
@@ -585,6 +595,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
 				INFOPLIST_FILE = "RTD-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "Denver Ride";
 			};
 			name = Debug;
@@ -598,6 +612,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
 				INFOPLIST_FILE = "RTD-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A9360723-2EF3-4C47-9E7A-0D8E103D3661";
 			};
