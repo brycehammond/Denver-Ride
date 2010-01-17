@@ -145,7 +145,7 @@ navigationController = _navigationController;
 	for(Station *station in [self closestStationsArray])
 	{
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:
-								  @"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+								  @"timeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 								  minutesIntoCurrentDay,[station name],direction,dayType];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		

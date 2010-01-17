@@ -310,7 +310,7 @@
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:
-					 @"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+					 @"timeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 					 [self timeInMinutes],
 					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
 					 direction,
