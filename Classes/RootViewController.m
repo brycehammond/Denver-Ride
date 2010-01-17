@@ -99,6 +99,9 @@
 {
 	if([[sender title] isEqualToString:@"Manual"])
 	{
+		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+		[FlurryAPI logEvent:@"Switch Mode" withParameters:
+			[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
@@ -117,6 +120,10 @@
 	else {
 		
 		//set to closest mode
+		
+		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+		[FlurryAPI logEvent:@"Switch Mode" withParameters:
+			[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
 		
 		[sender setTitle:@"Manual"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Closest" forKey:@"LastTypeUsed"];
