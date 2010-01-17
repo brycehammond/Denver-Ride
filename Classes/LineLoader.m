@@ -27,16 +27,9 @@
 		
 		if([stopArray count] >= 7)
 		{
-			Stop *stop = (Stop *)[NSEntityDescription insertNewObjectForEntityForName:@"Stop" inManagedObjectContext:context];
-			[stop setTimeInMinutes:[NSNumber numberWithInt:[[stopArray objectAtIndex:0] intValue]]];
-			[stop setDirection:[stopArray objectAtIndex:1]];
-			[stop setDayType:[stopArray objectAtIndex:2]];
-			[stop setLine:[linesByName objectForKey:[stopArray objectAtIndex:3]]];
-			[stop setStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:4] intValue]]]];
-			[stop setRun:[NSNumber numberWithInt:[[stopArray objectAtIndex:5] intValue]]];
-			[stop setTerminalStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:6] intValue]]]];
-			[stop setStartStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:7] intValue]]]];
-			
+			NSString *direction = [stopArray objectAtIndex:1];
+			Line *line = [linesByName objectForKey:[stopArray objectAtIndex:3]];
+			NSString *dayType = [stopArray objectAtIndex:2];
 			if(! haveDeletedCurrentData)
 			{
 				//Delete any current schedule information
@@ -45,7 +38,7 @@
 				[request setEntity:entity];
 				
 				NSPredicate *predicate = [NSPredicate predicateWithFormat:@"direction == %@ AND line.name == %@ AND dayType = %@",
-							[stop direction],[[stop line] name],[stop dayType]];
+										  direction,[line name],dayType];
 				[request setPredicate:predicate];
 				
 				// Execute the fetch -- create a mutable copy of the result.
@@ -64,8 +57,20 @@
 				[mutableFetchResults release];
 				[request release];
 				
+				[context save:&error];
+				
 				haveDeletedCurrentData = YES;
 			}
+			
+			Stop *stop = (Stop *)[NSEntityDescription insertNewObjectForEntityForName:@"Stop" inManagedObjectContext:context];
+			[stop setTimeInMinutes:[NSNumber numberWithInt:[[stopArray objectAtIndex:0] intValue]]];
+			[stop setDirection:direction];
+			[stop setDayType:dayType];
+			[stop setLine:line];
+			[stop setStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:4] intValue]]]];
+			[stop setRun:[NSNumber numberWithInt:[[stopArray objectAtIndex:5] intValue]]];
+			[stop setTerminalStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:6] intValue]]]];
+			[stop setStartStation:[stationsByID objectForKey:[NSNumber numberWithInt:[[stopArray objectAtIndex:7] intValue]]]];
 			
 		}
 	}
