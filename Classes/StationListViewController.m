@@ -53,6 +53,7 @@
 	[super viewWillAppear:animated];
 	[self populateRecentlyUsed];
 	[_stationsTableView reloadData];
+	[_stationsTableView setContentOffset:CGPointMake(0, 0)];
 }
 
 
