@@ -14,33 +14,6 @@
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		14791D1510C8C41B00DB94C3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14791D1410C8C41B00DB94C3 /* Default.png */; };
-		14797B8F10F16A0A0072F052 /* C_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8B10F16A0A0072F052 /* C_N_H.txt */; };
-		14797B9010F16A0A0072F052 /* C_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8C10F16A0A0072F052 /* C_N_S.txt */; };
-		14797B9110F16A0A0072F052 /* C_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8D10F16A0A0072F052 /* C_N_W.txt */; };
-		14797B9210F16A0A0072F052 /* C_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8E10F16A0A0072F052 /* C_S_W.txt */; };
-		14797B9910F16A160072F052 /* D_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9310F16A160072F052 /* D_N_H.txt */; };
-		14797B9A10F16A160072F052 /* D_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9410F16A160072F052 /* D_N_S.txt */; };
-		14797B9B10F16A160072F052 /* D_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9510F16A160072F052 /* D_N_W.txt */; };
-		14797B9C10F16A160072F052 /* D_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9610F16A160072F052 /* D_S_H.txt */; };
-		14797B9D10F16A160072F052 /* D_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9710F16A160072F052 /* D_S_S.txt */; };
-		14797B9E10F16A160072F052 /* D_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9810F16A160072F052 /* D_S_W.txt */; };
-		14797BA510F16A200072F052 /* E_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9F10F16A200072F052 /* E_N_H.txt */; };
-		14797BA610F16A200072F052 /* E_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA010F16A200072F052 /* E_N_S.txt */; };
-		14797BA710F16A200072F052 /* E_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA110F16A200072F052 /* E_N_W.txt */; };
-		14797BA810F16A200072F052 /* E_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA210F16A200072F052 /* E_S_H.txt */; };
-		14797BA910F16A200072F052 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA310F16A200072F052 /* E_S_S.txt */; };
-		14797BAA10F16A200072F052 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA410F16A200072F052 /* E_S_W.txt */; };
-		14797BAF10F16A270072F052 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAB10F16A270072F052 /* F_N_W.txt */; };
-		14797BB010F16A270072F052 /* F_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAC10F16A270072F052 /* F_S_H.txt */; };
-		14797BB110F16A270072F052 /* F_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAD10F16A270072F052 /* F_S_S.txt */; };
-		14797BB210F16A270072F052 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAE10F16A270072F052 /* F_S_W.txt */; };
-		14797BB910F16A300072F052 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB310F16A300072F052 /* H_N_H.txt */; };
-		14797BBA10F16A300072F052 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB410F16A300072F052 /* H_N_S.txt */; };
-		14797BBB10F16A300072F052 /* H_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB510F16A300072F052 /* H_N_W.txt */; };
-		14797BBC10F16A300072F052 /* H_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB610F16A300072F052 /* H_S_H.txt */; };
-		14797BBD10F16A300072F052 /* H_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB710F16A300072F052 /* H_S_S.txt */; };
-		14797BBE10F16A300072F052 /* H_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB810F16A300072F052 /* H_S_W.txt */; };
-		14797BC410F16C230072F052 /* stop_creation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 14797BC310F16C230072F052 /* stop_creation.rb */; };
 		14797BFD10F172830072F052 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 14797BFC10F172830072F052 /* Map.png */; };
 		147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
@@ -48,6 +21,7 @@
 		1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */; };
 		14842561105BE1D500DCB458 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14842560105BE1D500DCB458 /* RootViewController.xib */; };
 		149055581103B2FE0059B5F2 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 149055571103B2FE0059B5F2 /* libFlurryWithLocation.a */; };
+		149055C01103BF310059B5F2 /* RTD1.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 149055BF1103BF310059B5F2 /* RTD1.1.sqlite */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
 		14BCE4F110CC4404003E4391 /* RTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* RTDMapViewController.m */; };
 		14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */; };
@@ -135,6 +109,7 @@
 		14842560105BE1D500DCB458 /* RootViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RootViewController.xib; sourceTree = "<group>"; };
 		149055571103B2FE0059B5F2 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryWithLocation.a; sourceTree = "<group>"; };
 		149055591103B3090059B5F2 /* FlurryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAPI.h; sourceTree = "<group>"; };
+		149055BF1103BF310059B5F2 /* RTD1.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD1.1.sqlite; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
 		14BCE4EE10CC4404003E4391 /* RTDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RTDMapViewController.h; sourceTree = "<group>"; };
@@ -377,6 +352,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				149055BF1103BF310059B5F2 /* RTD1.1.sqlite */,
 				149055591103B3090059B5F2 /* FlurryAPI.h */,
 				14797BFC10F172830072F052 /* Map.png */,
 				14797BC310F16C230072F052 /* stop_creation.rb */,
@@ -481,34 +457,8 @@
 				14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */,
 				14791D1510C8C41B00DB94C3 /* Default.png in Resources */,
 				14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */,
-				14797B8F10F16A0A0072F052 /* C_N_H.txt in Resources */,
-				14797B9010F16A0A0072F052 /* C_N_S.txt in Resources */,
-				14797B9110F16A0A0072F052 /* C_N_W.txt in Resources */,
-				14797B9210F16A0A0072F052 /* C_S_W.txt in Resources */,
-				14797B9910F16A160072F052 /* D_N_H.txt in Resources */,
-				14797B9A10F16A160072F052 /* D_N_S.txt in Resources */,
-				14797B9B10F16A160072F052 /* D_N_W.txt in Resources */,
-				14797B9C10F16A160072F052 /* D_S_H.txt in Resources */,
-				14797B9D10F16A160072F052 /* D_S_S.txt in Resources */,
-				14797B9E10F16A160072F052 /* D_S_W.txt in Resources */,
-				14797BA510F16A200072F052 /* E_N_H.txt in Resources */,
-				14797BA610F16A200072F052 /* E_N_S.txt in Resources */,
-				14797BA710F16A200072F052 /* E_N_W.txt in Resources */,
-				14797BA810F16A200072F052 /* E_S_H.txt in Resources */,
-				14797BA910F16A200072F052 /* E_S_S.txt in Resources */,
-				14797BAA10F16A200072F052 /* E_S_W.txt in Resources */,
-				14797BAF10F16A270072F052 /* F_N_W.txt in Resources */,
-				14797BB010F16A270072F052 /* F_S_H.txt in Resources */,
-				14797BB110F16A270072F052 /* F_S_S.txt in Resources */,
-				14797BB210F16A270072F052 /* F_S_W.txt in Resources */,
-				14797BB910F16A300072F052 /* H_N_H.txt in Resources */,
-				14797BBA10F16A300072F052 /* H_N_S.txt in Resources */,
-				14797BBB10F16A300072F052 /* H_N_W.txt in Resources */,
-				14797BBC10F16A300072F052 /* H_S_H.txt in Resources */,
-				14797BBD10F16A300072F052 /* H_S_S.txt in Resources */,
-				14797BBE10F16A300072F052 /* H_S_W.txt in Resources */,
-				14797BC410F16C230072F052 /* stop_creation.rb in Resources */,
 				14797BFD10F172830072F052 /* Map.png in Resources */,
+				149055C01103BF310059B5F2 /* RTD1.1.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +532,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "Denver Ride";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BB7958BD-D6C2-4EB8-9B04-92A34B861D6D";
 			};
 			name = Distribution;
 		};
@@ -607,7 +558,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Bryce Hammond";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
@@ -617,7 +568,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A9360723-2EF3-4C47-9E7A-0D8E103D3661";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BB7958BD-D6C2-4EB8-9B04-92A34B861D6D";
 			};
 			name = Release;
 		};
