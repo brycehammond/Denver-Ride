@@ -532,7 +532,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "BB7958BD-D6C2-4EB8-9B04-92A34B861D6D";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "307F889A-D24E-4851-8F50-6FCA8F9ABD6B";
 			};
 			name = Distribution;
 		};
