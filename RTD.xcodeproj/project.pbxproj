@@ -607,7 +607,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
@@ -617,7 +617,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "A9360723-2EF3-4C47-9E7A-0D8E103D3661";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "78B0B32B-2E2A-4221-A507-9F81463EBA56";
 			};
 			name = Release;
 		};
