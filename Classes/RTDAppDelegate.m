@@ -160,7 +160,7 @@ void uncaughtExceptionHandler(NSException *exception) {
         return persistentStoreCoordinator;
     }
 	
-	NSString *RTDversion = @"RTD1.1";
+	NSString *RTDversion = @"RTD1.2";
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent:
 											   [RTDversion stringByAppendingString:@".sqlite"]]];
