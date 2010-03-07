@@ -19,6 +19,7 @@
 }
 
 -(NSString *)identifier;
+@property (assign) id<EncapsulatedConnectionDelegate> delegate;
 
 -(id)initWithRequest:(NSURLRequest *)request delegate:(id<EncapsulatedConnectionDelegate>)del identifier:(NSString *)ident;
 

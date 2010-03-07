@@ -33,32 +33,32 @@
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 	NSDictionary *lastUpdated = [NSDictionary dictionaryWithObjectsAndKeys:
-											@"20091014" , @"C_N_H",
-											@"20091014" , @"C_N_S",
-											@"20091014" , @"C_N_W",
-											@"20091014" , @"C_S_W",
-											@"20091014" , @"D_N_H",
-											@"20091014" , @"D_N_S",
-											@"20091014" , @"D_N_W",
-											@"20091014" , @"D_S_H",
-											@"20091014" , @"D_S_S",
-											@"20091014" , @"D_S_W",
-											@"20091014" , @"E_N_H",
-											@"20091014" , @"E_N_S",
-											@"20091014" , @"E_N_W",
-											@"20091014" , @"E_S_H",
-											@"20091014" , @"E_S_S",
-											@"20091014" , @"E_S_W",
-											@"20091014" , @"F_N_W",
-											@"20091014" , @"F_S_H",
-											@"20091014" , @"F_S_S",
-											@"20091014" , @"F_S_W",
-											@"20091014" , @"H_N_H",
-											@"20091014" , @"H_N_S",
-											@"20091014" , @"H_N_W",
-											@"20091014" , @"H_S_H",
-											@"20091014" , @"H_S_S",
-											@"20091014" , @"H_S_W"
+											@"20100307" , @"C_N_H",
+											@"20100307" , @"C_N_S",
+											@"20100307" , @"C_N_W",
+											@"20100307" , @"C_S_W",
+											@"20100307" , @"D_N_H",
+											@"20100307" , @"D_N_S",
+											@"20100307" , @"D_N_W",
+											@"20100307" , @"D_S_H",
+											@"20100307" , @"D_S_S",
+											@"20100307" , @"D_S_W",
+											@"20100307" , @"E_N_H",
+											@"20100307" , @"E_N_S",
+											@"20100307" , @"E_N_W",
+											@"20100307" , @"E_S_H",
+											@"20100307" , @"E_S_S",
+											@"20100307" , @"E_S_W",
+											@"20100307" , @"F_N_W",
+											@"20100307" , @"F_S_H",
+											@"20100307" , @"F_S_S",
+											@"20100307" , @"F_S_W",
+											@"20100307" , @"H_N_H",
+											@"20100307" , @"H_N_S",
+											@"20100307" , @"H_N_W",
+											@"20100307" , @"H_S_H",
+											@"20100307" , @"H_S_S",
+											@"20100307" , @"H_S_W"
 											, nil];
 	
     NSDictionary *appDefaults = [NSDictionary
@@ -85,6 +85,8 @@
 
 - (void)dealloc
 {
+	[_updateCheckConnection setDelegate:nil];
+	[_lineUpdateConnection setDelegate:nil];
 	[_linesToRoutesToUpdate release];
 	[super dealloc];
 }
@@ -170,7 +172,7 @@
 			if([_linesToRoutesToUpdate count] > 0)
 			{
 				[_currentUpdateLine release];
-				_currentUpdateLine = [[_linesToRoutesToUpdate allKeys] objectAtIndex:0];
+				_currentUpdateLine = [[[_linesToRoutesToUpdate allKeys] objectAtIndex:0] retain];
 				[self showUpdateAlert];
 			}
 			else {
@@ -213,7 +215,7 @@
 		if([_linesToRoutesToUpdate count] > 0)
 		{
 			[_currentUpdateLine release];
-			_currentUpdateLine = [[_linesToRoutesToUpdate allKeys] objectAtIndex:0];
+			_currentUpdateLine = [[[_linesToRoutesToUpdate allKeys] objectAtIndex:0] retain];
 			[self showUpdateAlert];
 		}
 	}
@@ -346,6 +348,7 @@
 	NSURLRequest *request = [NSURLRequest requestWithURL:
 							 [NSURL URLWithString:[NSString stringWithFormat:@"%@%@.txt",kBasePath,route]]];
 	
+	[_lineUpdateConnection setDelegate:nil];
 	[_lineUpdateConnection release];
 	_lineUpdateConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"LineUpdate"];
 	
@@ -368,7 +371,7 @@
 		if([_linesToRoutesToUpdate count] > 0)
 		{
 			[_currentUpdateLine release];
-			_currentUpdateLine = [[_linesToRoutesToUpdate allKeys] objectAtIndex:0];
+			_currentUpdateLine = [[[_linesToRoutesToUpdate allKeys] objectAtIndex:0] retain];
 			[self showUpdateAlert];
 		}
 	}

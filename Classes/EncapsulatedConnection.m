@@ -10,6 +10,8 @@
 
 @implementation EncapsulatedConnection
 
+@synthesize delegate;
+
 -(id)initWithRequest:(NSURLRequest *)request delegate:(id<EncapsulatedConnectionDelegate>)del identifier:(NSString *)ident
 {
 	if(self = [super init])
@@ -26,6 +28,7 @@
 
 -(void)dealloc
 {
+	delegate = nil;
 	[_connectionRequest release];
 	_connectionRequest = nil;
 	[_connection cancel];
