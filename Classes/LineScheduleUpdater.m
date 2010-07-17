@@ -102,97 +102,106 @@
 
 - (void)connection:(EncapsulatedConnection *)connection returnedWithData:(NSData *)data
 {
-	if([[connection identifier] isEqualToString:@"updateCheck"])
+	@try 
 	{
-		NSString *returnString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-		
-		if(! returnString)
+
+		if([[connection identifier] isEqualToString:@"updateCheck"])
 		{
-			returnString = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
-		}
-		
-		//Strategy for updating:
-		// 1. Check the structure by line
-		// 2. go through schedule by daytype/direction
-		// 3. If the date in the structure in newer than the date in our preferences
-		//    then queue up a set to be updated for that line.  Add each schedule to
-		//    the set that has been updated
-		// 4. Ask the user if they want to update the data for the line
-		// 5. If yes, start the update by downloading the updated routes.
-		// 6. Delete any current route information and load the new information
-		// 7. Commit the save only after that route has been updated completely
-		//
-		
-		if(returnString)
-		{
-			NSDictionary *parsedStructure = [returnString JSONValue];
-			if([parsedStructure isKindOfClass:[NSDictionary class]])
-			{
-				
-				[self updateRoutesFromDict:parsedStructure];
-			}
-		}
-	}
-	else if([[connection identifier] isEqualToString:@"LineUpdate"])
-	{
-		NSString *returnString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-		
-		if(! returnString)
-		{
-			returnString = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
-		}
-		
-		if(returnString)
-		{
-			//load the new line
-			[LineLoader loadStopData:returnString 
-					 withLinesByName:_linesByName 
-					 andStationsByID:_stationsByID 
-			  inManagedObjectContext:_managedObjectContext];
-			NSError *error = nil;
-			[_managedObjectContext save:&error];
-			_schedulesUpdated++;
+			NSString *returnString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
 			
-			if(error == nil)
+			if(! returnString)
 			{
-				NSMutableDictionary *lastUpdateTimes = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LineUpdateDates"] mutableCopy];
-				[lastUpdateTimes setObject:[_routesToNewDates objectForKey:_currentUpdateRoute] forKey:_currentUpdateRoute];
-				[[NSUserDefaults standardUserDefaults] setObject:lastUpdateTimes forKey:@"LineUpdateDates"];
-				[[NSUserDefaults standardUserDefaults] synchronize];
-				[lastUpdateTimes release];
+				returnString = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
 			}
-		}
-		
-		//move to the next line if the current line is done
-		//otherwise just do the next update
-		if(! [_linesToRoutesToUpdate objectForKey:_currentUpdateLine] || 
-		   [[_linesToRoutesToUpdate objectForKey:_currentUpdateLine] count] == 0)
-		{
-			[_linesToRoutesToUpdate removeObjectForKey:_currentUpdateLine];
-			if([_linesToRoutesToUpdate count] > 0)
+			
+			//Strategy for updating:
+			// 1. Check the structure by line
+			// 2. go through schedule by daytype/direction
+			// 3. If the date in the structure in newer than the date in our preferences
+			//    then queue up a set to be updated for that line.  Add each schedule to
+			//    the set that has been updated
+			// 4. Ask the user if they want to update the data for the line
+			// 5. If yes, start the update by downloading the updated routes.
+			// 6. Delete any current route information and load the new information
+			// 7. Commit the save only after that route has been updated completely
+			//
+			
+			if(returnString)
 			{
-				[_currentUpdateLine release];
-				_currentUpdateLine = [[[_linesToRoutesToUpdate allKeys] objectAtIndex:0] retain];
-				[self showUpdateAlert];
-			}
-			else {
-				if(_schedulesUpdated > 0)
+				NSDictionary *parsedStructure = [returnString JSONValue];
+				if([parsedStructure isKindOfClass:[NSDictionary class]])
 				{
-					[[NSNotificationCenter defaultCenter] postNotification:
-					 [NSNotification notificationWithName:@"UpdateFinishedNotification" object:nil]];
+					
+					[self updateRoutesFromDict:parsedStructure];
 				}
+			}
+		}
+		else if([[connection identifier] isEqualToString:@"LineUpdate"])
+		{
+			NSString *returnString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+			
+			if(! returnString)
+			{
+				returnString = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
+			}
+			
+			if(returnString)
+			{
+				//load the new line
+				[LineLoader loadStopData:returnString 
+						 withLinesByName:_linesByName 
+						 andStationsByID:_stationsByID 
+				  inManagedObjectContext:_managedObjectContext];
+				NSError *error = nil;
+				[_managedObjectContext save:&error];
+				_schedulesUpdated++;
 				
-				//we are done so hide the loading view
-				[self hideLoadingView];
+				if(error == nil)
+				{
+					NSMutableDictionary *lastUpdateTimes = [[[NSUserDefaults standardUserDefaults] objectForKey:@"LineUpdateDates"] mutableCopy];
+					[lastUpdateTimes setObject:[_routesToNewDates objectForKey:_currentUpdateRoute] forKey:_currentUpdateRoute];
+					[[NSUserDefaults standardUserDefaults] setObject:lastUpdateTimes forKey:@"LineUpdateDates"];
+					[[NSUserDefaults standardUserDefaults] synchronize];
+					[lastUpdateTimes release];
+				}
+			}
+			
+			//move to the next line if the current line is done
+			//otherwise just do the next update
+			if(! [_linesToRoutesToUpdate objectForKey:_currentUpdateLine] || 
+			   [[_linesToRoutesToUpdate objectForKey:_currentUpdateLine] count] == 0)
+			{
+				[_linesToRoutesToUpdate removeObjectForKey:_currentUpdateLine];
+				if([_linesToRoutesToUpdate count] > 0)
+				{
+					[_currentUpdateLine release];
+					_currentUpdateLine = [[[_linesToRoutesToUpdate allKeys] objectAtIndex:0] retain];
+					[self showUpdateAlert];
+				}
+				else {
+					if(_schedulesUpdated > 0)
+					{
+						[[NSNotificationCenter defaultCenter] postNotification:
+						 [NSNotification notificationWithName:@"UpdateFinishedNotification" object:nil]];
+					}
+					
+					//we are done so hide the loading view
+					[self hideLoadingView];
+				}
+
+			}
+			else 
+			{
+				[self performUpdate];
 			}
 
+			
 		}
-		else 
-		{
-			[self performUpdate];
-		}
-
 		
+	}
+	@catch (NSException * e) 
+	{
+		[FlurryAPI logError:@"Uncaught Exception" message:@"exception thrown during update" error:@"update error"];
 	}
 
 }
