@@ -10,39 +10,13 @@
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */; };
 		14191D3F104AEF0C00C87383 /* RTDIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon_57x57.png */; };
+		1433BE8711FBDD9B00A68FAF /* RTD1.3.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 1433BE8611FBDD9B00A68FAF /* RTD1.3.sqlite */; };
 		144D7F0E11FBD8F700318FBA /* RTDIcon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 144D7F0D11FBD8F700318FBA /* RTDIcon_114x114.png */; };
 		144D7F2111FBD9F800318FBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 144D7F2011FBD9F800318FBA /* Default@2x.png */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		14791D1510C8C41B00DB94C3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14791D1410C8C41B00DB94C3 /* Default.png */; };
-		14797B8F10F16A0A0072F052 /* C_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8B10F16A0A0072F052 /* C_N_H.txt */; };
-		14797B9010F16A0A0072F052 /* C_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8C10F16A0A0072F052 /* C_N_S.txt */; };
-		14797B9110F16A0A0072F052 /* C_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8D10F16A0A0072F052 /* C_N_W.txt */; };
-		14797B9210F16A0A0072F052 /* C_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B8E10F16A0A0072F052 /* C_S_W.txt */; };
-		14797B9910F16A160072F052 /* D_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9310F16A160072F052 /* D_N_H.txt */; };
-		14797B9A10F16A160072F052 /* D_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9410F16A160072F052 /* D_N_S.txt */; };
-		14797B9B10F16A160072F052 /* D_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9510F16A160072F052 /* D_N_W.txt */; };
-		14797B9C10F16A160072F052 /* D_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9610F16A160072F052 /* D_S_H.txt */; };
-		14797B9D10F16A160072F052 /* D_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9710F16A160072F052 /* D_S_S.txt */; };
-		14797B9E10F16A160072F052 /* D_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9810F16A160072F052 /* D_S_W.txt */; };
-		14797BA510F16A200072F052 /* E_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797B9F10F16A200072F052 /* E_N_H.txt */; };
-		14797BA610F16A200072F052 /* E_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA010F16A200072F052 /* E_N_S.txt */; };
-		14797BA710F16A200072F052 /* E_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA110F16A200072F052 /* E_N_W.txt */; };
-		14797BA810F16A200072F052 /* E_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA210F16A200072F052 /* E_S_H.txt */; };
-		14797BA910F16A200072F052 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA310F16A200072F052 /* E_S_S.txt */; };
-		14797BAA10F16A200072F052 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BA410F16A200072F052 /* E_S_W.txt */; };
-		14797BAF10F16A270072F052 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAB10F16A270072F052 /* F_N_W.txt */; };
-		14797BB010F16A270072F052 /* F_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAC10F16A270072F052 /* F_S_H.txt */; };
-		14797BB110F16A270072F052 /* F_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAD10F16A270072F052 /* F_S_S.txt */; };
-		14797BB210F16A270072F052 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BAE10F16A270072F052 /* F_S_W.txt */; };
-		14797BB910F16A300072F052 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB310F16A300072F052 /* H_N_H.txt */; };
-		14797BBA10F16A300072F052 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB410F16A300072F052 /* H_N_S.txt */; };
-		14797BBB10F16A300072F052 /* H_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB510F16A300072F052 /* H_N_W.txt */; };
-		14797BBC10F16A300072F052 /* H_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB610F16A300072F052 /* H_S_H.txt */; };
-		14797BBD10F16A300072F052 /* H_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB710F16A300072F052 /* H_S_S.txt */; };
-		14797BBE10F16A300072F052 /* H_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14797BB810F16A300072F052 /* H_S_W.txt */; };
-		14797BC410F16C230072F052 /* stop_creation.rb in Resources */ = {isa = PBXBuildFile; fileRef = 14797BC310F16C230072F052 /* stop_creation.rb */; };
 		14797BFD10F172830072F052 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 14797BFC10F172830072F052 /* Map.png */; };
 		147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 147DAD57105C1B1C0050081B /* ManualSelectViewController.xib */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
@@ -93,6 +67,7 @@
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = Classes/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14191D3E104AEF0C00C87383 /* RTDIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon_57x57.png; sourceTree = "<group>"; };
+		1433BE8611FBDD9B00A68FAF /* RTD1.3.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD1.3.sqlite; sourceTree = "<group>"; };
 		144D7F0D11FBD8F700318FBA /* RTDIcon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon_114x114.png; sourceTree = "<group>"; };
 		144D7F2011FBD9F800318FBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -381,6 +356,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				1433BE8611FBDD9B00A68FAF /* RTD1.3.sqlite */,
 				149055591103B3090059B5F2 /* FlurryAPI.h */,
 				14797BFC10F172830072F052 /* Map.png */,
 				14797BC310F16C230072F052 /* stop_creation.rb */,
@@ -487,36 +463,10 @@
 				14FBCE3A106EBDE3002D6185 /* StationChangeViewController.xib in Resources */,
 				14791D1510C8C41B00DB94C3 /* Default.png in Resources */,
 				14BCE4F210CC4404003E4391 /* RTDMapViewController.xib in Resources */,
-				14797B8F10F16A0A0072F052 /* C_N_H.txt in Resources */,
-				14797B9010F16A0A0072F052 /* C_N_S.txt in Resources */,
-				14797B9110F16A0A0072F052 /* C_N_W.txt in Resources */,
-				14797B9210F16A0A0072F052 /* C_S_W.txt in Resources */,
-				14797B9910F16A160072F052 /* D_N_H.txt in Resources */,
-				14797B9A10F16A160072F052 /* D_N_S.txt in Resources */,
-				14797B9B10F16A160072F052 /* D_N_W.txt in Resources */,
-				14797B9C10F16A160072F052 /* D_S_H.txt in Resources */,
-				14797B9D10F16A160072F052 /* D_S_S.txt in Resources */,
-				14797B9E10F16A160072F052 /* D_S_W.txt in Resources */,
-				14797BA510F16A200072F052 /* E_N_H.txt in Resources */,
-				14797BA610F16A200072F052 /* E_N_S.txt in Resources */,
-				14797BA710F16A200072F052 /* E_N_W.txt in Resources */,
-				14797BA810F16A200072F052 /* E_S_H.txt in Resources */,
-				14797BA910F16A200072F052 /* E_S_S.txt in Resources */,
-				14797BAA10F16A200072F052 /* E_S_W.txt in Resources */,
-				14797BAF10F16A270072F052 /* F_N_W.txt in Resources */,
-				14797BB010F16A270072F052 /* F_S_H.txt in Resources */,
-				14797BB110F16A270072F052 /* F_S_S.txt in Resources */,
-				14797BB210F16A270072F052 /* F_S_W.txt in Resources */,
-				14797BB910F16A300072F052 /* H_N_H.txt in Resources */,
-				14797BBA10F16A300072F052 /* H_N_S.txt in Resources */,
-				14797BBB10F16A300072F052 /* H_N_W.txt in Resources */,
-				14797BBC10F16A300072F052 /* H_S_H.txt in Resources */,
-				14797BBD10F16A300072F052 /* H_S_S.txt in Resources */,
-				14797BBE10F16A300072F052 /* H_S_W.txt in Resources */,
-				14797BC410F16C230072F052 /* stop_creation.rb in Resources */,
 				14797BFD10F172830072F052 /* Map.png in Resources */,
 				144D7F0E11FBD8F700318FBA /* RTDIcon_114x114.png in Resources */,
 				144D7F2111FBD9F800318FBA /* Default@2x.png in Resources */,
+				1433BE8711FBDD9B00A68FAF /* RTD1.3.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -581,7 +531,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fluidvision Design, LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = RTD_Prefix.pch;
@@ -593,7 +543,7 @@
 					"\"$(SRCROOT)\"",
 				);
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "0F22AB87-54DA-4585-828A-9EDF42072F67";
 				SDKROOT = iphoneos4.0;
 			};
 			name = Distribution;
