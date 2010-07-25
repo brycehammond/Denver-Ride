@@ -12,6 +12,7 @@
 #import "Station.h"
 #import "LineLoader.h"
 #import "RTDAppDelegate.h"
+#import "FlurryAPI.h"
 
 #define kBasePath @"http://www.improbabilitydrive.com/RTD/"
 
@@ -201,7 +202,7 @@
 	}
 	@catch (NSException * e) 
 	{
-		[FlurryAPI logError:@"Uncaught Exception" message:@"exception thrown during update" error:@"update error"];
+		[FlurryAPI logError:@"Uncaught Exception" message:@"exception thrown during update" error:nil];
 	}
 
 }

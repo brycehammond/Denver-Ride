@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		140B57B2105D92DF00468DC9 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */; };
-		14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon.png */; };
+		14191D3F104AEF0C00C87383 /* RTDIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 14191D3E104AEF0C00C87383 /* RTDIcon_57x57.png */; };
+		144D7F0E11FBD8F700318FBA /* RTDIcon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 144D7F0D11FBD8F700318FBA /* RTDIcon_114x114.png */; };
+		144D7F2111FBD9F800318FBA /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 144D7F2011FBD9F800318FBA /* Default@2x.png */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1450A4C1103CB5990069B04C /* Entitlements.plist */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -90,7 +92,9 @@
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		140B57B0105D92DF00468DC9 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = Classes/TimeChangeViewController.xib; sourceTree = "<group>"; };
-		14191D3E104AEF0C00C87383 /* RTDIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon.png; sourceTree = "<group>"; };
+		14191D3E104AEF0C00C87383 /* RTDIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon_57x57.png; sourceTree = "<group>"; };
+		144D7F0D11FBD8F700318FBA /* RTDIcon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RTDIcon_114x114.png; sourceTree = "<group>"; };
+		144D7F2011FBD9F800318FBA /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1450A4C1103CB5990069B04C /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Entitlements.plist; sourceTree = "<group>"; };
@@ -385,7 +389,8 @@
 				14FBCD8C106E8D5F002D6185 /* DayTypeChangeViewController.xib */,
 				1484255E105BE1BC00DCB458 /* ClosestSelectViewController.xib */,
 				14BCE4F010CC4404003E4391 /* RTDMapViewController.xib */,
-				14191D3E104AEF0C00C87383 /* RTDIcon.png */,
+				14191D3E104AEF0C00C87383 /* RTDIcon_57x57.png */,
+				144D7F0D11FBD8F700318FBA /* RTDIcon_114x114.png */,
 				1450A4C1103CB5990069B04C /* Entitlements.plist */,
 				28860B760F44E54D00985440 /* RTD.xcdatamodel */,
 				14C6CB541032776900368298 /* StationViewController.xib */,
@@ -394,6 +399,7 @@
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				14E4D5E41034FD5700640D8B /* StationListViewController.xib */,
 				14791D1410C8C41B00DB94C3 /* Default.png */,
+				144D7F2011FBD9F800318FBA /* Default@2x.png */,
 				8D1107310486CEB800E47090 /* RTD-Info.plist */,
 				14E4DE191038CB6F00640D8B /* Readme.txt */,
 				14842560105BE1D500DCB458 /* RootViewController.xib */,
@@ -472,7 +478,7 @@
 				14C6CBDA1033038D00368298 /* RunViewController.xib in Resources */,
 				14E4D5E61034FD5700640D8B /* StationListViewController.xib in Resources */,
 				1450A4C2103CB5990069B04C /* Entitlements.plist in Resources */,
-				14191D3F104AEF0C00C87383 /* RTDIcon.png in Resources */,
+				14191D3F104AEF0C00C87383 /* RTDIcon_57x57.png in Resources */,
 				1484255F105BE1BC00DCB458 /* ClosestSelectViewController.xib in Resources */,
 				14842561105BE1D500DCB458 /* RootViewController.xib in Resources */,
 				147DAD58105C1B1C0050081B /* ManualSelectViewController.xib in Resources */,
@@ -509,6 +515,8 @@
 				14797BBE10F16A300072F052 /* H_S_W.txt in Resources */,
 				14797BC410F16C230072F052 /* stop_creation.rb in Resources */,
 				14797BFD10F172830072F052 /* Map.png in Resources */,
+				144D7F0E11FBD8F700318FBA /* RTDIcon_114x114.png in Resources */,
+				144D7F2111FBD9F800318FBA /* Default@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
