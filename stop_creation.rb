@@ -42,22 +42,22 @@ end
 						/^Evans/ => 31,
 						/^I-25/ => 14,
 						/^Alameda/ => 15,
-						/^10th \& Osage/ => 16,
+						/^10th.*Osage/ => 16,
 						/^Auraria West/ => 27,
 						/^Invesco/ => 28,
 						/^Pepsi/ => 29,
 						/^Union Station/ => 30,
 						/^Colfax at Auraria/ => 17,
 						/.*Convention Center.*/ => 18,
-						/^16th \& California/ => 19,
-            /^18th \& California/ => 20, 
-            /^20th \& Welton/ => 23, 
-            /^25th \& Welton/ => 24, 
-            /^27th \& Welton/ => 36,
-            /^29th \& Welton/ => 25, 
-            /^30th \& Downing/ => 26, 
-            /^18th \& Stout/ => 21,
-            /^16th \& Stout/ => 22, 
+						/^16th.*California/ => 19,
+            /^18th.*California/ => 20, 
+            /^20th.*Welton/ => 23, 
+            /^25th.*Welton/ => 24, 
+            /^27th.*Welton/ => 36,
+            /^29th.*Welton/ => 25, 
+            /^30th.*Downing/ => 26, 
+            /^18th.*Stout/ => 21,
+            /^16th.*Stout/ => 22, 
             /^Lincoln/ => 6,
             /^County Line/ => 5,
             /^Dry Creek/ => 4,
@@ -79,6 +79,7 @@ def number_for_station(station)
     return value if station =~ key
   end
   
+  puts "Couldn't find station #{station}"
   return 0
 end
 
