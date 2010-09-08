@@ -13,4 +13,6 @@
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
     #import <CoreData/CoreData.h>
+	#import "UIColorCategories.h"
+	#import "UIView+Categories.h"
 #endif

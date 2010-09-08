@@ -67,8 +67,10 @@ void uncaughtExceptionHandler(NSException *exception) {
 							[UIColor colorFromHex:@"0073BD" withAlpha:1], @"H",nil];
 	
 	
-	RootViewController *rootViewController = (RootViewController *)[navigationController topViewController];
+	RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
 	rootViewController.managedObjectContext = context;
+	
+	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
@@ -727,7 +729,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 	[window release];
 	[super dealloc];
 }
-\
+
 
 
 @end

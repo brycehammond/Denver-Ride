@@ -9,15 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "ChangeDirectionProtocol.h"
 #import "RTDMapViewController.h"
+#import "DenverRideBaseViewController.h"
 
 @class ClosestSelectViewController, ManualSelectViewController;
 
-@interface RootViewController : UIViewController <RTDMapViewControllerDelegate> {
+@interface RootViewController : DenverRideBaseViewController <RTDMapViewControllerDelegate> {
 	
 	NSManagedObjectContext *_managedObjectContext;
 	
-	IBOutlet UIView *_containerView;
-	IBOutlet UISegmentedControl *_northOrSouthControl;
+	UIView *_containerView;
 	
 	ClosestSelectViewController *_closestViewController;
 	ManualSelectViewController *_manualViewController;

@@ -18,10 +18,22 @@
 			closestViewController = _closestViewController,
 			manualViewController = _manualViewController;
 
+
+- (void)loadView
+{
+	[super loadView];
+	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
+															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height - 20 )];
+
+	[[self view] addSubview:_containerView];
+}
+
 -(void)viewDidLoad
 {
 	[super viewDidLoad];
 	
+	[[[self navigationController] navigationBar] setTintColor:
+	 [UIColor colorFromHex:@"70A96A" withAlpha:1]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFinished) 
 												 name:@"UpdateFinishedNotification" object:nil];
@@ -30,11 +42,11 @@
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if([direction isEqualToString:@"N"])
 	{
-		[_northOrSouthControl setSelectedSegmentIndex:0];
+		[_sectionSelectorView setToNorthbound];
 	}
 	else
 	{
-		[_northOrSouthControl setSelectedSegmentIndex:1];
+		[_sectionSelectorView setToSouthbound];
 	}
 	
 	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
