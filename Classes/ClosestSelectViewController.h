@@ -21,7 +21,7 @@
 	NSArray *_closestStationsArray;  //This is the first three stations of the sorted stationsArray by distance
 	NSMutableArray *_closestStationsStopsArray;
 	
-	IBOutlet UITableView *_closeStationsTableView;
+	UITableView *_closeStationsTableView;
 	LoadingView *_loadingView;
 	
 	NSTimer *_delayTimer;

@@ -31,6 +31,7 @@
 	frame.origin = CGPointMake(0, [self view].frame.size.height
 							   - _sectionSelectorView.frame.size.height);
 	[_sectionSelectorView setFrame:frame];
+	[_sectionSelectorView setDelegate:self];
 	
 	[[self view] addSubview:_sectionSelectorView];
 }

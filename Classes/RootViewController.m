@@ -23,8 +23,9 @@
 {
 	[super loadView];
 	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height - 20 )];
+															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height)];
 
+	[_containerView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
 	[[self view] addSubview:_containerView];
 }
 
@@ -62,7 +63,6 @@
 		
 		[[NSUserDefaults standardUserDefaults] setObject:lastTypeUsed forKey:@"LastTypeUsed"];
 	}
-	
 	
 	NSString *buttonTitle = nil;
 	if([lastTypeUsed isEqualToString:@"Closest"])
@@ -184,7 +184,7 @@
 {
 	if(! _closestViewController)
 	{
-		_closestViewController = [[ClosestSelectViewController alloc] initWithNibName:@"ClosestSelectViewController"
+		_closestViewController = [[ClosestSelectViewController alloc] initWithNibName:nil
 																			   bundle:nil];
 		[_closestViewController setManagedObjectContext:[self managedObjectContext]];
 		[_closestViewController setNavigationController:[self navigationController]];
@@ -197,13 +197,31 @@
 {
 	if(! _manualViewController)
 	{
-		_manualViewController = [[ManualSelectViewController alloc] initWithNibName:@"ManualSelectViewController" 
+		_manualViewController = [[ManualSelectViewController alloc] initWithNibName:nil 
 																			 bundle:nil];
 		[_manualViewController setManagedObjectContext:[self managedObjectContext]];
 		[_manualViewController setNavigationController:[self navigationController]];
 	}
 	
 	return _manualViewController;
+}
+
+#pragma mark MainSectionSelectorViewDelegate methods
+
+- (void)nortboundWasSelected
+{
+	NSString *direction = @"N";
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[_activeViewController changeDirectionTo:direction];
+}
+
+- (void)southboundWasSelected
+{
+	NSString *direction = @"S";
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[_activeViewController changeDirectionTo:direction];
 }
 
 @end

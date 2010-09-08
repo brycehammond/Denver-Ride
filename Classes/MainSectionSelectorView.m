@@ -13,8 +13,16 @@
 #define kMapIndex			2
 #define kBcycleIndex		3
 
+@interface MainSectionSelectorView (Private)
+
+- (void)buttonPressed:(UIButton *)button;
+
+@end
+
+
 @implementation MainSectionSelectorView
 
+@synthesize delegate;
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
@@ -34,6 +42,7 @@
 										  forState:UIControlStateNormal];
 		[_northButton setImage:[UIImage imageNamed:@"nav-northbound_down.png"]
 										  forState:UIControlStateDisabled];
+		[_northButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		[_northButton setFrame:CGRectMake(3, 4, buttonImage.size.width, buttonImage.size.height)];
 		[self addSubview:_northButton];
 		
@@ -45,6 +54,7 @@
 					  forState:UIControlStateDisabled];
 		[_southButton setFrame:CGRectMake(CGRectGetMaxX(_northButton.frame), 4,
 										  buttonImage.size.width, buttonImage.size.height)];
+		[_southButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:_southButton];
 		
 		
@@ -56,6 +66,7 @@
 					  forState:UIControlStateDisabled];
 		[_mapButton setFrame:CGRectMake(CGRectGetMaxX(_southButton.frame), 4,
 										  buttonImage.size.width, buttonImage.size.height)];
+		[_mapButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:_mapButton];
 		
 		buttonImage = [UIImage imageNamed:@"nav-bcycle.png"];
@@ -66,6 +77,7 @@
 					  forState:UIControlStateDisabled];
 		[_bcycleButton setFrame:CGRectMake(CGRectGetMaxX(_mapButton.frame), 4,
 										  buttonImage.size.width, buttonImage.size.height)];
+		[_bcycleButton addTarget:self action:@selector(buttonPressed:) forControlEvents:UIControlEventTouchUpInside];
 		[self addSubview:_bcycleButton];
 		
 		
@@ -75,10 +87,6 @@
     return self;
 }
 
-- (void)segmentSelected:(UISegmentedControl *)segmentedControl
-{
-	
-}
 
 - (id)initWithDefaultFrame
 {
@@ -91,32 +99,47 @@
 	return self;
 }
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)buttonPressed:(UIButton *)button
+{
+	[_activeButton setEnabled:YES];
+	_activeButton = button;
+	[button setEnabled:NO];
+	if(button == _northButton)
+	{
+		[delegate nortboundWasSelected];
+	}
+	else if(button == _southButton)
+	{
+		[delegate southboundWasSelected];
+	}
+	else if(button == _mapButton)
+	{
+		[delegate mapWasSelected];
+	}
+	else if(button == _bcycleButton)
+	{
+		[delegate bcycleWasSelected];
+	}
 }
-*/
 
 - (void)setToNorthbound
 {
-	
+	[self buttonPressed:_northButton];
 }
 
 - (void)setToSouthbound
 {
-	
+	[self buttonPressed:_southButton];
 }
 
 - (void)setToMap
 {
-	
+	[self buttonPressed:_mapButton];
 }
 
 - (void)setToBcycle
 {
-	
+	[self buttonPressed:_bcycleButton];
 }
 
 - (void)dealloc {

@@ -31,6 +31,31 @@ closestStationsArray = _closestStationsArray,
 closestStationsStopsArray = _closestStationsStopsArray,
 navigationController = _navigationController;
 
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+	{
+		
+	}
+	
+	return self;
+}
+
+- (void)loadView
+{
+	[super loadView];
+	[[self view] setFrame:CGRectMake(0, 0, 
+									 [[UIScreen mainScreen] bounds].size.width, 355)];
+	_closeStationsTableView = [[UITableView alloc] initWithFrame:[[self view] frame]
+														   style:UITableViewStyleGrouped];
+	[_closeStationsTableView setDelegate:self];
+	[_closeStationsTableView setDataSource:self];
+	
+	[[self view] addSubview:_closeStationsTableView];
+	
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 	

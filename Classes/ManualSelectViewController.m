@@ -34,10 +34,36 @@
 			currentStops = _currentStops,
 			currentDayType = _currentDayType;
 
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+	{
+		
+	}
+	
+	return self;
+}
+
+- (void)loadView
+{
+	[super loadView];
+	
+	[[self view] setFrame:CGRectMake(0, 0, 
+									 [[UIScreen mainScreen] bounds].size.width, 355)];
+	[[self view] setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	_manualTableView = [[UITableView alloc] initWithFrame:[[self view] frame]
+														   style:UITableViewStyleGrouped];
+	[_manualTableView setDelegate:self];
+	[_manualTableView setDataSource:self];
+	[_manualTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	[[self view] addSubview:_manualTableView];
+	
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[_manualTableView setBackgroundColor:[UIColor clearColor]];
 	[self setTimeInMinutes:[[NSDate date] minutesIntoCurrentDay]];
 	if(! [[NSUserDefaults standardUserDefaults] objectForKey:@"ManualStation"] )
 	{

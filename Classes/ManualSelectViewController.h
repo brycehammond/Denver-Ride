@@ -19,7 +19,7 @@ StationChangeViewControllerDelegate> {
 	UINavigationController *_navigationController;
 	NSManagedObjectContext *_managedObjectContext;
 	
-	IBOutlet UITableView *_manualTableView;
+	UITableView *_manualTableView;
 	NSInteger _timeInMinutes;
 	
 	NSArray *_currentStops;

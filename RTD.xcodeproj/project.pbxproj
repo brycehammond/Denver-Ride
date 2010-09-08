@@ -64,9 +64,7 @@
 		14B701DE12356E2F007B9C90 /* nav-southbound@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701C812356E2F007B9C90 /* nav-southbound@2x.png */; };
 		14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */; };
 		14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */; };
-		14B701F612356EAA007B9C90 /* ClosestSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EB12356EAA007B9C90 /* ClosestSelectViewController.xib */; };
 		14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */; };
-		14B701F912356EAA007B9C90 /* ManualSelectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EE12356EAA007B9C90 /* ManualSelectViewController.xib */; };
 		14B701FB12356EAA007B9C90 /* RTDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F012356EAA007B9C90 /* RTDMapViewController.xib */; };
 		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
 		14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* StationChangeViewController.xib */; };
@@ -172,9 +170,7 @@
 		14B701C812356E2F007B9C90 /* nav-southbound@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-southbound@2x.png"; path = "Artwork/nav-southbound@2x.png"; sourceTree = "<group>"; };
 		14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_57x57.png; path = Artwork/RTDIcon_57x57.png; sourceTree = "<group>"; };
 		14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_114x114.png; path = Artwork/RTDIcon_114x114.png; sourceTree = "<group>"; };
-		14B701EB12356EAA007B9C90 /* ClosestSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ClosestSelectViewController.xib; path = NIBs/ClosestSelectViewController.xib; sourceTree = "<group>"; };
 		14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = NIBs/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
-		14B701EE12356EAA007B9C90 /* ManualSelectViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ManualSelectViewController.xib; path = NIBs/ManualSelectViewController.xib; sourceTree = "<group>"; };
 		14B701F012356EAA007B9C90 /* RTDMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RTDMapViewController.xib; path = NIBs/RTDMapViewController.xib; sourceTree = "<group>"; };
 		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
 		14B701F212356EAA007B9C90 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = NIBs/StationChangeViewController.xib; sourceTree = "<group>"; };
@@ -285,9 +281,7 @@
 		14B7016812355C5E007B9C90 /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				14B701EB12356EAA007B9C90 /* ClosestSelectViewController.xib */,
 				14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */,
-				14B701EE12356EAA007B9C90 /* ManualSelectViewController.xib */,
 				14B701F012356EAA007B9C90 /* RTDMapViewController.xib */,
 				14B701F112356EAA007B9C90 /* RunViewController.xib */,
 				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
@@ -599,9 +593,7 @@
 				14B701DE12356E2F007B9C90 /* nav-southbound@2x.png in Resources */,
 				14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */,
 				14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */,
-				14B701F612356EAA007B9C90 /* ClosestSelectViewController.xib in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
-				14B701F912356EAA007B9C90 /* ManualSelectViewController.xib in Resources */,
 				14B701FB12356EAA007B9C90 /* RTDMapViewController.xib in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
 				14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */,
