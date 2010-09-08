@@ -26,6 +26,21 @@
 			dayType = _dayType;
 
 
+
+- (void)loadView
+{
+	[super loadView];
+	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
+															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height)
+												   style:UITableViewStyleGrouped];
+	[_stopsTableView setDelegate:self];
+	[_stopsTableView setDataSource:self];
+	
+	[[self view] addSubview:_stopsTableView];
+	
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -35,11 +50,11 @@
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 	if([direction isEqualToString:@"N"])
 	{
-		[_northOrSouthControl setSelectedSegmentIndex:0];
+		[_sectionSelectorView setToNorthbound];
 	}
 	else
 	{
-		[_northOrSouthControl setSelectedSegmentIndex:1];
+		[_sectionSelectorView setToSouthbound];
 	}
 	
 	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
@@ -60,7 +75,7 @@
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
 	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType
 {
-	if(self = [self initWithNibName:@"StationViewController" bundle:nil])
+	if(self = [self initWithNibName:nil bundle:nil])
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
@@ -80,16 +95,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-}
-
--(IBAction)changeDirection:(UISegmentedControl *)sender
-{
-	NSLog(@"%i",[sender selectedSegmentIndex]);
-	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
-							substringToIndex:1] uppercaseString];
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[self retrieveStopsInDirection:direction];
-	[_stopsTableView reloadData];
 }
 
 -(void)topRightButtonClicked:(UIBarButtonItem *)sender
@@ -256,10 +261,29 @@
 	[_stopsArray release];
 	[_managedObjectContext release];
 	[_stopsTableView release];
-	[_northOrSouthControl release];
 	[_mapController release];
 	[_station release];
     [super dealloc];
+}
+
+#pragma mark MainSectionSelectorViewDelegate methods
+
+- (void)nortboundWasSelected
+{
+	NSString *direction = @"N";
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[self retrieveStopsInDirection:direction];
+	[_stopsTableView reloadData];
+}
+
+- (void)southboundWasSelected
+{
+	NSString *direction = @"S";
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[self retrieveStopsInDirection:direction];
+	[_stopsTableView reloadData];
 }
 
 

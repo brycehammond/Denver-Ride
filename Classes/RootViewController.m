@@ -25,7 +25,7 @@
 	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
 															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height)];
 
-	[_containerView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	[_containerView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	[[self view] addSubview:_containerView];
 }
 

@@ -59,7 +59,7 @@ navigationController = _navigationController;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[_closeStationsTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	[_closeStationsTableView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
 	
 	//We haven't gotten a closest location yet so set the

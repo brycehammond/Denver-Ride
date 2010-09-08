@@ -9,17 +9,17 @@
 #import <UIKit/UIKit.h>
 #import "RunViewController.h"
 #import "RTDMapViewController.h"
+#import "DenverRideBaseViewController.h"
 
 @class Station;
 
-@interface StationViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
+@interface StationViewController : DenverRideBaseViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
 
 	NSMutableArray *_stopsArray;
 	NSManagedObjectContext *_managedObjectContext;
 	Station *_station;
 	
-	IBOutlet UISegmentedControl *_northOrSouthControl;
-	IBOutlet UITableView *_stopsTableView;
+	UITableView *_stopsTableView;
 	
 	NSInteger _currentTimeInMinutes;
 	
@@ -39,7 +39,5 @@
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
 	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType;
-
--(IBAction)changeDirection:(id)sender;
 
 @end

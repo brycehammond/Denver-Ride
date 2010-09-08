@@ -51,12 +51,12 @@
 	
 	[[self view] setFrame:CGRectMake(0, 0, 
 									 [[UIScreen mainScreen] bounds].size.width, 355)];
-	[[self view] setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	_manualTableView = [[UITableView alloc] initWithFrame:[[self view] frame]
 														   style:UITableViewStyleGrouped];
 	[_manualTableView setDelegate:self];
 	[_manualTableView setDataSource:self];
-	[_manualTableView setBackgroundColor:[UIColor colorWithWhite:0.750 alpha:1.000]];
+	[_manualTableView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	[[self view] addSubview:_manualTableView];
 	
 }

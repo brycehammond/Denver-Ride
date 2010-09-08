@@ -69,7 +69,6 @@
 		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
 		14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* StationChangeViewController.xib */; };
 		14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* StationListViewController.xib */; };
-		14B701FF12356EAA007B9C90 /* StationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F412356EAA007B9C90 /* StationViewController.xib */; };
 		14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */; };
 		14B7022912357740007B9C90 /* MainSectionSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022812357740007B9C90 /* MainSectionSelectorView.m */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
@@ -114,6 +113,7 @@
 		14842559105BD87900DCB458 /* ManualSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualSelectViewController.m; sourceTree = "<group>"; };
 		1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosestSelectViewController.h; sourceTree = "<group>"; };
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
+		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
 		14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryWithLocation.a; path = Flurry/libFlurryWithLocation.a; sourceTree = "<group>"; };
@@ -175,7 +175,6 @@
 		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
 		14B701F212356EAA007B9C90 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = NIBs/StationChangeViewController.xib; sourceTree = "<group>"; };
 		14B701F312356EAA007B9C90 /* StationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationListViewController.xib; path = NIBs/StationListViewController.xib; sourceTree = "<group>"; };
-		14B701F412356EAA007B9C90 /* StationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationViewController.xib; path = NIBs/StationViewController.xib; sourceTree = "<group>"; };
 		14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = NIBs/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14B7022712357740007B9C90 /* MainSectionSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSectionSelectorView.h; sourceTree = "<group>"; };
 		14B7022812357740007B9C90 /* MainSectionSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSectionSelectorView.m; sourceTree = "<group>"; };
@@ -274,6 +273,7 @@
 				14DDBCD81085881300583F84 /* EncapsulatedConnection.m */,
 				14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */,
 				14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */,
+				14A82114123764DB00DA7692 /* Constants.h */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -286,7 +286,6 @@
 				14B701F112356EAA007B9C90 /* RunViewController.xib */,
 				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
 				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
-				14B701F412356EAA007B9C90 /* StationViewController.xib */,
 				14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */,
 			);
 			name = NIBs;
@@ -598,7 +597,6 @@
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
 				14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */,
 				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
-				14B701FF12356EAA007B9C90 /* StationViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
