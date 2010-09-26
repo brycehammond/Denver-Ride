@@ -19,6 +19,16 @@
 			manualViewController = _manualViewController;
 
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundleOrNil
+{
+	if(self = [super initWithNibName:nibNameOrNil bundle:bundleOrNil])
+	{
+		
+	}
+	
+	return self;
+}
+
 - (void)loadView
 {
 	[super loadView];
@@ -79,17 +89,11 @@
 		[self setTitle:@"Manual Mode"];
 	}
 	
-	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
+	_typeSwitchButton = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
 														style:UIBarButtonItemStylePlain 
 																   target:self action:@selector(topRightButtonClicked:)];
-	[rightButton setPossibleTitles:[NSSet setWithObjects:@"Manual",@"Closest",nil]];
-	[[self navigationItem] setRightBarButtonItem:rightButton];
-	[rightButton release];
-	
-	UIBarButtonItem *leftButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
-													target:self action:@selector(topLeftButtonClicked:)];
-	[[self navigationItem] setLeftBarButtonItem:leftButton];
-	[leftButton release];
+	[_typeSwitchButton setPossibleTitles:[NSSet setWithObjects:@"Manual",@"Closest",nil]];
+	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton];
 	
 	[_containerView addSubview:[_activeViewController view]];
 }
@@ -154,32 +158,6 @@
 
 }
 
--(void)topLeftButtonClicked:(UIBarButtonItem *)sender
-{
-	if(! _mapViewController)
-	{
-		_mapViewController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
-		[_mapViewController setDelegate:self];
-	}
-	[self presentModalViewController:_mapViewController animated:YES];
-}
-
--(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
-{
-	[self dismissModalViewControllerAnimated:YES];
-}
-
--(IBAction)changeDirection:(UISegmentedControl *)sender
-{
-	
-	NSLog(@"%i",[sender selectedSegmentIndex]);
-	NSString *direction = [[[sender titleForSegmentAtIndex:[sender selectedSegmentIndex]]
-							substringToIndex:1] uppercaseString];
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
-	[_activeViewController changeDirectionTo:direction];
-}
-
 - (ClosestSelectViewController *)closestViewController
 {
 	if(! _closestViewController)
@@ -213,6 +191,19 @@
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[[_mapViewController view] removeFromSuperview];
+	[[_bcycleViewController view] removeFromSuperview];
+	
+	if(_activeViewController == _manualViewController)
+	{
+		[self setTitle:@"Manual Mode"];
+	}
+	else 
+	{
+		[self setTitle:@"Closest"];
+	}
+
+	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
 }
 
@@ -221,8 +212,54 @@
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[[_mapViewController view] removeFromSuperview];
+	[[_bcycleViewController view] removeFromSuperview];
+	
+	if(_activeViewController == _manualViewController)
+	{
+		[self setTitle:@"Manual Mode"];
+	}
+	else 
+	{
+		[self setTitle:@"Closest"];
+	}
+	
+	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
 }
+
+- (void)mapWasSelected
+{
+	
+	if(nil == _mapViewController)
+	{
+		_mapViewController = [[RTDMapViewController alloc] initWithNibName:nil bundle:nil];
+	}
+
+	
+	[[_bcycleViewController view] removeFromSuperview];
+	[_containerView addSubview:[_mapViewController view]];
+	[self setTitle:@"Route Map"];
+	[[self navigationItem] setRightBarButtonItem:nil]; 
+}
+
+- (void)bcycleWasSelected
+{
+	if(nil == _bcycleViewController)
+	{
+		_bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
+	}
+	else 
+	{
+		[_bcycleViewController updateAnnotations]; 
+	}
+	
+	[[_mapViewController view] removeFromSuperview];
+	[_containerView addSubview:[_bcycleViewController view]];
+	[self setTitle:@"BCycle"];
+	[[self navigationItem] setRightBarButtonItem:nil]; 
+}
+
 
 @end
 

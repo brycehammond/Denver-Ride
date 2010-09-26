@@ -10,23 +10,11 @@
 
 @class RTDMapViewController;
 
-@protocol RTDMapViewControllerDelegate
-
-- (void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController;
-
-@end
-
-
 @interface RTDMapViewController : UIViewController <UIScrollViewDelegate> {
-	IBOutlet UIScrollView *_scrollView;
+	UIScrollView *_scrollView;
 	
 	UIImageView *_mapView;
 	
-	id<RTDMapViewControllerDelegate> delegate;
 }
-
-@property (assign) id<RTDMapViewControllerDelegate> delegate;
-
-- (IBAction)doneButtonClicked:(id)sender;
 
 @end

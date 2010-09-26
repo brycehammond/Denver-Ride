@@ -44,6 +44,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	[_runTableView setBackgroundColor:[UIColor clearColor]];
 	//get the run array from the stop
 	Stop *stop = [self stop];
@@ -63,11 +64,6 @@
 
 	
 	[_bottomLine setText:[NSString stringWithFormat:@"at %@",[stop formattedTime]]];
-	
-	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
-																   target:self action:@selector(topRightButtonClicked:)];
-	[[self navigationItem] setRightBarButtonItem:rightButton];
-	[rightButton release];
 	
 	NSPredicate *predicate = nil;
 	
@@ -119,21 +115,6 @@
 	}
 
 	
-}
-
--(void)topRightButtonClicked:(UIBarButtonItem *)sender
-{
-	if(! _mapController)
-	{
-		_mapController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
-		[_mapController setDelegate:self];
-	}
-	[self presentModalViewController:_mapController animated:YES];
-}
-
--(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
-{
-	[self dismissModalViewControllerAnimated:YES];
 }
 
 -(void)dealloc

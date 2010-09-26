@@ -11,18 +11,34 @@
 
 @implementation RTDMapViewController
 
-@synthesize delegate;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+	{
+		
+	}
+	
+	return self;
+}
 
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)loadView
+{
+	[super loadView];
+	
+	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 355)];
+	
+	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1]];
+	
+	_scrollView = [[UIScrollView alloc] initWithFrame:[[self view] bounds]];
+	
 	_scrollView.contentMode = (UIViewContentModeScaleAspectFit);
     _scrollView.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
     _scrollView.maximumZoomScale = 2.5;
     _scrollView.minimumZoomScale = 1;
     _scrollView.clipsToBounds = YES;
     _scrollView.delegate = self;
+	
+	[[self view] addSubview:_scrollView];
 	
 	_mapView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Map.png"]];
 	[_scrollView setContentSize:_mapView.frame.size];
@@ -45,11 +61,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-}
-
-- (IBAction)doneButtonClicked:(id)sender
-{
-	[delegate RTDMapVieControllerDoneButtonWasClicked:self];
 }
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {

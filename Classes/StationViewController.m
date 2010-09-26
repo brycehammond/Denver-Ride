@@ -57,11 +57,6 @@
 		[_sectionSelectorView setToSouthbound];
 	}
 	
-	UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Map" style:UIBarButtonItemStylePlain 
-																  target:self action:@selector(topRightButtonClicked:)];
-	[[self navigationItem] setRightBarButtonItem:rightButton];
-	[rightButton release];
-	
 	[FlurryAPI logEvent:@"Station View" withParameters:[NSDictionary dictionaryWithObject:[_station name] forKey:@"Station"]];
 	[self retrieveStopsInDirection:direction];
 }
@@ -95,21 +90,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-}
-
--(void)topRightButtonClicked:(UIBarButtonItem *)sender
-{
-	if(! _mapController)
-	{
-		_mapController = [[RTDMapViewController alloc] initWithNibName:@"RTDMapViewController" bundle:nil];
-		[_mapController setDelegate:self];
-	}
-	[self presentModalViewController:_mapController animated:YES];
-}
-
--(void)RTDMapVieControllerDoneButtonWasClicked:(RTDMapViewController *)mapViewController
-{
-	[self dismissModalViewControllerAnimated:YES];
 }
 
 
@@ -261,7 +241,8 @@
 	[_stopsArray release];
 	[_managedObjectContext release];
 	[_stopsTableView release];
-	[_mapController release];
+	[_mapViewController release];
+	[_bcycleViewController release];
 	[_station release];
     [super dealloc];
 }
@@ -273,6 +254,11 @@
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	
+	[[_mapViewController view] removeFromSuperview];
+	[[_bcycleViewController view] removeFromSuperview];
+	
+	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
 }
@@ -282,9 +268,43 @@
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
 	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	
+	[[_mapViewController view] removeFromSuperview];
+	[[_bcycleViewController view] removeFromSuperview];
+	
+	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
 }
 
+- (void)mapWasSelected
+{
+	
+	if(nil == _mapViewController)
+	{
+		_mapViewController = [[RTDMapViewController alloc] initWithNibName:nil bundle:nil];
+	}
+	
+	
+	[[_bcycleViewController view] removeFromSuperview];
+	[_stopsTableView addSubview:[_mapViewController view]];
+	[self setTitle:@"Route Map"]; 
+}
+
+- (void)bcycleWasSelected
+{
+	if(nil == _bcycleViewController)
+	{
+		_bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
+	}
+	else 
+	{
+		[_bcycleViewController updateAnnotations]; 
+	}
+	
+	[[_mapViewController view] removeFromSuperview];
+	[_stopsTableView addSubview:[_bcycleViewController view]];
+	[self setTitle:@"BCycle"];
+}
 
 @end

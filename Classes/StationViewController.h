@@ -10,10 +10,11 @@
 #import "RunViewController.h"
 #import "RTDMapViewController.h"
 #import "DenverRideBaseViewController.h"
+#import "BCycleViewController.h"
 
 @class Station;
 
-@interface StationViewController : DenverRideBaseViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
+@interface StationViewController : DenverRideBaseViewController <UITableViewDelegate, UITableViewDataSource> {
 
 	NSMutableArray *_stopsArray;
 	NSManagedObjectContext *_managedObjectContext;
@@ -26,7 +27,8 @@
 	TimeDirection _timeDirection;
 	NSString *_dayType;
 	
-	RTDMapViewController *_mapController;
+	RTDMapViewController *_mapViewController;
+	BCycleViewController *_bcycleViewController;
 	
 }
 

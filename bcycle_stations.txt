@@ -1,0 +1,43 @@
+39.72026	-104.95672	250 Columbine
+39.72055	-104.95253	3rd & Milwaukee
+39.73078	-104.97279	9th & Downing
+39.73339	-104.98753	11th & Broadway
+39.73683	-104.98000	13th & Pearl
+39.74456	-104.99634	14th & Champa
+39.74064	-104.98863	15th & Cleveland
+39.74213	-104.99111	15th & Tremont
+39.75934	-105.01042	16th & Boulder
+39.74184	-104.98686	16th & Broadway
+39.75524	-105.00488	16th & Little Raven
+39.75746	-105.00811	16th & Platte
+39.74767	-104.99339	17th & Curtis
+39.74984	-104.99604	17th & Larimer
+39.75262	-104.99485	19th & Market
+39.74610	-104.97954	19th & Pearl
+39.75489	-104.99694	19th & Wynkoop
+39.75559	-104.99078	22nd & Market
+39.75700	-104.98550	25th & Lawrence
+39.76042	-104.98308	28th & Larimer
+39.75822	-104.98736	Broadway & Walnut
+39.68504	-104.96503	Buchtel and High
+39.71504	-104.95218	Cherry Creek Mall
+39.72767	-104.99085	Denver Health
+39.67918	-104.96299	DU Driscoll Center
+39.67666	-104.96358	DU Nagel Hall
+39.71591	-104.94633	Ellsworth & Madison
+39.68933	-104.97995	Florida & S. Pearl
+39.69341	-104.97911	Louisiana / Pearl Light Rail
+39.75011	-104.99824	Market Street Station
+39.74769	-105.00843	Pepsi Center
+39.75518	-105.00865	REI
+39.75286	-105.00003	Union Station
+39.74044	-104.99019	Webb Building
+39.74329	-104.99107	1550 Glenarm
+39.74267	-104.99391	14th & Welton
+39.75459	-104.97805	Five Points
+39.74956	-104.98073	Park Ave West & Tremont
+39.75244	-105.00379	15th & Delgany
+39.73258	-104.95989	Denver Botanic Gardens
+39.73713	-104.98870	Denver Public Library
+39.74684	-105.00029	1350 Larimer
+39.72778	-104.98373	7th and Grant

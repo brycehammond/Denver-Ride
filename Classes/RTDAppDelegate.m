@@ -72,6 +72,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 	
+	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 	

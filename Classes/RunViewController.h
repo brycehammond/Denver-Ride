@@ -16,7 +16,7 @@ typedef enum {
 
 @class Stop;
 
-@interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, RTDMapViewControllerDelegate> {
+@interface RunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
 	NSArray *_runArray;
 	Stop *_stop;
 	NSManagedObjectContext *_managedObjectContext;

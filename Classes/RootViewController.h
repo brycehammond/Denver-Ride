@@ -9,20 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "ChangeDirectionProtocol.h"
 #import "RTDMapViewController.h"
+#import "BCycleViewController.h"
 #import "DenverRideBaseViewController.h"
 
 @class ClosestSelectViewController, ManualSelectViewController;
 
-@interface RootViewController : DenverRideBaseViewController <RTDMapViewControllerDelegate> {
+@interface RootViewController : DenverRideBaseViewController {
 	
 	NSManagedObjectContext *_managedObjectContext;
 	
 	UIView *_containerView;
 	
+	UIBarButtonItem *_typeSwitchButton;
+	
 	ClosestSelectViewController *_closestViewController;
 	ManualSelectViewController *_manualViewController;
 	
 	RTDMapViewController *_mapViewController;
+	BCycleViewController *_bcycleViewController;
 	
 	UIViewController<ChangeDirectionProtocol> *_activeViewController;
 	
@@ -32,6 +36,5 @@
 @property (nonatomic, retain) ClosestSelectViewController *closestViewController;
 @property (nonatomic, retain) ManualSelectViewController *manualViewController;
 
--(IBAction)changeDirection:(id)sender;
 
 @end

@@ -10,6 +10,10 @@
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDC124FD3B700A643AA /* BCycleViewController.m */; };
+		145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDF124FD3C700A643AA /* StationAnnotation.m */; };
+		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
+		145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 145BFFF4124FD52D00A643AA /* bcycle_stations.txt */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
@@ -65,7 +69,6 @@
 		14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */; };
 		14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */; };
 		14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */; };
-		14B701FB12356EAA007B9C90 /* RTDMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F012356EAA007B9C90 /* RTDMapViewController.xib */; };
 		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
 		14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* StationChangeViewController.xib */; };
 		14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* StationListViewController.xib */; };
@@ -108,6 +111,12 @@
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		145BFFDB124FD3B700A643AA /* BCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCycleViewController.h; sourceTree = "<group>"; };
+		145BFFDC124FD3B700A643AA /* BCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCycleViewController.m; sourceTree = "<group>"; };
+		145BFFDE124FD3C700A643AA /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
+		145BFFDF124FD3C700A643AA /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
+		145BFFE3124FD4AE00A643AA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos3.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
+		145BFFF4124FD52D00A643AA /* bcycle_stations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bcycle_stations.txt; sourceTree = "<group>"; };
 		147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDirectionProtocol.h; sourceTree = "<group>"; };
 		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
 		14842559105BD87900DCB458 /* ManualSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualSelectViewController.m; sourceTree = "<group>"; };
@@ -171,7 +180,6 @@
 		14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_57x57.png; path = Artwork/RTDIcon_57x57.png; sourceTree = "<group>"; };
 		14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_114x114.png; path = Artwork/RTDIcon_114x114.png; sourceTree = "<group>"; };
 		14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = NIBs/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
-		14B701F012356EAA007B9C90 /* RTDMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RTDMapViewController.xib; path = NIBs/RTDMapViewController.xib; sourceTree = "<group>"; };
 		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
 		14B701F212356EAA007B9C90 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = NIBs/StationChangeViewController.xib; sourceTree = "<group>"; };
 		14B701F312356EAA007B9C90 /* StationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationListViewController.xib; path = NIBs/StationListViewController.xib; sourceTree = "<group>"; };
@@ -245,6 +253,7 @@
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
 				14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */,
+				145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +278,8 @@
 				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 				14B22F9B1067B40800DE07CD /* LineLoader.h */,
 				14B22F9C1067B40800DE07CD /* LineLoader.m */,
+				145BFFDE124FD3C700A643AA /* StationAnnotation.h */,
+				145BFFDF124FD3C700A643AA /* StationAnnotation.m */,
 				14DDBCD71085881300583F84 /* EncapsulatedConnection.h */,
 				14DDBCD81085881300583F84 /* EncapsulatedConnection.m */,
 				14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */,
@@ -282,7 +293,6 @@
 			isa = PBXGroup;
 			children = (
 				14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */,
-				14B701F012356EAA007B9C90 /* RTDMapViewController.xib */,
 				14B701F112356EAA007B9C90 /* RunViewController.xib */,
 				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
 				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
@@ -294,6 +304,7 @@
 		14B7017112356D96007B9C90 /* App Resources */ = {
 			isa = PBXGroup;
 			children = (
+				145BFFF4124FD52D00A643AA /* bcycle_stations.txt */,
 				14B7017512356DCA007B9C90 /* Entitlements.plist */,
 				14B7017612356DCA007B9C90 /* main.m */,
 				14B7017712356DCA007B9C90 /* RTD_Prefix.pch */,
@@ -408,6 +419,8 @@
 		14E4D5E81034FD9100640D8B /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				145BFFDB124FD3B700A643AA /* BCycleViewController.h */,
+				145BFFDC124FD3B700A643AA /* BCycleViewController.m */,
 				14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */,
 				14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */,
 				28C286DF0D94DF7D0034E888 /* RootViewController.h */,
@@ -482,6 +495,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				145BFFE3124FD4AE00A643AA /* MapKit.framework */,
 				14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
@@ -522,6 +536,7 @@
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "RTD" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -593,11 +608,11 @@
 				14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */,
 				14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
-				14B701FB12356EAA007B9C90 /* RTDMapViewController.xib in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
 				14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */,
 				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
+				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +655,8 @@
 				14B7022912357740007B9C90 /* MainSectionSelectorView.m in Sources */,
 				14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */,
 				14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */,
+				145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */,
+				145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +697,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Distribution;
 		};
@@ -704,7 +721,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Debug;
 		};
@@ -726,7 +743,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.0;
+				SDKROOT = iphoneos4.1;
 			};
 			name = Release;
 		};
