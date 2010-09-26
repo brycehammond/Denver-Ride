@@ -670,8 +670,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 				  withLines:linesByName andStations:stationsByName];
 	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_N_W" ofType:@"txt"]
 				  withLines:linesByName andStations:stationsByName];
-	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_H" ofType:@"txt"]
-				  withLines:linesByName andStations:stationsByName];
 	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_S" ofType:@"txt"]
 				  withLines:linesByName andStations:stationsByName];
 	[self loadStopsFromPath:[[NSBundle mainBundle] pathForResource:@"F_S_W" ofType:@"txt"]

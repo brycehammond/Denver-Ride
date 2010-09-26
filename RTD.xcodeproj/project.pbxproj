@@ -10,6 +10,8 @@
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
+		145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B006A124FFC4300A643AA /* NSData+gzip.m */; };
+		145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 145B006C124FFCFE00A643AA /* libz.dylib */; };
 		145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDC124FD3B700A643AA /* BCycleViewController.m */; };
 		145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDF124FD3C700A643AA /* StationAnnotation.m */; };
 		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
@@ -38,8 +40,6 @@
 		14B701A812356E08007B9C90 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018E12356E08007B9C90 /* E_S_S.txt */; };
 		14B701A912356E08007B9C90 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018F12356E08007B9C90 /* E_S_W.txt */; };
 		14B701AA12356E08007B9C90 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019012356E08007B9C90 /* F_N_W.txt */; };
-		14B701AB12356E08007B9C90 /* F_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019112356E08007B9C90 /* F_S_H.txt */; };
-		14B701AC12356E08007B9C90 /* F_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019212356E08007B9C90 /* F_S_S.txt */; };
 		14B701AD12356E08007B9C90 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019312356E08007B9C90 /* F_S_W.txt */; };
 		14B701AE12356E08007B9C90 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019412356E08007B9C90 /* H_N_H.txt */; };
 		14B701AF12356E08007B9C90 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019512356E08007B9C90 /* H_N_S.txt */; };
@@ -111,6 +111,9 @@
 		1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeInMinutes.m"; sourceTree = "<group>"; };
 		1454CF2E102F69D7007F0516 /* StationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationViewController.h; sourceTree = "<group>"; };
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
+		145B0069124FFC4300A643AA /* NSData+gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+gzip.h"; sourceTree = "<group>"; };
+		145B006A124FFC4300A643AA /* NSData+gzip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+gzip.m"; sourceTree = "<group>"; };
+		145B006C124FFCFE00A643AA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = iphoneos3.0/usr/lib/libz.dylib; sourceTree = "<group>"; };
 		145BFFDB124FD3B700A643AA /* BCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCycleViewController.h; sourceTree = "<group>"; };
 		145BFFDC124FD3B700A643AA /* BCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCycleViewController.m; sourceTree = "<group>"; };
 		145BFFDE124FD3C700A643AA /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
@@ -149,8 +152,6 @@
 		14B7018E12356E08007B9C90 /* E_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_S.txt; sourceTree = "<group>"; };
 		14B7018F12356E08007B9C90 /* E_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_W.txt; sourceTree = "<group>"; };
 		14B7019012356E08007B9C90 /* F_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_N_W.txt; sourceTree = "<group>"; };
-		14B7019112356E08007B9C90 /* F_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_H.txt; sourceTree = "<group>"; };
-		14B7019212356E08007B9C90 /* F_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_S.txt; sourceTree = "<group>"; };
 		14B7019312356E08007B9C90 /* F_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_W.txt; sourceTree = "<group>"; };
 		14B7019412356E08007B9C90 /* H_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_H.txt; sourceTree = "<group>"; };
 		14B7019512356E08007B9C90 /* H_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_S.txt; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
 				14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */,
 				145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */,
+				145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +287,8 @@
 				14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */,
 				14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */,
 				14A82114123764DB00DA7692 /* Constants.h */,
+				145B0069124FFC4300A643AA /* NSData+gzip.h */,
+				145B006A124FFC4300A643AA /* NSData+gzip.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -342,8 +346,6 @@
 				14B7018E12356E08007B9C90 /* E_S_S.txt */,
 				14B7018F12356E08007B9C90 /* E_S_W.txt */,
 				14B7019012356E08007B9C90 /* F_N_W.txt */,
-				14B7019112356E08007B9C90 /* F_S_H.txt */,
-				14B7019212356E08007B9C90 /* F_S_S.txt */,
 				14B7019312356E08007B9C90 /* F_S_W.txt */,
 				14B7019412356E08007B9C90 /* H_N_H.txt */,
 				14B7019512356E08007B9C90 /* H_N_S.txt */,
@@ -495,6 +497,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				145B006C124FFCFE00A643AA /* libz.dylib */,
 				145BFFE3124FD4AE00A643AA /* MapKit.framework */,
 				14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
@@ -577,8 +580,6 @@
 				14B701A812356E08007B9C90 /* E_S_S.txt in Resources */,
 				14B701A912356E08007B9C90 /* E_S_W.txt in Resources */,
 				14B701AA12356E08007B9C90 /* F_N_W.txt in Resources */,
-				14B701AB12356E08007B9C90 /* F_S_H.txt in Resources */,
-				14B701AC12356E08007B9C90 /* F_S_S.txt in Resources */,
 				14B701AD12356E08007B9C90 /* F_S_W.txt in Resources */,
 				14B701AE12356E08007B9C90 /* H_N_H.txt in Resources */,
 				14B701AF12356E08007B9C90 /* H_N_S.txt in Resources */,
@@ -657,6 +658,7 @@
 				14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */,
 				145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */,
 				145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */,
+				145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
