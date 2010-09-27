@@ -36,6 +36,9 @@
 @synthesize currentDayType;
 
 
+#define kDatabaseVersionKey	@"DatabaseVersionKey"
+#define kInitialDatabaseVersion @"RTD2.0"
+
 #pragma mark -
 #pragma mark Application lifecycle
 
@@ -50,7 +53,15 @@ void uncaughtExceptionHandler(NSException *exception) {
 	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
 	[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 	
-    // Override point for customization after app launch
+    
+	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
+	if(nil == _currentDatabaseVersion)
+	{
+		_currentDatabaseVersion = [[NSString alloc] initWithString:kInitialDatabaseVersion];
+		[[NSUserDefaults standardUserDefaults] setObject:_currentDatabaseVersion forKey:kDatabaseVersionKey];
+		[[NSUserDefaults standardUserDefaults] synchronize];
+	}
+	
     
 	NSManagedObjectContext *context = self.managedObjectContext;
 	
@@ -164,17 +175,15 @@ void uncaughtExceptionHandler(NSException *exception) {
         return persistentStoreCoordinator;
     }
 	
-	NSString *RTDversion = @"RTD1.3";
-	
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent:
-											   [RTDversion stringByAppendingString:@".sqlite"]]];
+											   [_currentDatabaseVersion stringByAppendingString:@".sqlite"]]];
 	
 	NSError *error;
 	
-	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[RTDversion stringByAppendingString:@".sqlite"]];
+	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[_currentDatabaseVersion stringByAppendingString:@".sqlite"]];
 	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
     if (fileHandle == nil) {
-        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:RTDversion ofType:@"sqlite"];
+        NSString *defaultPath = [[NSBundle mainBundle] pathForResource:kInitialDatabaseVersion ofType:@"sqlite"];
         if (defaultPath) {
 			NSError *error;
 			[[NSFileManager defaultManager] copyItemAtPath:defaultPath

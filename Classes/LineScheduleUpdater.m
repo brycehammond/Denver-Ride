@@ -14,8 +14,6 @@
 #import "RTDAppDelegate.h"
 #import "FlurryAPI.h"
 
-#define kBasePath @"http://www.improbabilitydrive.com/RTD/"
-
 @interface LineScheduleUpdater (Private)
 - (NSString *)currentISODate;
 - (void)updateRouteForSchedule:(NSString *)route;
@@ -33,39 +31,12 @@
 +(void)initialize
 {
 	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSDictionary *lastUpdated = [NSDictionary dictionaryWithObjectsAndKeys:
-											@"20100717" , @"C_N_H",
-											@"20100717" , @"C_N_S",
-											@"20100717" , @"C_N_W",
-											@"20100717" , @"C_S_W",
-											@"20100717" , @"D_N_H",
-											@"20100717" , @"D_N_S",
-											@"20100717" , @"D_N_W",
-											@"20100717" , @"D_S_H",
-											@"20100717" , @"D_S_S",
-											@"20100717" , @"D_S_W",
-											@"20100717" , @"E_N_H",
-											@"20100717" , @"E_N_S",
-											@"20100717" , @"E_N_W",
-											@"20100717" , @"E_S_H",
-											@"20100717" , @"E_S_S",
-											@"20100717" , @"E_S_W",
-											@"20100717" , @"F_N_W",
-											@"20100717" , @"F_S_H",
-											@"20100717" , @"F_S_S",
-											@"20100717" , @"F_S_W",
-											@"20100717" , @"H_N_H",
-											@"20100717" , @"H_N_S",
-											@"20100717" , @"H_N_W",
-											@"20100717" , @"H_S_H",
-											@"20100717" , @"H_S_S",
-											@"20100717" , @"H_S_W"
-											, nil];
 	
-    NSDictionary *appDefaults = [NSDictionary
-								 dictionaryWithObjectsAndKeys:lastUpdated,@"LineUpdateDates",nil];
-	
-    [defaults registerDefaults:appDefaults];
+	if(nil == [defaults stringForKey:@"DatabaseUpdateDate"])
+	{
+		[defaults setObject:@"20100926" forKey:@"DatabaseUpdateDate"];
+		[defaults synchronize];
+	}
 }
 
 -(id)initWithMainWindow:(UIWindow *)window andManagedObjectContext:(NSManagedObjectContext *)managedObjectContext

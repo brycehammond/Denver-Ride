@@ -12,6 +12,8 @@
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B006A124FFC4300A643AA /* NSData+gzip.m */; };
 		145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 145B006C124FFCFE00A643AA /* libz.dylib */; };
+		145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B00A4125014C100A643AA /* DatabaseUpdater.m */; };
+		145B00C31250512D00A643AA /* loadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145B00C21250512D00A643AA /* loadingView.xib */; };
 		145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDC124FD3B700A643AA /* BCycleViewController.m */; };
 		145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDF124FD3C700A643AA /* StationAnnotation.m */; };
 		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
@@ -114,6 +116,9 @@
 		145B0069124FFC4300A643AA /* NSData+gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+gzip.h"; sourceTree = "<group>"; };
 		145B006A124FFC4300A643AA /* NSData+gzip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+gzip.m"; sourceTree = "<group>"; };
 		145B006C124FFCFE00A643AA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = iphoneos3.0/usr/lib/libz.dylib; sourceTree = "<group>"; };
+		145B00A3125014C100A643AA /* DatabaseUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseUpdater.h; sourceTree = "<group>"; };
+		145B00A4125014C100A643AA /* DatabaseUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseUpdater.m; sourceTree = "<group>"; };
+		145B00C21250512D00A643AA /* loadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loadingView.xib; sourceTree = "<group>"; };
 		145BFFDB124FD3B700A643AA /* BCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCycleViewController.h; sourceTree = "<group>"; };
 		145BFFDC124FD3B700A643AA /* BCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCycleViewController.m; sourceTree = "<group>"; };
 		145BFFDE124FD3C700A643AA /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
@@ -265,6 +270,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				145B00871250001000A643AA /* Categories */,
 				14B7017212356D9E007B9C90 /* Flurry */,
 				14DDBCB91085801F00583F84 /* JSON */,
 				14E4D9DB10373BF300640D8B /* Views */,
@@ -272,12 +278,6 @@
 				14E4D5E71034FD7400640D8B /* Models */,
 				1D3623240D0F684500981E51 /* RTDAppDelegate.h */,
 				1D3623250D0F684500981E51 /* RTDAppDelegate.m */,
-				14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */,
-				14E4DD891038B8BB00640D8B /* UIColorCategories.m */,
-				14B7029B1235CBB1007B9C90 /* UIView+Categories.h */,
-				14B7029C1235CBB1007B9C90 /* UIView+Categories.m */,
-				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
-				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 				14B22F9B1067B40800DE07CD /* LineLoader.h */,
 				14B22F9C1067B40800DE07CD /* LineLoader.m */,
 				145BFFDE124FD3C700A643AA /* StationAnnotation.h */,
@@ -287,10 +287,25 @@
 				14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */,
 				14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */,
 				14A82114123764DB00DA7692 /* Constants.h */,
+				145B00A3125014C100A643AA /* DatabaseUpdater.h */,
+				145B00A4125014C100A643AA /* DatabaseUpdater.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		145B00871250001000A643AA /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */,
+				14E4DD891038B8BB00640D8B /* UIColorCategories.m */,
+				14B7029B1235CBB1007B9C90 /* UIView+Categories.h */,
+				14B7029C1235CBB1007B9C90 /* UIView+Categories.m */,
+				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
+				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 				145B0069124FFC4300A643AA /* NSData+gzip.h */,
 				145B006A124FFC4300A643AA /* NSData+gzip.m */,
 			);
-			path = Classes;
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		14B7016812355C5E007B9C90 /* NIBs */ = {
@@ -301,6 +316,7 @@
 				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
 				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
 				14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */,
+				145B00C21250512D00A643AA /* loadingView.xib */,
 			);
 			name = NIBs;
 			sourceTree = "<group>";
@@ -614,6 +630,7 @@
 				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
+				145B00C31250512D00A643AA /* loadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -659,6 +676,7 @@
 				145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */,
 				145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */,
 				145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */,
+				145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

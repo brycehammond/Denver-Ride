@@ -35,19 +35,25 @@
 		[self addSubview:_activityIndicator];
 		[_activityIndicator startAnimating];
 		
+		_progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
+		_progressView.frame = CGRectMake(41.0, 213.0, 237.0, 9.0);
+		_progressView.progress = 0;
+		_progressView.progressViewStyle = UIProgressViewStyleDefault;
+		[self addSubview:_progressView];
+
     }
     return self;
 }
 
 
-- (void)drawRect:(CGRect)rect {
-
-}
-
 -(void)setMessage:(NSString *)message
 {
 	[_loadingTextLabel setText:message];
-	[self setNeedsDisplay];
+}
+
+- (void)setDownloadProgress:(double)progress
+{
+	[_progressView setProgress:progress];
 }
 
 - (void)dealloc {

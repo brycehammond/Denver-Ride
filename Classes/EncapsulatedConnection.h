@@ -16,9 +16,12 @@
 	NSMutableData *_returnData;
 	id<EncapsulatedConnectionDelegate> delegate;
 	NSString *_identifier;
+	
+	long long _totalBytesExpected;
 }
 
--(NSString *)identifier;
+- (NSString *)identifier;
+- (double)downloadPercentage;
 @property (assign) id<EncapsulatedConnectionDelegate> delegate;
 
 -(id)initWithRequest:(NSURLRequest *)request delegate:(id<EncapsulatedConnectionDelegate>)del identifier:(NSString *)ident;

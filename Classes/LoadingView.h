@@ -11,9 +11,11 @@
 
 @interface LoadingView : UIView {
 	UILabel *_loadingTextLabel;
+	UIProgressView *_progressView;
 	UIActivityIndicatorView *_activityIndicator;
 }
 
--(void)setMessage:(NSString *)message;
+- (void)setMessage:(NSString *)message;
+- (void)setDownloadProgress:(double)progress;
 
 @end

@@ -21,6 +21,7 @@
 		_connectionRequest = [request retain];
 		_returnData = [[NSMutableData alloc] init];
 		_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
+		_totalBytesExpected = 0;
 	}
 	
 	return self;
@@ -46,9 +47,15 @@
 	return _identifier;
 }
 
+- (double)downloadPercentage
+{
+	return (double)[_returnData length] / _totalBytesExpected;
+}
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 
 {	
+	_totalBytesExpected = [response expectedContentLength];
     [_returnData setLength:0];	
 }
 

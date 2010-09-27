@@ -28,6 +28,10 @@
 	LineScheduleUpdater *_lineUpdater;
 	
 	UIImageView *_defaultPngToFade;
+	
+	NSString *_currentDatabaseVersion;
+	
+	NSString *_updatingDatabaseVersion;
 }
 
 @property (nonatomic, retain, readonly) NSManagedObjectModel *managedObjectModel;
