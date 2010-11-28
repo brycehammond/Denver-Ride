@@ -13,42 +13,23 @@
 		145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B006A124FFC4300A643AA /* NSData+gzip.m */; };
 		145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 145B006C124FFCFE00A643AA /* libz.dylib */; };
 		145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B00A4125014C100A643AA /* DatabaseUpdater.m */; };
-		145B00C31250512D00A643AA /* loadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 145B00C21250512D00A643AA /* loadingView.xib */; };
 		145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDC124FD3B700A643AA /* BCycleViewController.m */; };
 		145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDF124FD3C700A643AA /* StationAnnotation.m */; };
 		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
 		145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 145BFFF4124FD52D00A643AA /* bcycle_stations.txt */; };
+		1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1465D90A129DE0F1009132DE /* DatabaseLoader.m */; };
+		1465D910129DE80E009132DE /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90C129DE80E009132DE /* routes.txt */; };
+		1465D911129DE80E009132DE /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90D129DE80E009132DE /* stop_times.txt */; };
+		1465D912129DE80E009132DE /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90E129DE80E009132DE /* stops.txt */; };
+		1465D913129DE80E009132DE /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
+		14A782DC129E138600C7F372 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
 		14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */; };
 		14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B7017512356DCA007B9C90 /* Entitlements.plist */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
-		14B7019A12356E08007B9C90 /* C_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018012356E08007B9C90 /* C_N_H.txt */; };
-		14B7019B12356E08007B9C90 /* C_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018112356E08007B9C90 /* C_N_S.txt */; };
-		14B7019C12356E08007B9C90 /* C_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018212356E08007B9C90 /* C_N_W.txt */; };
-		14B7019D12356E08007B9C90 /* C_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018312356E08007B9C90 /* C_S_W.txt */; };
-		14B7019E12356E08007B9C90 /* D_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018412356E08007B9C90 /* D_N_H.txt */; };
-		14B7019F12356E08007B9C90 /* D_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018512356E08007B9C90 /* D_N_S.txt */; };
-		14B701A012356E08007B9C90 /* D_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018612356E08007B9C90 /* D_N_W.txt */; };
-		14B701A112356E08007B9C90 /* D_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018712356E08007B9C90 /* D_S_H.txt */; };
-		14B701A212356E08007B9C90 /* D_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018812356E08007B9C90 /* D_S_S.txt */; };
-		14B701A312356E08007B9C90 /* D_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018912356E08007B9C90 /* D_S_W.txt */; };
-		14B701A412356E08007B9C90 /* E_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018A12356E08007B9C90 /* E_N_H.txt */; };
-		14B701A512356E08007B9C90 /* E_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018B12356E08007B9C90 /* E_N_S.txt */; };
-		14B701A612356E08007B9C90 /* E_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018C12356E08007B9C90 /* E_N_W.txt */; };
-		14B701A712356E08007B9C90 /* E_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018D12356E08007B9C90 /* E_S_H.txt */; };
-		14B701A812356E08007B9C90 /* E_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018E12356E08007B9C90 /* E_S_S.txt */; };
-		14B701A912356E08007B9C90 /* E_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7018F12356E08007B9C90 /* E_S_W.txt */; };
-		14B701AA12356E08007B9C90 /* F_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019012356E08007B9C90 /* F_N_W.txt */; };
-		14B701AD12356E08007B9C90 /* F_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019312356E08007B9C90 /* F_S_W.txt */; };
-		14B701AE12356E08007B9C90 /* H_N_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019412356E08007B9C90 /* H_N_H.txt */; };
-		14B701AF12356E08007B9C90 /* H_N_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019512356E08007B9C90 /* H_N_S.txt */; };
-		14B701B012356E08007B9C90 /* H_N_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019612356E08007B9C90 /* H_N_W.txt */; };
-		14B701B112356E08007B9C90 /* H_S_H.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019712356E08007B9C90 /* H_S_H.txt */; };
-		14B701B212356E08007B9C90 /* H_S_S.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019812356E08007B9C90 /* H_S_S.txt */; };
-		14B701B312356E08007B9C90 /* H_S_W.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14B7019912356E08007B9C90 /* H_S_W.txt */; };
 		14B701CB12356E2F007B9C90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B512356E2F007B9C90 /* Default.png */; };
 		14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B612356E2F007B9C90 /* Default@2x.png */; };
 		14B701CE12356E2F007B9C90 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B812356E2F007B9C90 /* Map.png */; };
@@ -118,18 +99,24 @@
 		145B006C124FFCFE00A643AA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = iphoneos3.0/usr/lib/libz.dylib; sourceTree = "<group>"; };
 		145B00A3125014C100A643AA /* DatabaseUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseUpdater.h; sourceTree = "<group>"; };
 		145B00A4125014C100A643AA /* DatabaseUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseUpdater.m; sourceTree = "<group>"; };
-		145B00C21250512D00A643AA /* loadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = loadingView.xib; sourceTree = "<group>"; };
 		145BFFDB124FD3B700A643AA /* BCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCycleViewController.h; sourceTree = "<group>"; };
 		145BFFDC124FD3B700A643AA /* BCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCycleViewController.m; sourceTree = "<group>"; };
 		145BFFDE124FD3C700A643AA /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
 		145BFFDF124FD3C700A643AA /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
 		145BFFE3124FD4AE00A643AA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos3.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		145BFFF4124FD52D00A643AA /* bcycle_stations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bcycle_stations.txt; sourceTree = "<group>"; };
+		1465D909129DE0F1009132DE /* DatabaseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseLoader.h; sourceTree = "<group>"; };
+		1465D90A129DE0F1009132DE /* DatabaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseLoader.m; sourceTree = "<group>"; };
+		1465D90C129DE80E009132DE /* routes.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = routes.txt; path = "google inputs/routes.txt"; sourceTree = SOURCE_ROOT; };
+		1465D90D129DE80E009132DE /* stop_times.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = stop_times.txt; path = "google inputs/stop_times.txt"; sourceTree = SOURCE_ROOT; };
+		1465D90E129DE80E009132DE /* stops.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = stops.txt; path = "google inputs/stops.txt"; sourceTree = SOURCE_ROOT; };
+		1465D90F129DE80E009132DE /* trips.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = trips.txt; path = "google inputs/trips.txt"; sourceTree = SOURCE_ROOT; };
 		147DADD7105C45A60050081B /* ChangeDirectionProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeDirectionProtocol.h; sourceTree = "<group>"; };
 		14842558105BD87900DCB458 /* ManualSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ManualSelectViewController.h; sourceTree = "<group>"; };
 		14842559105BD87900DCB458 /* ManualSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ManualSelectViewController.m; sourceTree = "<group>"; };
 		1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosestSelectViewController.h; sourceTree = "<group>"; };
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
+		14A782DB129E138600C7F372 /* linesToProcess.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linesToProcess.txt; sourceTree = "<group>"; };
 		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
 		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
@@ -140,30 +127,6 @@
 		14B7017812356DCA007B9C90 /* RTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RTD-Info.plist"; path = "App Resources/RTD-Info.plist"; sourceTree = "<group>"; };
 		14B7017912356DCA007B9C90 /* RTD.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = RTD.xcdatamodel; path = "App Resources/RTD.xcdatamodel"; sourceTree = "<group>"; };
 		14B7017E12356DE0007B9C90 /* FlurryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAPI.h; path = Flurry/FlurryAPI.h; sourceTree = SOURCE_ROOT; };
-		14B7018012356E08007B9C90 /* C_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_H.txt; sourceTree = "<group>"; };
-		14B7018112356E08007B9C90 /* C_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_S.txt; sourceTree = "<group>"; };
-		14B7018212356E08007B9C90 /* C_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_N_W.txt; sourceTree = "<group>"; };
-		14B7018312356E08007B9C90 /* C_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = C_S_W.txt; sourceTree = "<group>"; };
-		14B7018412356E08007B9C90 /* D_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_H.txt; sourceTree = "<group>"; };
-		14B7018512356E08007B9C90 /* D_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_S.txt; sourceTree = "<group>"; };
-		14B7018612356E08007B9C90 /* D_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_N_W.txt; sourceTree = "<group>"; };
-		14B7018712356E08007B9C90 /* D_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_H.txt; sourceTree = "<group>"; };
-		14B7018812356E08007B9C90 /* D_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_S.txt; sourceTree = "<group>"; };
-		14B7018912356E08007B9C90 /* D_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = D_S_W.txt; sourceTree = "<group>"; };
-		14B7018A12356E08007B9C90 /* E_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_H.txt; sourceTree = "<group>"; };
-		14B7018B12356E08007B9C90 /* E_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_S.txt; sourceTree = "<group>"; };
-		14B7018C12356E08007B9C90 /* E_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_N_W.txt; sourceTree = "<group>"; };
-		14B7018D12356E08007B9C90 /* E_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_H.txt; sourceTree = "<group>"; };
-		14B7018E12356E08007B9C90 /* E_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_S.txt; sourceTree = "<group>"; };
-		14B7018F12356E08007B9C90 /* E_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = E_S_W.txt; sourceTree = "<group>"; };
-		14B7019012356E08007B9C90 /* F_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_N_W.txt; sourceTree = "<group>"; };
-		14B7019312356E08007B9C90 /* F_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = F_S_W.txt; sourceTree = "<group>"; };
-		14B7019412356E08007B9C90 /* H_N_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_H.txt; sourceTree = "<group>"; };
-		14B7019512356E08007B9C90 /* H_N_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_S.txt; sourceTree = "<group>"; };
-		14B7019612356E08007B9C90 /* H_N_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_N_W.txt; sourceTree = "<group>"; };
-		14B7019712356E08007B9C90 /* H_S_H.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_H.txt; sourceTree = "<group>"; };
-		14B7019812356E08007B9C90 /* H_S_S.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_S.txt; sourceTree = "<group>"; };
-		14B7019912356E08007B9C90 /* H_S_W.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = H_S_W.txt; sourceTree = "<group>"; };
 		14B701B512356E2F007B9C90 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Artwork/Default.png; sourceTree = "<group>"; };
 		14B701B612356E2F007B9C90 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Artwork/Default@2x.png"; sourceTree = "<group>"; };
 		14B701B812356E2F007B9C90 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map.png; path = Artwork/Map.png; sourceTree = "<group>"; };
@@ -289,6 +252,8 @@
 				14A82114123764DB00DA7692 /* Constants.h */,
 				145B00A3125014C100A643AA /* DatabaseUpdater.h */,
 				145B00A4125014C100A643AA /* DatabaseUpdater.m */,
+				1465D909129DE0F1009132DE /* DatabaseLoader.h */,
+				1465D90A129DE0F1009132DE /* DatabaseLoader.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -316,7 +281,6 @@
 				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
 				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
 				14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */,
-				145B00C21250512D00A643AA /* loadingView.xib */,
 			);
 			name = NIBs;
 			sourceTree = "<group>";
@@ -345,30 +309,11 @@
 		14B7017F12356E08007B9C90 /* stop files */ = {
 			isa = PBXGroup;
 			children = (
-				14B7018012356E08007B9C90 /* C_N_H.txt */,
-				14B7018112356E08007B9C90 /* C_N_S.txt */,
-				14B7018212356E08007B9C90 /* C_N_W.txt */,
-				14B7018312356E08007B9C90 /* C_S_W.txt */,
-				14B7018412356E08007B9C90 /* D_N_H.txt */,
-				14B7018512356E08007B9C90 /* D_N_S.txt */,
-				14B7018612356E08007B9C90 /* D_N_W.txt */,
-				14B7018712356E08007B9C90 /* D_S_H.txt */,
-				14B7018812356E08007B9C90 /* D_S_S.txt */,
-				14B7018912356E08007B9C90 /* D_S_W.txt */,
-				14B7018A12356E08007B9C90 /* E_N_H.txt */,
-				14B7018B12356E08007B9C90 /* E_N_S.txt */,
-				14B7018C12356E08007B9C90 /* E_N_W.txt */,
-				14B7018D12356E08007B9C90 /* E_S_H.txt */,
-				14B7018E12356E08007B9C90 /* E_S_S.txt */,
-				14B7018F12356E08007B9C90 /* E_S_W.txt */,
-				14B7019012356E08007B9C90 /* F_N_W.txt */,
-				14B7019312356E08007B9C90 /* F_S_W.txt */,
-				14B7019412356E08007B9C90 /* H_N_H.txt */,
-				14B7019512356E08007B9C90 /* H_N_S.txt */,
-				14B7019612356E08007B9C90 /* H_N_W.txt */,
-				14B7019712356E08007B9C90 /* H_S_H.txt */,
-				14B7019812356E08007B9C90 /* H_S_S.txt */,
-				14B7019912356E08007B9C90 /* H_S_W.txt */,
+				1465D90C129DE80E009132DE /* routes.txt */,
+				1465D90D129DE80E009132DE /* stop_times.txt */,
+				1465D90E129DE80E009132DE /* stops.txt */,
+				1465D90F129DE80E009132DE /* trips.txt */,
+				14A782DB129E138600C7F372 /* linesToProcess.txt */,
 			);
 			path = "stop files";
 			sourceTree = "<group>";
@@ -579,30 +524,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */,
-				14B7019A12356E08007B9C90 /* C_N_H.txt in Resources */,
-				14B7019B12356E08007B9C90 /* C_N_S.txt in Resources */,
-				14B7019C12356E08007B9C90 /* C_N_W.txt in Resources */,
-				14B7019D12356E08007B9C90 /* C_S_W.txt in Resources */,
-				14B7019E12356E08007B9C90 /* D_N_H.txt in Resources */,
-				14B7019F12356E08007B9C90 /* D_N_S.txt in Resources */,
-				14B701A012356E08007B9C90 /* D_N_W.txt in Resources */,
-				14B701A112356E08007B9C90 /* D_S_H.txt in Resources */,
-				14B701A212356E08007B9C90 /* D_S_S.txt in Resources */,
-				14B701A312356E08007B9C90 /* D_S_W.txt in Resources */,
-				14B701A412356E08007B9C90 /* E_N_H.txt in Resources */,
-				14B701A512356E08007B9C90 /* E_N_S.txt in Resources */,
-				14B701A612356E08007B9C90 /* E_N_W.txt in Resources */,
-				14B701A712356E08007B9C90 /* E_S_H.txt in Resources */,
-				14B701A812356E08007B9C90 /* E_S_S.txt in Resources */,
-				14B701A912356E08007B9C90 /* E_S_W.txt in Resources */,
-				14B701AA12356E08007B9C90 /* F_N_W.txt in Resources */,
-				14B701AD12356E08007B9C90 /* F_S_W.txt in Resources */,
-				14B701AE12356E08007B9C90 /* H_N_H.txt in Resources */,
-				14B701AF12356E08007B9C90 /* H_N_S.txt in Resources */,
-				14B701B012356E08007B9C90 /* H_N_W.txt in Resources */,
-				14B701B112356E08007B9C90 /* H_S_H.txt in Resources */,
-				14B701B212356E08007B9C90 /* H_S_S.txt in Resources */,
-				14B701B312356E08007B9C90 /* H_S_W.txt in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
 				14B701CE12356E2F007B9C90 /* Map.png in Resources */,
@@ -630,7 +551,11 @@
 				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
-				145B00C31250512D00A643AA /* loadingView.xib in Resources */,
+				1465D910129DE80E009132DE /* routes.txt in Resources */,
+				1465D911129DE80E009132DE /* stop_times.txt in Resources */,
+				1465D912129DE80E009132DE /* stops.txt in Resources */,
+				1465D913129DE80E009132DE /* trips.txt in Resources */,
+				14A782DC129E138600C7F372 /* linesToProcess.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,6 +602,7 @@
 				145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */,
 				145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */,
 				145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */,
+				1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -717,7 +643,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Distribution;
 		};
@@ -741,7 +667,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Debug;
 		};
@@ -763,7 +689,7 @@
 				);
 				PRODUCT_NAME = "Denver Ride";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.1;
+				SDKROOT = iphoneos4.2;
 			};
 			name = Release;
 		};

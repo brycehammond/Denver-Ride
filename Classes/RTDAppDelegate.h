@@ -6,9 +6,9 @@
 //  Copyright Fluidvision Design 2009. All rights reserved.
 //
 
-@class LineScheduleUpdater;
+#import "DatabaseUpdater.h"
 
-@interface RTDAppDelegate : NSObject <UIApplicationDelegate> {
+@interface RTDAppDelegate : NSObject <UIApplicationDelegate, DatabaseUpdaterDelegate> {
     
     NSManagedObjectModel *managedObjectModel;
     NSManagedObjectContext *managedObjectContext;	    
@@ -25,7 +25,7 @@
 	
 	NSString *currentDayType;
 	
-	LineScheduleUpdater *_lineUpdater;
+	DatabaseUpdater *_databaseUpdater;
 	
 	UIImageView *_defaultPngToFade;
 	

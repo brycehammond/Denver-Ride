@@ -58,6 +58,8 @@
 
 - (void)dealloc {
 	[_loadingTextLabel release];
+	[_activityIndicator release];
+	[_progressView release];
     [super dealloc];
 }
 

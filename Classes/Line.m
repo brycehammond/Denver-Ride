@@ -15,6 +15,7 @@
 
 @dynamic name;
 @dynamic type;
+@dynamic color;
 @dynamic stations;
 @dynamic stops;
 

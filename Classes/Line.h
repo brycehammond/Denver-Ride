@@ -17,6 +17,7 @@
 
 @property (nonatomic, retain) NSString* name;
 @property (nonatomic, retain) NSString* type;
+@property (nonatomic, retain) NSString* color;
 @property (nonatomic, retain) NSSet* stations;
 @property (nonatomic, retain) NSSet* stops;
 

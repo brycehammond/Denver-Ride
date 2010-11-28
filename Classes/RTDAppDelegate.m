@@ -23,6 +23,7 @@
 -(NSDictionary *)setupStationsWithLines:(NSDictionary *)linesByName;
 -(void)setupStopsWithLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName;
 -(void)loadStopsFromPath:(NSString *)path withLines:(NSDictionary *)linesByName andStations:(NSDictionary *)stationsByName;
+-(BOOL)rebuildCoreDataStackWithDatabasePath:(NSString *)path;
 
 @end
 
@@ -104,8 +105,9 @@ void uncaughtExceptionHandler(NSException *exception) {
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
 	}
 	
-	_lineUpdater = [[LineScheduleUpdater alloc] initWithMainWindow:window andManagedObjectContext:context];
-	[_lineUpdater startUpdate];
+	_databaseUpdater = [[DatabaseUpdater alloc] init];
+	[_databaseUpdater setDelegate:self];
+	[_databaseUpdater startUpdate];
 	
 }
 
@@ -718,9 +720,61 @@ void uncaughtExceptionHandler(NSException *exception) {
 	[fileString release];
 }
 
-#pragma mark -
-#pragma mark Line updating
+-(BOOL)rebuildCoreDataStackWithDatabaseFile:(NSString *)file
+{
+	//deconstruct the stack
+	
+	[managedObjectContext release];
+	managedObjectContext = nil;
+	[persistentStoreCoordinator release];
+	persistentStoreCoordinator = nil;
+	
+	//check to see if the new store is valid
 
+	
+	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:file];
+	NSURL *storeUrl = [NSURL fileURLWithPath:filePath];
+	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
+	
+    if (fileHandle == nil) 
+	{
+		return NO;
+	}
+	else 
+	{
+		NSError *error = nil;
+		persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
+		if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]){
+			[persistentStoreCoordinator release];
+			persistentStoreCoordinator = nil;
+			return NO;
+		}
+	}
+	
+	[self managedObjectContext]; //build context on top of new store
+	
+	return YES;
+	
+}
+
+#pragma mark -
+#pragma mark DatabaseUpdaterDelegate methods
+
+- (void)newDatabaseAvailableWithFilename:(NSString *)filename andDate:(NSString *)date
+{
+	if([self rebuildCoreDataStackWithDatabaseFile:filename])
+	{ 
+		[[NSUserDefaults standardUserDefaults] setObject:[filename stringByDeletingPathExtension]
+												  forKey:kDatabaseVersionKey];
+	}
+	else 
+	{
+		[FlurryAPI logError:@"UpdateError" message:[NSString stringWithFormat:@"error updating to %@",filename]
+					  error:nil];
+		[self managedObjectContext];
+	}
+
+}
 
 
 #pragma mark -
