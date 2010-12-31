@@ -25,7 +25,6 @@
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		14A782DC129E138600C7F372 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
-		14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B22F9C1067B40800DE07CD /* LineLoader.m */; };
 		14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */; };
 		14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B7017512356DCA007B9C90 /* Entitlements.plist */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
@@ -68,7 +67,6 @@
 		14DDBCCB1085801F00583F84 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCC41085801F00583F84 /* SBJsonParser.m */; };
 		14DDBCCC1085801F00583F84 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCC61085801F00583F84 /* SBJsonWriter.m */; };
 		14DDBCD91085881300583F84 /* EncapsulatedConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCD81085881300583F84 /* EncapsulatedConnection.m */; };
-		14DDBCF8108595D600583F84 /* LineScheduleUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */; };
 		14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D5E31034FD5700640D8B /* StationListViewController.m */; };
 		14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D90A10370DE600640D8B /* CoreLocation.framework */; };
 		14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */; };
@@ -118,8 +116,6 @@
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		14A782DB129E138600C7F372 /* linesToProcess.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linesToProcess.txt; sourceTree = "<group>"; };
 		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		14B22F9B1067B40800DE07CD /* LineLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineLoader.h; sourceTree = "<group>"; };
-		14B22F9C1067B40800DE07CD /* LineLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineLoader.m; sourceTree = "<group>"; };
 		14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryWithLocation.a; path = Flurry/libFlurryWithLocation.a; sourceTree = "<group>"; };
 		14B7017512356DCA007B9C90 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = "App Resources/Entitlements.plist"; sourceTree = "<group>"; };
 		14B7017612356DCA007B9C90 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "App Resources/main.m"; sourceTree = "<group>"; };
@@ -178,8 +174,6 @@
 		14DDBCC61085801F00583F84 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 		14DDBCD71085881300583F84 /* EncapsulatedConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncapsulatedConnection.h; sourceTree = "<group>"; };
 		14DDBCD81085881300583F84 /* EncapsulatedConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncapsulatedConnection.m; sourceTree = "<group>"; };
-		14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineScheduleUpdater.h; sourceTree = "<group>"; };
-		14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineScheduleUpdater.m; sourceTree = "<group>"; };
 		14E4D5E21034FD5700640D8B /* StationListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationListViewController.h; sourceTree = "<group>"; };
 		14E4D5E31034FD5700640D8B /* StationListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationListViewController.m; sourceTree = "<group>"; };
 		14E4D90A10370DE600640D8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -241,14 +235,10 @@
 				14E4D5E71034FD7400640D8B /* Models */,
 				1D3623240D0F684500981E51 /* RTDAppDelegate.h */,
 				1D3623250D0F684500981E51 /* RTDAppDelegate.m */,
-				14B22F9B1067B40800DE07CD /* LineLoader.h */,
-				14B22F9C1067B40800DE07CD /* LineLoader.m */,
 				145BFFDE124FD3C700A643AA /* StationAnnotation.h */,
 				145BFFDF124FD3C700A643AA /* StationAnnotation.m */,
 				14DDBCD71085881300583F84 /* EncapsulatedConnection.h */,
 				14DDBCD81085881300583F84 /* EncapsulatedConnection.m */,
-				14DDBCF6108595D600583F84 /* LineScheduleUpdater.h */,
-				14DDBCF7108595D600583F84 /* LineScheduleUpdater.m */,
 				14A82114123764DB00DA7692 /* Constants.h */,
 				145B00A3125014C100A643AA /* DatabaseUpdater.h */,
 				145B00A4125014C100A643AA /* DatabaseUpdater.m */,
@@ -581,7 +571,6 @@
 				1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */,
 				1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */,
 				140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */,
-				14B22F9D1067B40800DE07CD /* LineLoader.m in Sources */,
 				14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */,
 				14FBCE39106EBDE3002D6185 /* StationChangeViewController.m in Sources */,
 				14DDBCC71085801F00583F84 /* NSObject+SBJSON.m in Sources */,
@@ -591,7 +580,6 @@
 				14DDBCCB1085801F00583F84 /* SBJsonParser.m in Sources */,
 				14DDBCCC1085801F00583F84 /* SBJsonWriter.m in Sources */,
 				14DDBCD91085881300583F84 /* EncapsulatedConnection.m in Sources */,
-				14DDBCF8108595D600583F84 /* LineScheduleUpdater.m in Sources */,
 				14BCE4F110CC4404003E4391 /* RTDMapViewController.m in Sources */,
 				14B7017B12356DCA007B9C90 /* main.m in Sources */,
 				14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */,

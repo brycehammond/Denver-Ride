@@ -29,7 +29,8 @@ stationsArray = _stationsArray,
 locationManager = _locationManager,
 closestStationsArray = _closestStationsArray,
 closestStationsStopsArray = _closestStationsStopsArray,
-navigationController = _navigationController;
+navigationController = _navigationController,
+currentDirection = _currentDirection;
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -66,6 +67,7 @@ navigationController = _navigationController;
 	//closest location array to empty
 	[self setClosestStationsArray:[NSArray array]];
 	[self setClosestStationsStopsArray:[NSMutableArray array]];
+	[self setCurrentDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 	
 	/*
 	 Fetch existing stations.
@@ -118,7 +120,7 @@ navigationController = _navigationController;
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate setCurrentDayType:dayType];
 	
-	[self updateDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self updateDirection:[self currentDirection]];
 
 }
 
@@ -137,6 +139,7 @@ navigationController = _navigationController;
 
 - (void)dealloc {
 	[_managedObjectContext release];
+	[_currentDirection release];
     [super dealloc];
 }
 
@@ -167,11 +170,26 @@ navigationController = _navigationController;
 	NSString *dayType = [currentDate dayType];
 	[appDelegate setCurrentDayType:dayType];
 	
+	[self setCurrentDirection:direction];
+	
 	[[self closestStationsStopsArray] removeAllObjects];
+	
+	//rebuild the closest stations based on direction
+	NSArray *currentDirectionClosesStations = [[self stationsArray] filteredArrayUsingPredicate:
+											   [NSPredicate predicateWithFormat:@"direction beginswith %@",[self currentDirection]]];
+	
+	if([currentDirectionClosesStations count] >= 4)
+	{
+		[self setClosestStationsArray:[currentDirectionClosesStations subarrayWithRange:NSMakeRange(0, 4)]];
+	}
+	else {
+		[self setClosestStationsArray:currentDirectionClosesStations];
+	}
+	
 	for(Station *station in [self closestStationsArray])
 	{
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:
-								  @"timeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+								  @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 								  minutesIntoCurrentDay,[station name],direction,dayType];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
@@ -184,7 +202,7 @@ navigationController = _navigationController;
 		[request setEntity:entity];
 		
 		// Order the events by creation date, most recent first.
-		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:YES];
+		NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:YES];
 		NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 		[request setSortDescriptors:sortDescriptors];
 		NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
@@ -286,17 +304,9 @@ navigationController = _navigationController;
 	}
 	
 	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];
-	
-	if([[self stationsArray] count] >= 4)
-	{
-		[self setClosestStationsArray:[[self stationsArray] subarrayWithRange:NSMakeRange(0, 4)]];
-	}
-	else {
-		[self setClosestStationsArray:[self stationsArray]];
-	}
 
 	
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[self currentDirection]];
 }
 
 #pragma mark -
@@ -358,7 +368,7 @@ navigationController = _navigationController;
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
-		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+		NSString *direction = ([[self currentDirection] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"End of line for %@ transit",direction];
 		

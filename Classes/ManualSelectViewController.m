@@ -336,7 +336,7 @@
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:
-					 @"timeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+					 @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 					 [self timeInMinutes],
 					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
 					 direction,
@@ -345,7 +345,7 @@
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:
-					 @"timeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
+					 @"departureTimeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
 					 [self timeInMinutes],
 					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
 					 direction,
@@ -366,7 +366,7 @@
 	
 	BOOL ascending = (_timeDirection == FORWARD);
 	
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:ascending];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];

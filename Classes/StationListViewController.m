@@ -139,7 +139,7 @@
 	NSMutableArray *orderingToSaveArray = [NSMutableArray arrayWithCapacity:[_recentlyUsedStations count]];
 	for(Station *stationToSave in _recentlyUsedStations)
 	{
-		[orderingToSaveArray addObject:[stationToSave stationID]];
+		//[orderingToSaveArray addObject:[stationToSave stationID]];
 	}
 		 
 	[[NSUserDefaults standardUserDefaults] setObject:orderingToSaveArray forKey:kRecentlyUsedStationsKey];

@@ -12,14 +12,23 @@
 #import "Station.h"
 #import "Stop.h"
 
+@interface DatabaseLoader (Private)
+
+- (NSInteger)timeInMinutesForTimeString:(NSString *)timeString;
+
+@end
+
+
 @implementation DatabaseLoader
 
 - (void)loadItUp
 {
+	NSError *error = nil;
 	//read in the lines that we are interested in
 	//don't load up information about things not related to this line
 	NSArray *linesToProcess = [[NSString stringWithContentsOfFile:
-								[[NSBundle mainBundle] pathForResource:@"linesToProcess" ofType:@"txt"]]
+								[[NSBundle mainBundle] pathForResource:@"linesToProcess" ofType:@"txt"] encoding:NSUTF8StringEncoding
+															error:&error]
 							   componentsSeparatedByString:@"\n"];
 	
 	
@@ -32,7 +41,7 @@
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
-	NSMutableSet *relevantTrips = [[NSMutableSet alloc] init].
+	NSMutableSet *relevantTrips = [[NSMutableSet alloc] init];
 	
     NSString *trips = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trips" ofType:@"txt"]];
     NSArray *fileLines = [trips componentsSeparatedByString:@"\n"];
@@ -41,29 +50,214 @@
         NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
 		if([linesToProcess containsObject:[fields objectAtIndex:0]])
 		{
-			[dayTypeByTrip setObject:[fields objectAtIndex:1] forKey:[fields objectAtIndex:2]];
-			[lineByTrip setObject:[fields objectAtIndex:0] forKey:[fields objectAtIndex:1]];
+			NSString *tripId = [fields objectAtIndex:2];
+			[dayTypeByTrip setObject:[fields objectAtIndex:1] forKey:tripId];
+			[lineByTrip setObject:[fields objectAtIndex:0] forKey:tripId];
+			[relevantTrips addObject:tripId];
 		}
     }
          
-    [pool drain];
     [pool release];
 	
 	//read in the lines (we currently only care about light rail)
 	pool = [[NSAutoreleasePool alloc] init];
     
+	NSMutableDictionary *linesById = [[NSMutableDictionary alloc] init];
+	
     NSString *allLines = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"routes" ofType:@"txt"]];
-    NSArray *fileLines = [trips componentsSeparatedByString:@"\n"];
+    fileLines = [allLines componentsSeparatedByString:@"\n"];
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
         NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
-		Line *
-        
+		if([linesToProcess containsObject:[fields objectAtIndex:0]])
+		{
+			Line *line = [NSEntityDescription insertNewObjectForEntityForName:@"Line"
+													   inManagedObjectContext:[appDelegate managedObjectContext]];
+			
+			NSString *lineName = [fields objectAtIndex:0];
+			
+			[line setName:[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""]];
+			if([lineName hasPrefix:@"101"]) // is lightrail
+			{
+				[line setType:@"LR"];
+			}
+			else 
+			{
+				[line setType:@"B"];
+			}
+
+			[line setColor:[fields objectAtIndex:6]];
+			
+			[linesById setObject:line forKey:lineName];
+		}
+		
     }
 	
-    [pool drain];
+	[[appDelegate managedObjectContext] save:&error];
+	
     [pool release];
-    
+	
+	pool = [[NSAutoreleasePool alloc] init];
+	
+	
+	//Read in all the stations but don't create objects for them
+	//only create Core Data objects for those that are needed for the routes we want
+	NSMutableDictionary *stationFieldsByStationId = [[NSMutableDictionary alloc] init];
+	
+	
+	NSString *allStations = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stops" ofType:@"txt"]];
+    fileLines = [allStations componentsSeparatedByString:@"\n"];
+    for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
+    {
+        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
+		[stationFieldsByStationId setObject:fields forKey:[fields objectAtIndex:0]];
+    }
+	
+	[pool release];
+	
+	pool = [[NSAutoreleasePool alloc] init];
+	
+	NSMutableDictionary *stationsById = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary *stopsByTrip = [[NSMutableDictionary alloc] init];
+	
+	//now read in the stop times and create the stops and 
+    NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"]];
+	fileLines = [allStopTimes componentsSeparatedByString:@"\n"];
+	
+	for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
+    {
+        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
+		
+		//we read the following in to an dictionary where the keys are the trip ids and the values
+		//are the stops in order
+		
+		NSString *tripId = [fields objectAtIndex:0];
+		//we only care about trips associted with the lines we want
+		if([relevantTrips containsObject:tripId])
+		{
+			//see if we have a station for this stop
+			NSString *stationId = [fields objectAtIndex:3];
+			Station *station = [stationsById objectForKey:stationId];
+			if(nil == station)
+			{
+				station = [NSEntityDescription insertNewObjectForEntityForName:@"Station"
+														inManagedObjectContext:[appDelegate managedObjectContext]];
+				NSArray *stationFields = [stationFieldsByStationId objectForKey:stationId];
+				
+				[station setName:[stationFields objectAtIndex:1]];
+				if([[station name] hasSuffix:@" Station"])
+				{
+					[station setName:[[station name] stringByReplacingOccurrencesOfString:@" Station" withString:@""]];
+				}
+				if([[station name] hasSuffix:@" Stn"])
+				{
+					[station setName:[[station name] stringByReplacingOccurrencesOfString:@" Stn" withString:@""]];
+				}
+				[station setLongitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:4] doubleValue]]];
+				[station setLatitude:[NSNumber numberWithInt:[[stationFields objectAtIndex:3] doubleValue]]];
+				
+				NSString *direction = [stationFields objectAtIndex:2];
+				if([direction hasSuffix:@"North"])
+				{
+					[station setDirection:@"N"];
+				}
+				else if([direction hasSuffix:@"South"])
+				{
+					[station setDirection:@"S"];
+				}
+				else if([direction hasSuffix:@"West"])
+				{
+					[station setDirection:@"W"];
+				}
+				else if([direction hasSuffix:@"East"])
+				{
+					[station setDirection:@"E"];
+				}
+				else if([direction hasSuffix:@"Northwest"])
+				{
+					[station setDirection:@"N"];
+				}
+				else if([direction hasSuffix:@"Northeast"])
+				{
+					[station setDirection:@"N"];
+				}
+				else if([direction hasSuffix:@"Southwest"])
+				{
+					[station setDirection:@"S"];
+				}
+				else if([direction hasSuffix:@"Southeast"])
+				{
+					[station setDirection:@"S"];
+				}
+				
+				[stationsById setObject:station forKey:stationId];
+				
+			}
+			
+			//let's create the stop and add it to our array
+			Stop *stop = [NSEntityDescription insertNewObjectForEntityForName:@"Stop"
+													   inManagedObjectContext:[appDelegate managedObjectContext]];
+			
+			[stop setStation:station];
+			[stop setRun:[NSNumber numberWithInt:[tripId intValue]]];
+			[stop setDepartureTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:2]]]];
+			[stop setArrivalTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:1]]]];
+			[stop setStopSequence:[NSNumber numberWithInt:[[fields objectAtIndex:4] intValue]]];
+			[stop setDirection:[station direction]];
+			[stop setLine:[linesById objectForKey:[lineByTrip objectForKey:tripId]]];
+			[stop setDayType:[dayTypeByTrip objectForKey:tripId]];
+			
+			NSMutableArray *stopsArray = [stopsByTrip objectForKey:tripId];
+			if(nil == stopsArray)
+			{
+				stopsArray = [NSMutableArray array];
+				[stopsByTrip setObject:stopsArray forKey:tripId];
+			}
+			
+			[stopsArray addObject:stop];
+		}
+
+    }
+	
+	//assign the start and terminal stations based on the first
+	//and last of the sequence
+	for(NSMutableArray *stops in [stopsByTrip allValues])
+	{
+		[stops sortUsingSelector:@selector(sortBySequence:)];
+		if([stops count] > 0)
+		{
+			Station *startStation = [[stops objectAtIndex:0] station];
+			Station *stopStation = [[stops lastObject] station];
+			
+			for(Stop *stop in stops)
+			{
+				[stop setStartStation:startStation];
+				[stop setTerminalStation:stopStation];
+			}
+		}
+		
+		
+	}
+	
+	[pool release];
+	
+	[[appDelegate managedObjectContext] save:&error];
+	
+	
+}
+
+@end
+			 
+@implementation DatabaseLoader (Private)
+
+- (NSInteger)timeInMinutesForTimeString:(NSString *)timeString
+{
+	NSInteger timeInMinutes = 0;
+	NSArray *components = [timeString componentsSeparatedByString:@":"];
+	timeInMinutes += [[components objectAtIndex:0] intValue] * 60;
+	timeInMinutes += [[components objectAtIndex:1] intValue];
+	
+	return timeInMinutes;
 }
 
 @end

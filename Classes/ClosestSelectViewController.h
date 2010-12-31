@@ -27,12 +27,15 @@
 	NSTimer *_delayTimer;
 	
 	UINavigationController *_navigationController;
+															
+	NSString *_currentDirection;														
 }
 
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, retain) NSMutableArray *stationsArray;
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) NSArray *closestStationsArray;
+@property (nonatomic, retain) NSString *currentDirection;
 @property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
 
 @property (nonatomic, retain) UINavigationController *navigationController;

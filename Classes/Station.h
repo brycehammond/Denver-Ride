@@ -18,10 +18,11 @@
 	CLLocation *_location; //have the longitude/latitude stored in a CLLocation  so we can make quick distance comparisons
 }
 
-@property (nonatomic, retain) NSNumber * stationID;  // a short numberical identifier to use in data transport to minimize size
 @property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSNumber * latitude;
+@property (nonatomic, retain) NSString * direction;
+
 @property (nonatomic, retain) NSSet* lines;
 @property (nonatomic, retain) NSSet* stops;
 @property (assign) CLLocationDistance currentDistance;

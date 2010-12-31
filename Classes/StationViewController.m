@@ -193,11 +193,11 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != station.name",
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != station.name",
 		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"timeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND startStation.name != station.name",
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND startStation.name != station.name",
 		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
 	}
 
@@ -214,7 +214,7 @@
 	
 	// Order the events by creation date, most recent first.
 	BOOL ascending = (_timeDirection == FORWARD);
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"timeInMinutes" ascending:ascending];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	[request setFetchLimit:5];

@@ -91,7 +91,7 @@ static NSSet *_holidays;
 {
 	if([self isHoliday])
 	{
-		return @"H";
+		return @"SU";
 	}
 	
 	NSInteger weekdayNum = [self weekdayNumber];
@@ -101,13 +101,13 @@ static NSSet *_holidays;
 	switch(weekdayNum)
 	{
 		case 7:
-			returnDay = @"S";
+			returnDay = @"SA";
 			break;
 		case 1:
-			returnDay = @"H";
+			returnDay = @"SU";
 			break;
 		default:
-			returnDay = @"W";
+			returnDay = @"WK";
 			break;
 	}
 	
@@ -141,7 +141,7 @@ static NSSet *_holidays;
 	if( ! _fullDayTypesByCode)
 	{
 		_fullDayTypesByCode = [[NSDictionary alloc] initWithObjects:[NSDate fullDayTypes] 
-															forKeys:[NSArray arrayWithObjects:@"W",@"S",@"H",nil]];
+															forKeys:[NSArray arrayWithObjects:@"WK",@"SA",@"SU",nil]];
 	}
 	
 	return _fullDayTypesByCode;
@@ -151,7 +151,7 @@ static NSSet *_holidays;
 {
 	if( ! _codesByfullDayTypes)
 	{
-		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"W",@"S",@"H",nil]
+		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"WK",@"SA",@"SU",nil]
 															 forKeys:[NSDate fullDayTypes]];
 	}
 	
