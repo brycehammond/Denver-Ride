@@ -69,7 +69,7 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
+		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
 			[[stop departureTimeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[[self stop] dayType]];
 	}
 	else {
@@ -85,7 +85,7 @@
 	
 	// Order the events by creation date, most recent first.
 	BOOL ascending = (_timeDirection == FORWARD);
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:(ascending) ? @"departureTimeInMinutes" : @"arrivalTimeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	[request setSortDescriptors:sortDescriptors];
 	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
@@ -198,7 +198,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] 
-																	 withCurrentTimeInMinutes:[[stop departureTimeInMinutes] intValue]
+																	 withCurrentTimeInMinutes:(_timeDirection == FORWARD) ? [[stop arrivalTimeInMinutes] intValue] : [[stop departureTimeInMinutes] intValue]
 																			 andTimeDirection:_timeDirection
 																				   andDayType:[stop dayType]];
 	[stationController setManagedObjectContext:[self managedObjectContext]];

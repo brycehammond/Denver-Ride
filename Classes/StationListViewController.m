@@ -83,7 +83,7 @@
 	NSArray *recentlyUsedStations = [[NSUserDefaults standardUserDefaults] objectForKey:kRecentlyUsedStationsKey];
 	if(recentlyUsedStations)
 	{
-		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"stationID IN %@",recentlyUsedStations];
+		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@",recentlyUsedStations];
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
 		[request setEntity:entity];
@@ -96,11 +96,11 @@
 			// Handle the error.
 		}
 		
-		for(NSNumber *stationNumber in recentlyUsedStations)
+		for(NSString *stationName in recentlyUsedStations)
 		{
 			for(Station *station in mutableFetchResults)
 			{
-				if([[station stationID] intValue] == [stationNumber intValue])
+				if([[station name] isEqualToString:stationName])
 				{
 					[_recentlyUsedStations addObject:station];
 					break;
@@ -139,7 +139,7 @@
 	NSMutableArray *orderingToSaveArray = [NSMutableArray arrayWithCapacity:[_recentlyUsedStations count]];
 	for(Station *stationToSave in _recentlyUsedStations)
 	{
-		//[orderingToSaveArray addObject:[stationToSave stationID]];
+		[orderingToSaveArray addObject:[stationToSave name]];
 	}
 		 
 	[[NSUserDefaults standardUserDefaults] setObject:orderingToSaveArray forKey:kRecentlyUsedStationsKey];
