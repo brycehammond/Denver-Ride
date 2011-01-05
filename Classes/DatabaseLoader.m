@@ -37,6 +37,7 @@
 	
     NSMutableDictionary *dayTypeByTrip = [[NSMutableDictionary alloc] init];
     NSMutableDictionary *lineByTrip = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary *directionByTrip = [[NSMutableDictionary alloc] init];
     //get the trip info in for reference
     
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
@@ -53,6 +54,7 @@
 			NSString *tripId = [fields objectAtIndex:2];
 			[dayTypeByTrip setObject:[fields objectAtIndex:1] forKey:tripId];
 			[lineByTrip setObject:[fields objectAtIndex:0] forKey:tripId];
+			[directionByTrip setObject:[fields objectAtIndex:4] forKey:tripId];
 			[relevantTrips addObject:tripId];
 		}
     }
@@ -119,6 +121,7 @@
 	
 	NSMutableDictionary *stationsById = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *stopsByTrip = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary *directionsByStationId = [[NSMutableDictionary alloc] init];
 	
 	//now read in the stop times and create the stops and 
     NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"]];
@@ -137,6 +140,18 @@
 		{
 			//see if we have a station for this stop
 			NSString *stationId = [fields objectAtIndex:3];
+			NSString *stationName = [fields objectAtIndex:1];
+			
+			if([stationName hasSuffix:@" Station"])
+			{
+				stationName = [stationName stringByReplacingOccurrencesOfString:@" Station" withString:@""];
+			}
+			
+			if([stationName hasSuffix:@" Stn"])
+			{
+				stationName = [stationName stringByReplacingOccurrencesOfString:@" Stn" withString:@""];
+			}
+			
 			Station *station = [stationsById objectForKey:stationId];
 			if(nil == station)
 			{
@@ -156,43 +171,18 @@
 				[station setLongitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:4] doubleValue]]];
 				[station setLatitude:[NSNumber numberWithInt:[[stationFields objectAtIndex:3] doubleValue]]];
 				
-				NSString *direction = [stationFields objectAtIndex:2];
-				if([direction hasSuffix:@"North"])
-				{
-					[station setDirection:@"N"];
-				}
-				else if([direction hasSuffix:@"South"])
-				{
-					[station setDirection:@"S"];
-				}
-				else if([direction hasSuffix:@"West"])
-				{
-					[station setDirection:@"W"];
-				}
-				else if([direction hasSuffix:@"East"])
-				{
-					[station setDirection:@"E"];
-				}
-				else if([direction hasSuffix:@"Northwest"])
-				{
-					[station setDirection:@"N"];
-				}
-				else if([direction hasSuffix:@"Northeast"])
-				{
-					[station setDirection:@"N"];
-				}
-				else if([direction hasSuffix:@"Southwest"])
-				{
-					[station setDirection:@"S"];
-				}
-				else if([direction hasSuffix:@"Southeast"])
-				{
-					[station setDirection:@"S"];
-				}
-				
 				[stationsById setObject:station forKey:stationId];
 				
 			}
+			
+			NSMutableSet *stationDirections = [directionsByStationId objectForKey:stationId];
+			if(nil == stationDirections)
+			{
+				stationDirections = [NSMutableSet set];
+				[directionsByStationId setObject:stationDirections forKey:stationId];
+			}
+			
+			[stationDirections addObject:[directionByTrip objectForKey:tripId]];
 			
 			//let's create the stop and add it to our array
 			Stop *stop = [NSEntityDescription insertNewObjectForEntityForName:@"Stop"
@@ -203,9 +193,19 @@
 			[stop setDepartureTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:2]]]];
 			[stop setArrivalTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:1]]]];
 			[stop setStopSequence:[NSNumber numberWithInt:[[fields objectAtIndex:4] intValue]]];
-			[stop setDirection:[station direction]];
 			[stop setLine:[linesById objectForKey:[lineByTrip objectForKey:tripId]]];
 			[stop setDayType:[dayTypeByTrip objectForKey:tripId]];
+			
+			NSString *direction = [directionByTrip objectForKey:tripId];
+			if([direction isEqualToString:@"1"])
+			{
+				[stop setDirection:@"S"];
+			}
+			else 
+			{
+				[stop setDirection:@"N"];
+			}
+
 			
 			NSMutableArray *stopsArray = [stopsByTrip objectForKey:tripId];
 			if(nil == stopsArray)
@@ -218,6 +218,38 @@
 		}
 
     }
+	
+	//go through and assign the direction to the station based to the 
+	//directions of the trips for each station
+	
+	for(NSString *stationId in [directionsByStationId allKeys])
+	{
+		Station *station = [stationsById objectForKey:stationId];
+		if(nil != station)
+		{
+			NSMutableSet *directions = [directionsByStationId objectForKey:stationId];
+			if([directions count] > 0)
+			{
+				if([directions count] >= 2) //have more than one direction
+				{
+					[station setDirection:@"B"];
+				}
+				else
+				{
+					NSString *direction = [[directions allObjects] objectAtIndex:0];
+					if([direction isEqualToString:@"1"])
+					{
+						[station setDirection:@"S"];
+					}
+					else 
+					{
+						[station setDirection:@"N"];
+					}
+
+				}
+			}
+		}
+	}
 	
 	//assign the start and terminal stations based on the first
 	//and last of the sequence
@@ -241,8 +273,8 @@
 	
 	[pool release];
 	
-	[[appDelegate managedObjectContext] save:&error];
 	
+	[[appDelegate managedObjectContext] save:&error];
 	
 }
 

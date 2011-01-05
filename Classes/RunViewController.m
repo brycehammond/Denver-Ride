@@ -69,12 +69,12 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
-			[[stop departureTimeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[[self stop] dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
+			[[stop departureTimeInMinutes] intValue],[NSArray arrayWithObjects:[stop direction], @"B",nil],[[stop run] intValue],lineName,[[self stop] dayType]];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND direction == %@ AND run == %i AND line.name == %@ AND dayType = %@",
-					 [[stop departureTimeInMinutes] intValue],[stop direction],[[stop run] intValue],lineName,[[self stop] dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
+					 [[stop departureTimeInMinutes] intValue],[NSArray arrayWithObjects:[stop direction], @"B",nil],[[stop run] intValue],lineName,[[self stop] dayType]];
 		
 	}
 

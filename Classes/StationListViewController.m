@@ -83,7 +83,8 @@
 	NSArray *recentlyUsedStations = [[NSUserDefaults standardUserDefaults] objectForKey:kRecentlyUsedStationsKey];
 	if(recentlyUsedStations)
 	{
-		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@",recentlyUsedStations];
+		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@ AND direction in %@",recentlyUsedStations,
+									   [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
 		[request setEntity:entity];
@@ -117,7 +118,20 @@
 
 -(void)addStationToRecentlyUsed:(Station *)station
 {
-	NSInteger stationIndex = [_recentlyUsedStations indexOfObject:station];
+	NSInteger stationIndex = NSNotFound;
+	
+	//Go through all stations and compare names since northbound/southbound
+	//stations are actually different
+	for(NSUInteger stationIdx = 0; stationIdx < [_recentlyUsedStations count] ; ++stationIdx)
+	{
+		Station *usedStation = [_recentlyUsedStations objectAtIndex:stationIdx];
+		if([[usedStation name] isEqualToString:[station name]])
+		{
+			stationIndex = stationIdx;
+			break;
+		}
+	}
+	
 	if(stationIndex != NSNotFound)
 	{
 		//we already have this station so put it to the top of the list
@@ -336,6 +350,10 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
 	
+	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"direction in %@",
+								[NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]]];
+	
+	
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
 	// Edit the section name key path and cache name if appropriate.
@@ -357,8 +375,8 @@
 	NSPredicate *reduction = nil;
 	if(! [searchText isEqualToString:@""])
 	{
-		NSString *searchString = [NSString stringWithFormat:@"name contains[cd] \"%@\"",searchText];
-		reduction = [NSPredicate predicateWithFormat:searchString];
+		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] \"%@\" AND direction in %@",searchText, 
+					 [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
 	}
 	else {
 		[_recentlyUsedStationsToDisplay release];
