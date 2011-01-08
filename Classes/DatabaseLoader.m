@@ -140,7 +140,9 @@
 		{
 			//see if we have a station for this stop
 			NSString *stationId = [fields objectAtIndex:3];
-			NSString *stationName = [fields objectAtIndex:1];
+			NSArray *stationFields = [stationFieldsByStationId objectForKey:stationId];
+			
+			NSString *stationName = [stationFields objectAtIndex:1];
 			
 			if([stationName hasSuffix:@" Station"])
 			{
@@ -152,22 +154,26 @@
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" Stn" withString:@""];
 			}
 			
+			if([stationName hasSuffix:@" LRT NB"])
+			{
+				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT NB"
+																	 withString:@""];
+			}
+			
+			if([stationName hasSuffix:@" LRT SB"])
+			{
+				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT SB"
+																	 withString:@""];
+			}
+			
 			Station *station = [stationsById objectForKey:stationId];
 			if(nil == station)
 			{
 				station = [NSEntityDescription insertNewObjectForEntityForName:@"Station"
 														inManagedObjectContext:[appDelegate managedObjectContext]];
-				NSArray *stationFields = [stationFieldsByStationId objectForKey:stationId];
 				
-				[station setName:[stationFields objectAtIndex:1]];
-				if([[station name] hasSuffix:@" Station"])
-				{
-					[station setName:[[station name] stringByReplacingOccurrencesOfString:@" Station" withString:@""]];
-				}
-				if([[station name] hasSuffix:@" Stn"])
-				{
-					[station setName:[[station name] stringByReplacingOccurrencesOfString:@" Stn" withString:@""]];
-				}
+				
+				[station setName:stationName];
 				[station setLongitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:4] doubleValue]]];
 				[station setLatitude:[NSNumber numberWithInt:[[stationFields objectAtIndex:3] doubleValue]]];
 				
