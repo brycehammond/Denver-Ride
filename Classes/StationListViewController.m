@@ -323,7 +323,7 @@
 	[headerLabel setTextColor:[UIColor whiteColor]];
 	[headerLabel setText:sectionTitle];
 	[headerLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
-	[headerLabel setBackgroundColor:[UIColor colorFromHex:@"BFBFBF" withAlpha:1]];
+	[headerLabel setBackgroundColor:[UIColor colorFromHex:@"70A96A" withAlpha:1]];
 	[headerLabel setShadowColor:[UIColor grayColor]];
 	[headerLabel setShadowOffset:CGSizeMake(2, 1)];
 	[headerLabel autorelease];
