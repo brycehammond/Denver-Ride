@@ -373,9 +373,9 @@
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
 	NSPredicate *reduction = nil;
-	if(! [searchText isEqualToString:@""])
+	if([searchText length] > 0)
 	{
-		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] \"%@\" AND direction in %@",searchText, 
+		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] %@ AND direction in %@",searchText, 
 					 [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
 	}
 	else {
