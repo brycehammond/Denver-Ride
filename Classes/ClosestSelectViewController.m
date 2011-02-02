@@ -35,7 +35,8 @@ currentDirection = _currentDirection;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+	if(self)
 	{
 		
 	}
@@ -353,7 +354,9 @@ currentDirection = _currentDirection;
 			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
 		}
 		
-		cell.textLabel.text = @"All Stations";
+		cell.textLabel.text = @"View All Stations";
+        cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+        cell.textLabel.textColor = [UIColor colorFromHex:@"656565" withAlpha:1.0];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 		
 		return cell;
@@ -401,7 +404,7 @@ currentDirection = _currentDirection;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 40;
+	return 30;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -412,12 +415,20 @@ currentDirection = _currentDirection;
 		return nil;
 	}
 	
-	UILabel *header = [[[UILabel alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 40)] autorelease];
-	[header setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];
-	[header setTextAlignment:UITextAlignmentCenter];
-	[header setAdjustsFontSizeToFitWidth:YES];
-	[header setText:[[[self closestStationsArray] objectAtIndex:section] name]];
-	[header setBackgroundColor:[UIColor clearColor]];
+	UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 30)] autorelease];
+    [header setBackgroundColor:[UIColor clearColor]];
+    
+    UILabel *stationLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 5, [[UIScreen mainScreen] bounds].size.width, 25)];
+	[stationLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+	[stationLabel setTextAlignment:UITextAlignmentLeft];
+    [stationLabel setTextColor:[UIColor colorFromHex:@"272727" withAlpha:1.0]];
+	[stationLabel setAdjustsFontSizeToFitWidth:YES];
+	[stationLabel setText:[[[self closestStationsArray] objectAtIndex:section] name]];
+	[stationLabel setBackgroundColor:[UIColor clearColor]];
+    
+    [header addSubview:stationLabel];
+    [stationLabel release];
+    
 	return header;
 }
 
