@@ -190,8 +190,10 @@ currentDirection = _currentDirection;
 	for(Station *station in [self closestStationsArray])
 	{
 		NSPredicate *predicate = [NSPredicate predicateWithFormat:
-								  @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
-								  minutesIntoCurrentDay,[station name],direction,dayType];
+								  @"departureTimeInMinutes >= %i AND station.name = %@ AND direction IN %@ AND terminalStation.name != station.name AND dayType = %@",
+								  minutesIntoCurrentDay,[station name],
+                                  [NSArray arrayWithObjects:direction, @"B", nil],
+                                  dayType];
 		NSLog(@"predicate format: %@",[predicate predicateFormat]);
 		
 		/*
