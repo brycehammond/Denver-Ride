@@ -78,7 +78,7 @@
 		
 	}
 
-	NSLog(@"Request predicate: %@",predicate);
+	DLog(@"Request predicate: %@",predicate);
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
 	[request setEntity:entity];

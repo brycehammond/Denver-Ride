@@ -235,8 +235,6 @@
 
 - (void)loadStationsFromString:(NSString *)string stale:(BOOL)stale
 {
-	
-	NSLog(@"%@",string);
 	NSMutableArray *newStations = [[NSMutableArray alloc] init];
 						
 	//Load up the station config into an array

@@ -13,7 +13,8 @@
 #import "UIColorCategories.h"
 
 @interface ManualSelectViewController (Private)
--(NSString *)formattedTimeInMinutes;
+- (NSString *)formattedTimeInMinutes;
+- (NSArray *)nextStopsInDirection:(NSString *)direction forTimeInMinutes:(NSInteger)timeInMinutes;
 
 @end
 
@@ -33,17 +34,6 @@
 			timeInMinutes = _timeInMinutes,
 			currentStops = _currentStops,
 			currentDayType = _currentDayType;
-
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
-	{
-		
-	}
-	
-	return self;
-}
 
 - (void)loadView
 {
@@ -330,64 +320,45 @@
 }
 
 -(void)retrieveStopsDirection:(NSString *)direction
-{
-	NSPredicate *predicate = nil;
+{	
+    NSInteger timeInMinutes = [self timeInMinutes];
+    //If we are between midnight and 4 a.m. then search past midnight
+    //since RTD times can go beyond midnight
+    if(timeInMinutes < 60*4)
+    {
+        timeInMinutes += 60*24;
+    }
+    
+    NSMutableArray *allStops = [[NSMutableArray alloc] initWithCapacity:5];
+    
+	NSArray *stopsArray = [self nextStopsInDirection:direction forTimeInMinutes:timeInMinutes];
+    
+    if(nil != stopsArray)
+    {
+        [allStops addObjectsFromArray:stopsArray];
+        
+    }
+    
+    if([allStops count] < 5 && timeInMinutes >= 60 * 24)
+    {
+        //We don't have many stops and we are passed midnight so go to the
+        //morning of the next day
+        timeInMinutes -= 60*24;
+        stopsArray = [self nextStopsInDirection:direction forTimeInMinutes:timeInMinutes];
+        if(nil != stopsArray)
+        {
+            [allStops addObjectsFromArray:stopsArray];
+            
+        }
+        
+        if([allStops count] > 5)
+        {
+            [allStops removeObjectsInRange:NSMakeRange(5, [allStops count] - 5)];
+        }
+    }
 	
-	if(_timeDirection == FORWARD)
-	{
-		predicate = [NSPredicate predicateWithFormat:
-					 @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
-					 [self timeInMinutes],
-					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
-					 direction,
-					 [self currentDayType]];
-	  
-	}
-	else {
-		predicate = [NSPredicate predicateWithFormat:
-					 @"departureTimeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
-					 [self timeInMinutes],
-					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
-					 direction,
-					 [self currentDayType]];
-	}
-
-							  
-	NSLog(@"predicate: %@",predicate);
-	/*
-	 Fetch existing events.
-	 Create a fetch request; find the Event entity and assign it to the request; add a sort descriptor; then execute the fetch.
-	 */
-	NSFetchRequest *request = [[NSFetchRequest alloc] init];
-	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
-	[request setEntity:entity];
-	
-	// Order the events by creation date, most recent first.
-	
-	BOOL ascending = (_timeDirection == FORWARD);
-	
-	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
-	[request setSortDescriptors:sortDescriptors];
-	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
-	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
-	[request setFetchLimit:5];
-	[request setPredicate:predicate];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	[prefetchKeys release];
-	
-	// Execute the fetch -- create a mutable copy of the result.
-	NSError *error = nil;
-	NSMutableArray *stopsArray = [[[self managedObjectContext] executeFetchRequest:request error:&error] mutableCopy];
-	if (stopsArray == nil) {
-		// Handle the error.
-	}
-	
-	[request release];
-	
-	[self setCurrentStops:stopsArray];
-	[stopsArray release];
+	[self setCurrentStops:allStops];
+	[allStops release];
 	
 	[_manualTableView reloadData];
 }
@@ -419,6 +390,64 @@
 	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%i:0%i%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%i:%i%@",hours,minutes,amOrPm];
 	
 	return formattedTime;
+}
+
+- (NSArray *)nextStopsInDirection:(NSString *)direction forTimeInMinutes:(NSInteger)timeInMinutes
+{
+    NSPredicate *predicate = nil;
+    if(_timeDirection == FORWARD)
+	{
+		predicate = [NSPredicate predicateWithFormat:
+					 @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+					 timeInMinutes,
+					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 direction,
+					 [self currentDayType]];
+        
+	}
+	else {
+		predicate = [NSPredicate predicateWithFormat:
+					 @"departureTimeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
+					 timeInMinutes,
+					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 direction,
+					 [self currentDayType]];
+	}
+    
+    
+	DLog(@"predicate: %@",predicate);
+	/*
+	 Fetch existing events.
+	 Create a fetch request; find the Event entity and assign it to the request; add a sort descriptor; then execute the fetch.
+	 */
+	NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];
+	[request setEntity:entity];
+	
+	// Order the events by creation date, most recent first.
+	
+	BOOL ascending = (_timeDirection == FORWARD);
+	
+	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
+	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	[request setSortDescriptors:sortDescriptors];
+	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
+	[request setFetchLimit:5];
+	[request setPredicate:predicate];
+	[sortDescriptor release];
+	[sortDescriptors release];
+	[prefetchKeys release];
+	
+	NSError *error = nil;
+	NSArray *stopsArray = [[self managedObjectContext] executeFetchRequest:request error:&error];
+	if (stopsArray == nil) {
+		// Handle the error.
+	}
+	
+	[request release];
+    
+    return  stopsArray;
 }
 
 #pragma mark -

@@ -120,7 +120,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     if (managedObjectContext != nil) {
         if ([managedObjectContext hasChanges] && ![managedObjectContext save:&error]) {
 			// Handle error.
-			NSLog(@"Unresolved error %@, %@", error, [error userInfo]);
+			DLog(@"Unresolved error %@, %@", error, [error userInfo]);
 			exit(-1);  // Fail
         } 
     }

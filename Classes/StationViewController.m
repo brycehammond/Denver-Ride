@@ -202,7 +202,7 @@
 	}
 
 	
-	NSLog(@"predicate format: %@",[predicate predicateFormat]);
+	DLog(@"predicate format: %@",[predicate predicateFormat]);
 	
 	/*
 	 Fetch existing events.
