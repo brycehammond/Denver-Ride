@@ -613,7 +613,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
@@ -627,7 +627,7 @@
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos4.2;
 			};
 			name = Distribution;

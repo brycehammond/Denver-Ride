@@ -2,11 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleIconFiles</key>
-	<array>
-		<string>RTDIcon_114x114.png</string>
-		<string>RTDIcon_57x57.png</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>English</string>
 	<key>CFBundleDisplayName</key>
@@ -15,8 +10,13 @@
 	<string>${EXECUTABLE_NAME}</string>
 	<key>CFBundleIconFile</key>
 	<string>RTDIcon_57x57.png</string>
+	<key>CFBundleIconFiles</key>
+	<array>
+		<string>RTDIcon_114x114.png</string>
+		<string>RTDIcon_57x57.png</string>
+	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.wallst.rtd</string>
+	<string>com.fluidvisiondesign.denverride</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -26,8 +26,12 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.2a1</string>
+	<string>2.0b0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
 </dict>
 </plist>
