@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02A89FDB130252A200D8F0A1 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -18,13 +19,8 @@
 		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
 		145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 145BFFF4124FD52D00A643AA /* bcycle_stations.txt */; };
 		1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1465D90A129DE0F1009132DE /* DatabaseLoader.m */; };
-		1465D910129DE80E009132DE /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90C129DE80E009132DE /* routes.txt */; };
-		1465D911129DE80E009132DE /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90D129DE80E009132DE /* stop_times.txt */; };
-		1465D912129DE80E009132DE /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90E129DE80E009132DE /* stops.txt */; };
-		1465D913129DE80E009132DE /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
-		14A782DC129E138600C7F372 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */; };
 		14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B7017512356DCA007B9C90 /* Entitlements.plist */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
@@ -87,6 +83,7 @@
 
 /* Begin PBXFileReference section */
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
+		02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -439,6 +436,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 				14B7016812355C5E007B9C90 /* NIBs */,
@@ -543,11 +541,7 @@
 				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
-				1465D910129DE80E009132DE /* routes.txt in Resources */,
-				1465D911129DE80E009132DE /* stop_times.txt in Resources */,
-				1465D912129DE80E009132DE /* stops.txt in Resources */,
-				1465D913129DE80E009132DE /* trips.txt in Resources */,
-				14A782DC129E138600C7F372 /* linesToProcess.txt in Resources */,
+				02A89FDB130252A200D8F0A1 /* RTD2.0.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
