@@ -13,7 +13,7 @@
 
 
 - (id)initWithFrame:(CGRect)frame {
-    if (self = [super initWithFrame:frame]) {
+    if ((self = [super initWithFrame:frame])) {
 		[self setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:0.8]];
 		
 		
@@ -39,6 +39,7 @@
 		_progressView.frame = CGRectMake(41.0, 213.0, 237.0, 9.0);
 		_progressView.progress = 0;
 		_progressView.progressViewStyle = UIProgressViewStyleDefault;
+        [_progressView setHidden:YES];
 		[self addSubview:_progressView];
 
     }
@@ -53,6 +54,10 @@
 
 - (void)setDownloadProgress:(double)progress
 {
+    if(progress > 0)
+    {
+        [_progressView setHidden:NO];
+    }
 	[_progressView setProgress:progress];
 }
 

@@ -16,7 +16,7 @@
 		<string>RTDIcon_57x57.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
-	<string>com.fluidvisiondesign.denverride</string>
+	<string>com.fluidvisiondesign.denverride.beta</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
