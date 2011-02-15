@@ -49,8 +49,8 @@ currentDirection = _currentDirection;
 {
 	[super loadView];
 	[[self view] setFrame:CGRectMake(0, 0, 
-									 [[UIScreen mainScreen] bounds].size.width, 355)];
-	_closeStationsTableView = [[UITableView alloc] initWithFrame:[[self view] frame]
+									 [[UIScreen mainScreen] bounds].size.width, kShortContainerHeight)];
+	_closeStationsTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];
 	[_closeStationsTableView setDelegate:self];
 	[_closeStationsTableView setDataSource:self];

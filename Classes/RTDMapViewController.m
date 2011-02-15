@@ -25,7 +25,7 @@
 {
 	[super loadView];
 	
-	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 355)];
+	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kTallContainerHeight)];
 	
 	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1]];
 	

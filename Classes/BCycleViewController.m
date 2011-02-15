@@ -23,7 +23,7 @@
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
-	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
+	if((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
 	{
 		_stationsByName = [[NSMutableDictionary alloc] init];
 	}
@@ -35,7 +35,7 @@
 - (void)loadView {
 	[super loadView];
 	
-	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 355)];
+	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kTallContainerHeight)];
 	
 	_mapView = [[MKMapView alloc] initWithFrame:[[self view] bounds]];
 	[[self view] addSubview:_mapView];

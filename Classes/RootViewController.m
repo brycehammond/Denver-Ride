@@ -18,22 +18,12 @@
 			closestViewController = _closestViewController,
 			manualViewController = _manualViewController;
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)bundleOrNil
-{
-	if(self = [super initWithNibName:nibNameOrNil bundle:bundleOrNil])
-	{
-		
-	}
-	
-	return self;
-}
-
 - (void)loadView
 {
 	[super loadView];
 	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height)];
+															  kShortContainerHeight)];
+    [_containerView setClipsToBounds:YES];
 
 	[_containerView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	[[self view] addSubview:_containerView];
@@ -121,7 +111,7 @@
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
-		[sender setTitle:@"Closest"];
+		[sender setTitle:@"Closest Stations"];
 		[UIView beginAnimations:nil context:nil];
         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_containerView cache:YES];
 		[UIView setAnimationDuration:0.75];
@@ -200,9 +190,11 @@
 	}
 	else 
 	{
-		[self setTitle:@"Closest"];
+		[self setTitle:@"Closest Stations"];
 	}
 
+    [_containerView setFrameHeight:kShortContainerHeight];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
 }
@@ -221,9 +213,11 @@
 	}
 	else 
 	{
-		[self setTitle:@"Closest"];
+		[self setTitle:@"Closest Stations"];
 	}
 	
+    [_containerView setFrameHeight:kShortContainerHeight];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
 }
@@ -237,10 +231,11 @@
 	}
 
 	
+    [_containerView setFrameHeight:kTallContainerHeight];
 	[[_bcycleViewController view] removeFromSuperview];
 	[_containerView addSubview:[_mapViewController view]];
 	[self setTitle:@"Route Map"];
-	[[self navigationItem] setRightBarButtonItem:nil]; 
+	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)bcycleWasSelected
@@ -254,10 +249,11 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
+    [_containerView setFrameHeight:kTallContainerHeight];
 	[[_mapViewController view] removeFromSuperview];
 	[_containerView addSubview:[_bcycleViewController view]];
 	[self setTitle:@"BCycle"];
-	[[self navigationItem] setRightBarButtonItem:nil]; 
+	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 

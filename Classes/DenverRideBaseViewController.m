@@ -32,6 +32,7 @@
 							   - _sectionSelectorView.frame.size.height);
 	[_sectionSelectorView setFrame:frame];
 	[_sectionSelectorView setDelegate:self];
+    [_sectionSelectorView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
 	
 	[[self view] addSubview:_sectionSelectorView];
 }

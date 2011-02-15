@@ -90,8 +90,8 @@
 
 - (id)initWithDefaultFrame
 {
-	if(self = [self initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width,
-											 61)])
+	if((self = [self initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width,
+											 kSelectorHeight)]))
 	{
 		
 	}

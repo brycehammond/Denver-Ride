@@ -32,7 +32,7 @@
 	[super loadView];
 	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  [[self view] frame].size.height - _sectionSelectorView.frame.size.height)
+															  kShortContainerHeight)
 												   style:UITableViewStyleGrouped];
 	[_stopsTableView setDelegate:self];
 	[_stopsTableView setDataSource:self];
@@ -70,7 +70,7 @@
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
 	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType
 {
-	if(self = [self initWithNibName:nil bundle:nil])
+	if((self = [self initWithNibName:nil bundle:nil]))
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
@@ -258,9 +258,11 @@
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
+    [_stopsTableView setFrameHeight:kShortContainerHeight];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)southboundWasSelected
@@ -272,9 +274,11 @@
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
+    [_stopsTableView setFrameHeight:kShortContainerHeight];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
 - (void)mapWasSelected
@@ -285,10 +289,11 @@
 		_mapViewController = [[RTDMapViewController alloc] initWithNibName:nil bundle:nil];
 	}
 	
-	
+	[_stopsTableView setFrameHeight:kTallContainerHeight];
 	[[_bcycleViewController view] removeFromSuperview];
 	[_stopsTableView addSubview:[_mapViewController view]];
 	[self setTitle:@"Route Map"]; 
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)bcycleWasSelected
@@ -302,9 +307,11 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
+    [_stopsTableView setFrameHeight:kTallContainerHeight];
 	[[_mapViewController view] removeFromSuperview];
 	[_stopsTableView addSubview:[_bcycleViewController view]];
 	[self setTitle:@"BCycle"];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 @end
