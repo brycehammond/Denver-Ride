@@ -11,15 +11,6 @@
 
 @implementation RTDMapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-	if(self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])
-	{
-		
-	}
-	
-	return self;
-}
 
 - (void)loadView
 {
@@ -28,21 +19,16 @@
 	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kTallContainerHeight)];
 	
 	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1]];
+    
+    _mapView = [[UIWebView alloc] initWithFrame:[[self view] bounds]];
+    [_mapView setScalesPageToFit:YES];
+    
+    NSString *pdfLocation = [[NSBundle mainBundle] pathForResource:@"light-rail-map" ofType:@"pdf"];
+    
+    NSURL *url = [NSURL fileURLWithPath:pdfLocation];
+    [_mapView loadRequest:[NSURLRequest requestWithURL:url]];
 	
-	_scrollView = [[UIScrollView alloc] initWithFrame:[[self view] bounds]];
-	
-	_scrollView.contentMode = (UIViewContentModeScaleAspectFit);
-    _scrollView.autoresizingMask = ( UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-    _scrollView.maximumZoomScale = 2.5;
-    _scrollView.minimumZoomScale = 1;
-    _scrollView.clipsToBounds = YES;
-    _scrollView.delegate = self;
-	
-	[[self view] addSubview:_scrollView];
-	
-	_mapView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Map.png"]];
-	[_scrollView setContentSize:_mapView.frame.size];
-	[_scrollView addSubview:_mapView];
+	[[self view] addSubview:_mapView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -61,6 +47,8 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+    [_mapView release];
+    _mapView = nil;
 }
 
 -(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
@@ -69,7 +57,6 @@
 
 - (void)dealloc {
 	[_mapView release];
-	[_scrollView release];
     [super dealloc];
 }
 

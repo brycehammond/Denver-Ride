@@ -10,10 +10,9 @@
 
 @class RTDMapViewController;
 
-@interface RTDMapViewController : UIViewController <UIScrollViewDelegate> {
-	UIScrollView *_scrollView;
-	
-	UIImageView *_mapView;
+@interface RTDMapViewController : UIViewController
+{
+    UIWebView *_mapView;
 	
 }
 

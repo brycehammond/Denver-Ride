@@ -23,6 +23,7 @@
 
 /* Begin PBXBuildFile section */
 		02A89FDB130252A200D8F0A1 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */; };
+		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -42,7 +43,6 @@
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
 		14B701CB12356E2F007B9C90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B512356E2F007B9C90 /* Default.png */; };
 		14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B612356E2F007B9C90 /* Default@2x.png */; };
-		14B701CE12356E2F007B9C90 /* Map.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B812356E2F007B9C90 /* Map.png */; };
 		14B701CF12356E2F007B9C90 /* nav-bcycle_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B912356E2F007B9C90 /* nav-bcycle_down.png */; };
 		14B701D012356E2F007B9C90 /* nav-bcycle_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701BA12356E2F007B9C90 /* nav-bcycle_down@2x.png */; };
 		14B701D112356E2F007B9C90 /* nav-bcycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701BB12356E2F007B9C90 /* nav-bcycle.png */; };
@@ -101,7 +101,7 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54 /* Denver Ride */;
+			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
 			remoteInfo = "Denver Ride";
 		};
 /* End PBXContainerItemProxy section */
@@ -109,6 +109,7 @@
 /* Begin PBXFileReference section */
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
+		02AE137E130B9C3700816476 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -148,7 +149,6 @@
 		14B7017E12356DE0007B9C90 /* FlurryAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAPI.h; path = Flurry/FlurryAPI.h; sourceTree = SOURCE_ROOT; };
 		14B701B512356E2F007B9C90 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Artwork/Default.png; sourceTree = "<group>"; };
 		14B701B612356E2F007B9C90 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Artwork/Default@2x.png"; sourceTree = "<group>"; };
-		14B701B812356E2F007B9C90 /* Map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Map.png; path = Artwork/Map.png; sourceTree = "<group>"; };
 		14B701B912356E2F007B9C90 /* nav-bcycle_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bcycle_down.png"; path = "Artwork/nav-bcycle_down.png"; sourceTree = "<group>"; };
 		14B701BA12356E2F007B9C90 /* nav-bcycle_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bcycle_down@2x.png"; path = "Artwork/nav-bcycle_down@2x.png"; sourceTree = "<group>"; };
 		14B701BB12356E2F007B9C90 /* nav-bcycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nav-bcycle.png"; path = "Artwork/nav-bcycle.png"; sourceTree = "<group>"; };
@@ -334,9 +334,9 @@
 		14B701B412356E15007B9C90 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				02AE137E130B9C3700816476 /* light-rail-map.pdf */,
 				14B701B512356E2F007B9C90 /* Default.png */,
 				14B701B612356E2F007B9C90 /* Default@2x.png */,
-				14B701B812356E2F007B9C90 /* Map.png */,
 				14B701B912356E2F007B9C90 /* nav-bcycle_down.png */,
 				14B701BA12356E2F007B9C90 /* nav-bcycle_down@2x.png */,
 				14B701BB12356E2F007B9C90 /* nav-bcycle.png */,
@@ -540,7 +540,6 @@
 				14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
-				14B701CE12356E2F007B9C90 /* Map.png in Resources */,
 				14B701CF12356E2F007B9C90 /* nav-bcycle_down.png in Resources */,
 				14B701D012356E2F007B9C90 /* nav-bcycle_down@2x.png in Resources */,
 				14B701D112356E2F007B9C90 /* nav-bcycle.png in Resources */,
@@ -566,6 +565,7 @@
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				02A89FDB130252A200D8F0A1 /* RTD2.0.sqlite in Resources */,
+				02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
