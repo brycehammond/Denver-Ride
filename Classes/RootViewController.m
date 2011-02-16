@@ -111,7 +111,7 @@
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
-		[sender setTitle:@"Closest Stations"];
+		[sender setTitle:@"Closest"];
 		[UIView beginAnimations:nil context:nil];
         [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_containerView cache:YES];
 		[UIView setAnimationDuration:0.75];
@@ -233,7 +233,9 @@
 	
     [_containerView setFrameHeight:kTallContainerHeight];
 	[[_bcycleViewController view] removeFromSuperview];
+    [_mapViewController viewWillAppear:NO];
 	[_containerView addSubview:[_mapViewController view]];
+    [_mapViewController viewDidAppear:NO];
 	[self setTitle:@"Route Map"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
@@ -251,7 +253,9 @@
 	
     [_containerView setFrameHeight:kTallContainerHeight];
 	[[_mapViewController view] removeFromSuperview];
+    [_bcycleViewController viewWillAppear:NO];
 	[_containerView addSubview:[_bcycleViewController view]];
+    [_bcycleViewController viewDidAppear:NO];
 	[self setTitle:@"BCycle"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }

@@ -8,6 +8,7 @@
 
 #import "BCycleViewController.h"
 #import "StationAnnotation.h"
+#import "FlurryAPI.h"
 
 #define kStationInfoKey @"StationInfoKey"
 
@@ -67,15 +68,10 @@
 	_mapView.showsUserLocation = YES;
 }
 
-
-
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
-	
-	
-	
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [FlurryAPI logEvent:@"BCycle View shown"];
 }
 
 - (void)updateStations:(NSArray *)stations;

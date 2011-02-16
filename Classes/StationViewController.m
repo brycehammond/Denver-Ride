@@ -291,7 +291,9 @@
 	
 	[_stopsTableView setFrameHeight:kTallContainerHeight];
 	[[_bcycleViewController view] removeFromSuperview];
+    [_mapViewController viewWillAppear:NO];
 	[_stopsTableView addSubview:[_mapViewController view]];
+    [_mapViewController viewDidAppear:NO];
 	[self setTitle:@"Route Map"]; 
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
@@ -309,7 +311,9 @@
 	
     [_stopsTableView setFrameHeight:kTallContainerHeight];
 	[[_mapViewController view] removeFromSuperview];
+    [_bcycleViewController viewWillAppear:NO];
 	[_stopsTableView addSubview:[_bcycleViewController view]];
+    [_bcycleViewController viewDidAppear:NO];
 	[self setTitle:@"BCycle"];
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
