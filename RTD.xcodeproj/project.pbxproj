@@ -583,7 +583,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "ruby 'App Resources/ipaScript.rb' 'Denver Ride' 'App Resources/RTD-Info.plist'  'Artwork/iTunesArtwork'";
+			shellScript = "ruby 'App Resources/ipaScript.rb' 'Denver Ride' 'App Resources/RTD-Info.plist'  'Artwork/iTunesArtwork' 'App Resources/Fluidvision_AdHoc.mobileprovision'";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -648,6 +648,7 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				PRODUCT_NAME = "Denver Ride (IPA)";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -658,6 +659,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				PRODUCT_NAME = "Denver Ride (IPA)";
+				SDKROOT = iphoneos;
 				ZERO_LINK = NO;
 			};
 			name = Release;
@@ -666,6 +668,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				PRODUCT_NAME = "Denver Ride (IPA)";
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};

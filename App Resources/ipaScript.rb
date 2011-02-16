@@ -17,11 +17,12 @@ BUILD_FOLDER_PATH = ENV['CONFIGURATION_BUILD_DIR']
 BINARY_EXTENSION = "app"
 DSYM_EXTENSION = "app.dSYM"
 
-def initialize(application_name, plist_path, original_itunes_artwork_path)
+def initialize(application_name, plist_path, original_itunes_artwork_path, provisioning_profile)
 
   @application_name = application_name
   @plist_path = plist_path
   @original_itunes_artwork_path = original_itunes_artwork_path || "App Resources/Icons/iTunesArtwork"
+  @provisioning_profile = provisioning_profile
   
   ### Pull the plist into a Hash ###
   
@@ -32,7 +33,7 @@ def initialize(application_name, plist_path, original_itunes_artwork_path)
   @current_version = plist_hash["CFBundleVersion"] # Example: v1.0b20
   
   # Pull the current bundle identifier. It will be used to create a folder w/in the Executables. 
-  @bundle_identifier = plist_hash["CFBundleIdentifier"] # Example: "fineco.wallst.com"
+  @bundle_identifier = plist_hash["CFBundleIdentifier"] # Example: "com.fluidvisiondesign.app"
   
   # Clear out old directory (if necessary)
   FileUtils.remove_dir "Executables/#{@bundle_identifier}", :force => true
@@ -70,7 +71,14 @@ def createIPA
   FileUtils.cp @original_itunes_artwork_path, ipa_itunes_artwork_path
   
   # compress the ipa folder
-  system("cd '#{ipa_folder_path}'; /usr/bin/zip -r \"../#{@application_name}_#{@current_version}.ipa\" Payload iTunesArtwork")
+  system("cd '#{ipa_folder_path}'; /usr/bin/zip -r \"../#{@application_name}_#{@current_version}_no_embedded_provision.ipa\" Payload iTunesArtwork")
+  
+  #embed the provisioning profile if we have one
+  if nil != @provisioning_profile
+    FileUtils.cp @provisioning_profile, "#{ipa_folder_path}/Payload/embedded.mobileprovision"
+    FileUtils.cp @provisioning_profile, "#{ipa_folder_path}/../#{File.basename(@provisioning_profile)}"
+    system("cd '#{ipa_folder_path}'; /usr/bin/zip -r \"../#{@application_name}_#{@current_version}_embedded_provision.ipa\" Payload iTunesArtwork")
+  end
   
   #remove the directory we zipped contents from
   FileUtils.rmtree(ipa_folder_path)
@@ -100,7 +108,7 @@ end
 end
 
 # Be sure to change the application name to match the original target's PRODUCT_NAME.
-em = ExecutablesMaker.new(ARGV[0], ARGV[1], ARGV[2])
+em = ExecutablesMaker.new(ARGV[0], ARGV[1], ARGV[2], ARGV[3])
 em.verifyBuildConfig
 em.createIPA
 em.createZippedDSYM
