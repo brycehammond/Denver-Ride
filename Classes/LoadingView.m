@@ -36,7 +36,7 @@
 		[_activityIndicator startAnimating];
 		
 		_progressView = [[UIProgressView alloc] initWithProgressViewStyle:UIProgressViewStyleDefault];
-		_progressView.frame = CGRectMake(41.0, 213.0, 237.0, 9.0);
+		_progressView.frame = CGRectMake(41.0, 250.0, 237.0, 9.0);
 		_progressView.progress = 0;
 		_progressView.progressViewStyle = UIProgressViewStyleDefault;
         [_progressView setHidden:YES];

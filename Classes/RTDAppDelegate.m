@@ -297,6 +297,8 @@ void uncaughtExceptionHandler(NSException *exception) {
 	{ 
 		[[NSUserDefaults standardUserDefaults] setObject:[filename stringByDeletingPathExtension]
 												  forKey:kDatabaseVersionKey];
+        [[NSUserDefaults standardUserDefaults] setObject:date forKey:kLastUpdateDateKey];
+        [[NSUserDefaults standardUserDefaults] synchronize];
 	}
 	else 
 	{

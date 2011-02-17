@@ -24,6 +24,16 @@
 
 @synthesize delegate;
 
++ (void)initialize
+{
+    if(nil == [[NSUserDefaults standardUserDefaults]
+               stringForKey:kLastUpdateDateKey])
+    {
+        [[NSUserDefaults standardUserDefaults] setObject:@"20110216" forKey:kLastUpdateDateKey];
+    }
+    
+}
+
 -(void)startUpdate
 {
 	NSURLRequest *request = [NSURLRequest requestWithURL:
@@ -93,6 +103,9 @@
 			_downloadProgressTimer = nil;
 			
 			[delegate newDatabaseAvailableWithFilename:_newDatabaseFileName andDate:_newUpdateDate];
+            
+            [self hideLoadingView];
+            [_loadingView setDownloadProgress:0];
 		}
 		
 	}
