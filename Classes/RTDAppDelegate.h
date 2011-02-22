@@ -8,6 +8,8 @@
 
 #import "DatabaseUpdater.h"
 
+@class  RootViewController;
+
 @interface RTDAppDelegate : NSObject <UIApplicationDelegate, DatabaseUpdaterDelegate> {
     
     NSManagedObjectModel *managedObjectModel;

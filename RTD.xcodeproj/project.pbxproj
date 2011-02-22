@@ -38,7 +38,6 @@
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
 		14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */; };
-		14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 14B7017512356DCA007B9C90 /* Entitlements.plist */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
 		14B701CB12356E2F007B9C90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B512356E2F007B9C90 /* Default.png */; };
@@ -110,6 +109,7 @@
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02A89FDA130252A200D8F0A1 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		02AE137E130B9C3700816476 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
+		02FC983B1313767A006B752A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = "App Resources/Entitlements.plist"; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -141,7 +141,6 @@
 		14A782DB129E138600C7F372 /* linesToProcess.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linesToProcess.txt; sourceTree = "<group>"; };
 		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryWithLocation.a; path = Flurry/libFlurryWithLocation.a; sourceTree = "<group>"; };
-		14B7017512356DCA007B9C90 /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = "App Resources/Entitlements.plist"; sourceTree = "<group>"; };
 		14B7017612356DCA007B9C90 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "App Resources/main.m"; sourceTree = "<group>"; };
 		14B7017712356DCA007B9C90 /* RTD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTD_Prefix.pch; path = "App Resources/RTD_Prefix.pch"; sourceTree = "<group>"; };
 		14B7017812356DCA007B9C90 /* RTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RTD-Info.plist"; path = "App Resources/RTD-Info.plist"; sourceTree = "<group>"; };
@@ -302,11 +301,11 @@
 			isa = PBXGroup;
 			children = (
 				145BFFF4124FD52D00A643AA /* bcycle_stations.txt */,
-				14B7017512356DCA007B9C90 /* Entitlements.plist */,
 				14B7017612356DCA007B9C90 /* main.m */,
 				14B7017712356DCA007B9C90 /* RTD_Prefix.pch */,
 				14B7017812356DCA007B9C90 /* RTD-Info.plist */,
 				14B7017912356DCA007B9C90 /* RTD.xcdatamodel */,
+				02FC983B1313767A006B752A /* Entitlements.plist */,
 			);
 			name = "App Resources";
 			sourceTree = "<group>";
@@ -537,7 +536,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				14B7017A12356DCA007B9C90 /* Entitlements.plist in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
 				14B701CF12356E2F007B9C90 /* nav-bcycle_down.png in Resources */,
@@ -683,7 +681,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "966DAD5F-FA8F-402D-A668-DD172A78B6D8";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -691,7 +689,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Fluidvision Design, LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fluidvision Design, LLC";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -706,6 +705,7 @@
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
+				PROVISIONING_PROFILE = "F588E9D2-650D-457A-B5C1-B7D502AFFC6B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F588E9D2-650D-457A-B5C1-B7D502AFFC6B";
 				SDKROOT = iphoneos4.2;
 			};
@@ -715,8 +715,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
+				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -731,7 +732,8 @@
 				);
 				OTHER_CFLAGS = "-DDEBUG";
 				PRODUCT_NAME = "Denver Ride";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
+				PROVISIONING_PROFILE = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
 				SDKROOT = iphoneos4.2;
 			};
 			name = Debug;
@@ -740,7 +742,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -754,6 +757,7 @@
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
+				PROVISIONING_PROFILE = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
 				SDKROOT = iphoneos4.2;
 			};
@@ -763,12 +767,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.0;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -782,7 +787,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3A8CB9E-B81F-487C-8868-887E29BBAE3D";
-				SDKROOT = iphoneos3.0;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

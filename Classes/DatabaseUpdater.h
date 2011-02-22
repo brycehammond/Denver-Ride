@@ -12,6 +12,8 @@
 
 @protocol DatabaseUpdaterDelegate
 
+- (void)databaseUpdateStarted;
+- (void)databaseUpdateFinished;
 - (void)newDatabaseAvailableWithFilename:(NSString *)filename andDate:(NSString *)date;
 
 @end
@@ -25,6 +27,7 @@
 	LoadingView *_loadingView;
 	
 	NSString *_newDatabaseFileName;
+    NSString *_newDatabaseLocalFileName;
 	NSString *_newUpdateDate;
 	
 	NSTimer *_downloadProgressTimer;

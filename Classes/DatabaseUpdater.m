@@ -11,6 +11,7 @@
 #import "JSON.h"
 #import "RTDAppDelegate.h"
 #import "FlurryAPI.h"
+#import "NSData+gzip.h"
 
 @interface DatabaseUpdater (Private)
 - (void)showUpdateAlert;
@@ -51,6 +52,17 @@
 	[alertView show];
 }
 
+- (void)dealloc
+{
+    [_updateCheckConnection release];
+	[_databaseUpdateConnection release];
+	[_loadingView release];
+	[_newDatabaseFileName release];
+    [_newDatabaseLocalFileName release];
+	[_newUpdateDate release];
+    [super dealloc];
+}
+
 #pragma mark EncapsulatedConnectionDelegate methods
 
 - (void)connection:(EncapsulatedConnection *)connection returnedWithData:(NSData *)data
@@ -82,6 +94,7 @@
 						if(NSOrderedDescending == [date compare:currentDate])
 						{
 							_newDatabaseFileName = [file retain];
+                            _newDatabaseLocalFileName = [[file stringByReplacingOccurrencesOfString:@".gz" withString:@""] retain];
 							_newUpdateDate = [date retain];
 							[self showUpdateAlert];
 						}
@@ -94,15 +107,24 @@
 		{
 			RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 			
+            if([_newDatabaseFileName hasSuffix:@".gz"])
+            {
+                //we should decompress the data
+                data = [data gzipInflate];
+            }
+            
+            
 			[data writeToFile:[[appDelegate applicationDocumentsDirectory] stringByAppendingPathComponent:
-							   _newDatabaseFileName] atomically:YES];
+							   _newDatabaseLocalFileName] atomically:YES];
 			
 			
 			[_downloadProgressTimer invalidate];
 			[_downloadProgressTimer release];
 			_downloadProgressTimer = nil;
 			
-			[delegate newDatabaseAvailableWithFilename:_newDatabaseFileName andDate:_newUpdateDate];
+			[delegate newDatabaseAvailableWithFilename:_newDatabaseLocalFileName andDate:_newUpdateDate];
+            
+            [delegate databaseUpdateFinished];
             
             [self hideLoadingView];
             [_loadingView setDownloadProgress:0];
@@ -130,6 +152,7 @@
 	NSString *buttonName = [alertView buttonTitleAtIndex:buttonIndex];
 	if([buttonName isEqualToString:@"YES"])
 	{
+        [delegate databaseUpdateStarted];
 		[self showLoadingView];
 		NSURLRequest *request = [NSURLRequest requestWithURL:
 								 [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBasePath,_newDatabaseFileName]]];

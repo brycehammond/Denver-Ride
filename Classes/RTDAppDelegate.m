@@ -206,7 +206,7 @@ void uncaughtExceptionHandler(NSException *exception) {
     else {
         persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
         if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]){
-            //handle error
+            DLog(@"Error opening database with URL: %@", storeUrl);
         }
     }
 	
@@ -291,14 +291,51 @@ void uncaughtExceptionHandler(NSException *exception) {
 #pragma mark -
 #pragma mark DatabaseUpdaterDelegate methods
 
+- (void)databaseUpdateStarted
+{
+    [[navigationController view] removeFromSuperview];
+    [navigationController release];
+    navigationController = nil;
+}
+
+- (void)databaseUpdateFinished
+{
+    RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+	rootViewController.managedObjectContext = [self managedObjectContext];
+	
+	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    [window addSubview:[navigationController view]];
+}
+
 - (void)newDatabaseAvailableWithFilename:(NSString *)filename andDate:(NSString *)date
 {
+    
+    
 	if([self rebuildCoreDataStackWithDatabaseFile:filename])
 	{ 
 		[[NSUserDefaults standardUserDefaults] setObject:[filename stringByDeletingPathExtension]
 												  forKey:kDatabaseVersionKey];
         [[NSUserDefaults standardUserDefaults] setObject:date forKey:kLastUpdateDateKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        //go through and remove old databases
+        NSError *error = nil;
+        
+        NSArray *files = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:[self applicationDocumentsDirectory] error:&error];
+        
+        if(nil == error)
+        {
+            for(NSString *file in files)
+            {
+                if([file hasSuffix:@".sqlite"] && NO == [file isEqualToString:filename])
+                {
+                    [[NSFileManager defaultManager] removeItemAtPath:[[self applicationDocumentsDirectory] stringByAppendingPathComponent:file] error:&error];
+                }
+            }
+        }
+        
+        
 	}
 	else 
 	{
@@ -306,7 +343,6 @@ void uncaughtExceptionHandler(NSException *exception) {
 					  error:nil];
 		[self managedObjectContext];
 	}
-
 }
 
 
