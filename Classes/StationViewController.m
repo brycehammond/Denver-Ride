@@ -193,12 +193,12 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes > %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND terminalStation.name != station.name",
-		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes > %i AND station = %@ AND direction = %@ AND dayType = %@ AND terminalStation != %@",
+		 [self currentTimeInMinutes],[self station], direction, [self dayType], [self station]];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND station.name = %@ AND direction = %@ AND dayType = %@ AND startStation.name != station.name",
-		 [self currentTimeInMinutes],[[self station] name], direction, [self dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND station = %@ AND direction = %@ AND dayType = %@ AND startStation != %@",
+		 [self currentTimeInMinutes],[self station], direction, [self dayType], [self station]];
 	}
 
 	

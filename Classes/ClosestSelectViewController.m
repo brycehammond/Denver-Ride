@@ -242,8 +242,8 @@ currentDirection = _currentDirection;
 - (NSArray *)nextStopsForStation:(Station *)station withTimeInMinutes:(NSInteger)timeInMinutes andDayType:(NSString *)dayType
 {
     NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                              @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
-                              timeInMinutes,[station name],[self currentDirection],dayType];
+                              @"departureTimeInMinutes >= %i AND station = %@ AND terminalStation != %@ AND direction = %@  AND dayType = %@",
+                              timeInMinutes, station, station, [self currentDirection],dayType];
     DLog(@"predicate format: %@",[predicate predicateFormat]);
     
     /*
