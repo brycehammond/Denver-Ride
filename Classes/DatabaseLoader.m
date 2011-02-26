@@ -175,7 +175,7 @@
 				
 				[station setName:stationName];
 				[station setLongitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:4] doubleValue]]];
-				[station setLatitude:[NSNumber numberWithInt:[[stationFields objectAtIndex:3] doubleValue]]];
+				[station setLatitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:3] doubleValue]]];
 				
 				[stationsById setObject:station forKey:stationId];
 				
