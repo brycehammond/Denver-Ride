@@ -22,13 +22,10 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		0214B111131995170002B463 /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90C129DE80E009132DE /* routes.txt */; };
-		0214B112131995170002B463 /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90D129DE80E009132DE /* stop_times.txt */; };
-		0214B113131995170002B463 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90E129DE80E009132DE /* stops.txt */; };
-		0214B114131995170002B463 /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
 		0214B115131995170002B463 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		0214B117131997DD0002B463 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0214B116131997DD0002B463 /* RTD2.0.sqlite */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
+		02C448BB1327456A0076EA4F /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02FC983B1313767A006B752A /* Entitlements.plist */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -541,10 +538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0214B111131995170002B463 /* routes.txt in Resources */,
-				0214B112131995170002B463 /* stop_times.txt in Resources */,
-				0214B113131995170002B463 /* stops.txt in Resources */,
-				0214B114131995170002B463 /* trips.txt in Resources */,
+				02C448BB1327456A0076EA4F /* Entitlements.plist in Resources */,
 				0214B115131995170002B463 /* linesToProcess.txt in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
@@ -699,7 +693,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Fluidvision Design, LLC";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fluidvision Design, LLC";
 				COPY_PHASE_STRIP = YES;
@@ -715,8 +709,8 @@
 				);
 				OTHER_CFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "F588E9D2-650D-457A-B5C1-B7D502AFFC6B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F588E9D2-650D-457A-B5C1-B7D502AFFC6B";
+				PROVISIONING_PROFILE = "DF6206F4-1C0F-4267-9F5D-28787F70A5B0";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF6206F4-1C0F-4267-9F5D-28787F70A5B0";
 				SDKROOT = iphoneos4.2;
 			};
 			name = Distribution;
@@ -725,7 +719,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				COPY_PHASE_STRIP = NO;
@@ -752,7 +746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				CODE_SIGN_ENTITLEMENTS = "~/iOS/DenverRide/App Resources/Entitlements.plist";
+				CODE_SIGN_ENTITLEMENTS = "App Resources/Entitlements.plist";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (ZALV5EHEWM)";
 				COPY_PHASE_STRIP = YES;
