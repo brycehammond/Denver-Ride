@@ -62,9 +62,7 @@
 	[_mapView setRegion:region animated:TRUE];
 	// Lastly, set the MKMapViewDelegate
 	_mapView.delegate = self;
-	
-	[self updateAnnotations];
-	
+    
 	_mapView.showsUserLocation = YES;
 }
 
@@ -77,6 +75,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    [self updateAnnotations];
     static NSString *hasShownBCycleKey = @"ShownBCycleMessage";
     if(NO == [[NSUserDefaults standardUserDefaults] boolForKey:hasShownBCycleKey])
     {
@@ -89,6 +88,7 @@
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasShownBCycleKey];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+ 
 }
 
 - (void)updateStations:(NSArray *)stations;

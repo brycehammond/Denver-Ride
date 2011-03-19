@@ -47,9 +47,9 @@ void uncaughtExceptionHandler(NSException *exception) {
 	defaultDataNeedsFilling = NO;
 	
 	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    [FlurryAPI setSessionReportsOnCloseEnabled:NO];
 	[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
-	
-    
+
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)
 	{
@@ -99,11 +99,18 @@ void uncaughtExceptionHandler(NSException *exception) {
 		currentDirection = @"N";
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
 	}
-	
-	_databaseUpdater = [[DatabaseUpdater alloc] init];
-	[_databaseUpdater setDelegate:self];
-	[_databaseUpdater startUpdate];
-	
+
+}
+
+- (void)applicationDidBecomeActive:(UIApplication *)application
+{
+    if(nil == _databaseUpdater)
+    {
+        _databaseUpdater = [[DatabaseUpdater alloc] init];
+        [_databaseUpdater setDelegate:self];
+    }
+    
+    [_databaseUpdater startUpdate];
 }
 
 - (void)completedFadingDefaultPng:(NSString *)animationID finished:(BOOL)finished context:(void *)context {

@@ -24,22 +24,22 @@
 /* Begin PBXBuildFile section */
 		0214B115131995170002B463 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		0214B117131997DD0002B463 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0214B116131997DD0002B463 /* RTD2.0.sqlite */; };
+		028ED94313342C840055CDC7 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94213342C840055CDC7 /* libFlurry.a */; };
+		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
+		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
 		02C448BB1327456A0076EA4F /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02FC983B1313767A006B752A /* Entitlements.plist */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
 		145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B006A124FFC4300A643AA /* NSData+gzip.m */; };
-		145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 145B006C124FFCFE00A643AA /* libz.dylib */; };
 		145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */ = {isa = PBXBuildFile; fileRef = 145B00A4125014C100A643AA /* DatabaseUpdater.m */; };
 		145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDC124FD3B700A643AA /* BCycleViewController.m */; };
 		145BFFE0124FD3C700A643AA /* StationAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 145BFFDF124FD3C700A643AA /* StationAnnotation.m */; };
-		145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 145BFFE3124FD4AE00A643AA /* MapKit.framework */; };
 		145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */ = {isa = PBXBuildFile; fileRef = 145BFFF4124FD52D00A643AA /* bcycle_stations.txt */; };
 		1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 1465D90A129DE0F1009132DE /* DatabaseLoader.m */; };
 		1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14842559105BD87900DCB458 /* ManualSelectViewController.m */; };
 		1484255D105BD8B000DCB458 /* ClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */; };
-		14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
 		14B701CB12356E2F007B9C90 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B512356E2F007B9C90 /* Default.png */; };
@@ -109,6 +109,9 @@
 
 /* Begin PBXFileReference section */
 		0214B116131997DD0002B463 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
+		028ED94213342C840055CDC7 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
+		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02AE137E130B9C3700816476 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
 		02FC983B1313767A006B752A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = "App Resources/Entitlements.plist"; sourceTree = "<group>"; };
@@ -233,14 +236,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */,
+				028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
-				14B7017412356DB7007B9C90 /* libFlurryWithLocation.a in Frameworks */,
-				145BFFE4124FD4AE00A643AA /* MapKit.framework in Frameworks */,
-				145B006D124FFCFE00A643AA /* libz.dylib in Frameworks */,
+				028ED94313342C840055CDC7 /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,11 +452,14 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				028ED94613342CA10055CDC7 /* libz.dylib */,
+				028ED94413342C9A0055CDC7 /* MapKit.framework */,
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				028ED94213342C840055CDC7 /* libFlurry.a */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -683,6 +689,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "966DAD5F-FA8F-402D-A668-DD172A78B6D8";
 				SDKROOT = iphoneos;
@@ -701,17 +708,23 @@
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					UIKit,
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
+				);
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "DF6206F4-1C0F-4267-9F5D-28787F70A5B0";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "DF6206F4-1C0F-4267-9F5D-28787F70A5B0";
-				SDKROOT = iphoneos4.2;
+				PROVISIONING_PROFILE = "FBE416A0-EA13-4908-BB59-5CB350E6D7B9";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "FBE416A0-EA13-4908-BB59-5CB350E6D7B9";
+				SDKROOT = iphoneos;
 			};
 			name = Distribution;
 		};
@@ -728,17 +741,23 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "-DDEBUG";
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					UIKit,
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
+				);
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
-				SDKROOT = iphoneos4.2;
+				PROVISIONING_PROFILE = "4ACC77D9-6510-45C7-B8C8-FF09E95BE410";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4ACC77D9-6510-45C7-B8C8-FF09E95BE410";
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
@@ -753,17 +772,23 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = (
+					"-weak_framework",
+					UIKit,
+					"-weak_library",
+					/usr/lib/libSystem.B.dylib,
+				);
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "65A979C4-B287-4067-AA88-20F714247315";
-				SDKROOT = iphoneos4.2;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -775,6 +800,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D318966A-A02B-4B66-9F58-D5EEB1DE4139";
 				SDKROOT = iphoneos;
@@ -789,6 +815,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
 				PREBINDING = NO;
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F3A8CB9E-B81F-487C-8868-887E29BBAE3D";
 				SDKROOT = iphoneos;
