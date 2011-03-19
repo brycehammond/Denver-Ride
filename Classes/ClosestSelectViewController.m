@@ -308,7 +308,6 @@ currentDirection = _currentDirection;
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 	
-	[FlurryAPI setLocation:newLocation];
 	[_delayTimer invalidate];
 	[_delayTimer release];
 	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(processUpdate:)]];
