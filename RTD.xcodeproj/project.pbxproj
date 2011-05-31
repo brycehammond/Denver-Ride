@@ -23,7 +23,10 @@
 
 /* Begin PBXBuildFile section */
 		0214B115131995170002B463 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
-		0214B117131997DD0002B463 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0214B116131997DD0002B463 /* RTD2.0.sqlite */; };
+		025F96461394918C0066B8C0 /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90C129DE80E009132DE /* routes.txt */; };
+		025F96471394918C0066B8C0 /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90D129DE80E009132DE /* stop_times.txt */; };
+		025F96481394918C0066B8C0 /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90E129DE80E009132DE /* stops.txt */; };
+		025F96491394918C0066B8C0 /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
 		028ED94313342C840055CDC7 /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94213342C840055CDC7 /* libFlurry.a */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
@@ -544,6 +547,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				025F96461394918C0066B8C0 /* routes.txt in Resources */,
+				025F96471394918C0066B8C0 /* stop_times.txt in Resources */,
+				025F96481394918C0066B8C0 /* stops.txt in Resources */,
+				025F96491394918C0066B8C0 /* trips.txt in Resources */,
 				02C448BB1327456A0076EA4F /* Entitlements.plist in Resources */,
 				0214B115131995170002B463 /* linesToProcess.txt in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
@@ -573,7 +580,6 @@
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */,
-				0214B117131997DD0002B463 /* RTD2.0.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
