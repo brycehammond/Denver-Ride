@@ -46,9 +46,9 @@ void uncaughtExceptionHandler(NSException *exception) {
     
 	defaultDataNeedsFilling = NO;
 	
-	NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    [FlurryAPI setSessionReportsOnCloseEnabled:NO];
-	[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
+	//NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
+    //[FlurryAPI setSessionReportsOnCloseEnabled:NO];
+	//[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)

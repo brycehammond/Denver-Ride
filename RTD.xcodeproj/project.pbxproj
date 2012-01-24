@@ -111,7 +111,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0214B116131997DD0002B463 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		028ED94213342C840055CDC7 /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -470,7 +469,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0214B116131997DD0002B463 /* RTD2.0.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 				14B7016812355C5E007B9C90 /* NIBs */,
@@ -761,8 +759,8 @@
 					/usr/lib/libSystem.B.dylib,
 				);
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "4ACC77D9-6510-45C7-B8C8-FF09E95BE410";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4ACC77D9-6510-45C7-B8C8-FF09E95BE410";
+				PROVISIONING_PROFILE = "32F29573-80F7-4B00-8541-33D92D39F59C";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32F29573-80F7-4B00-8541-33D92D39F59C";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
