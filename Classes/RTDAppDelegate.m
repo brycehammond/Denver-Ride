@@ -38,17 +38,14 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-void uncaughtExceptionHandler(NSException *exception) {
-	[FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
-} 
-
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
     
 	defaultDataNeedsFilling = NO;
 	
-	//NSSetUncaughtExceptionHandler(&uncaughtExceptionHandler);
-    //[FlurryAPI setSessionReportsOnCloseEnabled:NO];
-	//[FlurryAPI startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
+    [FlurryAnalytics setSecureTransportEnabled:NO];
+    [FlurryAnalytics setSessionReportsOnCloseEnabled:NO];
+    [FlurryAnalytics setSessionReportsOnPauseEnabled:NO];
+	[FlurryAnalytics startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)
