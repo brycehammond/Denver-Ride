@@ -11,7 +11,7 @@
 @class Station;
 
 @interface StationListViewController : UIViewController <UITableViewDelegate, UITableViewDataSource, 
-NSFetchedResultsControllerDelegate, UISearchBarDelegate> {
+NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate> {
 	NSFetchedResultsController *_fetchedResultsController;
 	NSManagedObjectContext *_managedObjectContext;
 	

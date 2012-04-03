@@ -422,6 +422,12 @@
     [searchBar resignFirstResponder];
 }
 
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.searchBar resignFirstResponder];
+    
+}
+
 - (void)dealloc {
 	[_stationsTableView release];
 	[_fetchedResultsController release];
