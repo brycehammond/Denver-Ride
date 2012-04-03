@@ -39,8 +39,11 @@
 {
 	NSURLRequest *request = [NSURLRequest requestWithURL:
 							 [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",kBasePath,@"updates.txt"]]];
-	
-	_updateCheckConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"updateCheck"];
+    
+    if(nil == _updateCheckConnection)
+    {
+        _updateCheckConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"updateCheck"];
+    }
 }
 
 - (void)showUpdateAlert
@@ -102,6 +105,9 @@
 					
 				}
 			}
+            
+            [_updateCheckConnection release];
+            _updateCheckConnection = nil;
 		}
 		else if([[connection identifier] isEqualToString:@"DatabaseUpdate"])
 		{
@@ -128,6 +134,9 @@
             
             [self hideLoadingView];
             [_loadingView setDownloadProgress:0];
+            
+            [_databaseUpdateConnection release];
+            _databaseUpdateConnection = nil;
 		}
 		
 	}
@@ -139,7 +148,17 @@
 
 - (void)connection:(EncapsulatedConnection *)connection returnedWithError:(NSError *)error
 {
-	//show an error?
+    if([[connection identifier] isEqualToString:@"updateCheck"])
+    {
+        [_updateCheckConnection release];
+        _updateCheckConnection = nil;
+    }
+    else 
+    {
+        [_databaseUpdateConnection release];
+        _databaseUpdateConnection = nil;
+    }
+    
 	[_downloadProgressTimer invalidate];
 	[_downloadProgressTimer release];
 	_downloadProgressTimer = nil;

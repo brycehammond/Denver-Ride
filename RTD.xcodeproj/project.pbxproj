@@ -125,14 +125,12 @@
 		1454CF2F102F69D7007F0516 /* StationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationViewController.m; sourceTree = "<group>"; };
 		145B0069124FFC4300A643AA /* NSData+gzip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+gzip.h"; sourceTree = "<group>"; };
 		145B006A124FFC4300A643AA /* NSData+gzip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+gzip.m"; sourceTree = "<group>"; };
-		145B006C124FFCFE00A643AA /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = iphoneos3.0/usr/lib/libz.dylib; sourceTree = "<group>"; };
 		145B00A3125014C100A643AA /* DatabaseUpdater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseUpdater.h; sourceTree = "<group>"; };
 		145B00A4125014C100A643AA /* DatabaseUpdater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseUpdater.m; sourceTree = "<group>"; };
 		145BFFDB124FD3B700A643AA /* BCycleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCycleViewController.h; sourceTree = "<group>"; };
 		145BFFDC124FD3B700A643AA /* BCycleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCycleViewController.m; sourceTree = "<group>"; };
 		145BFFDE124FD3C700A643AA /* StationAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationAnnotation.h; sourceTree = "<group>"; };
 		145BFFDF124FD3C700A643AA /* StationAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationAnnotation.m; sourceTree = "<group>"; };
-		145BFFE3124FD4AE00A643AA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = iphoneos3.0/System/Library/Frameworks/MapKit.framework; sourceTree = "<group>"; };
 		145BFFF4124FD52D00A643AA /* bcycle_stations.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = bcycle_stations.txt; sourceTree = "<group>"; };
 		1465D909129DE0F1009132DE /* DatabaseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DatabaseLoader.h; sourceTree = "<group>"; };
 		1465D90A129DE0F1009132DE /* DatabaseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DatabaseLoader.m; sourceTree = "<group>"; };
@@ -147,7 +145,6 @@
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		14A782DB129E138600C7F372 /* linesToProcess.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linesToProcess.txt; sourceTree = "<group>"; };
 		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryWithLocation.a; path = Flurry/libFlurryWithLocation.a; sourceTree = "<group>"; };
 		14B7017612356DCA007B9C90 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "App Resources/main.m"; sourceTree = "<group>"; };
 		14B7017712356DCA007B9C90 /* RTD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTD_Prefix.pch; path = "App Resources/RTD_Prefix.pch"; sourceTree = "<group>"; };
 		14B7017812356DCA007B9C90 /* RTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RTD-Info.plist"; path = "App Resources/RTD-Info.plist"; sourceTree = "<group>"; };
@@ -454,14 +451,11 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				028ED94613342CA10055CDC7 /* libz.dylib */,
-				028ED94413342C9A0055CDC7 /* MapKit.framework */,
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				028ED94213342C840055CDC7 /* libFlurry.a */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -479,9 +473,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				145B006C124FFCFE00A643AA /* libz.dylib */,
-				145BFFE3124FD4AE00A643AA /* MapKit.framework */,
-				14B7017312356DB7007B9C90 /* libFlurryWithLocation.a */,
+				028ED94213342C840055CDC7 /* libFlurry.a */,
+				028ED94613342CA10055CDC7 /* libz.dylib */,
+				028ED94413342C9A0055CDC7 /* MapKit.framework */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
