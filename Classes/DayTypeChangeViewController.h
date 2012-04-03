@@ -30,6 +30,8 @@
 
 @property (assign) id<DayTypeChangeViewControllerDelegate> delegate;
 
+@property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
+
 -(IBAction)doneButtonClicked;
 -(IBAction)cancelButtonClicked;
 

@@ -12,6 +12,8 @@
 @implementation StationChangeViewController
 
 @synthesize delegate;
+@synthesize toolbar;
+@synthesize searchBar;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -23,12 +25,12 @@
 }
 */
 
-/*
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+    self.searchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
-*/
+
 
 /*
 // Override to allow orientations other than the default portrait orientation.
@@ -51,12 +53,16 @@
 }
 
 - (void)viewDidUnload {
+    [self setSearchBar:nil];
+    [self setToolbar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
+    [toolbar release];
+    [searchBar release];
     [super dealloc];
 }
 

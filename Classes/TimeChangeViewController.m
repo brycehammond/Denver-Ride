@@ -12,6 +12,7 @@
 @implementation TimeChangeViewController
 
 @synthesize delegate;
+@synthesize toolbar = _toolbar;
 
 -(IBAction)doneButtonClicked
 {
@@ -104,14 +105,12 @@
 	}
 }
 
-/*
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+   self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
-*/
+
 
 /*
 - (void)viewWillAppear:(BOOL)animated {
@@ -142,11 +141,13 @@
 }
 
 - (void)viewDidUnload {
+    [self setToolbar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
+    [_toolbar release];
     [super dealloc];
 }
 

@@ -21,6 +21,8 @@
 }
 
 @property (assign) id<StationChangeViewControllerDelegate> delegate;
+@property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 
 -(IBAction)cancelButtonClicked;
 

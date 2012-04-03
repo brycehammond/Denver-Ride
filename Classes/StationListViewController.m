@@ -16,6 +16,7 @@
 #define kRecentlyUsedStationsKey @"RecentlyUsedStations"
 
 @implementation StationListViewController
+@synthesize searchBar = _searchBar;
 
 @synthesize fetchedResultsController = _fetchedResultsController,
 			managedObjectContext = _managedObjectContext;
@@ -41,6 +42,8 @@
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSString *dayType = [[NSDate date] dayType];
 	[appDelegate setCurrentDayType:dayType];
+    
+    self.searchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -73,6 +76,7 @@
 }
 
 - (void)viewDidUnload {
+    [self setSearchBar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
@@ -291,7 +295,15 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-	return 24;
+    if([self tableView:tableView numberOfRowsInSection:section] > 0)
+    {
+        return 24;
+    }
+    else 
+    {
+        return 0;
+    }
+    
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -416,6 +428,7 @@
 	[_managedObjectContext release];
 	[_recentlyUsedStations release];
 	[_recentlyUsedStationsToDisplay release];
+    [_searchBar release];
     [super dealloc];
 }
 

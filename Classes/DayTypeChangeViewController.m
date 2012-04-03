@@ -14,11 +14,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 	_dayTypes = [[NSDate fullDayTypes] retain];
 }
 
 
 @synthesize delegate;
+@synthesize toolbar = _toolbar;
 
 -(IBAction)doneButtonClicked
 {
@@ -100,12 +102,14 @@
 }
 
 - (void)viewDidUnload {
+    [self setToolbar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
+    [_toolbar release];
     [super dealloc];
 }
 

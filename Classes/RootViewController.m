@@ -34,7 +34,7 @@
 	[super viewDidLoad];
 	
 	[[[self navigationController] navigationBar] setTintColor:
-	 [UIColor colorFromHex:@"70A96A" withAlpha:1]];
+	 [UIColor colorFromHex:kNavBarColor withAlpha:1]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFinished) 
 												 name:@"UpdateFinishedNotification" object:nil];

@@ -6,3 +6,4 @@
 #define kStatusBarHeight    20
 #define kShortContainerHeight (480 - kNavBarHeight - kSelectorHeight - kStatusBarHeight)
 #define kTallContainerHeight    (480 - kSelectorHeight - kStatusBarHeight)
+#define kNavBarColor @"70A96A"

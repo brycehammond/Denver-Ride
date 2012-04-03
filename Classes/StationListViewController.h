@@ -23,6 +23,7 @@ NSFetchedResultsControllerDelegate, UISearchBarDelegate> {
 
 @property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 @property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (retain, nonatomic) IBOutlet UISearchBar *searchBar;
 
 -(void)populateRecentlyUsed;
 -(void)addStationToRecentlyUsed:(Station *)station;
