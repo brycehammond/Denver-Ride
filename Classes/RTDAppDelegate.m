@@ -12,7 +12,7 @@
 #import "Station.h"
 #import "Stop.h"
 #import "UIColorCategories.h"
-#import "FlurryAPI.h"
+#import "FlurryAnalytics.h"
 #import "DatabaseLoader.h"
 
 @interface RTDAppDelegate (Private)
@@ -39,7 +39,7 @@
 #pragma mark Application lifecycle
 
 void uncaughtExceptionHandler(NSException *exception) {
-	[FlurryAPI logError:@"Uncaught" message:@"Crash!" exception:exception];
+	[FlurryAnalytics logError:@"Uncaught" message:@"Crash!" exception:exception];
 } 
 
 - (void)applicationDidFinishLaunching:(UIApplication *)application {    
@@ -346,7 +346,7 @@ void uncaughtExceptionHandler(NSException *exception) {
 	}
 	else 
 	{
-		[FlurryAPI logError:@"UpdateError" message:[NSString stringWithFormat:@"error updating to %@",filename]
+		[FlurryAnalytics logError:@"UpdateError" message:[NSString stringWithFormat:@"error updating to %@",filename]
 					  error:nil];
 		[self managedObjectContext];
 	}

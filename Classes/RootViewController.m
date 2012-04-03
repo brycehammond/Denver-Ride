@@ -9,7 +9,7 @@
 #import "RootViewController.h"
 #import "ClosestSelectViewController.h"
 #import "ManualSelectViewController.h"
-#import "FlurryAPI.h"
+#import "FlurryAnalytics.h"
 
 
 @implementation RootViewController
@@ -68,13 +68,13 @@
 	if([lastTypeUsed isEqualToString:@"Closest"])
 	{
 		_activeViewController = [self closestViewController];
-		[FlurryAPI logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
+		[FlurryAnalytics logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
 		buttonTitle = @"Manual";
 		[self setTitle:@"Closest Stations"];
 	}
 	else {
 		_activeViewController = [self manualViewController];
-		[FlurryAPI logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
+		[FlurryAnalytics logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
 		buttonTitle = @"Closest";
 		[self setTitle:@"Manual Mode"];
 	}
@@ -106,7 +106,7 @@
 	if([[sender title] isEqualToString:@"Manual"])
 	{
 		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
-		[FlurryAPI logEvent:@"Switch Mode" withParameters:
+		[FlurryAnalytics logEvent:@"Switch Mode" withParameters:
 			[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
@@ -128,7 +128,7 @@
 		//set to closest mode
 		
 		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
-		[FlurryAPI logEvent:@"Switch Mode" withParameters:
+		[FlurryAnalytics logEvent:@"Switch Mode" withParameters:
 			[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
 		
 		[sender setTitle:@"Manual"];
@@ -180,7 +180,7 @@
 {
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[FlurryAnalytics logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
@@ -203,7 +203,7 @@
 {
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[FlurryAnalytics logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	

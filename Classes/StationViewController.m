@@ -12,7 +12,7 @@
 #import "Line.h"
 #import "StationStopTableViewCell.h"
 #import "RTDAppDelegate.h"
-#import "FlurryAPI.h"
+#import "FlurryAnalytics.h"
 
 @interface StationViewController (Private)
 -(void)retrieveStopsInDirection:(NSString *)direction;
@@ -57,7 +57,7 @@
 		[_sectionSelectorView setToSouthbound];
 	}
 	
-	[FlurryAPI logEvent:@"Station View" withParameters:[NSDictionary dictionaryWithObject:[_station name] forKey:@"Station"]];
+	[FlurryAnalytics logEvent:@"Station View" withParameters:[NSDictionary dictionaryWithObject:[_station name] forKey:@"Station"]];
 	[self retrieveStopsInDirection:direction];
 }
 
@@ -253,7 +253,7 @@
 {
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[FlurryAnalytics logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
 	
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
@@ -269,7 +269,7 @@
 {
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[FlurryAPI logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[FlurryAnalytics logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
 	
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];

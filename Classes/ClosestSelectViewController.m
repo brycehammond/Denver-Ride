@@ -15,7 +15,7 @@
 #import "StationListViewController.h"
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
-#import "FlurryAPI.h"
+#import "FlurryAnalytics.h"
 
 @interface ClosestSelectViewController (Private)
 - (void)updateDirection:(NSString *)direction;

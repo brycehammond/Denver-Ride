@@ -10,7 +10,7 @@
 #import "Constants.h"
 #import "JSON.h"
 #import "RTDAppDelegate.h"
-#import "FlurryAPI.h"
+#import "FlurryAnalytics.h"
 #import "NSData+gzip.h"
 
 @interface DatabaseUpdater (Private)
@@ -142,7 +142,7 @@
 	}
 	@catch (NSException * e) 
 	{
-		[FlurryAPI logError:@"Uncaught Exception" message:@"exception thrown during update" error:nil];
+		[FlurryAnalytics logError:@"Uncaught Exception" message:@"exception thrown during update" error:nil];
 	}
 }
 
