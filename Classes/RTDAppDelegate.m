@@ -75,6 +75,8 @@
 	rootViewController.managedObjectContext = context;
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    [rootViewController release];
 	
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -308,6 +310,8 @@
 	rootViewController.managedObjectContext = [self managedObjectContext];
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    
+    [rootViewController release];
     
     [window addSubview:[navigationController view]];
 }

@@ -30,7 +30,7 @@
 }
 
 @property (assign) id<TimeChangeViewControllerDelegate> delegate;
-@property (retain, nonatomic) IBOutlet UIToolbar *toolbar;
+@property (retain, nonatomic) IBOutlet UIToolbar *timeChangeToolbar;
 
 -(IBAction)doneButtonClicked;
 -(IBAction)cancelButtonClicked;

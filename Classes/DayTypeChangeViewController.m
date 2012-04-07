@@ -12,15 +12,8 @@
 @implementation DayTypeChangeViewController
 
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
-	_dayTypes = [[NSDate fullDayTypes] retain];
-}
-
-
 @synthesize delegate;
-@synthesize toolbar = _toolbar;
+@synthesize dayTypeToolbar = _dayTypeToolbar;
 
 -(IBAction)doneButtonClicked
 {
@@ -41,6 +34,24 @@
 -(NSString *)dayType
 {
 	return [[NSDate codesByfullDayTypes] objectForKey:[_dayTypes objectAtIndex:[_picker selectedRowInComponent:0]]];
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if(self)
+    {
+        _dayTypes = [[NSDate fullDayTypes] retain];
+    }
+    
+    return self;
+    
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    self.dayTypeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
 
 -(void)animateIn
@@ -102,14 +113,14 @@
 }
 
 - (void)viewDidUnload {
-    [self setToolbar:nil];
+    [self setDayTypeToolbar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
-    [_toolbar release];
+    [_dayTypeToolbar release];
     [super dealloc];
 }
 

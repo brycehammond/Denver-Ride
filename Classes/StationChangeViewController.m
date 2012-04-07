@@ -12,8 +12,7 @@
 @implementation StationChangeViewController
 
 @synthesize delegate;
-@synthesize toolbar;
-@synthesize searchBar;
+@synthesize stationChangeToolbar;
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
@@ -27,8 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
-    self.searchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+    self.stationChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
 
 
@@ -53,16 +51,15 @@
 }
 
 - (void)viewDidUnload {
-    [self setSearchBar:nil];
-    [self setToolbar:nil];
+    [self setStationChangeToolbar:nil];
+    [super viewDidUnload];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
-    [toolbar release];
-    [searchBar release];
+    [stationChangeToolbar release];
     [super dealloc];
 }
 

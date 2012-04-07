@@ -73,4 +73,13 @@
 	return [NSString stringWithFormat:@"%@ %@ : %@",[super description], [self title], [self subtitle]];
 }
 
+- (void)dealloc
+{
+    [_title release];
+    [_subtitle release];
+    [_bikesAvailable release];
+    [_docksAvailable release];
+    [super dealloc];
+}
+
 @end

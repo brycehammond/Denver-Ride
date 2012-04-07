@@ -18,7 +18,7 @@
 
 @property (nonatomic, retain) NSString *bikesAvailable;
 @property (nonatomic, retain) NSString *docksAvailable;
-@property (nonatomic, retain) NSString *title;
-@property (nonatomic, retain) NSString *subtitle;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *subtitle;
 
 @end

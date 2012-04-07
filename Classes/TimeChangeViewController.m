@@ -12,7 +12,7 @@
 @implementation TimeChangeViewController
 
 @synthesize delegate;
-@synthesize toolbar = _toolbar;
+@synthesize timeChangeToolbar = _timeChangeToolbar;
 
 -(IBAction)doneButtonClicked
 {
@@ -108,7 +108,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-   self.toolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+   self.timeChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
 
 
@@ -141,13 +141,13 @@
 }
 
 - (void)viewDidUnload {
-    [self setToolbar:nil];
+    [self setTimeChangeToolbar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
 
 - (void)dealloc {
-    [_toolbar release];
+    [_timeChangeToolbar release];
     [super dealloc];
 }
 

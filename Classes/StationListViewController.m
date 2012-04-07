@@ -16,7 +16,7 @@
 #define kRecentlyUsedStationsKey @"RecentlyUsedStations"
 
 @implementation StationListViewController
-@synthesize searchBar = _searchBar;
+@synthesize stationListSearchBar = _stationListSearchBar;
 
 @synthesize fetchedResultsController = _fetchedResultsController,
 			managedObjectContext = _managedObjectContext;
@@ -43,7 +43,7 @@
 	NSString *dayType = [[NSDate date] dayType];
 	[appDelegate setCurrentDayType:dayType];
     
-    self.searchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+    self.stationListSearchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -76,7 +76,7 @@
 }
 
 - (void)viewDidUnload {
-    [self setSearchBar:nil];
+    [self setStationListSearchBar:nil];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
 }
@@ -424,7 +424,7 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    [self.searchBar resignFirstResponder];
+    [self.stationListSearchBar resignFirstResponder];
     
 }
 
@@ -434,7 +434,7 @@
 	[_managedObjectContext release];
 	[_recentlyUsedStations release];
 	[_recentlyUsedStationsToDisplay release];
-    [_searchBar release];
+    [_stationListSearchBar release];
     [super dealloc];
 }
 

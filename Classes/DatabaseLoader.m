@@ -43,9 +43,12 @@
     NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
     
 	NSMutableSet *relevantTrips = [[NSMutableSet alloc] init];
-	
-    NSString *trips = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trips" ofType:@"txt"]];
+    
+    NSString *trips = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trips" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     NSArray *fileLines = [trips componentsSeparatedByString:@"\n"];
+    [trips release];
+    trips = nil;
+    
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
         NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
@@ -66,8 +69,10 @@
     
 	NSMutableDictionary *linesById = [[NSMutableDictionary alloc] init];
 	
-    NSString *allLines = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"routes" ofType:@"txt"]];
+    NSString *allLines = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"routes" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     fileLines = [allLines componentsSeparatedByString:@"\n"];
+    [allLines release];
+    allLines = nil;
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
         NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
@@ -107,8 +112,11 @@
 	NSMutableDictionary *stationFieldsByStationId = [[NSMutableDictionary alloc] init];
 	
 	
-	NSString *allStations = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stops" ofType:@"txt"]];
+	NSString *allStations = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stops" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     fileLines = [allStations componentsSeparatedByString:@"\n"];
+    [allStations release];
+    allStations = nil;
+    
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
         NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
@@ -124,8 +132,10 @@
 	NSMutableDictionary *directionsByStationId = [[NSMutableDictionary alloc] init];
 	
 	//now read in the stop times and create the stops and 
-    NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"]];
+    NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
 	fileLines = [allStopTimes componentsSeparatedByString:@"\n"];
+    [allStopTimes release];
+    allStopTimes = nil;
 	
 	for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
@@ -276,8 +286,20 @@
 		
 		
 	}
+    
+    
 	
 	[pool release];
+    
+    [dayTypeByTrip release];
+    [lineByTrip release];
+	[directionByTrip release];
+    [stationFieldsByStationId release];
+    [stopsByTrip release];
+    [directionsByStationId release];
+    [stationsById release];
+    [linesById release];
+    [relevantTrips release];
 	
 	
 	[[appDelegate managedObjectContext] save:&error];
