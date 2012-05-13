@@ -106,7 +106,7 @@
     if(nil == _databaseUpdater)
     {
         _databaseUpdater = [[DatabaseUpdater alloc] init];
-        [_databaseUpdater setDelegate:self];
+        [_databaseUpdater setDelegate:self];        
     }
     
     [_databaseUpdater startUpdate];

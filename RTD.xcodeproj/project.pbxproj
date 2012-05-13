@@ -6,28 +6,13 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXAggregateTarget section */
-		02F5A1F8130B972200DFDDCD /* Denver Ride (IPA) */ = {
-			isa = PBXAggregateTarget;
-			buildConfigurationList = 02F5A202130B973700DFDDCD /* Build configuration list for PBXAggregateTarget "Denver Ride (IPA)" */;
-			buildPhases = (
-				02F5A1FF130B973200DFDDCD /* ShellScript */,
-			);
-			dependencies = (
-				02F5A1FD130B972D00DFDDCD /* PBXTargetDependency */,
-			);
-			name = "Denver Ride (IPA)";
-			productName = "Denver Ride (IPA)";
-		};
-/* End PBXAggregateTarget section */
-
 /* Begin PBXBuildFile section */
 		02473396152AB3E9000A42FC /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02473395152AB3E9000A42FC /* libFlurryAnalytics.a */; };
-		024733A4152AB9B5000A42FC /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 024733A3152AB9B5000A42FC /* RTD2.0.sqlite */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
 		02C448BB1327456A0076EA4F /* Entitlements.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02FC983B1313767A006B752A /* Entitlements.plist */; };
+		02E92405155F31370086EE0A /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02E92404155F31370086EE0A /* RTD2.0.sqlite */; };
 		140B57B1105D92DF00468DC9 /* TimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* StationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* StationViewController.m */; };
@@ -96,24 +81,14 @@
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		02F5A1FC130B972D00DFDDCD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 1D6058900D05DD3D006BFB54;
-			remoteInfo = "Denver Ride";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		02473394152AB3CE000A42FC /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = Flurry/FlurryAnalytics.h; sourceTree = SOURCE_ROOT; };
 		02473395152AB3E9000A42FC /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = Flurry/libFlurryAnalytics.a; sourceTree = "<group>"; };
-		024733A3152AB9B5000A42FC /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02AE137E130B9C3700816476 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
+		02E92404155F31370086EE0A /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		02FC983B1313767A006B752A /* Entitlements.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Entitlements.plist; path = "App Resources/Entitlements.plist"; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* TimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* TimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChangeViewController.m; sourceTree = "<group>"; };
@@ -460,7 +435,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				024733A3152AB9B5000A42FC /* RTD2.0.sqlite */,
+				02E92404155F31370086EE0A /* RTD2.0.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 				14B7016812355C5E007B9C90 /* NIBs */,
@@ -528,7 +503,6 @@
 			projectRoot = "";
 			targets = (
 				1D6058900D05DD3D006BFB54 /* Denver Ride */,
-				02F5A1F8130B972200DFDDCD /* Denver Ride (IPA) */,
 			);
 		};
 /* End PBXProject section */
@@ -566,27 +540,11 @@
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */,
-				024733A4152AB9B5000A42FC /* RTD2.0.sqlite in Resources */,
+				02E92405155F31370086EE0A /* RTD2.0.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		02F5A1FF130B973200DFDDCD /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "ruby 'App Resources/ipaScript.rb' 'Denver Ride' 'App Resources/RTD-Info.plist'  'Artwork/iTunesArtwork' 'App Resources/Fluidvision_AdHoc.mobileprovision'";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
@@ -633,45 +591,7 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		02F5A1FD130B972D00DFDDCD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 1D6058900D05DD3D006BFB54 /* Denver Ride */;
-			targetProxy = 02F5A1FC130B972D00DFDDCD /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin XCBuildConfiguration section */
-		02F5A1F9130B972200DFDDCD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = NO;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				PRODUCT_NAME = "Denver Ride (IPA)";
-				SDKROOT = iphoneos;
-			};
-			name = Debug;
-		};
-		02F5A1FA130B972200DFDDCD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				PRODUCT_NAME = "Denver Ride (IPA)";
-				SDKROOT = iphoneos;
-				ZERO_LINK = NO;
-			};
-			name = Release;
-		};
-		02F5A1FB130B972200DFDDCD /* Distribution */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				PRODUCT_NAME = "Denver Ride (IPA)";
-				SDKROOT = iphoneos;
-			};
-			name = Distribution;
-		};
 		1450A4B3103CB4BC0069B04C /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -814,16 +734,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		02F5A202130B973700DFDDCD /* Build configuration list for PBXAggregateTarget "Denver Ride (IPA)" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				02F5A1F9130B972200DFDDCD /* Debug */,
-				02F5A1FA130B972200DFDDCD /* Release */,
-				02F5A1FB130B972200DFDDCD /* Distribution */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Denver Ride" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

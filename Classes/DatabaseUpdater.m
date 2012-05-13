@@ -106,8 +106,11 @@
 				}
 			}
             
-            [_updateCheckConnection release];
-            _updateCheckConnection = nil;
+            //Schedule a timer to release the database update connection
+            //as we don't want to have it fire multiple times in case the activation callback goes through
+            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(releaseUpdateCheckConnection:) userInfo:nil repeats:NO];
+            
+            
 		}
 		else if([[connection identifier] isEqualToString:@"DatabaseUpdate"])
 		{
@@ -137,6 +140,8 @@
             
             [_databaseUpdateConnection release];
             _databaseUpdateConnection = nil;
+            
+            
 		}
 		
 	}
@@ -144,6 +149,13 @@
 	{
 		[FlurryAnalytics logError:@"Uncaught Exception" message:@"exception thrown during update" error:nil];
 	}
+}
+
+- (void)releaseUpdateCheckConnection:(NSTimer *)timer
+{
+    [_updateCheckConnection release];
+    _updateCheckConnection = nil;
+    
 }
 
 - (void)connection:(EncapsulatedConnection *)connection returnedWithError:(NSError *)error
