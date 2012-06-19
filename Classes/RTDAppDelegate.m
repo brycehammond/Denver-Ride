@@ -180,19 +180,29 @@
 	
     NSURL *storeUrl = [NSURL fileURLWithPath: [[self applicationDocumentsDirectory] stringByAppendingPathComponent:
 											   [_currentDatabaseVersion stringByAppendingString:@".sqlite"]]];
-	
-	NSError *error;
-	
+    
+    NSError *error;
+    
 	NSString *filePath = [[self applicationDocumentsDirectory] stringByAppendingPathComponent:[_currentDatabaseVersion stringByAppendingString:@".sqlite"]];
+    
 	NSFileHandle *fileHandle = [NSFileHandle fileHandleForReadingAtPath:filePath];
     if (fileHandle == nil) {
         NSString *defaultPath = [[NSBundle mainBundle] pathForResource:kInitialDatabaseVersion ofType:@"sqlite"];
         if (defaultPath) {
 			NSError *error;
+            
 			[[NSFileManager defaultManager] copyItemAtPath:defaultPath
 													toPath:filePath error:&error];
 			
             NSURL *fileURL = [NSURL fileURLWithPath:filePath];
+            
+            BOOL iCloudExclusionAvailable = (&NSURLIsExcludedFromBackupKey != NULL);
+            
+            if(iCloudExclusionAvailable)
+            {
+                [fileURL setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+            }
+            
 			persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
 			if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:fileURL options:nil error:&error]){
 				//handle error
