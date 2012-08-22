@@ -35,14 +35,15 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 169L,169L,Buckley / Tower DIA Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 16L,16L,West Colfax Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 17,17,Jeffco,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+1W,1W,1W West 1st Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 20,20,20th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 204,204,Table Mesa / Moorhead / North 19th,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205,205,28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205C,205C,205C 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205P,205P,205P 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205W,205W,205W 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-206,206,Pearl / Eisenhower,,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-206F,206F,206F Pearl / Eisenhower,,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+206,206,Pearl / Eisenhower / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+206F,206F,206F Pearl / Eisenhower / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 208,208,Iris / Valmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 208F,208F,208F Iris / Valmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 209,209,CU / Thunderbird,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
@@ -146,8 +147,6 @@ LX,LX,LX Longmont / Denver,This Route Travels Northbound & Southbound,3,http://w
 MALL,MALL,Free Mall Ride,,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 N,N,Nederland / Boulder,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 P,P,Parker / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
-PATH E,PATH E,Pathways East,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-PATH W,PATH W,Pathways West,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 R,R,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 RC,RC,RC Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 RX,RX,RX Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF

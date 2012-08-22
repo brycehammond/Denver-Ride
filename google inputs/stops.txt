@@ -249,19 +249,24 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 10420,W 1st Ave & Everett St,Vehicles Travelling West, 39.718478,-105.097523,,,0
 10422,W 1st Ave & Fenton St,Vehicles Travelling East, 39.718495,-105.060519,,,0
 10423,W 1st Ave & Fenton St,Vehicles Travelling West, 39.718608,-105.060474,,,0
+10427,1st Ave & Garfield St,Vehicles Travelling West, 39.717893,-104.944140,,,0
 10428,W 1st Ave & Garrison St,Vehicles Travelling East, 39.718344,-105.099584,,,0
 10429,1st Ave & Gilpin St,Vehicles Travelling East, 39.718127,-104.966164,,,0
 10430,1st Ave & Gilpin St,Vehicles Travelling West, 39.718382,-104.967193,,,0
 10433,1st Ave & Grant St,Vehicles Travelling East, 39.718279,-104.983456,,,0
 10436,W 1st Ave & Harlan St,Vehicles Travelling East, 39.718486,-105.062284,,,0
 10437,W 1st Ave & Harlan St,Vehicles Travelling West, 39.718635,-105.062317,,,0
+10438,1st Ave & Harrison St,Vehicles Travelling West, 39.717898,-104.941987,,,0
 10443,W 1st Ave & Ingalls St,Vehicles Travelling West, 39.718582,-105.064461,,,0
+10444,1st Ave & Harrison St,Vehicles Travelling East, 39.717744,-104.942048,,,0
 10445,W 1st Ave & Jay St,Vehicles Travelling East, 39.718466,-105.064688,,,0
 10447,W 1st Ave & Knox Ct,Vehicles Travelling West, 39.718214,-105.032991,,,0
 10448,E 1st Ave & Lafayette St,Vehicles Travelling East, 39.718137,-104.970302,,,0
 10449,W 1st Ave & Lamar St,Vehicles Travelling East, 39.718458,-105.067013,,,0
 10450,W 1st Ave & Lamar St,Vehicles Travelling West, 39.718554,-105.067430,,,0
 10451,1st Ave & Lincoln St,Vehicles Travelling West, 39.718403,-104.986632,,,0
+10453,1st Ave & Madison St,Vehicles Travelling East, 39.717737,-104.945820,,,0
+10454,1st Ave & Madison St,Vehicles Travelling West, 39.717905,-104.946615,,,0
 10457,W 1st Ave & Meade St,Vehicles Travelling East, 39.718089,-105.035739,,,0
 10458,W 1st Ave & Meade St,Vehicles Travelling West, 39.718205,-105.036629,,,0
 10459,W 1st Ave & Newland St,Vehicles Travelling East, 39.718451,-105.069303,,,0
@@ -274,6 +279,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 10470,1st Ave & Detroit St,Vehicles Travelling West, 39.718270,-104.956777,,,0
 10471,W 1st Ave & Sheridan Blvd,Vehicles Travelling East, 39.718158,-105.052736,,,0
 10472,W 1st Ave & Sheridan Blvd,Vehicles Travelling West, 39.718660,-105.053797,,,0
+10473,1st Ave & Steele St,Vehicles Travelling East, 39.717741,-104.948811,,,0
 10476,W 1st Ave & Stuart St,Vehicles Travelling East, 39.718084,-105.042945,,,0
 10477,W 1st Ave & Stuart St,Vehicles Travelling West, 39.718216,-105.043755,,,0
 10478,W 1st Ave & Teller St,Vehicles Travelling East, 39.718412,-105.076463,,,0
@@ -889,7 +895,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 11276,E 48th Ave & Columbine St,Vehicles Travelling East, 39.783705,-104.956508,,,0
 11277,E 48th Ave & Columbine St,Vehicles Travelling West, 39.783806,-104.956856,,,0
 11278,E 48th Ave & Dahlia St,Vehicles Travelling West, 39.783474,-104.932015,,,0
-11279,48th Ave & Elm St,Vehicles Travelling East, 39.783349,-104.930909,,,0
+11279,E 48th Ave & Dahlia St,Vehicles Travelling East, 39.783349,-104.930909,,,0
 11280,E 48th Ave & Dahlia St,Vehicles Travelling West, 39.783466,-104.933827,,,0
 11281,E 48th Ave & Dahlia St,Vehicles Travelling East, 39.783357,-104.933718,,,0
 11282,E 48th Ave & Forest St,Vehicles Travelling East, 39.783696,-104.926428,,,0
@@ -1607,8 +1613,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 12426,Brighton Blvd & 43rd St,Vehicles Travelling Northeast, 39.777254,-104.969751,,,0
 12427,Broadway & W 13th Ave,Vehicles Travelling South, 39.736373,-104.987538,,,0
 12430,Broadway & W 14th Ave,Vehicles Travelling South, 39.738605,-104.987527,,,0
-12432,Broadway & Euclid Ave,Vehicles Travelling Northwest, 40.005694,-105.271617,,,0
-12433,Broadway & 16th St,Vehicles Travelling Southeast, 40.005527,-105.271766,,,0
+12432,Broadway & Euclid Ave,Vehicles Travelling Northwest, 40.006482,-105.273076,,,0
+12433,Broadway & 16th St,Vehicles Travelling Southeast, 40.005428,-105.271680,,,0
 12434,Broadway & 20th St,Vehicles Travelling Southeast, 40.003510,-105.268062,,,0
 12437,Broadway & 21st St,Vehicles Travelling North, 39.750939,-104.987305,,,0
 12438,Broadway & 27th Way,Vehicles Travelling Northwest, 39.997013,-105.261311,,,0
@@ -1755,12 +1761,12 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 12647,S Buckley Rd & E Princeton Dr,Vehicles Travelling North, 39.640952,-104.791271,,,0
 12648,S Buckley Rd & E Princeton Dr,Vehicles Travelling South, 39.641078,-104.791580,,,0
 12650,W Byron Pl & Sheridan Blvd,Vehicles Travelling East, 39.752988,-105.052168,,,0
-12651,California St & 21st St,Vehicles Travelling Southwest, 39.749706,-104.986484,,,0
+12651,California St & 21st St,Vehicles Travelling Southwest, 39.749663,-104.986501,,,0
 12652,California St & Park Ave West,Vehicles Travelling Southwest, 39.751589,-104.983976,,,0
-12653,California St & 25th St,Vehicles Travelling Southwest, 39.753438,-104.981586,,,0
-12654,California St & 27th St,Vehicles Travelling Southwest, 39.755288,-104.979200,,,0
+12653,California St & 25th St,Vehicles Travelling Southwest, 39.753473,-104.981569,,,0
+12654,California St & 27th St,Vehicles Travelling Southwest, 39.755323,-104.979215,,,0
 12655,California St & 28th St,Vehicles Travelling Southwest, 39.756298,-104.977904,,,0
-12656,California St & 29th St,Vehicles Travelling Southwest, 39.757416,-104.976455,,,0
+12656,California St & 29th St,Vehicles Travelling Southwest, 39.757502,-104.976407,,,0
 12662,Canyon Blvd & 11th St,Vehicles Travelling East, 40.015613,-105.280112,,,0
 12663,Canyon Blvd & 11th St,Vehicles Travelling West, 40.015609,-105.281034,,,0
 12665,Canyon Blvd & 28th St,Vehicles Travelling West, 40.017517,-105.259547,,,0
@@ -1821,7 +1827,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 12753,S Cherry St & Cherry Crk Dr S,Vehicles Travelling North, 39.703517,-104.934081,,,0
 12754,S Cherry St & E Kentucky Ave,Vehicles Travelling North, 39.700480,-104.934082,,,0
 12755,S Cherry St & E Kentucky Ave,Vehicles Travelling South, 39.699985,-104.934215,,,0
-12756,S Cherry St & Mississippi Ave,Vehicles Travelling North, 39.696893,-104.933963,,,0
+12756,S Cherry St & Mississippi Ave,Vehicles Travelling North, 39.697470,-104.933954,,,0
 12757,S Cherry St & Mississippi Ave,Vehicles Travelling South, 39.696789,-104.934116,,,0
 12759,W Church Ave & S Curtice St,Vehicles Travelling West, 39.610347,-105.018784,,,0
 12761,W Church Ave & S Rapp St,Vehicles Travelling East, 39.610222,-105.019598,,,0
@@ -2403,7 +2409,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 13698,Federal Blvd & W 10th Ave,Vehicles Travelling North, 39.733214,-105.025048,,,0
 13699,Federal Blvd & W 10th Ave,Vehicles Travelling South, 39.732643,-105.025277,,,0
 13700,Federal Blvd & W 12th Ave,Vehicles Travelling North, 39.735104,-105.025017,,,0
-13701,Federal Blvd & W Holden Pl,Vehicles Travelling South, 39.735796,-105.025300,,,0
+13701,Federal Blvd & W Holden Pl,Vehicles Travelling South, 39.735913,-105.025429,,,0
 13702,Federal Blvd & W 14th Ave,Vehicles Travelling South, 39.737695,-105.025311,,,0
 13703,Federal Blvd & W Howard Pl,Vehicles Travelling North, 39.737743,-105.024996,,,0
 13704,Federal Blvd & W 17th Ave,Vehicles Travelling North, 39.744283,-105.025117,,,0
@@ -3630,7 +3636,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 15766,Parfet St & W 8th Ave,Vehicles Travelling South, 39.728890,-105.119503,,,0
 15770,S Parker Rd & Lehigh Ave,Vehicles Travelling North, 39.647659,-104.828760,,,0
 15771,S Parker Rd & S Atchison Way,Vehicles Travelling South, 39.643670,-104.828998,,,0
-15772,S Parker Rd & Dartmouth Ave,Vehicles Travelling Southeast, 39.660320,-104.854715,,,0
+15772,S Parker Rd & Dartmouth Ave,Vehicles Travelling Southeast, 39.660295,-104.854816,,,0
 15773,S Parker Rd & Dartmouth Ave,Vehicles Travelling Northwest, 39.659794,-104.851638,,,0
 15774,S Parker Rd & S Peoria St,Vehicles Travelling Southeast, 39.659374,-104.850413,,,0
 15777,S Parker Rd & S Havana St,Vehicles Travelling Southeast, 39.669669,-104.864797,,,0
@@ -3767,7 +3773,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 16076,Pratt St & Emerson Pl,Vehicles Travelling North, 40.198618,-105.107000,,,0
 16079,S Prince St & W Caley Ave,Vehicles Travelling North, 39.602766,-105.016245,,,0
 16080,S Prince St & W Caley Ave,Vehicles Travelling South, 39.602140,-105.016386,,,0
-16081,S Prince St & W Church Ave Gate E,Vehicles Travelling , 39.611019,-105.016095,,,0
+16081,S Prince St & W Church Ave Gate E,Vehicles Travelling North, 39.611011,-105.016095,,,0
 16083,S Prince St & W Fair Ave,Vehicles Travelling South, 39.604107,-105.016357,,,0
 16086,S Prince St & W Warren Ave,Vehicles Travelling North, 39.608053,-105.016165,,,0
 16087,S Prince St & W Lake Ave,Vehicles Travelling South, 39.607571,-105.016339,,,0
@@ -3806,7 +3812,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 16179,S Quebec St & Progress Ave,Vehicles Travelling North, 39.621558,-104.903923,,,0
 16180,S Quebec St & Progress Pl,Vehicles Travelling South, 39.621372,-104.904185,,,0
 16181,Quebec St & Richthofen Pl,Vehicles Travelling North, 39.735076,-104.903401,,,0
-16183,Quebec St & Smith Rd,Vehicles Travelling South, 39.771400,-104.903548,,,0
 16184,Quebec St & Smith Rd,Vehicles Travelling North, 39.772220,-104.902205,,,0
 16190,Quincy Ave & S Chambers Rd,Vehicles Travelling West, 39.638612,-104.812288,,,0
 16191,Quincy Ave & S Syracuse St,Vehicles Travelling East, 39.638535,-104.896835,,,0
@@ -4255,8 +4260,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 16939,Vo Tech Dr & Education Center Dr,Vehicles Travelling West, 40.014467,-105.200273,,,0
 16940,Wadsworth Blvd & W 10th Ave,Vehicles Travelling North, 39.733975,-105.081284,,,0
 16941,Wadsworth Blvd & W 10th Ave,Vehicles Travelling South, 39.733960,-105.081581,,,0
-16942,Wadsworth Blvd & W 13th Ave,Vehicles Travelling North, 39.737053,-105.081251,,,0
-16943,Wadsworth Blvd & W 13th Ave,Vehicles Travelling South, 39.736883,-105.081546,,,0
+16942,Wadsworth Blvd & W 13th Ave,Vehicles Travelling North, 39.737027,-105.081236,,,0
+16943,Wadsworth Blvd & W 13th Ave,Vehicles Travelling South, 39.736968,-105.081554,,,0
 16944,Wadsworth Blvd & W 17th Ave,Vehicles Travelling South, 39.743593,-105.081558,,,0
 16945,Wadsworth Blvd & W 17th Ave,Vehicles Travelling North, 39.744636,-105.081227,,,0
 16946,Wadsworth Blvd & W 1st Ave,Vehicles Travelling North, 39.718850,-105.081335,,,0
@@ -4426,7 +4431,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 17199,Washington St & 83rd Dr,Vehicles Travelling South, 39.846203,-104.978008,,,0
 17200,Washington St & 84th Ave,Vehicles Travelling North, 39.850094,-104.977744,,,0
 17202,Washington St & 85th Ave,Vehicles Travelling South, 39.850741,-104.978022,,,0
-17203,Washington St & Sheldon Dr,Vehicles Travelling North, 39.854632,-104.977786,,,0
+17203,Washington St & Sheldon Dr,Vehicles Travelling North, 39.853927,-104.977744,,,0
 17205,Washington St & 88th Ave,Vehicles Travelling North, 39.857787,-104.977777,,,0
 17206,Washington St & 88th Ave,Vehicles Travelling South, 39.855301,-104.978029,,,0
 17210,Washington St & Russell Blvd,Vehicles Travelling South, 39.857667,-104.978017,,,0
@@ -4682,8 +4687,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 17730,Broadway & Cleveland Pl,Vehicles Travelling South, 39.742460,-104.987551,,,0
 17731,Broadway & W Colfax Ave,Vehicles Travelling South, 39.740318,-104.987529,,,0
 17732,California St & 19th St,Vehicles Travelling South, 39.748117,-104.988511,,,0
-17733,California St & 17th St,Vehicles Travelling Southwest, 39.746353,-104.990823,,,0
-17735,California St & 15th St,Vehicles Travelling Southwest, 39.744837,-104.992788,,,0
+17733,California St & 17th St,Vehicles Travelling Southwest, 39.746321,-104.990829,,,0
+17735,California St & 15th St,Vehicles Travelling Southwest, 39.744844,-104.992746,,,0
 17740,Champa St & 15th St,Vehicles Travelling Southwest, 39.745498,-104.995451,,,0
 17741,Champa St & 13th St,Vehicles Travelling Southwest, 39.743566,-104.997897,,,0
 17745,Court Pl & 14th St,Vehicles Travelling Northeast, 39.740833,-104.990760,,,0
@@ -4695,7 +4700,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 17753,Lawrence St & 18th St,Vehicles Travelling North, 39.750799,-104.993475,,,0
 17754,Lincoln St & Colfax Ave,Vehicles Travelling North, 39.740387,-104.986031,,,0
 17756,Market St & 16th St Mall,Vehicles Travelling Northeast, 39.750068,-104.997958,,,0
-17760,Stout St & 16th St,Vehicles Travelling Northeast, 39.745741,-104.993130,,,0
+17760,Stout St & 16th St,Vehicles Travelling Northeast, 39.745677,-104.993133,,,0
 17761,Stout St & 18th St,Vehicles Travelling Northeast, 39.747544,-104.990713,,,0
 17762,Stout St & 19th St,Vehicles Travelling North, 39.748812,-104.989084,,,0
 17764,Tremont Pl & 16th St,Vehicles Travelling South, 39.743046,-104.989877,,,0
@@ -4776,13 +4781,13 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 17928,Broadway & Arapahoe Ave,Vehicles Travelling Southeast, 40.013339,-105.278499,,,0
 17932,W Main Ave & 4th St,Vehicles Travelling West, 39.716672,-105.114095,,,0
 17936,Hwy 93 & Virginia St,Vehicles Travelling Northeast, 39.777494,-105.232423,,,0
-17937,Hwy 93 & W 58th Ave,Vehicles Travelling North, 39.802741,-105.224230,,,0
+17937,Hwy 93 & W 58th Ave,Vehicles Travelling North, 39.802725,-105.224226,,,0
 17938,Hwy 93 & Hwy 72,Vehicles Travelling Northwest, 39.865683,-105.240005,,,0
 17939,Hwy 93 & Eldorado Springs Rd,Vehicles Travelling North, 39.954233,-105.231422,,,0
 17940,S Broadway & Greenbriar Blvd,Vehicles Travelling Southeast, 39.975053,-105.240584,,,0
 17942,Hwy 93 & Eldorado Springs Rd,Vehicles Travelling South, 39.953089,-105.232511,,,0
 17943,Hwy 93 & Hwy 72,Vehicles Travelling Southeast, 39.866062,-105.240492,,,0
-17944,Hwy 93 & W 58th Ave,Vehicles Travelling South, 39.802834,-105.224455,,,0
+17944,Hwy 93 & W 58th Ave,Vehicles Travelling South, 39.802846,-105.224460,,,0
 17945,Hwy 93 & Virginia St,Vehicles Travelling Southwest, 39.778431,-105.232178,,,0
 17947,North Ave & 8th St,Vehicles Travelling East, 39.722807,-105.126649,,,0
 17951,W 112th Ave & Ranch Dr,Vehicles Travelling West, 39.899805,-105.011027,,,0
@@ -4806,7 +4811,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 17994,Hwy 119 & Jay Rd,Vehicles Travelling Northeast, 40.051761,-105.231864,,,0
 17996,Hwy 119 & Hwy 52,Vehicles Travelling Northeast, 40.089322,-105.189620,,,0
 17998,Hwy 119 & N 83rd St,Vehicles Travelling Northeast, 40.116705,-105.159141,,,0
-18001,Longmont Terminal,Vehicles Travelling East, 40.149175,-105.103039,,,0
+18001,Longmont pnR,Vehicles Travelling East, 40.149175,-105.103039,,,0
 18003,Ken Pratt Blvd & S Main St,Vehicles Travelling West, 40.152608,-105.103820,,,0
 18005,Hwy 119 & S Airport Rd,Vehicles Travelling Southwest, 40.124184,-105.148555,,,0
 18006,Hwy 119 & Oxford Rd,Vehicles Travelling Southwest, 40.116757,-105.160563,,,0
@@ -4824,7 +4829,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 18028,Boulder Canyon Dr & E 3rd St,Vehicles Travelling West, 39.963021,-105.509637,,,0
 18030,Eldora Rd & Hwy 72,Vehicles Travelling Northwest, 39.957508,-105.517182,,,0
 18032,Eldora Mountain Resort,Vehicles Travelling South, 39.937740,-105.584149,,,0
-18044,South Boulder Rd & Hays Dr,Vehicles Travelling West, 39.986990,-105.158281,,,0
+18044,S Boulder Rd & Hayes Dr,Vehicles Travelling West, 39.986990,-105.158281,,,0
 18046,South Boulder Rd & Barcelona Dr,Vehicles Travelling East, 39.986652,-105.178724,,,0
 18047,W 112th Ave & Raritan St,Vehicles Travelling East, 39.899624,-105.010975,,,0
 18050,W 120th Ave & Pecos St,Vehicles Travelling East, 39.913764,-105.005348,,,0
@@ -5088,14 +5093,14 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 18808,46th Ave & Fairplay Way,Vehicles Travelling Northwest, 39.778155,-104.816026,,,0
 18809,46th Ave & Dearborn St,Vehicles Travelling West, 39.779145,-104.821176,,,0
 18810,46th Ave & Andrews Dr,Vehicles Travelling West, 39.779096,-104.824275,,,0
-18811,44th Ave & Andrews Dr,Vehicles Travelling Southwest, 39.777615,-104.824115,,,0
+18811,Andrews Dr & 44th Ave,Vehicles Travelling South, 39.777605,-104.824111,,,0
 18812,44th Ave & Denmark Ct,Vehicles Travelling Southwest, 39.776231,-104.827711,,,0
 18813,Albrook Dr & Anaheim Ct,Vehicles Travelling Northwest, 39.777591,-104.834548,,,0
 18820,Federal Blvd & W 17th Ave,Vehicles Travelling South, 39.743602,-105.025320,,,0
 18821,35th Ave & Holly St,Vehicles Travelling East, 39.765551,-104.922800,,,0
 18822,Evergreen pnR,Vehicles Travelling North, 39.638828,-105.331880,,,0
 18824,Pinery pnR,Vehicles Travelling Southwest, 39.456877,-104.756483,,,0
-18825,18th St & California St,Vehicles Travelling Northwest, 39.747269,-104.989937,,,0
+18825,18th St & California St,Vehicles Travelling Northwest, 39.747254,-104.989919,,,0
 18826,Broadway & 7th Ave,Vehicles Travelling South, 39.728007,-104.987556,,,0
 18827,W Chatfield Ave & S Garrison St,Vehicles Travelling West, 39.566362,-105.101708,,,0
 18828,W Chatfield Ave & S Garrison St,Vehicles Travelling East, 39.566112,-105.100882,,,0
@@ -5432,6 +5437,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 19500,S Quebec St & Arkansas Ave,Vehicles Travelling North, 39.692012,-104.903367,,,0
 19503,Leetsdale Dr & S Oneida St,Vehicles Travelling Northwest, 39.700549,-104.908850,,,0
 19504,Leetsdale Dr & S Oneida St,Vehicles Travelling Southeast, 39.699969,-104.907837,,,0
+19506,1st Ave & Garfield St,Vehicles Travelling East, 39.717737,-104.944055,,,0
 19514,Burntwood Way & HighlandsRanch Pkwy,Vehicles Travelling North, 39.546624,-104.979829,,,0
 19515,Burntwood Way & Ridgeglenn Way,Vehicles Travelling North, 39.549092,-104.979518,,,0
 19516,Ridgeglenn Way & S Stargrass Cir,Vehicles Travelling West, 39.549739,-104.981554,,,0
@@ -5487,7 +5493,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 19605,W 6th Ave S Service Rd & Flora Way,Vehicles Travelling West, 39.724946,-105.158810,,,0
 19606,W 6th Ave S Service Rd & Deframe Ct,Vehicles Travelling East, 39.724821,-105.155294,,,0
 19607,W 6th Ave S Service Rd & Deframe Ct,Vehicles Travelling West, 39.724966,-105.155253,,,0
-19608,Arbutus Dr & W 6th Ave S Service Rd,Vehicles Travelling North, 39.724279,-105.151197,,,0
+19608,Arbutus Dr & W 6th Ave S Service Rd,Vehicles Travelling North, 39.724403,-105.151139,,,0
 19609,S Chambers Rd & Yale Ave,Vehicles Travelling South, 39.665557,-104.810109,,,0
 19610,S Chambers Rd & Hampden Ave,Vehicles Travelling South, 39.652721,-104.810102,,,0
 19611,S Chambers Rd & Hampden Cir,Vehicles Travelling South, 39.648144,-104.810194,,,0
@@ -5576,7 +5582,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 19836,S Monaco Pkwy & Exposition Ave,Vehicles Travelling North, 39.704049,-104.912743,,,0
 19838,S Wadsworth Blvd & W Crestline Ave,Vehicles Travelling South, 39.617639,-105.091484,,,0
 19839,S Wadsworth Blvd & W Crestline Ave,Vehicles Travelling North, 39.617377,-105.091023,,,0
-19840,Arbutus Dr & W 6th Ave S Service Rd,Vehicles Travelling Southwest, 39.724484,-105.151445,,,0
+19840,Arbutus Dr & W 6th Ave S Service Rd,Vehicles Travelling Southwest, 39.724143,-105.151499,,,0
 19841,S Endicott St & W Iowa Ave,Vehicles Travelling South, 39.687781,-105.097531,,,0
 19842,Florida Ave & S Syracuse St,Vehicles Travelling East, 39.689308,-104.897400,,,0
 19844,S Peoria St & Warren Pl,Vehicles Travelling South, 39.676400,-104.847407,,,0
@@ -5652,7 +5658,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 20014,South Boulder Rd & Coal Creek Dr,Vehicles Travelling West, 39.987061,-105.096762,,,0
 20015,South Boulder Rd & Minotaur Dr,Vehicles Travelling West, 39.987071,-105.101798,,,0
 20016,South Boulder Rd & Centaur Village,Vehicles Travelling West, 39.987097,-105.108172,,,0
-20021,Commerce City pnR,Vehicles Travelling Southwest, 39.826784,-104.928324,,,0
+20021,US 85 & 72nd Ave pnR,Vehicles Travelling Southwest, 39.826784,-104.928324,,,0
 20024,Kuner Rd & Jessup St,Vehicles Travelling North, 39.977391,-104.826563,,,0
 20025,Kuner Rd & Southern St,Vehicles Travelling North, 39.979148,-104.826046,,,0
 20026,Kuner Rd & Egbert St,Vehicles Travelling North, 39.984238,-104.824638,,,0
@@ -5705,6 +5711,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 20104,Eppinger Blvd & Race St,Vehicles Travelling Northeast, 39.866329,-104.962152,,,0
 20109,Hwy 36 & Lefthand Cnyn Rd,Vehicles Travelling North, 40.133829,-105.282119,,,0
 20110,Hwy 36 & Lefthand Cnyn Rd,Vehicles Travelling South, 40.132960,-105.282455,,,0
+20117,W 9th Ave & Elati St,Vehicles Travelling West, 39.730592,-104.994628,,,0
 20121,Mariposa St & W 13th Ave,Vehicles Travelling North, 39.737212,-105.002724,,,0
 20124,W 9th Ave & Mariposa St,Vehicles Travelling East, 39.730429,-105.002442,,,0
 20130,W 14th Ave & Julian St,Vehicles Travelling West, 39.738518,-105.031552,,,0
@@ -5831,6 +5838,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 20522,Larimer St & 20th St,Vehicles Travelling Southwest, 39.752724,-104.993012,,,0
 20523,Simms St & W 6th Ave N Service Rd,Vehicles Travelling North, 39.727616,-105.128320,,,0
 20525,W 8th Ave & Mariposa St,Vehicles Travelling West, 39.728986,-105.001925,,,0
+20526,W 8th Ave & Mariposa St,Vehicles Travelling East, 39.728839,-105.002056,,,0
 20528,Girard Ave & S Galena St,Vehicles Travelling Northeast, 39.655128,-104.869960,,,0
 20529,Girard Ave & S Florence St,Vehicles Travelling East, 39.654238,-104.873083,,,0
 20530,Girard Ave & S Dayton St,Vehicles Travelling East, 39.654271,-104.875319,,,0
@@ -5859,7 +5867,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 20580,W 7th Ave & Galapago St,Vehicles Travelling East, 39.727272,-104.996618,,,0
 20583,Alameda Ave & S Xenia St,Vehicles Travelling Northwest, 39.707496,-104.885979,,,0
 20590,Evans Ave & S Ash St,Vehicles Travelling East, 39.678346,-104.938307,,,0
-20593,Commerce City pnR,Vehicles Travelling East, 39.827124,-104.928611,,,0
+20593,US 85 & 72nd Ave pnR,Vehicles Travelling East, 39.827124,-104.928611,,,0
 20598,Field St & W 44th Ave,Vehicles Travelling North, 39.778372,-105.098229,,,0
 20599,104th Ave & Melody Dr,Vehicles Travelling West, 39.885359,-104.992341,,,0
 20636,Clermont St & 8th Ave,Vehicles Travelling South, 39.729401,-104.935222,,,0
@@ -5977,7 +5985,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 20855,Lisbon St & 42nd Ave,Vehicles Travelling East, 39.775196,-104.745605,,,0
 20856,Malaya St & 42nd Ave,Vehicles Travelling North, 39.775451,-104.742362,,,0
 20857,Malaya St & 45th Ave,Vehicles Travelling North, 39.778254,-104.742654,,,0
-20858,Malaya St & 48th Ave,Vehicles Travelling South, 39.780815,-104.742365,,,0
+20858,Malaya & Green Valley Ranch Blvd,Vehicles Travelling South, 39.780815,-104.742365,,,0
 20859,Malaya St & 45th Ave,Vehicles Travelling South, 39.778154,-104.742804,,,0
 20860,Malaya St & 42nd Ave,Vehicles Travelling South, 39.775481,-104.742500,,,0
 20861,Lisbon St & 42nd Ave,Vehicles Travelling North, 39.775517,-104.746060,,,0
@@ -6100,7 +6108,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 21084,Sheridan Blvd & W Byron Pl,Vehicles Travelling North, 39.753438,-105.053099,,,0
 21086,W 52nd Ave & Tennyson St,Vehicles Travelling East, 39.791041,-105.044497,,,0
 21103,Table Mesa Dr & Tantra Dr,Vehicles Travelling East, 39.985752,-105.240802,,,0
-21104,Broadway & College Ave,Vehicles Travelling North, 40.007031,-105.274017,,,0
 21105,Girard Ave & S Havana St,Vehicles Travelling West, 39.656911,-104.867487,,,0
 21106,Iliff Ave & S Dayton Way,Vehicles Travelling East, 39.674630,-104.874536,,,0
 21107,W 20th Ave & Lamar St,Vehicles Travelling East, 39.747541,-105.067038,,,0
@@ -6167,7 +6174,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 21235,W 92nd Ave & W 91st Ct,Vehicles Travelling East, 39.863589,-105.072087,,,0
 21236,W 92nd Ave & Ingalls St,Vehicles Travelling East, 39.863557,-105.064670,,,0
 21238,Florida Ave & S Parker Rd,Vehicles Travelling East, 39.689224,-104.888572,,,0
-21239,Florida Ave & S Willow St,Vehicles Travelling East, 39.689220,-104.885301,,,0
 21240,Florida Ave & S Alton St,Vehicles Travelling East, 39.689207,-104.882680,,,0
 21241,E Florida Ave & S Dayton St,Vehicles Travelling East, 39.689197,-104.875493,,,0
 21242,S Dayton St & Mexico Ave,Vehicles Travelling South, 39.685372,-104.875355,,,0
@@ -6448,8 +6454,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 21923,Morrison Park Loop,Vehicles Travelling East, 39.652983,-105.199617,,,0
 21924,Bear Creek Ave & Hwy 8,Vehicles Travelling East, 39.653392,-105.195438,,,0
 21925,Bear Creek Ave & Stone St,Vehicles Travelling Southeast, 39.653776,-105.191246,,,0
-21926,Morrison pnR,Vehicles Travelling East, 39.652126,-105.183563,,,0
-21927,Morrison pnR,Vehicles Travelling West, 39.652883,-105.182825,,,0
+21926,Morrison pnR,Vehicles Travelling East, 39.652444,-105.183008,,,0
+21927,Morrison pnR,Vehicles Travelling West, 39.652930,-105.182710,,,0
 21928,Bear Creek Ave & Stone St,Vehicles Travelling Northwest, 39.653968,-105.191350,,,0
 21929,Bear Creek Ave & Hwy 8,Vehicles Travelling West, 39.653434,-105.195544,,,0
 21930,Walmart: Twin Peaks,Vehicles Travelling South, 40.151524,-105.127054,,,0
@@ -6460,7 +6466,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 21945,Fremont Pl & S Potomac St,Vehicles Travelling West, 39.584159,-104.831298,,,0
 21946,S Tucson Way & Fremont Pl,Vehicles Travelling North, 39.586120,-104.835479,,,0
 21947,S Tucson Way & Briarwood Ave,Vehicles Travelling Northwest, 39.592811,-104.835501,,,0
-21948,Regis High School,Vehicles Travelling East, 39.600525,-104.800324,,,0
 21974,Wadsworth Blvd & Marilyn Jean Dr,Vehicles Travelling South, 39.804624,-105.081514,,,0
 21976,Navajo St & W 33rd Ave,Vehicles Travelling North, 39.763403,-105.004072,,,0
 21979,Osage St & W 34th Ave,Vehicles Travelling South, 39.764207,-105.005328,,,0
@@ -6621,8 +6626,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 22353,16th Street Mall & Arapahoe St,Vehicles Travelling Southeast, 39.747869,-104.995887,,,0
 22354,16th Street Mall & Curtis St,Vehicles Travelling Southeast, 39.747203,-104.995041,,,0
 22355,16th Street Mall & Champa St,Vehicles Travelling Southeast, 39.746520,-104.994151,,,0
-22356,16th Street Mall & Stout St,Vehicles Travelling Southeast, 39.745871,-104.993246,,,0
-22357,16th Street Mall & California St,Vehicles Travelling Southeast, 39.745181,-104.992384,,,0
+22356,16th Street Mall & Stout St,Vehicles Travelling Southeast, 39.745893,-104.993246,,,0
+22357,16th Street Mall & California St,Vehicles Travelling Southeast, 39.745201,-104.992361,,,0
 22358,16th Street Mall & Welton St,Vehicles Travelling Southeast, 39.744495,-104.991487,,,0
 22359,16th Street Mall & Glenarm Pl,Vehicles Travelling Southeast, 39.743836,-104.990629,,,0
 22360,16th Street Mall & Tremont St,Vehicles Travelling Southeast, 39.743152,-104.989761,,,0
@@ -6632,8 +6637,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 22364,16th Street Mall & Tremont Pl,Vehicles Travelling Northwest, 39.743168,-104.989350,,,0
 22365,16th Street Mall & Glenarm Pl,Vehicles Travelling Northwest, 39.743839,-104.990234,,,0
 22366,16th Street Mall & Welton St,Vehicles Travelling Northwest, 39.744507,-104.991086,,,0
-22367,16th Street Mall & California St,Vehicles Travelling Northwest, 39.745155,-104.991938,,,0
-22368,16th Street Mall & Stout St,Vehicles Travelling Northwest, 39.745829,-104.992782,,,0
+22367,16th Street Mall & California St,Vehicles Travelling Northwest, 39.745154,-104.991982,,,0
+22368,16th Street Mall & Stout St,Vehicles Travelling Northwest, 39.745811,-104.992809,,,0
 22369,16th Street Mall & Champa St,Vehicles Travelling Northwest, 39.746471,-104.993709,,,0
 22370,16th Street Mall & Curtis St,Vehicles Travelling Northwest, 39.747157,-104.994606,,,0
 22371,16th Street Mall & Arapahoe St,Vehicles Travelling Northwest, 39.747834,-104.995420,,,0
@@ -6797,7 +6802,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 22789,6th Ave & Potomac St,Vehicles Travelling West, 39.725730,-104.828829,,,0
 22790,6th Ave & Toledo St,Vehicles Travelling West, 39.725758,-104.834864,,,0
 22791,6th Ave & Del Mar Cir E,Vehicles Travelling West, 39.725785,-104.842626,,,0
-22798,Cherry Creek Dr S & S Cherry St,Vehicles Travelling Northwest, 39.705243,-104.936541,,,0
 22807,Baseline Rd & 55th St,Vehicles Travelling East, 40.000039,-105.224578,,,0
 22809,Baseline & Meadow Glen Dr,Vehicles Travelling West, 40.000163,-105.223052,,,0
 22811,Baseline & Meadow Glen Dr,Vehicles Travelling East, 40.000059,-105.221884,,,0
@@ -6937,8 +6941,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 23015,Arapahoe Rd & Stonehenge Dr,Vehicles Travelling West, 40.014799,-105.108253,,,0
 23016,Pearl Pkwy & 47th St,Vehicles Travelling East, 40.022208,-105.241287,,,0
 23017,Pearl Pkwy & 48th Ct,Vehicles Travelling West, 40.022342,-105.241105,,,0
-23018,Hwy 119 & Longbow Dr,Vehicles Travelling Northeast, 40.067729,-105.213368,,,0
-23019,Hwy 119 & Longbow Dr,Vehicles Travelling Southwest, 40.068122,-105.214046,,,0
 23022,Pearl Pkwy & 30th St,Vehicles Travelling Northeast, 40.023388,-105.252926,,,0
 23023,Pearl Pkwy & Frontier Ave,Vehicles Travelling Southeast, 40.022878,-105.247826,,,0
 23024,Pearl Pkwy & Frontier Ave,Vehicles Travelling Northwest, 40.023021,-105.247160,,,0
@@ -7003,7 +7005,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 23161,Virginia Ave & S Colorado Blvd,Vehicles Travelling East, 39.707337,-104.939493,,,0
 23162,Virginia Ave & S Birch St,Vehicles Travelling East, 39.707353,-104.935036,,,0
 23163,S Cherry St & Virginia Ave,Vehicles Travelling South, 39.706730,-104.933538,,,0
-23164,Cherry Creek Dr S & S Cherry St,Vehicles Travelling West, 39.704441,-104.934345,,,0
 23166,Cherry Creek Dr & Colorado Blvd,Vehicles Travelling West, 39.707442,-104.941903,,,0
 23167,Cherry Creek Dr & Dakota Ave,Vehicles Travelling Northwest, 39.708780,-104.943736,,,0
 23168,Cherry Creek Dr & Alameda Ave,Vehicles Travelling Northwest, 39.710368,-104.945641,,,0
@@ -7306,7 +7307,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 23649,Quincy Ave & S Jasper St,Vehicles Travelling East, 39.638382,-104.804027,,,0
 23650,Quincy Ave & S Jasper St,Vehicles Travelling West, 39.638605,-104.805625,,,0
 23659,S Buckley Rd & E Wagontrail Pkwy,Vehicles Travelling South, 39.630256,-104.791653,,,0
-23660,S Natches Ct & W Hampden Ave,Vehicles Travelling Southeast, 39.653166,-105.004897,,,0
 23666,Regent Dr & Colorado Ave,Vehicles Travelling South, 40.007796,-105.261458,,,0
 23667,Regent Dr & Colorado Ave,Vehicles Travelling North, 40.007570,-105.261294,,,0
 23668,Regent Dr & Broadway,Vehicles Travelling West, 40.003960,-105.266379,,,0
@@ -7334,7 +7334,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 23707,Tower Rd & E 45th Ave,Vehicles Travelling North, 39.780921,-104.771983,,,0
 23708,27th & Welton Station,Vehicles Travelling Northeast, 39.754823,-104.977835,,,0
 23709,27th & Welton Station,Vehicles Travelling Southwest, 39.754975,-104.977929,,,0
-23710,Green Valley Ranch Blvd & Malaya St,Vehicles Travelling East, 39.780950,-104.743061,,,0
 23711,S Buckley Rd & S Pagosa Way,Vehicles Travelling South, 39.675949,-104.791195,,,0
 23712,Colfax Ave & Dunkirk St,Vehicles Travelling East, 39.740020,-104.762551,,,0
 23714,Ward Rd & W 56th Ave,Vehicles Travelling North, 39.797668,-105.137827,,,0
@@ -7537,7 +7536,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 24076,Flanders Way & E 47th Dr,Vehicles Travelling North, 39.782667,-104.760842,,,0
 24077,Monbello pnR Gate C,Vehicles Travelling Northeast, 39.781589,-104.844838,,,0
 24078,Montbello pnR Gate D,Vehicles Travelling South, 39.781426,-104.844961,,,0
-24079,Crown Blvd & 46th Ave,Vehicles Travelling Northeast, 39.780772,-104.837358,,,0
 24080,Dillon St & 47th Ave,Vehicles Travelling Northeast, 39.781987,-104.825536,,,0
 24081,Bolling Dr & Dillon St,Vehicles Travelling Southeast, 39.783058,-104.822015,,,0
 24082,Bolling Dr & Eagle St,Vehicles Travelling Southeast, 39.781717,-104.818753,,,0
@@ -7697,7 +7695,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 24431,S Quebec St & Lincoln Ave,Vehicles Travelling North, 39.542275,-104.912828,,,0
 24434,Lincoln St & 4th Ave,Vehicles Travelling North, 39.722303,-104.986155,,,0
 24435,Twin Forks pnR,Vehicles Travelling East, 39.606948,-105.229666,,,0
-24436,Buchanan Pl & Dunkirk St,Vehicles Travelling West, 39.745426,-104.762774,,,0
+24436,Buchanan Pl & Dunkirk St,Vehicles Travelling West, 39.745422,-104.762728,,,0
 24441,N 111th St & Baseline Rd,Vehicles Travelling North, 40.002993,-105.093250,,,0
 24442,N 111th St & Starline Ave,Vehicles Travelling South, 40.003207,-105.093387,,,0
 24452,W 38th Ave & Sheridan Blvd,Vehicles Travelling West, 39.769418,-105.052349,,,0
@@ -7712,7 +7710,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 24489,Pierce St & W 90th Pl,Vehicles Travelling North, 39.861740,-105.070452,,,0
 24490,Pierce St & W 92nd Ave,Vehicles Travelling North, 39.864489,-105.070381,,,0
 24491,Pierce St & Pierce St (cul de sac),Vehicles Travelling North, 39.866916,-105.071791,,,0
-24492,Colorado Mills Blvd & W 8th Ave,Vehicles Travelling South, 39.729521,-105.165700,,,0
 24494,Pierce St & W 96th Dr,Vehicles Travelling North, 39.871805,-105.072148,,,0
 24495,Pierce St & W 97th Cir,Vehicles Travelling North, 39.873385,-105.073750,,,0
 24496,Westcliff Pkwy & Pierce St,Vehicles Travelling West, 39.876963,-105.074115,,,0
@@ -7755,7 +7752,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 24573,W Coal Mine Ave & S Simms St,Vehicles Travelling West, 39.602593,-105.129630,,,0
 24574,W Coal Mine Ave & S Vivian St,Vehicles Travelling West, 39.601404,-105.137811,,,0
 24575,W Coal Mine Ave & S Ward St,Vehicles Travelling West, 39.600120,-105.141110,,,0
-24576,W Coal Mine Ave & S Beech Cir,Vehicles Travelling West, 39.601196,-105.148408,,,0
 24577,W Coal Mine Av & Coal Mine Dr,Vehicles Travelling Northwest, 39.602206,-105.150463,,,0
 24578,W Coal Mine Ave & W Bowles Ave,Vehicles Travelling North, 39.608759,-105.147374,,,0
 24579,W Bowles Ave & W Coal Mine Ave,Vehicles Travelling East, 39.609454,-105.147082,,,0
@@ -8023,7 +8019,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25069,Rock Creek Pkwy & S 88th St,Vehicles Travelling East, 39.937656,-105.147988,,,0
 25070,Rock Creek Pkwy & Coalridge Dr,Vehicles Travelling South, 39.934822,-105.145840,,,0
 25071,Rock Creek Pkwy & Coalton Rd,Vehicles Travelling South, 39.930534,-105.147278,,,0
-25072,Coalton Rd & Summit Blvd,Vehicles Travelling East, 39.928700,-105.137264,,,0
+25072,Coalton Rd & Summit Blvd,Vehicles Travelling East, 39.928701,-105.135360,,,0
 25073,Mc Caslin Blvd & Coal Creek Dr,Vehicles Travelling South, 39.953722,-105.165700,,,0
 25076,FlatIron Mall West Ring Road,Vehicles Travelling West, 39.930353,-105.132500,,,0
 25077,FlatIron Mall West Ring Road,Vehicles Travelling East, 39.930211,-105.132552,,,0
@@ -8074,7 +8070,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25189,Chambers Rd & E 52nd Ave,Vehicles Travelling South, 39.787465,-104.809846,,,0
 25193,Tower Rd & E 69th Ave,Vehicles Travelling North, 39.821148,-104.771839,,,0
 25199,Bridge St & Sierra St,Vehicles Travelling West, 39.986916,-104.776587,,,0
-25200,Bridge St & 42nd St,Vehicles Travelling East, 39.986818,-104.766276,,,0
+25200,Bridge St & 42nd St,Vehicles Travelling East, 39.986789,-104.766642,,,0
 25201,W 10th Av & King St,Vehicles Travelling West, 39.733009,-105.033910,,,0
 25202,W 10th Ave & King St,Vehicles Travelling East, 39.732899,-105.033940,,,0
 25203,Broadway & Lawrence St,Vehicles Travelling Southwest, 39.753945,-104.987458,,,0
@@ -8246,7 +8242,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25447,Dahlia St & 60th Ave,Vehicles Travelling North, 39.804985,-104.931134,,,0
 25448,Wadsworth Pkwy & W 116th Cir,Vehicles Travelling South, 39.903055,-105.096384,,,0
 25449,Wadsworth Pkwy & W 116th Cir,Vehicles Travelling North, 39.904083,-105.095947,,,0
-25450,Quebec St & 36th Ave,Vehicles Travelling North, 39.767764,-104.902413,,,0
 25451,Quebec St & E 36th Ave,Vehicles Travelling South, 39.767028,-104.903543,,,0
 25454,S Federal Blvd & W Grand Ave,Vehicles Travelling South, 39.627257,-105.025594,,,0
 25456,W Mansfield Ave & S Wadsworth Blvd,Vehicles Travelling West, 39.646073,-105.080201,,,0
@@ -8421,7 +8416,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25683,Quebec St & Lowry Blvd,Vehicles Travelling North, 39.717571,-104.903461,,,0
 25692,S Simms St & W Temple Dr,Vehicles Travelling North, 39.635458,-105.128463,,,0
 25693,S Simms St & W Temple Dr,Vehicles Travelling South, 39.636418,-105.128828,,,0
-25696,40th Ave & Kittridge St,Vehicles Travelling West, 39.772986,-104.801216,,,0
+25696,40th Ave & Kittridge St,Vehicles Travelling West, 39.772946,-104.801354,,,0
 25697,E 40th Ave & E 40th Cir  W,Vehicles Travelling East, 39.772693,-104.801924,,,0
 25707,Lincoln Ave & S Quebec St,Vehicles Travelling East, 39.541548,-104.913078,,,0
 25708,Lincoln Ave & Dutch Creek St,Vehicles Travelling East, 39.539113,-104.909827,,,0
@@ -8492,6 +8487,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25789,W Colfax Ave & Kipling St,Vehicles Travelling West, 39.740302,-105.110436,,,0
 25791,Tower Rd & Smith Rd,Vehicles Travelling South, 39.753551,-104.772407,,,0
 25792,Tower Rd & Smith Rd,Vehicles Travelling North, 39.753673,-104.772177,,,0
+25793,Virginia Ave & S Monaco Pkwy,Vehicles Travelling East, 39.707382,-104.913509,,,0
 25794,S Dransfeldt Rd & E Main St,Vehicles Travelling South, 39.517963,-104.770856,,,0
 25795,S Dransfeldt Rd & Twenty Mile Rd,Vehicles Travelling South, 39.511409,-104.770340,,,0
 25796,Twenty Mile Rd & Pavillion Dr,Vehicles Travelling East, 39.510157,-104.767513,,,0
@@ -8507,7 +8503,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25814,Kittredge St & 51st Ave,Vehicles Travelling South, 39.786240,-104.802136,,,0
 25815,Kittredge St & 51st Ave,Vehicles Travelling North, 39.786668,-104.801887,,,0
 25819,Coalton Rd & S. Summit Blvd W,Vehicles Travelling East, 39.928721,-105.141877,,,0
-25820,Coalton Rd & W FlatIrons Crossing Dr,Vehicles Travelling West, 39.929016,-105.137513,,,0
+25820,Coalton Rd & W FlatIrons Crossing Dr,Vehicles Travelling West, 39.929009,-105.135598,,,0
 25821,W Mineral Ave & S Curtice St,Vehicles Travelling East, 39.577472,-105.017645,,,0
 25822,W Mineral Ave & S Curtice St,Vehicles Travelling West, 39.577901,-105.018326,,,0
 25824,S Saulsbury St & W Alaska Dr,Vehicles Travelling North, 39.709472,-105.074988,,,0
@@ -8545,6 +8541,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 25879,Bridge St & N Telluride St,Vehicles Travelling West, 39.986918,-104.781062,,,0
 25880,Park Meadows Dr & S Quebec St,Vehicles Travelling East, 39.561629,-104.900204,,,0
 25881,Park Meadows Dr & S Quebec St,Vehicles Travelling West, 39.561373,-104.901018,,,0
+25882,Thomas Jefferson High School,Vehicles Travelling South, 39.647822,-104.922373,,,0
 25884,Theatre District/Convention Ctr Stn,Vehicles Travelling South, 39.743866,-104.996427,,,0
 25885,W 3rd Ave & Osage St,Vehicles Travelling West, 39.721008,-105.005245,,,0
 25889,Campus Drive & Hwy 287,Vehicles Travelling East, 39.967275,-105.088365,,,0
@@ -8625,7 +8622,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26049,Centertech Pkwy & Hughes Dr,Vehicles Travelling Northwest, 39.716771,-104.796238,,,0
 26050,Chestnut St & 19th St,Vehicles Travelling Northeast, 39.757013,-104.999389,,,0
 26051,Chestnut St & 19th St,Vehicles Travelling Southwest, 39.756984,-104.999681,,,0
-26052,Revere St & Baranmoor Pkwy,Vehicles Travelling South, 39.763799,-104.842526,,,0
 26053,11th Ave & Spruce Ct,Vehicles Travelling East, 39.732808,-104.895575,,,0
 26054,11th Ave & Spruce Ct,Vehicles Travelling West, 39.732923,-104.896277,,,0
 26055,120th Ave & Chambers Rd,Vehicles Travelling East, 39.914225,-104.808580,,,0
@@ -8667,7 +8663,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26099,Central Av N & FlatIron Pkwy,Vehicles Travelling North, 40.023276,-105.221078,,,0
 26100,Boulder Transit Center Gate 2,Vehicles Travelling Southeast, 40.017105,-105.276563,,,0
 26101,Boulder Transit Center Gate 3,Vehicles Travelling Southeast, 40.016865,-105.276486,,,0
-26102,Boulder Transit Center Gate 4,Vehicles Travelling Southeast, 40.016709,-105.276432,,,0
+26102,Boulder Transit Center Gate 4,Vehicles Travelling Southeast, 40.016786,-105.276461,,,0
 26103,Wagon Road pnR Gate C,Vehicles Travelling East, 39.912268,-104.994497,,,0
 26104,Wagon Road pnR Gate D,Vehicles Travelling West, 39.912483,-104.994614,,,0
 26105,Wagon Road pnR Gate E,Vehicles Travelling East, 39.912527,-104.994437,,,0
@@ -8757,7 +8753,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26229,W 120th Ave & Mariposa St,Vehicles Travelling West, 39.914152,-105.001995,,,0
 26230,W 120th Ave & Pecos St,Vehicles Travelling West, 39.914169,-105.006705,,,0
 26231,W 120th Ave & Zuni St,Vehicles Travelling West, 39.914186,-105.015132,,,0
-26232,W 120th Ave & Federal Blvd,Vehicles Travelling Southwest, 39.914309,-105.024012,,,0
+26232,W 120th Ave & Federal Blvd,Vehicles Travelling West, 39.914285,-105.022516,,,0
 26234,W 120th Ave & Sheridan Blvd,Vehicles Travelling West, 39.914334,-105.054440,,,0
 26235,W 120th Ave & Perry St,Vehicles Travelling West, 39.914286,-105.039759,,,0
 26236,W 120th Ave & Chase St,Vehicles Travelling West, 39.914349,-105.058136,,,0
@@ -8815,7 +8811,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26324,Bristle Pine Cir & Lucent Blvd,Vehicles Travelling North, 39.543216,-105.000817,,,0
 26325,Ridgeline Blvd & Bristle Pine Cir,Vehicles Travelling North, 39.544216,-104.998064,,,0
 26328,Market Street Station - Alighting,Vehicles Travelling South, 39.750221,-104.998241,,,0
-26329,Market Street Station - Southeast,Vehicles Travelling North, 39.750115,-104.998441,,,0
+26329,Market Street Station - Southeast,Vehicles Travelling Southeast, 39.750196,-104.998483,,,0
 26331,Centrepoint & Sable Transfer Center Gate B,Vehicles Travelling West, 39.708605,-104.818384,,,0
 26332,Centrepoint & Sable Transfer Center Gate C,Vehicles Travelling West, 39.708602,-104.818112,,,0
 26333,Centrepoint & Sable Transfer Center Gate D,Vehicles Travelling West, 39.708432,-104.818170,,,0
@@ -8908,7 +8904,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26444,S Jordan Rd & Clarke Farms Dr S,Vehicles Travelling South, 39.517984,-104.793597,,,0
 26445,E Main St & N Motsenbocker Rd,Vehicles Travelling East, 39.517604,-104.785618,,,0
 26446,E Main St & S Twentymile Rd,Vehicles Travelling East, 39.518089,-104.774152,,,0
-26447,E Main St & Dransfeldt Rd,Vehicles Travelling East, 39.518281,-104.770205,,,0
+26447,E Main St & Dransfeldt Rd,Vehicles Travelling East, 39.518276,-104.770151,,,0
 26448,E Main St & Dransfeldt Rd,Vehicles Travelling West, 39.518478,-104.771228,,,0
 26449,E Main St & S Twentymile Rd,Vehicles Travelling West, 39.518512,-104.775354,,,0
 26450,E Main St & N Motsenbocker Rd,Vehicles Travelling West, 39.517274,-104.786567,,,0
@@ -8964,7 +8960,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 26585,W 82nd Ave & Union St,Vehicles Travelling West, 39.845781,-105.134914,,,0
 26586,Sheridan Blvd & W 6th Ave,Vehicles Travelling North, 39.727938,-105.053096,,,0
 26587,Simms St & W 84th Pl,Vehicles Travelling Southeast, 39.849397,-105.130277,,,0
-26588,Colorado Av & 33rd St,Vehicles Travelling West, 40.007480,-105.251364,,,0
+26588,Colorado Av & 33rd St,Vehicles Travelling West, 40.007586,-105.249658,,,0
 26613,Centennial Blvd & S Broadway,Vehicles Travelling Southwest, 39.562058,-104.988820,,,0
 26614,Plaza Dr & Centennial Blvd,Vehicles Travelling West, 39.559098,-104.990948,,,0
 26629,6th Av & Collyer St,Vehicles Travelling East, 40.168953,-105.098549,,,0
@@ -9197,7 +9193,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33297,Hwy 287 & Hwy 52,Vehicles Travelling North, 40.088480,-105.102706,,,0
 33298,S Southlands Pkwy & S Central St,Vehicles Travelling Southeast, 39.600268,-104.706690,,,0
 33321,W 124th Ave & Pecos St,Vehicles Travelling West, 39.922114,-105.004854,,,0
-33322,E Smoky Hill Rd & Gun Club Rd,Vehicles Travelling East, 39.602110,-104.718218,,,0
+33322,E Smoky Hill Rd & Gun Club Rd,Vehicles Travelling East, 39.602086,-104.717014,,,0
 33323,E Smoky Hill Rd & Gun Club Rd,Vehicles Travelling West, 39.602429,-104.717646,,,0
 33324,E Smoky Hill Rd & S Main St,Vehicles Travelling East, 39.599569,-104.710762,,,0
 33325,E Smoky Hill Rd & S Main St,Vehicles Travelling West, 39.600350,-104.711822,,,0
@@ -9265,6 +9261,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33404,S Flanders Wy & E Jewell Ave,Vehicles Travelling South, 39.682223,-104.760423,,,0
 33405,Hwy 119 & Big Springs Dr,Vehicles Travelling North, 39.959745,-105.510291,,,0
 33406,Hwy 119 & W Boulder St,Vehicles Travelling South, 39.960870,-105.510428,,,0
+33407,51st Pl & Orleans St,Vehicles Travelling West, 39.789177,-104.737430,,,0
+33408,56th Ave & Genoa St,Vehicles Travelling West, 39.798532,-104.758655,,,0
 33409,Arapahoe Ave & Foothills Pkwy,Vehicles Travelling Southwest, 40.014924,-105.239636,,,0
 33410,50th Ave & Bridge St,Vehicles Travelling South, 39.986182,-104.752357,,,0
 33411,50th Ave & Bridge St,Vehicles Travelling North, 39.986490,-104.752227,,,0
@@ -9322,8 +9320,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33479,E 104th Ave & Franklin St,Vehicles Travelling West, 39.885264,-104.965857,,,0
 33480,Hwy 93 & Hwy 128,Vehicles Travelling South, 39.928624,-105.234831,,,0
 33481,Hwy 93 & Hwy 128,Vehicles Travelling North, 39.929045,-105.234732,,,0
-33482,N Dunkirk  St & E Robins Dr,Vehicles Travelling North, 39.796613,-104.762592,,,0
-33483,N Dunkirk St & E Robins Dr,Vehicles Travelling South, 39.796567,-104.762860,,,0
+33482,N Dunkirk  St & E Robins Dr,Vehicles Travelling North, 39.796606,-104.762589,,,0
+33483,N Dunkirk St & E Robins Dr,Vehicles Travelling South, 39.796561,-104.762857,,,0
 33484,South Boulder Rd & S Cherryvale Rd,Vehicles Travelling East, 39.986107,-105.203522,,,0
 33485,S Boulder Rd & Eds Way,Vehicles Travelling West, 39.986336,-105.203408,,,0
 33486,Hwy 36 & Nelson Rd,Vehicles Travelling North, 40.145686,-105.282150,,,0
@@ -9350,6 +9348,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33508,W 2nd Ave & Yuma St,Vehicles Travelling East, 39.720208,-105.015442,,,0
 33509,W 2nd Ave & Tejon St,Vehicles Travelling East, 39.720197,-105.012118,,,0
 33510,Tejon St & W Irvington Pl,Vehicles Travelling South, 39.717501,-105.011056,,,0
+33520,E 1st Ave & Adams St,Vehicles Travelling West, 39.717899,-104.948242,,,0
 33522,Kipling St & 8th Pl,Vehicles Travelling South, 39.729582,-105.109818,,,0
 33527,US 36 & Broomfield pnR Gate C,Vehicles Travelling East, 39.906219,-105.086255,,,0
 33528,US 36 & Broomfield pnR Gate D,Vehicles Travelling East, 39.906222,-105.085985,,,0
@@ -9397,10 +9396,11 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33607,Syracuse St & E 32nd Ave,Vehicles Travelling South, 39.762626,-104.899009,,,0
 33608,E 36th Ave & Syracuse St,Vehicles Travelling West, 39.767473,-104.898349,,,0
 33609,E 36th Ave & Syracuse St,Vehicles Travelling East, 39.767245,-104.897712,,,0
-33610,Quebec St & E 38th Ave,Vehicles Travelling South, 39.769403,-104.903567,,,0
 33611,Green Valley Ranch Blvd & N Memphis St,Vehicles Travelling East, 39.783725,-104.796649,,,0
 33612,S Picadilly St & E Progress Ave,Vehicles Travelling South, 39.624060,-104.738393,,,0
 33614,Fitzsimons Pkwy & E Montview Blvd,Vehicles Travelling South, 39.747239,-104.829488,,,0
+33615,W 6th Ave & W 8th Ave,Vehicles Travelling East, 39.728776,-105.026666,,,0
+33616,W 6th Ave & W 8th Ave,Vehicles Travelling West, 39.728971,-105.026726,,,0
 33619,Brighton Blvd & E. 29th St.,Vehicles Travelling North, 39.765538,-104.984842,,,0
 33620,30th St & Walnut St,Vehicles Travelling North, 40.018790,-105.253557,,,0
 33621,W Florida Ave & W. Arkansas Dr,Vehicles Travelling East, 39.689029,-105.115216,,,0
@@ -9427,7 +9427,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33645,104th Ave & Sable Blvd,Vehicles Travelling West, 39.885570,-104.819245,,,0
 33646,Denver Union Station (Boarding),Vehicles Travelling South, 39.754670,-105.003443,,,0
 33647,Denver Union Station Alighting,Vehicles Travelling West, 39.755075,-105.002714,,,0
-33648,Federal Center Station Gate A,Vehicles Travelling South, 39.719803,-105.127951,,,0
 33649,Federal Center Station Gate B,Vehicles Travelling West, 39.719828,-105.128205,,,0
 33650,Federal Center Station Gate C,Vehicles Travelling West, 39.719828,-105.128528,,,0
 33651,Federal Center Station Gate D,Vehicles Travelling West, 39.719836,-105.128882,,,0
@@ -9435,7 +9434,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33653,Federal Center Station Gate F,Vehicles Travelling West, 39.719838,-105.129596,,,0
 33654,Federal Center Station Gate G,Vehicles Travelling West, 39.719836,-105.129920,,,0
 33655,Federal Center Station Gate H,Vehicles Travelling West, 39.719837,-105.130186,,,0
-33656,Federal Center Station Gate J,Vehicles Travelling West, 39.719634,-105.130074,,,0
 33657,Federal Center Station Gate K,Vehicles Travelling East, 39.719622,-105.129811,,,0
 33658,Federal Center Station Gate L,Vehicles Travelling East, 39.719621,-105.129459,,,0
 33659,Federal Center Station Gate M,Vehicles Travelling East, 39.719622,-105.129191,,,0
@@ -9494,7 +9492,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33806,S Chambers Rd & Haseley Dr,Vehicles Travelling South, 39.544142,-104.809769,,,0
 33812,Marine St & Arapahoe Ave,Vehicles Travelling West, 40.013675,-105.247776,,,0
 33813,Marine St & 30th St,Vehicles Travelling West, 40.013691,-105.250867,,,0
-33814,Euclid Ave & 18th St,Vehicles Travelling East, 40.005883,-105.269800,,,0
+33814,Euclid Ave & 18th St,Vehicles Travelling East, 40.005897,-105.270180,,,0
 33815,Colorado Ave & 33rd St,Vehicles Travelling East, 40.007216,-105.250548,,,0
 33821,S 112th St & Exempla Cir,Vehicles Travelling North, 39.972995,-105.084100,,,0
 33822,S 112th St & Exempla Cir,Vehicles Travelling South, 39.972912,-105.084308,,,0
@@ -9554,6 +9552,8 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33945,S Vaughn Way & E Iliff Ave,Vehicles Travelling South, 39.672096,-104.837792,,,0
 33946,N 75th St & St Vrain Rd,Vehicles Travelling South, 40.174457,-105.178276,,,0
 33947,N 75th St & St Vrain Rd,Vehicles Travelling North, 40.174427,-105.178147,,,0
+33951,Knox Ct & W 12th Ave,Vehicles Travelling North, 39.735324,-105.032065,,,0
+33952,Knox Ct & W 12th Ave,Vehicles Travelling South, 39.735228,-105.032305,,,0
 33973,S Public Rd & Laser St,Vehicles Travelling North, 39.985506,-105.090361,,,0
 33974,S Ulster Pkwy & E Belleview Ave,Vehicles Travelling North, 39.627693,-104.894436,,,0
 33975,Sheridan Blvd & W 76th Ave,Vehicles Travelling North, 39.833773,-105.053085,,,0
@@ -9578,8 +9578,23 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 33996,Tower Rd & E Colfax Ave,Vehicles Travelling South, 39.741297,-104.772596,,,0
 33997,E Colfax Ave & Tower Rd,Vehicles Travelling East, 39.740001,-104.771526,,,0
 33998,Picadilly Rd & Green Valley Ranch Blvd,Vehicles Travelling North, 39.782619,-104.734461,,,0
-33999,W Alameda Pkwy & S Beech Dr,Vehicles Travelling Southwest, 39.695876,-105.146335,,,0
-34001,S Vaughn Way & E Iliff Ave,Vehicles Travelling South, 39.674493,-104.835191,,,0
+33999,W Alameda Pkwy & S Beech Dr,Vehicles Travelling South, 39.695960,-105.146250,,,0
+34001,S Vaughn Way & E Iliff Ave,Vehicles Travelling South, 39.674619,-104.835095,,,0
+34065,Main Ave & 6th St,Vehicles Travelling West, 39.715368,-105.118142,,,0
+34100,DIA East Door 605,Vehicles Travelling , 39.849963,-104.672756,,,0
+34101,28th St & Arapahoe Ave,Vehicles Travelling North, 40.015462,-105.258191,,,0
+34102,120th Ave & Prairie View High School,Vehicles Travelling West, 39.914480,-104.840337,,,0
+34103,Nrel South Entrance,Vehicles Travelling South, 39.737701,-105.176190,,,0
+34122,S Birch St & E Virginia Ave,Vehicles Travelling South, 39.708019,-104.936446,,,0
+34123,Metro Airport Av & Longs Peak Dr,Vehicles Travelling West, 39.909025,-105.097864,,,0
+34124,Metro Airport Av & Longs Peak Dr,Vehicles Travelling East, 39.908920,-105.097738,,,0
+34125,N McCaslin Blvd & Cherrywood Ln,Vehicles Travelling North, 39.971218,-105.163324,,,0
+34126,Chestnut Pl & 18th St,Vehicles Travelling Southwest, 39.755917,-105.001080,,,0
+34128,McCaslin Blvd & W Cherry St,Vehicles Travelling North, 39.966085,-105.163220,,,0
+34133,Coalton Rd & Rock Creek Pkwy,Vehicles Travelling East, 39.928762,-105.146595,,,0
+34150,Prairie Center Pkwy & Medical Center Dr,Vehicles Travelling North, 39.969131,-104.770855,,,0
+34152,Boulder Transit Center Gate 4,Vehicles Travelling North, 40.016728,-105.276439,,,0
+34153,W. Coal Mine Ave & W. Arbor Pl,Vehicles Travelling North, 39.605110,-105.150318,,,0
 40001,Englewood City Center,Vehicles Travelling Southwest, 39.655240,-104.998550,,,0
 40005,S Clarkson St & Hampden Ave,Vehicles Travelling North, 39.653806,-104.978153,,,0
 41000,S Corona St & Girard Ave,Vehicles Travelling South, 39.653916,-104.974799,,,0
@@ -9587,7 +9602,6 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 41002,Englewood Pkwy & S Galapago St,Vehicles Travelling East, 39.654856,-104.995105,,,0
 41003,Englewood Pkwy & S Elati St,Vehicles Travelling West, 39.654933,-104.995098,,,0
 41004,Englewood Pkwy & S Cherokee St,Vehicles Travelling West, 39.654971,-104.992772,,,0
-50602,DIA East,Vehicles Travelling South, 39.848550,-104.672813,,,0
 99800,Market Street Station,Vehicles Travelling West, 39.750525,-104.998251,,,0
 99801,Market Street Station Gate 1,Vehicles Travelling West, 39.750567,-104.998187,,,0
 99802,Market Street Station Gate 2,Vehicles Travelling West, 39.750656,-104.998063,,,0
@@ -9598,6 +9612,7 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 99809,Market Street Station Gate 9,Vehicles Travelling West, 39.750308,-104.998071,,,0
 99810,Market Street Station Gate 10,Vehicles Travelling West, 39.750364,-104.998247,,,0
 99811,Market Street Station (LV),Vehicles Travelling West, 39.750508,-104.998545,,,0
+99814,Market Street Station Gate 9,Vehicles Travelling North, 39.750318,-104.998141,,,0
 99820,Civic Center Station,Vehicles Travelling West, 39.741557,-104.987030,,,0
 99822,Civic Center Station Gate 2,Vehicles Travelling Southeast, 39.741140,-104.986667,,,0
 99823,Civic Center Station Gate 3,Vehicles Travelling Southeast, 39.741026,-104.986513,,,0
@@ -9607,5 +9622,4 @@ stop_id,stop_name,stop_desc,stop_lat,stop_lon,zone_id,stop_url,location_type
 99828,Civic Center Station Gate 8,Vehicles Travelling West, 39.740634,-104.986848,,,0
 99829,Civic Center Station Gate 9,Vehicles Travelling West, 39.740641,-104.987039,,,0
 99831,Civic Center Station,Vehicles Travelling West, 39.740645,-104.987180,,,0
-99901,Blake St & 21st St,Vehicles Travelling South, 39.755720,-104.992726,,,0
 99908,Lincoln St & E 16th Ave,Vehicles Travelling North, 39.741501,-104.986206,,,0
