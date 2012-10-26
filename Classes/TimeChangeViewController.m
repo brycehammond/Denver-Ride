@@ -108,7 +108,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-   self.timeChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+    [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
+    self.timeChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
 
 - (void)didReceiveMemoryWarning {

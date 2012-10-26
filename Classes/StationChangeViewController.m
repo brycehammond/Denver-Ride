@@ -26,6 +26,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
     self.stationChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
 
