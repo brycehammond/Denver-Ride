@@ -32,7 +32,7 @@
 	[super loadView];
 	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
 	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  kShortContainerHeight)
+															  [DenverRideConstants shortContainerHeight])
 												   style:UITableViewStyleGrouped];
 	[_stopsTableView setDelegate:self];
 	[_stopsTableView setDataSource:self];
@@ -258,7 +258,7 @@
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
-    [_stopsTableView setFrameHeight:kShortContainerHeight];
+    [_stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
@@ -274,7 +274,7 @@
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
-    [_stopsTableView setFrameHeight:kShortContainerHeight];
+    [_stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[_stopsTableView reloadData];
@@ -289,7 +289,7 @@
 		_mapViewController = [[RTDMapViewController alloc] initWithNibName:nil bundle:nil];
 	}
 	
-	[_stopsTableView setFrameHeight:kTallContainerHeight];
+	[_stopsTableView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_bcycleViewController view] removeFromSuperview];
     [_mapViewController viewWillAppear:NO];
 	[_stopsTableView addSubview:[_mapViewController view]];
@@ -309,7 +309,7 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
-    [_stopsTableView setFrameHeight:kTallContainerHeight];
+    [_stopsTableView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_mapViewController view] removeFromSuperview];
     [_bcycleViewController viewWillAppear:NO];
 	[_stopsTableView addSubview:[_bcycleViewController view]];

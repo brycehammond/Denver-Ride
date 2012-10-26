@@ -16,6 +16,6 @@
 	#import <MapKit/MapKit.h>
 	#import "UIColorCategories.h"
 	#import "UIView+Categories.h"
-	#import "Constants.h"
+	#import "DenverRideConstants.h"
     #import "DLog.h"
 #endif

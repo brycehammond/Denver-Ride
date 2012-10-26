@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		02055550163A52EA00EEB0EB /* DenverRideConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205554F163A52EA00EEB0EB /* DenverRideConstants.m */; };
+		02055553163A54DB00EEB0EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02055552163A54DB00EEB0EB /* Default-568h@2x.png */; };
 		0232ECE015E461130053FE65 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0232ECDF15E461130053FE65 /* RTD2.0.sqlite */; };
 		02473396152AB3E9000A42FC /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02473395152AB3E9000A42FC /* libFlurryAnalytics.a */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
@@ -81,6 +83,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0205554E163A52EA00EEB0EB /* DenverRideConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideConstants.h; sourceTree = "<group>"; };
+		0205554F163A52EA00EEB0EB /* DenverRideConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideConstants.m; sourceTree = "<group>"; };
+		02055552163A54DB00EEB0EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0232ECDF15E461130053FE65 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
 		02473394152AB3CE000A42FC /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = Flurry/FlurryAnalytics.h; sourceTree = SOURCE_ROOT; };
 		02473395152AB3E9000A42FC /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = Flurry/libFlurryAnalytics.a; sourceTree = "<group>"; };
@@ -116,7 +121,6 @@
 		1484255B105BD8B000DCB458 /* ClosestSelectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClosestSelectViewController.h; sourceTree = "<group>"; };
 		1484255C105BD8B000DCB458 /* ClosestSelectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClosestSelectViewController.m; sourceTree = "<group>"; };
 		14A782DB129E138600C7F372 /* linesToProcess.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = linesToProcess.txt; sourceTree = "<group>"; };
-		14A82114123764DB00DA7692 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		14B7017612356DCA007B9C90 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "App Resources/main.m"; sourceTree = "<group>"; };
 		14B7017712356DCA007B9C90 /* RTD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTD_Prefix.pch; path = "App Resources/RTD_Prefix.pch"; sourceTree = "<group>"; };
 		14B7017812356DCA007B9C90 /* RTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RTD-Info.plist"; path = "App Resources/RTD-Info.plist"; sourceTree = "<group>"; };
@@ -236,11 +240,12 @@
 				145BFFDF124FD3C700A643AA /* StationAnnotation.m */,
 				14DDBCD71085881300583F84 /* EncapsulatedConnection.h */,
 				14DDBCD81085881300583F84 /* EncapsulatedConnection.m */,
-				14A82114123764DB00DA7692 /* Constants.h */,
 				145B00A3125014C100A643AA /* DatabaseUpdater.h */,
 				145B00A4125014C100A643AA /* DatabaseUpdater.m */,
 				1465D909129DE0F1009132DE /* DatabaseLoader.h */,
 				1465D90A129DE0F1009132DE /* DatabaseLoader.m */,
+				0205554E163A52EA00EEB0EB /* DenverRideConstants.h */,
+				0205554F163A52EA00EEB0EB /* DenverRideConstants.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -422,6 +427,7 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
+				02055552163A54DB00EEB0EB /* Default-568h@2x.png */,
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
@@ -539,6 +545,7 @@
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */,
 				0232ECE015E461130053FE65 /* RTD2.0.sqlite in Resources */,
+				02055553163A54DB00EEB0EB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +591,7 @@
 				145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */,
 				145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */,
 				1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */,
+				02055550163A52EA00EEB0EB /* DenverRideConstants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -603,7 +611,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -622,7 +630,7 @@
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -655,7 +663,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -686,7 +694,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -715,7 +723,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -731,7 +739,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 3.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;

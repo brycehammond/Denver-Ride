@@ -36,7 +36,7 @@
 - (void)loadView {
 	[super loadView];
 	
-	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kTallContainerHeight)];
+	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants tallContainerHeight])];
 	
 	_mapView = [[MKMapView alloc] initWithFrame:[[self view] bounds]];
 	[[self view] addSubview:_mapView];

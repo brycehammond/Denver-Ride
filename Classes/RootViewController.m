@@ -22,7 +22,7 @@
 {
 	[super loadView];
 	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  kShortContainerHeight)];
+															  [DenverRideConstants shortContainerHeight])];
     [_containerView setClipsToBounds:YES];
 
 	[_containerView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
@@ -193,7 +193,7 @@
 		[self setTitle:@"Closest Stations"];
 	}
 
-    [_containerView setFrameHeight:kShortContainerHeight];
+    [_containerView setFrameHeight:[DenverRideConstants shortContainerHeight]];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
@@ -216,7 +216,7 @@
 		[self setTitle:@"Closest Stations"];
 	}
 	
-    [_containerView setFrameHeight:kShortContainerHeight];
+    [_containerView setFrameHeight:[DenverRideConstants shortContainerHeight]];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
 	[_activeViewController changeDirectionTo:direction];
@@ -231,7 +231,7 @@
 	}
 
 	
-    [_containerView setFrameHeight:kTallContainerHeight];
+    [_containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_bcycleViewController view] removeFromSuperview];
     [_mapViewController viewWillAppear:NO];
 	[_containerView addSubview:[_mapViewController view]];
@@ -251,7 +251,7 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
-    [_containerView setFrameHeight:kTallContainerHeight];
+    [_containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_mapViewController view] removeFromSuperview];
     [_bcycleViewController viewWillAppear:NO];
 	[_containerView addSubview:[_bcycleViewController view]];

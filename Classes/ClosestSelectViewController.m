@@ -49,7 +49,7 @@ currentDirection = _currentDirection;
 {
 	[super loadView];
 	[[self view] setFrame:CGRectMake(0, 0, 
-									 [[UIScreen mainScreen] bounds].size.width, kShortContainerHeight)];
+									 [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants shortContainerHeight])];
 	_closeStationsTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];
 	[_closeStationsTableView setDelegate:self];
@@ -98,7 +98,7 @@ currentDirection = _currentDirection;
 	}
 	
 	
-	if([[self locationManager] locationServicesEnabled])
+	if([CLLocationManager locationServicesEnabled])
 	{
 		// Start the location manager.
 		[[self locationManager] startUpdatingLocation];
@@ -341,7 +341,7 @@ currentDirection = _currentDirection;
 	//we have a location so resort the closest array and display the first three
 	for(Station *station in [self stationsArray])
 	{
-		[station setCurrentDistance:[location getDistanceFrom:[station location]]];
+		[station setCurrentDistance:[location distanceFromLocation:[station location]]];
 	}
 	
 	[[self stationsArray] sortUsingSelector:@selector(compareAscending:)];

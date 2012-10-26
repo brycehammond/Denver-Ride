@@ -16,7 +16,7 @@
 {
 	[super loadView];
 	
-	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, kTallContainerHeight)];
+	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants tallContainerHeight])];
 	
 	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1]];
     
