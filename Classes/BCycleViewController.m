@@ -76,19 +76,6 @@
 {
     [super viewDidAppear:animated];
     [self updateAnnotations];
-    static NSString *hasShownBCycleKey = @"ShownBCycleMessage";
-    if(NO == [[NSUserDefaults standardUserDefaults] boolForKey:hasShownBCycleKey])
-    {
-        
-        UIAlertView *bcycleAlert = [[[UIAlertView alloc] initWithTitle:@"Denver B-Cycle" 
-                     message:@"New to Denver Ride is Denver B-Cycle: Denver's favorite bicycle sharing program.  Use the B-Cycle section to find the closest station and see how many bikes or docks are available." delegate:nil cancelButtonTitle:@"Thanks!" otherButtonTitles:nil] autorelease];
-        
-        [bcycleAlert show];
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:hasShownBCycleKey];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
- 
 }
 
 - (void)updateStations:(NSArray *)stations;
