@@ -9,8 +9,9 @@
 /* Begin PBXBuildFile section */
 		02055550163A52EA00EEB0EB /* DenverRideConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0205554F163A52EA00EEB0EB /* DenverRideConstants.m */; };
 		02055553163A54DB00EEB0EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02055552163A54DB00EEB0EB /* Default-568h@2x.png */; };
+		0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0205555E163A5D9D00EEB0EB /* libFlurry.a */; };
+		02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02055560163A5F3500EEB0EB /* SystemConfiguration.framework */; };
 		0232ECE015E461130053FE65 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0232ECDF15E461130053FE65 /* RTD2.0.sqlite */; };
-		02473396152AB3E9000A42FC /* libFlurryAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 02473395152AB3E9000A42FC /* libFlurryAnalytics.a */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
@@ -86,9 +87,10 @@
 		0205554E163A52EA00EEB0EB /* DenverRideConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideConstants.h; sourceTree = "<group>"; };
 		0205554F163A52EA00EEB0EB /* DenverRideConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideConstants.m; sourceTree = "<group>"; };
 		02055552163A54DB00EEB0EB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0205555D163A5D8900EEB0EB /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = SOURCE_ROOT; };
+		0205555E163A5D9D00EEB0EB /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
+		02055560163A5F3500EEB0EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0232ECDF15E461130053FE65 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
-		02473394152AB3CE000A42FC /* FlurryAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FlurryAnalytics.h; path = Flurry/FlurryAnalytics.h; sourceTree = SOURCE_ROOT; };
-		02473395152AB3E9000A42FC /* libFlurryAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurryAnalytics.a; path = Flurry/libFlurryAnalytics.a; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
@@ -210,6 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */,
 				028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */,
 				028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -217,7 +220,7 @@
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
-				02473396152AB3E9000A42FC /* libFlurryAnalytics.a in Frameworks */,
+				0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,7 +296,7 @@
 		14B7017212356D9E007B9C90 /* Flurry */ = {
 			isa = PBXGroup;
 			children = (
-				02473394152AB3CE000A42FC /* FlurryAnalytics.h */,
+				0205555D163A5D8900EEB0EB /* Flurry.h */,
 			);
 			name = Flurry;
 			sourceTree = "<group>";
@@ -451,8 +454,9 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				02473395152AB3E9000A42FC /* libFlurryAnalytics.a */,
+				0205555E163A5D9D00EEB0EB /* libFlurry.a */,
 				028ED94613342CA10055CDC7 /* libz.dylib */,
+				02055560163A5F3500EEB0EB /* SystemConfiguration.framework */,
 				028ED94413342C9A0055CDC7 /* MapKit.framework */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,

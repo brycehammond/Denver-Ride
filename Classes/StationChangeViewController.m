@@ -14,30 +14,11 @@
 @synthesize delegate;
 @synthesize stationChangeToolbar;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
     self.stationChangeToolbar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 -(IBAction)cancelButtonClicked
 {

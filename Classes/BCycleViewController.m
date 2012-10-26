@@ -8,7 +8,7 @@
 
 #import "BCycleViewController.h"
 #import "StationAnnotation.h"
-#import "FlurryAnalytics.h"
+#import "Flurry.h"
 
 #define kStationInfoKey @"StationInfoKey"
 
@@ -69,7 +69,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [FlurryAnalytics logEvent:@"BCycle View shown"];
+    [Flurry logEvent:@"BCycle View shown"];
 }
 
 - (void)viewDidAppear:(BOOL)animated

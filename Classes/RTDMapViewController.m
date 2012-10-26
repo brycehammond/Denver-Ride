@@ -7,7 +7,7 @@
 //
 
 #import "RTDMapViewController.h"
-#import "FlurryAnalytics.h"
+#import "Flurry.h"
 
 @implementation RTDMapViewController
 
@@ -33,7 +33,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-	[FlurryAnalytics logEvent:@"Map View shown"];
+	[Flurry logEvent:@"Map View shown"];
 	[super viewDidAppear:animated];
 }
 

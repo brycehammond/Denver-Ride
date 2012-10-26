@@ -12,7 +12,7 @@
 #import "Station.h"
 #import "Stop.h"
 #import "UIColorCategories.h"
-#import "FlurryAnalytics.h"
+#import "Flurry.h"
 #import "DatabaseLoader.h"
 
 @interface RTDAppDelegate (Private)
@@ -42,10 +42,10 @@
     
 	defaultDataNeedsFilling = NO;
 	
-    [FlurryAnalytics setSecureTransportEnabled:NO];
-    [FlurryAnalytics setSessionReportsOnCloseEnabled:NO];
-    [FlurryAnalytics setSessionReportsOnPauseEnabled:NO];
-	[FlurryAnalytics startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
+    [Flurry setSecureTransportEnabled:NO];
+    [Flurry setSessionReportsOnCloseEnabled:NO];
+    [Flurry setSessionReportsOnPauseEnabled:NO];
+	[Flurry startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)
@@ -357,7 +357,7 @@
 	}
 	else 
 	{
-		[FlurryAnalytics logError:@"UpdateError" message:[NSString stringWithFormat:@"error updating to %@",filename]
+		[Flurry logError:@"UpdateError" message:[NSString stringWithFormat:@"error updating to %@",filename]
 					  error:nil];
 		[self managedObjectContext];
 	}
