@@ -7,7 +7,6 @@
 //
 
 #import "DatabaseUpdater.h"
-#import "JSON.h"
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
 #import "NSData+gzip.h"
@@ -64,42 +63,31 @@
 		
 		if([[connection identifier] isEqualToString:@"updateCheck"])
 		{
-			NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-			
-			if(! returnString)
-			{
-				returnString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
-			}
-			
-			if(returnString)
-			{
-				NSDictionary *parsedStructure = [returnString JSONValue];
-				if([parsedStructure isKindOfClass:[NSDictionary class]])
-				{
-					NSString *date = parsedStructure[@"updateDate"];
-					NSString *file = parsedStructure[@"updateFile"];
-					
-					if(date && file)
-					{
-						NSString *currentDate = [[NSUserDefaults standardUserDefaults]
-												 stringForKey:kLastUpdateDateKey];
-						if(NSOrderedDescending == [date compare:currentDate])
-						{
-							_newDatabaseFileName = file;
-                            _newDatabaseLocalFileName = [file stringByReplacingOccurrencesOfString:@".gz" withString:@""];
-							_newUpdateDate = date;
-							[self showUpdateAlert];
-						}
-					}
-					
-				}
+            NSDictionary *parsedStructure = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:nil];
+            if([parsedStructure isKindOfClass:[NSDictionary class]])
+            {
+                NSString *date = parsedStructure[@"updateDate"];
+                NSString *file = parsedStructure[@"updateFile"];
+                
+                if(date && file)
+                {
+                    NSString *currentDate = [[NSUserDefaults standardUserDefaults]
+                                             stringForKey:kLastUpdateDateKey];
+                    if(NSOrderedDescending == [date compare:currentDate])
+                    {
+                        _newDatabaseFileName = file;
+                        _newDatabaseLocalFileName = [file stringByReplacingOccurrencesOfString:@".gz" withString:@""];
+                        _newUpdateDate = date;
+                        [self showUpdateAlert];
+                    }
+                }
+
 			}
             
             //Schedule a timer to release the database update connection
             //as we don't want to have it fire multiple times in case the activation callback goes through
             [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(releaseUpdateCheckConnection:) userInfo:nil repeats:NO];
-            
-            
+             
 		}
 		else if([[connection identifier] isEqualToString:@"DatabaseUpdate"])
 		{
