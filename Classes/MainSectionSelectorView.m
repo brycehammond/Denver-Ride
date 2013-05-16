@@ -34,10 +34,9 @@
 							  CGRectMake(0, 0, frame.size.width, 1)];
 		[headerRule setBackgroundColor:[UIColor colorFromHex:@"185FC7" withAlpha:1]];
 		[self addSubview:headerRule];
-		[headerRule release];
 
 		UIImage *buttonImage = [UIImage imageNamed:@"nav-northbound.png"];
-		_northButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		_northButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[_northButton setImage:buttonImage
 										  forState:UIControlStateNormal];
 		[_northButton setImage:[UIImage imageNamed:@"nav-northbound_down.png"]
@@ -47,7 +46,7 @@
 		[self addSubview:_northButton];
 		
 		buttonImage = [UIImage imageNamed:@"nav-southbound.png"];
-		_southButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		_southButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[_southButton setImage:buttonImage
 					  forState:UIControlStateNormal];
 		[_southButton setImage:[UIImage imageNamed:@"nav-southbound_down.png"]
@@ -59,7 +58,7 @@
 		
 		
 		buttonImage = [UIImage imageNamed:@"nav-route-map.png"];
-		_mapButton = [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		_mapButton = [UIButton buttonWithType:UIButtonTypeCustom];
 		[_mapButton setImage:buttonImage
 					  forState:UIControlStateNormal];
 		[_mapButton setImage:[UIImage imageNamed:@"nav-route-map_down.png"]
@@ -70,7 +69,7 @@
 		[self addSubview:_mapButton];
 		
 		buttonImage = [UIImage imageNamed:@"nav-bcycle.png"];
-		_bcycleButton= [[UIButton buttonWithType:UIButtonTypeCustom] retain];
+		_bcycleButton= [UIButton buttonWithType:UIButtonTypeCustom];
 		[_bcycleButton setImage:buttonImage
 					  forState:UIControlStateNormal];
 		[_bcycleButton setImage:[UIImage imageNamed:@"nav-bcycle_down.png"]
@@ -142,13 +141,6 @@
 	[self buttonPressed:_bcycleButton];
 }
 
-- (void)dealloc {
-	[_northButton release];
-	[_southButton release];
-	[_mapButton release];
-	[_bcycleButton release];
-    [super dealloc];
-}
 
 
 @end

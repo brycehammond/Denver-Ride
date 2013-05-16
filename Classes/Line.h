@@ -15,11 +15,11 @@
 {
 }
 
-@property (nonatomic, retain) NSString* name;
-@property (nonatomic, retain) NSString* type;
-@property (nonatomic, retain) NSString* color;
-@property (nonatomic, retain) NSSet* stations;
-@property (nonatomic, retain) NSSet* stops;
+@property (nonatomic, strong) NSString* name;
+@property (nonatomic, strong) NSString* type;
+@property (nonatomic, strong) NSString* color;
+@property (nonatomic, strong) NSSet* stations;
+@property (nonatomic, strong) NSSet* stops;
 
 @end
 

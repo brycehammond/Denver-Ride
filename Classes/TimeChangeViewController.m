@@ -125,10 +125,6 @@
 	// e.g. self.myOutlet = nil;
 }
 
-- (void)dealloc {
-    [_timeChangeToolbar release];
-    [super dealloc];
-}
 
 
 @end

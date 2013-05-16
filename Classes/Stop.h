@@ -16,16 +16,16 @@
 	
 }
 
-@property (nonatomic, retain) NSNumber * departureTimeInMinutes;
-@property (nonatomic, retain) NSNumber * arrivalTimeInMinutes;
-@property (nonatomic, retain) NSNumber * run;
-@property (nonatomic, retain) NSString * direction;
-@property (nonatomic, retain) NSString * dayType;
-@property (nonatomic, retain) NSNumber * stopSequence;
-@property (nonatomic, retain) Station * station;
-@property (nonatomic, retain) Station *terminalStation;
-@property (nonatomic, retain) Station *startStation;
-@property (nonatomic, retain) Line * line;
+@property (nonatomic, strong) NSNumber * departureTimeInMinutes;
+@property (nonatomic, strong) NSNumber * arrivalTimeInMinutes;
+@property (nonatomic, strong) NSNumber * run;
+@property (nonatomic, strong) NSString * direction;
+@property (nonatomic, strong) NSString * dayType;
+@property (nonatomic, strong) NSNumber * stopSequence;
+@property (nonatomic, strong) Station * station;
+@property (nonatomic, strong) Station *terminalStation;
+@property (nonatomic, strong) Station *startStation;
+@property (nonatomic, strong) Line * line;
 
 - (NSString *)formattedTime;
 

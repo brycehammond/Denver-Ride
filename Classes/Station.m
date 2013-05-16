@@ -47,10 +47,5 @@
 	return NSOrderedSame;
 }
 
-- (void)dealloc
-{
-	[_location release];
-	[super dealloc];
-}
 
 @end

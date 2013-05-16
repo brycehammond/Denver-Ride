@@ -40,13 +40,10 @@
 	NSMutableDictionary *directionByTrip = [[NSMutableDictionary alloc] init];
     //get the trip info in for reference
     
-    NSAutoreleasePool *pool = [[NSAutoreleasePool alloc] init];
-    
 	NSMutableSet *relevantTrips = [[NSMutableSet alloc] init];
     
     NSString *trips = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"trips" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     NSArray *fileLines = [trips componentsSeparatedByString:@"\n"];
-    [trips release];
     trips = nil;
     
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
@@ -61,17 +58,13 @@
 			[relevantTrips addObject:tripId];
 		}
     }
-         
-    [pool release];
 	
 	//read in the lines (we currently only care about light rail)
-	pool = [[NSAutoreleasePool alloc] init];
     
 	NSMutableDictionary *linesById = [[NSMutableDictionary alloc] init];
 	
     NSString *allLines = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"routes" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     fileLines = [allLines componentsSeparatedByString:@"\n"];
-    [allLines release];
     allLines = nil;
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
@@ -102,9 +95,6 @@
 	
 	[[appDelegate managedObjectContext] save:&error];
 	
-    [pool release];
-	
-	pool = [[NSAutoreleasePool alloc] init];
 	
 	
 	//Read in all the stations but don't create objects for them
@@ -114,7 +104,6 @@
 	
 	NSString *allStations = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stops" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
     fileLines = [allStations componentsSeparatedByString:@"\n"];
-    [allStations release];
     allStations = nil;
     
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
@@ -123,10 +112,6 @@
 		[stationFieldsByStationId setObject:fields forKey:[fields objectAtIndex:0]];
     }
 	
-	[pool release];
-	
-	pool = [[NSAutoreleasePool alloc] init];
-	
 	NSMutableDictionary *stationsById = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *stopsByTrip = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *directionsByStationId = [[NSMutableDictionary alloc] init];
@@ -134,7 +119,6 @@
 	//now read in the stop times and create the stops and 
     NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
 	fileLines = [allStopTimes componentsSeparatedByString:@"\n"];
-    [allStopTimes release];
     allStopTimes = nil;
 	
 	for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
@@ -283,24 +267,9 @@
 				[stop setTerminalStation:stopStation];
 			}
 		}
-		
-		
 	}
     
     
-	
-	[pool release];
-    
-    [dayTypeByTrip release];
-    [lineByTrip release];
-	[directionByTrip release];
-    [stationFieldsByStationId release];
-    [stopsByTrip release];
-    [directionsByStationId release];
-    [stationsById release];
-    [linesById release];
-    [relevantTrips release];
-	
 	
 	[[appDelegate managedObjectContext] save:&error];
 	

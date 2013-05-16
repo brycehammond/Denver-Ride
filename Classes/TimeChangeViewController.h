@@ -25,12 +25,12 @@
 	IBOutlet UIDatePicker *_timePicker;
 	IBOutlet UIView *_fadeView;
 	
-	id<TimeChangeViewControllerDelegate> delegate;
+	id<TimeChangeViewControllerDelegate> __weak delegate;
 	
 }
 
-@property (assign) id<TimeChangeViewControllerDelegate> delegate;
-@property (retain, nonatomic) IBOutlet UIToolbar *timeChangeToolbar;
+@property (weak) id<TimeChangeViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIToolbar *timeChangeToolbar;
 
 -(IBAction)doneButtonClicked;
 -(IBAction)cancelButtonClicked;

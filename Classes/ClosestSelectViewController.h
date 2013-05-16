@@ -31,14 +31,14 @@
 	NSString *_currentDirection;														
 }
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) NSMutableArray *stationsArray;
-@property (nonatomic, retain) CLLocationManager *locationManager;
-@property (nonatomic, retain) NSArray *closestStationsArray;
-@property (nonatomic, retain) NSString *currentDirection;
-@property (nonatomic, retain) NSMutableArray *closestStationsStopsArray;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSMutableArray *stationsArray;
+@property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic, strong) NSArray *closestStationsArray;
+@property (nonatomic, strong) NSString *currentDirection;
+@property (nonatomic, strong) NSMutableArray *closestStationsStopsArray;
 
-@property (nonatomic, retain) UINavigationController *navigationController;
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 -(void)retrieveStopsDirection:(NSString *)direction;
 

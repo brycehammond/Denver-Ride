@@ -76,7 +76,6 @@
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-    [rootViewController release];
 	
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
@@ -114,7 +113,6 @@
 
 - (void)completedFadingDefaultPng:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
 	[_defaultPngToFade removeFromSuperview];
-	[_defaultPngToFade release];
 }
 
 /**
@@ -163,7 +161,7 @@
     if (managedObjectModel != nil) {
         return managedObjectModel;
     }
-    managedObjectModel = [[NSManagedObjectModel mergedModelFromBundles:nil] retain];    
+    managedObjectModel = [NSManagedObjectModel mergedModelFromBundles:nil];    
     return managedObjectModel;
 }
 
@@ -234,8 +232,7 @@
 {
 	if(_currentDirection != direction)
 	{
-		[_currentDirection release];
-		_currentDirection = [direction retain];
+		_currentDirection = direction;
 	}
 	
 	if(_currentDirection)
@@ -264,16 +261,13 @@
 	
 	DatabaseLoader *loader = [[DatabaseLoader alloc] init];
 	[loader loadItUp];
-	[loader release];
 }
 
 -(BOOL)rebuildCoreDataStackWithDatabaseFile:(NSString *)file
 {
 	//deconstruct the stack
 	
-	[managedObjectContext release];
 	managedObjectContext = nil;
-	[persistentStoreCoordinator release];
 	persistentStoreCoordinator = nil;
 	
 	//check to see if the new store is valid
@@ -292,7 +286,6 @@
 		NSError *error = nil;
 		persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
 		if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]){
-			[persistentStoreCoordinator release];
 			persistentStoreCoordinator = nil;
 			return NO;
 		}
@@ -310,7 +303,6 @@
 - (void)databaseUpdateStarted
 {
     [[navigationController view] removeFromSuperview];
-    [navigationController release];
     navigationController = nil;
 }
 
@@ -321,7 +313,6 @@
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-    [rootViewController release];
     
     [window addSubview:[navigationController view]];
 }
@@ -367,18 +358,6 @@
 #pragma mark -
 #pragma mark Memory management
 
-- (void)dealloc {
-	
-    [managedObjectContext release];
-    [managedObjectModel release];
-    [persistentStoreCoordinator release];
-	[_linesToColors release];
-	[_currentDirection release];
-    
-	[navigationController release];
-	[window release];
-	[super dealloc];
-}
 
 
 

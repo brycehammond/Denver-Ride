@@ -17,8 +17,8 @@
 	if(self = [super init])
 	{
 		delegate = del;
-		_identifier = [ident retain];
-		_connectionRequest = [request retain];
+		_identifier = ident;
+		_connectionRequest = request;
 		_returnData = [[NSMutableData alloc] init];
 		_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 		_totalBytesExpected = 0;
@@ -30,16 +30,11 @@
 -(void)dealloc
 {
 	delegate = nil;
-	[_connectionRequest release];
 	_connectionRequest = nil;
 	[_connection cancel];
-	[_connection release];
 	_connection = nil;
-	[_identifier release];
 	_identifier = nil;
-	[_returnData release];
 	_returnData = nil;
-	[super dealloc];
 }
 
 -(NSString *)identifier

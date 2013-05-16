@@ -62,14 +62,10 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-    [_sectionSelectorView release];
 	_sectionSelectorView = nil;
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 #pragma mark MainSectionSelectorViewDelegate methods
 

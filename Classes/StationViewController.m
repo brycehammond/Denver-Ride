@@ -124,7 +124,7 @@
 	{
 		StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+			cell = [[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
 		}
 		
 		// Get the event corresponding to the current index path and configure the table view cell.
@@ -147,7 +147,7 @@
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
 		}
 		
 		
@@ -175,7 +175,6 @@
 		RunViewController *runController = [[RunViewController alloc] initWithStop:stop withTimeDirection:_timeDirection];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
-		[runController release];
 		
 		[tableView deselectRowAtIndexPath:indexPath animated:NO];
 	}
@@ -219,8 +218,6 @@
 	[request setSortDescriptors:sortDescriptors];
 	[request setFetchLimit:5];
 	[request setPredicate:predicate];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	// Execute the fetch -- create a mutable copy of the result.
 	NSError *error = nil;
@@ -231,21 +228,10 @@
 	
 	// Set self's events array to the mutable array, then clean up.
 	[self setStopsArray:mutableFetchResults];
-	[mutableFetchResults release];
-	[request release];
 	
 	[_stopsTableView reloadData];
 }
 
-- (void)dealloc {
-	[_stopsArray release];
-	[_managedObjectContext release];
-	[_stopsTableView release];
-	[_mapViewController release];
-	[_bcycleViewController release];
-	[_station release];
-    [super dealloc];
-}
 
 #pragma mark MainSectionSelectorViewDelegate methods
 

@@ -31,9 +31,9 @@ typedef enum {
 	RTDMapViewController *_mapController;
 }
 
-@property (nonatomic, retain) NSArray *runArray;
-@property (nonatomic, retain) Stop *stop;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSArray *runArray;
+@property (nonatomic, strong) Stop *stop;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 
 
 -(id)initWithStop:(Stop *)stop;

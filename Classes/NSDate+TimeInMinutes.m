@@ -18,7 +18,7 @@ static NSSet *_holidays;
 
 -(NSInteger)minutesIntoCurrentDay
 {
-	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"H"];
 	int hours = [[dateFormatter stringFromDate:self] intValue];
 	[dateFormatter setDateFormat:@"m"];
@@ -36,7 +36,6 @@ static NSSet *_holidays;
 										   components:NSWeekdayCalendarUnit fromDate:self];
 	NSInteger weekday = [weekDayComponents weekday];
 	
-	[gregorian release];
 	
 	return weekday;
 }
@@ -81,7 +80,6 @@ static NSSet *_holidays;
 	NSInteger month = [dayComponents month];
 	NSInteger year = [dayComponents year];
 	
-	[gregorian release];
 	
 	return [_holidays containsObject:[NSString stringWithFormat:@"%i/%i/%i",month,day,year]];				 
 						
@@ -117,13 +115,13 @@ static NSSet *_holidays;
 +(NSDate *)previousDateFrom:(NSDate *)date
 {
 	//there are 86400 seconds in a day
-	return [[[NSDate alloc] initWithTimeInterval:-86400 sinceDate:date] autorelease];
+	return [[NSDate alloc] initWithTimeInterval:-86400 sinceDate:date];
 }
 
 +(NSDate *)nextDateFrom:(NSDate *)date
 {
 	//there are 86400 seconds in a day
-	return [[[NSDate alloc] initWithTimeInterval:86400 sinceDate:date] autorelease];
+	return [[NSDate alloc] initWithTimeInterval:86400 sinceDate:date];
 }
 
 +(NSArray *)fullDayTypes

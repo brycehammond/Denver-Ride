@@ -21,9 +21,9 @@ NSFetchedResultsControllerDelegate, UISearchBarDelegate, UIScrollViewDelegate> {
 	IBOutlet UITableView *_stationsTableView;
 }
 
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (retain, nonatomic) IBOutlet UISearchBar *stationListSearchBar;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) IBOutlet UISearchBar *stationListSearchBar;
 
 -(void)populateRecentlyUsed;
 -(void)addStationToRecentlyUsed:(Station *)station;

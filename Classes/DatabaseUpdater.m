@@ -47,23 +47,13 @@
 
 - (void)showUpdateAlert
 {
-	UIAlertView *alertView = [[[UIAlertView alloc] initWithTitle:@"Updates Available"
+	UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Updates Available"
 														 message:@"Schedule updates are available  Would you like to update now?"
 													    delegate:self 
-											   cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil] autorelease];
+											   cancelButtonTitle:@"NO" otherButtonTitles:@"YES",nil];
 	[alertView show];
 }
 
-- (void)dealloc
-{
-    [_updateCheckConnection release];
-	[_databaseUpdateConnection release];
-	[_loadingView release];
-	[_newDatabaseFileName release];
-    [_newDatabaseLocalFileName release];
-	[_newUpdateDate release];
-    [super dealloc];
-}
 
 #pragma mark EncapsulatedConnectionDelegate methods
 
@@ -74,11 +64,11 @@
 		
 		if([[connection identifier] isEqualToString:@"updateCheck"])
 		{
-			NSString *returnString = [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
+			NSString *returnString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
 			
 			if(! returnString)
 			{
-				returnString = [[[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding] autorelease];
+				returnString = [[NSString alloc] initWithData:data encoding:NSASCIIStringEncoding];
 			}
 			
 			if(returnString)
@@ -95,9 +85,9 @@
 												 stringForKey:kLastUpdateDateKey];
 						if(NSOrderedDescending == [date compare:currentDate])
 						{
-							_newDatabaseFileName = [file retain];
-                            _newDatabaseLocalFileName = [[file stringByReplacingOccurrencesOfString:@".gz" withString:@""] retain];
-							_newUpdateDate = [date retain];
+							_newDatabaseFileName = file;
+                            _newDatabaseLocalFileName = [file stringByReplacingOccurrencesOfString:@".gz" withString:@""];
+							_newUpdateDate = date;
 							[self showUpdateAlert];
 						}
 					}
@@ -127,7 +117,6 @@
 			
 			
 			[_downloadProgressTimer invalidate];
-			[_downloadProgressTimer release];
 			_downloadProgressTimer = nil;
 			
 			[delegate newDatabaseAvailableWithFilename:_newDatabaseLocalFileName andDate:_newUpdateDate];
@@ -137,7 +126,6 @@
             [self hideLoadingView];
             [_loadingView setDownloadProgress:0];
             
-            [_databaseUpdateConnection release];
             _databaseUpdateConnection = nil;
             
             
@@ -152,7 +140,6 @@
 
 - (void)releaseUpdateCheckConnection:(NSTimer *)timer
 {
-    [_updateCheckConnection release];
     _updateCheckConnection = nil;
     
 }
@@ -161,17 +148,14 @@
 {
     if([[connection identifier] isEqualToString:@"updateCheck"])
     {
-        [_updateCheckConnection release];
         _updateCheckConnection = nil;
     }
     else 
     {
-        [_databaseUpdateConnection release];
         _databaseUpdateConnection = nil;
     }
     
 	[_downloadProgressTimer invalidate];
-	[_downloadProgressTimer release];
 	_downloadProgressTimer = nil;
 }
 
@@ -189,10 +173,10 @@
 		
 		_databaseUpdateConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"DatabaseUpdate"];	
 	
-		_downloadProgressTimer = [[NSTimer scheduledTimerWithTimeInterval:1.0 target:self
+		_downloadProgressTimer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self
 																 selector:@selector(updateProgress:)
 																 userInfo:nil
-																  repeats:YES] retain];
+																  repeats:YES];
 	}
 	else 
 	{

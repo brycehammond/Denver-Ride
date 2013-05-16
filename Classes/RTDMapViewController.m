@@ -47,7 +47,6 @@
 - (void)viewDidUnload {
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
-    [_mapView release];
     _mapView = nil;
 }
 
@@ -55,10 +54,6 @@
     return _mapView;
 }
 
-- (void)dealloc {
-	[_mapView release];
-    [super dealloc];
-}
 
 
 @end

@@ -27,10 +27,10 @@
 	
 	UIButton *_activeButton; //weak
 	
-	NSObject<MainSectionSelectorViewDelegate> *delegate;
+	NSObject<MainSectionSelectorViewDelegate> *__weak delegate;
 }
 
-@property (assign) NSObject<MainSectionSelectorViewDelegate> *delegate;
+@property (weak) NSObject<MainSectionSelectorViewDelegate> *delegate;
 
 - (id)initWithDefaultFrame;
 

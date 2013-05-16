@@ -114,8 +114,6 @@
 		}
 		
 		
-		[mutableFetchResults release];
-		[request release];
 	}
 	
 }
@@ -139,10 +137,9 @@
 	if(stationIndex != NSNotFound)
 	{
 		//we already have this station so put it to the top of the list
-		Station *movingStation = [[_recentlyUsedStations objectAtIndex:stationIndex] retain];
+		Station *movingStation = [_recentlyUsedStations objectAtIndex:stationIndex];
 		[_recentlyUsedStations removeObjectAtIndex:stationIndex];
 		[_recentlyUsedStations insertObject:movingStation atIndex:0];
-		[movingStation release];
 	}
 	else {
 		//we don't have this station yet, so add it to the front and remove the last one
@@ -231,7 +228,7 @@
 	
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 	if (cell == nil) {
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 	}
 	
 	if(station)
@@ -256,7 +253,7 @@
 	Station *station = nil;
 	//get the current hours and minutes to get stops that are in the future
 	NSDate *now = [NSDate date];
-	NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init]  autorelease];
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"H"];
 	int hours = [[dateFormatter stringFromDate:now] intValue];
 	[dateFormatter setDateFormat:@"m"];
@@ -280,7 +277,6 @@
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:station withCurrentTimeInMinutes:timeInMinutes];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
-	[stationController release];
 	
 	[self addStationToRecentlyUsed:station];
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
@@ -338,7 +334,6 @@
 	[headerLabel setBackgroundColor:[UIColor colorFromHex:@"70A96A" withAlpha:1]];
 	[headerLabel setShadowColor:[UIColor grayColor]];
 	[headerLabel setShadowOffset:CGSizeMake(2, 1)];
-	[headerLabel autorelease];
 	
 	return headerLabel;
 
@@ -374,10 +369,6 @@
     aFetchedResultsController.delegate = self;
 	self.fetchedResultsController = aFetchedResultsController;
 	
-	[aFetchedResultsController release];
-	[fetchRequest release];
-	[sortDescriptor release];
-	[sortDescriptors release];
 	
 	return _fetchedResultsController;
 }
@@ -391,7 +382,6 @@
 					 [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
 	}
 	else {
-		[_recentlyUsedStationsToDisplay release];
 		_recentlyUsedStationsToDisplay = nil;
 		[searchBar resignFirstResponder];
 	}
@@ -407,7 +397,7 @@
 	//Update all the recently used
 	if(! [searchText isEqualToString:@""])
 	{
-		_recentlyUsedStationsToDisplay = [[_recentlyUsedStations filteredArrayUsingPredicate:reduction] retain];
+		_recentlyUsedStationsToDisplay = [_recentlyUsedStations filteredArrayUsingPredicate:reduction];
 	}
 	
 	[_stationsTableView reloadData];
@@ -428,15 +418,6 @@
     
 }
 
-- (void)dealloc {
-	[_stationsTableView release];
-	[_fetchedResultsController release];
-	[_managedObjectContext release];
-	[_recentlyUsedStations release];
-	[_recentlyUsedStationsToDisplay release];
-    [_stationListSearchBar release];
-    [super dealloc];
-}
 
 
 @end

@@ -22,8 +22,7 @@
 	[self willChangeValueForKey:@"bikesAvailable"];
 	if(_bikesAvailable != bikesAvailable)
 	{
-		[_bikesAvailable release];
-		_bikesAvailable = [bikesAvailable retain];
+		_bikesAvailable = bikesAvailable;
 	}
 	
 	if([_bikesAvailable length] > 0 && [_docksAvailable length] > 0)
@@ -42,8 +41,7 @@
 	[self willChangeValueForKey:@"docksAvailable"];
 	if(_docksAvailable != docksAvailable)
 	{
-		[_docksAvailable release];
-		_docksAvailable = [docksAvailable retain];
+		_docksAvailable = docksAvailable;
 	}
 	
 	if([_bikesAvailable length] > 0 && [_docksAvailable length] > 0)
@@ -73,13 +71,5 @@
 	return [NSString stringWithFormat:@"%@ %@ : %@",[super description], [self title], [self subtitle]];
 }
 
-- (void)dealloc
-{
-    [_title release];
-    [_subtitle release];
-    [_bikesAvailable release];
-    [_docksAvailable release];
-    [super dealloc];
-}
 
 @end

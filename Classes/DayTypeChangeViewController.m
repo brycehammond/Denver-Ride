@@ -41,7 +41,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if(self)
     {
-        _dayTypes = [[NSDate fullDayTypes] retain];
+        _dayTypes = [NSDate fullDayTypes];
     }
     
     return self;
@@ -122,10 +122,6 @@
 }
 
 
-- (void)dealloc {
-    [_dayTypeToolbar release];
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark UIPickerView methods

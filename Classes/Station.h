@@ -18,15 +18,15 @@
 	CLLocation *_location; //have the longitude/latitude stored in a CLLocation  so we can make quick distance comparisons
 }
 
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * name;
-@property (nonatomic, retain) NSNumber * latitude;
-@property (nonatomic, retain) NSString * direction;
+@property (nonatomic, strong) NSNumber * longitude;
+@property (nonatomic, strong) NSString * name;
+@property (nonatomic, strong) NSNumber * latitude;
+@property (nonatomic, strong) NSString * direction;
 
-@property (nonatomic, retain) NSSet* lines;
-@property (nonatomic, retain) NSSet* stops;
+@property (nonatomic, strong) NSSet* lines;
+@property (nonatomic, strong) NSSet* stops;
 @property (assign) CLLocationDistance currentDistance;
-@property (nonatomic, retain) CLLocation *location;
+@property (nonatomic, strong) CLLocation *location;
 
 -(NSComparisonResult)compareAscending:(Station *)station;
 

@@ -23,14 +23,14 @@
 	IBOutlet UIPickerView *_picker;
 	IBOutlet UIView *_fadeView;
 	
-	id<DayTypeChangeViewControllerDelegate> delegate;
+	id<DayTypeChangeViewControllerDelegate> __weak delegate;
 	
 	NSArray *_dayTypes;
 }
 
-@property (assign) id<DayTypeChangeViewControllerDelegate> delegate;
+@property (weak) id<DayTypeChangeViewControllerDelegate> delegate;
 
-@property (retain, nonatomic) IBOutlet UIToolbar *dayTypeToolbar;
+@property (strong, nonatomic) IBOutlet UIToolbar *dayTypeToolbar;
 
 -(IBAction)doneButtonClicked;
 -(IBAction)cancelButtonClicked;

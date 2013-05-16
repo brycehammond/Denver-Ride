@@ -32,9 +32,9 @@
 	
 }
 
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) ClosestSelectViewController *closestViewController;
-@property (nonatomic, retain) ManualSelectViewController *manualViewController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) ClosestSelectViewController *closestViewController;
+@property (nonatomic, strong) ManualSelectViewController *manualViewController;
 
 
 @end

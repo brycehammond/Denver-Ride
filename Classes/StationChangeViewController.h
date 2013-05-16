@@ -17,11 +17,11 @@
 @end
 
 @interface StationChangeViewController : StationListViewController {
-	id<StationChangeViewControllerDelegate> delegate;
+	id<StationChangeViewControllerDelegate> __weak delegate;
 }
 
-@property (assign) id<StationChangeViewControllerDelegate> delegate;
-@property (retain, nonatomic) IBOutlet UIToolbar *stationChangeToolbar;
+@property (weak) id<StationChangeViewControllerDelegate> delegate;
+@property (strong, nonatomic) IBOutlet UIToolbar *stationChangeToolbar;
 
 -(IBAction)cancelButtonClicked;
 

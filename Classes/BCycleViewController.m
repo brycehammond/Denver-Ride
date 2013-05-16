@@ -86,7 +86,7 @@
 	if(nil == _stations)
 	{
 		
-		_stations = [stations retain];
+		_stations = stations;
 		[_mapView addAnnotations:stations];
 		for(StationAnnotation *station in _stations)
 		{
@@ -141,9 +141,7 @@
 							 [NSURL URLWithString:@"http://bcycle.semanticchickens.com/stations.txt"]];
 	
 	[_updateConnection setDelegate:nil];
-	[_updateConnection release];
 	_updateConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"StationUpdate"];
-	[request release];
 	
 }
 
@@ -170,13 +168,6 @@
 }
 
 
-- (void)dealloc {
-	[_stationsByName release];
-	[_updateConnection release];
-	[_stations release];
-	[_mapView release];
-    [super dealloc];
-}
 
 #pragma mark MKMapViewDelegate methods
 
@@ -194,7 +185,7 @@
 		if (! pinView) 
 		{
 			// If an existing pin view was not available, create one
-			MKPinAnnotationView* pinView = [[[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:stationAnnotationIdentifier] autorelease];
+			MKPinAnnotationView* pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:stationAnnotationIdentifier];
 			pinView.pinColor = MKPinAnnotationColorRed;
 			pinView.animatesDrop = NO;
 			pinView.canShowCallout = YES;
@@ -219,7 +210,6 @@
 		NSString *stationDataString = [[NSString alloc] initWithData:data
 															encoding:NSUTF8StringEncoding];
 		[self loadStationsFromString:stationDataString stale:NO];
-		[stationDataString release];
 	}
 }
 
@@ -263,7 +253,6 @@
 			}
 			
 			[newStations addObject:station];
-			[station release];
 		}
 	}
 	
@@ -273,7 +262,6 @@
 		[self updateStations:newStations];
 	}
 	
-	[newStations release];
 }
 
 @end

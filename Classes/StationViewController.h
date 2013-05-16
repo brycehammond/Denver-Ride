@@ -32,11 +32,11 @@
 	
 }
 
-@property (nonatomic, retain) NSMutableArray *stopsArray;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, retain) Station *station;
+@property (nonatomic, strong) NSMutableArray *stopsArray;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) Station *station;
 @property (assign) NSInteger currentTimeInMinutes;
-@property (nonatomic, retain) NSString *dayType;
+@property (nonatomic, strong) NSString *dayType;
 
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
 -(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 

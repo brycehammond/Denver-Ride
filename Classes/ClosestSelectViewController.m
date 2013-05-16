@@ -88,8 +88,6 @@ currentDirection = _currentDirection;
 	
 	// Set the station array to the mutable array, then clean up.
 	[self setStationsArray:mutableFetchResults];
-	[mutableFetchResults release];
-	[request release];
 	
 	if(! [_loadingView superview])
 	{
@@ -108,7 +106,6 @@ currentDirection = _currentDirection;
 															message:@"You will need to turn on location services in your settings to find the closest stations."
 														   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alertView show];
-		[alertView release];
 	}
 
 	
@@ -139,11 +136,6 @@ currentDirection = _currentDirection;
 }
 
 
-- (void)dealloc {
-	[_managedObjectContext release];
-	[_currentDirection release];
-    [super dealloc];
-}
 
 -(void)updateDirection:(NSString *)direction
 {
@@ -227,7 +219,6 @@ currentDirection = _currentDirection;
 		
 		
 		[_closestStationsStopsArray addObject:allStops];
-		[allStops release];
 	}
 	
 	[_closeStationsTableView reloadData];
@@ -262,9 +253,6 @@ currentDirection = _currentDirection;
     [request setRelationshipKeyPathsForPrefetching:prefetchKeys];
     [request setFetchLimit:5];
     [request setPredicate:predicate];
-    [sortDescriptor release];
-    [sortDescriptors release];
-    [prefetchKeys release];
     
     // Execute the fetch -- create a mutable copy of the result.
     NSError *error = nil;
@@ -273,7 +261,6 @@ currentDirection = _currentDirection;
         // Handle the error.
     }
     
-    [request release];
     
     return stopsArray;
 }
@@ -308,13 +295,14 @@ currentDirection = _currentDirection;
     didUpdateToLocation:(CLLocation *)newLocation
            fromLocation:(CLLocation *)oldLocation {
 	
+    __unsafe_unretained CLLocation *location = newLocation;
+    
 	[_delayTimer invalidate];
-	[_delayTimer release];
 	NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:[self methodSignatureForSelector:@selector(processUpdate:)]];
 	[invocation setTarget:self];
 	[invocation setSelector:@selector(processUpdate:)];
-	[invocation setArgument:&newLocation atIndex:2];
-	_delayTimer = [[NSTimer scheduledTimerWithTimeInterval:0.5 invocation:invocation repeats:NO] retain];
+	[invocation setArgument:&location atIndex:2];
+	_delayTimer = [NSTimer scheduledTimerWithTimeInterval:0.5 invocation:invocation repeats:NO];
 }
 
 - (void)locationManager:(CLLocationManager *)manager
@@ -328,7 +316,6 @@ currentDirection = _currentDirection;
 															message:@"The app is unable to find your current location.  Make sure that your location services are turned on."
 														   delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
 		[alertView show];
-		[alertView release];
 		
 		haveShownError = YES;
 	}
@@ -391,7 +378,7 @@ currentDirection = _currentDirection;
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		
 		cell.textLabel.text = @"View All Stations";
@@ -408,7 +395,7 @@ currentDirection = _currentDirection;
 		static NSString *CellIdentifier = @"No Trains";
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		
 		NSString *direction = ([[self currentDirection] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
@@ -427,7 +414,7 @@ currentDirection = _currentDirection;
 		
 		StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+			cell = [[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
 		}
 		
 		// Get the stop corresponding to the current index path and configure the table view cell.
@@ -455,7 +442,7 @@ currentDirection = _currentDirection;
 		return nil;
 	}
 	
-	UIView *header = [[[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 30)] autorelease];
+	UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, 30)];
     [header setBackgroundColor:[UIColor clearColor]];
     
     UILabel *stationLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 5, [[UIScreen mainScreen] bounds].size.width, 25)];
@@ -467,7 +454,6 @@ currentDirection = _currentDirection;
 	[stationLabel setBackgroundColor:[UIColor clearColor]];
     
     [header addSubview:stationLabel];
-    [stationLabel release];
     
 	return header;
 }
@@ -480,7 +466,6 @@ currentDirection = _currentDirection;
 		StationListViewController *listController = [[StationListViewController alloc] initWithNibName:@"StationListViewController" bundle:nil];
 		[listController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:listController animated:YES];
-		[listController release];
 	}
 	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
 	{
@@ -492,7 +477,6 @@ currentDirection = _currentDirection;
 		RunViewController *runController = [[RunViewController alloc] initWithStop:[[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
-		[runController release];
 	}
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];

@@ -97,9 +97,6 @@
 }
 
 
-- (void)dealloc {
-    [super dealloc];
-}
 
 #pragma mark -
 #pragma mark Table view data source methods
@@ -137,7 +134,7 @@
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -160,7 +157,7 @@
 		
 		UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 		if (cell == nil) {
-			cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
 		}
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
@@ -192,7 +189,7 @@
 			static NSString *CellIdentifier = @"No Trains";
 			UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 			if (cell == nil) {
-				cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 			}
 			
 			NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
@@ -210,7 +207,7 @@
 			
 			StationStopTableViewCell *cell = ( StationStopTableViewCell *)[tableView dequeueReusableCellWithIdentifier:CellIdentifier];
 			if (cell == nil) {
-				cell = [[[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier] autorelease];
+				cell = [[StationStopTableViewCell alloc] initWithReuseIdentifier:CellIdentifier];
 			}
 			
 			// Get the stop corresponding to the current index path and configure the table view cell.
@@ -311,7 +308,6 @@
 												withTimeDirection:_timeDirection];
 			[runController setManagedObjectContext:[self managedObjectContext]];
 			[[self navigationController] pushViewController:runController animated:YES];
-			[runController release];
 			[tableView deselectRowAtIndexPath:indexPath animated:NO];
 		}
 	}
@@ -358,7 +354,6 @@
     }
 	
 	[self setCurrentStops:allStops];
-	[allStops release];
 	
 	[_manualTableView reloadData];
 }
@@ -435,9 +430,6 @@
 	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 	[request setFetchLimit:5];
 	[request setPredicate:predicate];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	[prefetchKeys release];
 	
 	NSError *error = nil;
 	NSArray *stopsArray = [[self managedObjectContext] executeFetchRequest:request error:&error];
@@ -445,7 +437,6 @@
 		// Handle the error.
 	}
 	
-	[request release];
     
     return  stopsArray;
 }

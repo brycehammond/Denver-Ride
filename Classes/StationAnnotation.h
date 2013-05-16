@@ -16,8 +16,8 @@
 	CLLocationCoordinate2D _location;
 }
 
-@property (nonatomic, retain) NSString *bikesAvailable;
-@property (nonatomic, retain) NSString *docksAvailable;
+@property (nonatomic, strong) NSString *bikesAvailable;
+@property (nonatomic, strong) NSString *docksAvailable;
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subtitle;
 

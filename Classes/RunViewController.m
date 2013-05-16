@@ -8,6 +8,8 @@
 
 #import "RunViewController.h"
 #import "Stop.h"
+#import "Line.h"
+#import "Station.h"
 #import "StationViewController.h"
 #import "RTDAppDelegate.h"
 
@@ -91,9 +93,6 @@
 	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
 	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 	[request setPredicate:predicate];
-	[sortDescriptor release];
-	[sortDescriptors release];
-	[prefetchKeys release];
 	
 	// Execute the fetch -- create a mutable copy of the result.
 	NSError *error = nil;
@@ -103,8 +102,6 @@
 	}
 	
 	[self setRunArray:mutableFetchResults];
-	[mutableFetchResults release];
-	[request release];
 	
 	if(_timeDirection == FORWARD)
 	{
@@ -117,19 +114,6 @@
 	
 }
 
--(void)dealloc
-{
-	[_mapController release];
-	[_runArray release];
-	[_stop release];
-	[_managedObjectContext release];
-	[_runTableView release];
-	
-	[_topLine release];
-	[_middleLine release];
-	[_bottomLine release];
-	[super dealloc];
-}
 
 
 /*
@@ -175,7 +159,7 @@
 	
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
     }
     
 	// Get the event corresponding to the current index path and configure the table view cell.
@@ -203,7 +187,6 @@
 																				   andDayType:[stop dayType]];
 	[stationController setManagedObjectContext:[self managedObjectContext]];
 	[[self navigationController] pushViewController:stationController animated:YES];
-	[stationController release];
 	
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
 }

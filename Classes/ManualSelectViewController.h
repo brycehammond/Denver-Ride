@@ -34,11 +34,11 @@ StationChangeViewControllerDelegate> {
 	
 }
 
-@property (nonatomic, retain) UINavigationController *navigationController;
-@property (nonatomic, retain) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (assign) NSInteger timeInMinutes;
-@property (nonatomic, retain) NSArray *currentStops;
-@property (nonatomic, retain) NSString *currentDayType;
+@property (nonatomic, strong) NSArray *currentStops;
+@property (nonatomic, strong) NSString *currentDayType;
 
 -(void)retrieveStopsDirection:(NSString *)direction;
 

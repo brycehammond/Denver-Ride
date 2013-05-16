@@ -32,10 +32,10 @@
 	
 	NSTimer *_downloadProgressTimer;
 	
-	id<DatabaseUpdaterDelegate> delegate;
+	id<DatabaseUpdaterDelegate> __weak delegate;
 }
 
-@property (nonatomic, assign) id<DatabaseUpdaterDelegate> delegate;
+@property (nonatomic, weak) id<DatabaseUpdaterDelegate> delegate;
 
 -(void)startUpdate;
 
