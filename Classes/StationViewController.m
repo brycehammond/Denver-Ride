@@ -57,7 +57,7 @@
 		[_sectionSelectorView setToSouthbound];
 	}
 	
-	[Flurry logEvent:@"Station View" withParameters:[NSDictionary dictionaryWithObject:[_station name] forKey:@"Station"]];
+	[Flurry logEvent:@"Station View" withParameters:@{@"Station": [_station name]}];
 	[self retrieveStopsInDirection:direction];
 }
 
@@ -128,7 +128,7 @@
 		}
 		
 		// Get the event corresponding to the current index path and configure the table view cell.
-		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+		Stop *stop = [self stopsArray][indexPath.row];
 		
 		if(_timeDirection == FORWARD)
 		{
@@ -171,7 +171,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	if([[self stopsArray] count] > 0)
 	{
-		Stop *stop = [[self stopsArray] objectAtIndex:indexPath.row];
+		Stop *stop = [self stopsArray][indexPath.row];
 		RunViewController *runController = [[RunViewController alloc] initWithStop:stop withTimeDirection:_timeDirection];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
@@ -214,7 +214,7 @@
 	// Order the events by creation date, most recent first.
 	BOOL ascending = (_timeDirection == FORWARD);
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	NSArray *sortDescriptors = @[sortDescriptor];
 	[request setSortDescriptors:sortDescriptors];
 	[request setFetchLimit:5];
 	[request setPredicate:predicate];
@@ -239,7 +239,7 @@
 {
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[Flurry logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
@@ -255,7 +255,7 @@
 {
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[Flurry logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];

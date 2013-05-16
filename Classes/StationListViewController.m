@@ -88,7 +88,7 @@
 	if(recentlyUsedStations)
 	{
 		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@ AND direction in %@",recentlyUsedStations,
-									   [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
+									   @[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]];
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
 		[request setEntity:entity];
@@ -126,7 +126,7 @@
 	//stations are actually different
 	for(NSUInteger stationIdx = 0; stationIdx < [_recentlyUsedStations count] ; ++stationIdx)
 	{
-		Station *usedStation = [_recentlyUsedStations objectAtIndex:stationIdx];
+		Station *usedStation = _recentlyUsedStations[stationIdx];
 		if([[usedStation name] isEqualToString:[station name]])
 		{
 			stationIndex = stationIdx;
@@ -137,7 +137,7 @@
 	if(stationIndex != NSNotFound)
 	{
 		//we already have this station so put it to the top of the list
-		Station *movingStation = [_recentlyUsedStations objectAtIndex:stationIndex];
+		Station *movingStation = _recentlyUsedStations[stationIndex];
 		[_recentlyUsedStations removeObjectAtIndex:stationIndex];
 		[_recentlyUsedStations insertObject:movingStation atIndex:0];
 	}
@@ -188,7 +188,7 @@
 		
 		if ([sections count]) {
 			
-			id <NSFetchedResultsSectionInfo> sectionInfo = [sections objectAtIndex:0];
+			id <NSFetchedResultsSectionInfo> sectionInfo = sections[0];
 			
 			count = [sectionInfo numberOfObjects];
 			
@@ -210,10 +210,10 @@
 	{
 		if(nil != _recentlyUsedStationsToDisplay)
 		{
-			station = [_recentlyUsedStationsToDisplay objectAtIndex:indexPath.row];
+			station = _recentlyUsedStationsToDisplay[indexPath.row];
 		}
 		else {
-			station = [_recentlyUsedStations objectAtIndex:indexPath.row];
+			station = _recentlyUsedStations[indexPath.row];
 		}
 	}
 	else if(indexPath.section == 1) //full list
@@ -264,10 +264,10 @@
 	{
 		if(nil != _recentlyUsedStationsToDisplay)
 		{
-			station = [_recentlyUsedStationsToDisplay objectAtIndex:indexPath.row];
+			station = _recentlyUsedStationsToDisplay[indexPath.row];
 		}
 		else {
-			station = [_recentlyUsedStations objectAtIndex:indexPath.row];
+			station = _recentlyUsedStations[indexPath.row];
 		}
 	}
 	else {
@@ -355,10 +355,10 @@
 	
 	// Edit the sort key as appropriate.
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	NSArray *sortDescriptors = @[sortDescriptor];
 	
 	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"direction in %@",
-								[NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]]];
+								@[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]]];
 	
 	
 	[fetchRequest setSortDescriptors:sortDescriptors];
@@ -379,7 +379,7 @@
 	if([searchText length] > 0)
 	{
 		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] %@ AND direction in %@",searchText, 
-					 [NSArray arrayWithObjects:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B",nil]];
+					 @[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]];
 	}
 	else {
 		_recentlyUsedStationsToDisplay = nil;

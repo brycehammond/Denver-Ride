@@ -90,7 +90,7 @@
 		[_mapView addAnnotations:stations];
 		for(StationAnnotation *station in _stations)
 		{
-			[_stationsByName setObject:station forKey:[station title]];
+			_stationsByName[[station title]] = station;
 		}
 	}
 	else 
@@ -98,7 +98,7 @@
 		//go through and update the stations
 		for(StationAnnotation *station in stations)
 		{
-			StationAnnotation *existingStation = [_stationsByName objectForKey:[station title]];
+			StationAnnotation *existingStation = _stationsByName[[station title]];
 			if(existingStation)
 			{
 				[existingStation setBikesAvailable:[station bikesAvailable]];
@@ -108,7 +108,7 @@
 			else 
 			{
 				//don't have this station yet so add it
-				[_stationsByName setObject:station forKey:[station title]];
+				_stationsByName[[station title]] = station;
 				[_mapView addAnnotation:station];
 			}
 
@@ -237,19 +237,19 @@
 			StationAnnotation *station = [[StationAnnotation alloc] init];
 			
 			CLLocationCoordinate2D coordinate;
-			coordinate.latitude = [[elements objectAtIndex:0] doubleValue];
-			coordinate.longitude = [[elements objectAtIndex:1] doubleValue];
+			coordinate.latitude = [elements[0] doubleValue];
+			coordinate.longitude = [elements[1] doubleValue];
 			
 			[station setCoordinate:coordinate];
 			
-			[station setTitle:[elements objectAtIndex:2]];
+			[station setTitle:elements[2]];
 			
 			//If this isn't stale data and we have bike/dock available
 			//data then populate it
 			if(NO == stale && [elements count] > 4)
 			{
-				[station setBikesAvailable:[elements objectAtIndex:3]];
-				[station setDocksAvailable:[elements objectAtIndex:4]];
+				[station setBikesAvailable:elements[3]];
+				[station setDocksAvailable:elements[4]];
 			}
 			
 			[newStations addObject:station];

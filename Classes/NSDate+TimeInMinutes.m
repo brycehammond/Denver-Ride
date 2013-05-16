@@ -128,7 +128,7 @@ static NSSet *_holidays;
 {
 	if(! _fullDayTypes)
 	{
-		_fullDayTypes = [[NSArray alloc] initWithObjects:@"Weekday",@"Saturday",@"Sunday/Holiday",nil];
+		_fullDayTypes = @[@"Weekday",@"Saturday",@"Sunday/Holiday"];
 	}
 	
 	return _fullDayTypes;
@@ -139,7 +139,7 @@ static NSSet *_holidays;
 	if( ! _fullDayTypesByCode)
 	{
 		_fullDayTypesByCode = [[NSDictionary alloc] initWithObjects:[NSDate fullDayTypes] 
-															forKeys:[NSArray arrayWithObjects:@"WK",@"SA",@"SU",nil]];
+															forKeys:@[@"WK",@"SA",@"SU"]];
 	}
 	
 	return _fullDayTypesByCode;
@@ -149,7 +149,7 @@ static NSSet *_holidays;
 {
 	if( ! _codesByfullDayTypes)
 	{
-		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:[NSArray arrayWithObjects:@"WK",@"SA",@"SU",nil]
+		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:@[@"WK",@"SA",@"SU"]
 															 forKeys:[NSDate fullDayTypes]];
 	}
 	

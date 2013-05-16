@@ -27,13 +27,13 @@
 
 -(void)setDayType:(NSString *)dayTypeCode
 {
-	NSUInteger row = [_dayTypes indexOfObject:[[NSDate fullDayTypesByCode] objectForKey:dayTypeCode]];
+	NSUInteger row = [_dayTypes indexOfObject:[NSDate fullDayTypesByCode][dayTypeCode]];
 	[_picker selectRow:row inComponent:0 animated:NO];
 }
 
 -(NSString *)dayType
 {
-	return [[NSDate codesByfullDayTypes] objectForKey:[_dayTypes objectAtIndex:[_picker selectedRowInComponent:0]]];
+	return [NSDate codesByfullDayTypes][_dayTypes[[_picker selectedRowInComponent:0]]];
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -137,7 +137,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-	return [_dayTypes objectAtIndex:row];
+	return _dayTypes[row];
 }
 
 

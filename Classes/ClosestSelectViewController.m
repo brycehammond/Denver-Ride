@@ -67,7 +67,7 @@ currentDirection = _currentDirection;
 	
 	//We haven't gotten a closest location yet so set the
 	//closest location array to empty
-	[self setClosestStationsArray:[NSArray array]];
+	[self setClosestStationsArray:@[]];
 	[self setClosestStationsStopsArray:[NSMutableArray array]];
 	[self setCurrentDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
 	
@@ -247,9 +247,9 @@ currentDirection = _currentDirection;
     
     // Order the events by creation date, most recent first.
     NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:YES];
-    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    NSArray *sortDescriptors = @[sortDescriptor];
     [request setSortDescriptors:sortDescriptors];
-    NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+    NSArray *prefetchKeys = @[@"station",@"line"];
     [request setRelationshipKeyPathsForPrefetching:prefetchKeys];
     [request setFetchLimit:5];
     [request setPredicate:predicate];
@@ -358,7 +358,7 @@ currentDirection = _currentDirection;
 	}
 	else
 	{
-		NSInteger stopsCount = [[[self closestStationsStopsArray] objectAtIndex:section] count];
+		NSInteger stopsCount = [[self closestStationsStopsArray][section] count];
 		if(stopsCount == 0)
 		{
 			stopsCount = 1;
@@ -389,7 +389,7 @@ currentDirection = _currentDirection;
 		return cell;
 		
 	}
-	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	else if([[self closestStationsStopsArray][indexPath.section] count] == 0)
 	{
 		//There are no train in the direction from this station so say so
 		static NSString *CellIdentifier = @"No Trains";
@@ -418,7 +418,7 @@ currentDirection = _currentDirection;
 		}
 		
 		// Get the stop corresponding to the current index path and configure the table view cell.
-		Stop *stop = [[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+		Stop *stop = [self closestStationsStopsArray][indexPath.section][indexPath.row];
 		
 		[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
 		
@@ -450,7 +450,7 @@ currentDirection = _currentDirection;
 	[stationLabel setTextAlignment:UITextAlignmentLeft];
     [stationLabel setTextColor:[UIColor colorFromHex:@"272727" withAlpha:1.0]];
 	[stationLabel setAdjustsFontSizeToFitWidth:YES];
-	[stationLabel setText:[[[self closestStationsArray] objectAtIndex:section] name]];
+	[stationLabel setText:[[self closestStationsArray][section] name]];
 	[stationLabel setBackgroundColor:[UIColor clearColor]];
     
     [header addSubview:stationLabel];
@@ -467,14 +467,14 @@ currentDirection = _currentDirection;
 		[listController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:listController animated:YES];
 	}
-	else if([[[self closestStationsStopsArray] objectAtIndex:indexPath.section] count] == 0)
+	else if([[self closestStationsStopsArray][indexPath.section] count] == 0)
 	{
 		//Do nothing on a no train display
 		return;
 	}
 	else
 	{
-		RunViewController *runController = [[RunViewController alloc] initWithStop:[[[self closestStationsStopsArray] objectAtIndex:indexPath.section] objectAtIndex:indexPath.row]];
+		RunViewController *runController = [[RunViewController alloc] initWithStop:[self closestStationsStopsArray][indexPath.section][indexPath.row]];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
 	}

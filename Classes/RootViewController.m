@@ -68,13 +68,13 @@
 	if([lastTypeUsed isEqualToString:@"Closest"])
 	{
 		_activeViewController = [self closestViewController];
-		[Flurry logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
+		[Flurry logEvent:@"Launch" withParameters:@{@"Mode": @"Closest",@"Direction": direction}];
 		buttonTitle = @"Manual";
 		[self setTitle:@"Closest Stations"];
 	}
 	else {
 		_activeViewController = [self manualViewController];
-		[Flurry logEvent:@"Launch" withParameters:[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
+		[Flurry logEvent:@"Launch" withParameters:@{@"Mode": @"Manual",@"Direction": direction}];
 		buttonTitle = @"Closest";
 		[self setTitle:@"Manual Mode"];
 	}
@@ -107,7 +107,7 @@
 	{
 		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 		[Flurry logEvent:@"Switch Mode" withParameters:
-			[NSDictionary dictionaryWithObjectsAndKeys:@"Manual",@"Mode",direction,@"Direction",nil]];
+			@{@"Mode": @"Manual",@"Direction": direction}];
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
@@ -129,7 +129,7 @@
 		
 		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
 		[Flurry logEvent:@"Switch Mode" withParameters:
-			[NSDictionary dictionaryWithObjectsAndKeys:@"Closest",@"Mode",direction,@"Direction",nil]];
+			@{@"Mode": @"Closest",@"Direction": direction}];
 		
 		[sender setTitle:@"Manual"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Closest" forKey:@"LastTypeUsed"];
@@ -180,7 +180,7 @@
 {
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[Flurry logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
@@ -203,7 +203,7 @@
 {
 	NSString *direction = @"S";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
-	[Flurry logEvent:@"Switch Direction" withParameters:[NSDictionary dictionaryWithObject:direction forKey:@"Direction"]];
+	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	

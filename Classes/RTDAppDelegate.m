@@ -63,12 +63,11 @@
 		[self populateStore];
 	}
 	
-	_linesToColors = [[NSDictionary alloc] initWithObjectsAndKeys:
-							[UIColor colorFromHex:@"F79238" withAlpha:1], @"C",
-							[UIColor colorFromHex:@"038349" withAlpha:1], @"D",
-							[UIColor colorFromHex:@"552485" withAlpha:1], @"E",
-							[UIColor colorFromHex:@"EF3931" withAlpha:1], @"F",
-							[UIColor colorFromHex:@"0073BD" withAlpha:1], @"H",nil];
+	_linesToColors = @{@"C": [UIColor colorFromHex:@"F79238" withAlpha:1],
+							@"D": [UIColor colorFromHex:@"038349" withAlpha:1],
+							@"E": [UIColor colorFromHex:@"552485" withAlpha:1],
+							@"F": [UIColor colorFromHex:@"EF3931" withAlpha:1],
+							@"H": [UIColor colorFromHex:@"0073BD" withAlpha:1]};
 	
 	
 	RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
@@ -198,7 +197,7 @@
             
             if(iCloudExclusionAvailable)
             {
-                [fileURL setResourceValue:[NSNumber numberWithBool:YES] forKey:NSURLIsExcludedFromBackupKey error:&error];
+                [fileURL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
             }
             
 			persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
@@ -251,7 +250,7 @@
 - (NSString *)applicationDocumentsDirectory {
 	
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *basePath = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *basePath = ([paths count] > 0) ? paths[0] : nil;
     return basePath;
 }
 

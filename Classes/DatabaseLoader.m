@@ -48,13 +48,13 @@
     
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
-        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
-		if([linesToProcess containsObject:[fields objectAtIndex:0]])
+        NSArray *fields = [fileLines[lineIdx] componentsSeparatedByString:@","];
+		if([linesToProcess containsObject:fields[0]])
 		{
-			NSString *tripId = [fields objectAtIndex:2];
-			[dayTypeByTrip setObject:[fields objectAtIndex:1] forKey:tripId];
-			[lineByTrip setObject:[fields objectAtIndex:0] forKey:tripId];
-			[directionByTrip setObject:[fields objectAtIndex:4] forKey:tripId];
+			NSString *tripId = fields[2];
+			dayTypeByTrip[tripId] = fields[1];
+			lineByTrip[tripId] = fields[0];
+			directionByTrip[tripId] = fields[4];
 			[relevantTrips addObject:tripId];
 		}
     }
@@ -68,13 +68,13 @@
     allLines = nil;
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
-        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
-		if([linesToProcess containsObject:[fields objectAtIndex:0]])
+        NSArray *fields = [fileLines[lineIdx] componentsSeparatedByString:@","];
+		if([linesToProcess containsObject:fields[0]])
 		{
 			Line *line = [NSEntityDescription insertNewObjectForEntityForName:@"Line"
 													   inManagedObjectContext:[appDelegate managedObjectContext]];
 			
-			NSString *lineName = [fields objectAtIndex:0];
+			NSString *lineName = fields[0];
 			
 			[line setName:[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""]];
 			if([lineName hasPrefix:@"101"]) // is lightrail
@@ -86,9 +86,9 @@
 				[line setType:@"B"];
 			}
 
-			[line setColor:[fields objectAtIndex:6]];
+			[line setColor:fields[6]];
 			
-			[linesById setObject:line forKey:lineName];
+			linesById[lineName] = line;
 		}
 		
     }
@@ -108,8 +108,8 @@
     
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
-        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
-		[stationFieldsByStationId setObject:fields forKey:[fields objectAtIndex:0]];
+        NSArray *fields = [fileLines[lineIdx] componentsSeparatedByString:@","];
+		stationFieldsByStationId[fields[0]] = fields;
     }
 	
 	NSMutableDictionary *stationsById = [[NSMutableDictionary alloc] init];
@@ -123,20 +123,20 @@
 	
 	for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
-        NSArray *fields = [[fileLines objectAtIndex:lineIdx] componentsSeparatedByString:@","];
+        NSArray *fields = [fileLines[lineIdx] componentsSeparatedByString:@","];
 		
 		//we read the following in to an dictionary where the keys are the trip ids and the values
 		//are the stops in order
 		
-		NSString *tripId = [fields objectAtIndex:0];
+		NSString *tripId = fields[0];
 		//we only care about trips associted with the lines we want
 		if([relevantTrips containsObject:tripId])
 		{
 			//see if we have a station for this stop
-			NSString *stationId = [fields objectAtIndex:3];
-			NSArray *stationFields = [stationFieldsByStationId objectForKey:stationId];
+			NSString *stationId = fields[3];
+			NSArray *stationFields = stationFieldsByStationId[stationId];
 			
-			NSString *stationName = [stationFields objectAtIndex:1];
+			NSString *stationName = stationFields[1];
 			
 			if([stationName hasSuffix:@" Station"])
 			{
@@ -160,7 +160,7 @@
 																	 withString:@""];
 			}
 			
-			Station *station = [stationsById objectForKey:stationId];
+			Station *station = stationsById[stationId];
 			if(nil == station)
 			{
 				station = [NSEntityDescription insertNewObjectForEntityForName:@"Station"
@@ -168,35 +168,35 @@
 				
 				
 				[station setName:stationName];
-				[station setLongitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:4] doubleValue]]];
-				[station setLatitude:[NSNumber numberWithDouble:[[stationFields objectAtIndex:3] doubleValue]]];
+				[station setLongitude:@([stationFields[4] doubleValue])];
+				[station setLatitude:@([stationFields[3] doubleValue])];
 				
-				[stationsById setObject:station forKey:stationId];
+				stationsById[stationId] = station;
 				
 			}
 			
-			NSMutableSet *stationDirections = [directionsByStationId objectForKey:stationId];
+			NSMutableSet *stationDirections = directionsByStationId[stationId];
 			if(nil == stationDirections)
 			{
 				stationDirections = [NSMutableSet set];
-				[directionsByStationId setObject:stationDirections forKey:stationId];
+				directionsByStationId[stationId] = stationDirections;
 			}
 			
-			[stationDirections addObject:[directionByTrip objectForKey:tripId]];
+			[stationDirections addObject:directionByTrip[tripId]];
 			
 			//let's create the stop and add it to our array
 			Stop *stop = [NSEntityDescription insertNewObjectForEntityForName:@"Stop"
 													   inManagedObjectContext:[appDelegate managedObjectContext]];
 			
 			[stop setStation:station];
-			[stop setRun:[NSNumber numberWithInt:[tripId intValue]]];
-			[stop setDepartureTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:2]]]];
-			[stop setArrivalTimeInMinutes:[NSNumber numberWithInt:[self timeInMinutesForTimeString:[fields objectAtIndex:1]]]];
-			[stop setStopSequence:[NSNumber numberWithInt:[[fields objectAtIndex:4] intValue]]];
-			[stop setLine:[linesById objectForKey:[lineByTrip objectForKey:tripId]]];
-			[stop setDayType:[dayTypeByTrip objectForKey:tripId]];
+			[stop setRun:@([tripId intValue])];
+			[stop setDepartureTimeInMinutes:@([self timeInMinutesForTimeString:fields[2]])];
+			[stop setArrivalTimeInMinutes:@([self timeInMinutesForTimeString:fields[1]])];
+			[stop setStopSequence:@([fields[4] intValue])];
+			[stop setLine:linesById[lineByTrip[tripId]]];
+			[stop setDayType:dayTypeByTrip[tripId]];
 			
-			NSString *direction = [directionByTrip objectForKey:tripId];
+			NSString *direction = directionByTrip[tripId];
 			if([direction isEqualToString:@"1"])
 			{
 				[stop setDirection:@"S"];
@@ -207,11 +207,11 @@
 			}
 
 			
-			NSMutableArray *stopsArray = [stopsByTrip objectForKey:tripId];
+			NSMutableArray *stopsArray = stopsByTrip[tripId];
 			if(nil == stopsArray)
 			{
 				stopsArray = [NSMutableArray array];
-				[stopsByTrip setObject:stopsArray forKey:tripId];
+				stopsByTrip[tripId] = stopsArray;
 			}
 			
 			[stopsArray addObject:stop];
@@ -224,10 +224,10 @@
 	
 	for(NSString *stationId in [directionsByStationId allKeys])
 	{
-		Station *station = [stationsById objectForKey:stationId];
+		Station *station = stationsById[stationId];
 		if(nil != station)
 		{
-			NSMutableSet *directions = [directionsByStationId objectForKey:stationId];
+			NSMutableSet *directions = directionsByStationId[stationId];
 			if([directions count] > 0)
 			{
 				if([directions count] >= 2) //have more than one direction
@@ -236,7 +236,7 @@
 				}
 				else
 				{
-					NSString *direction = [[directions allObjects] objectAtIndex:0];
+					NSString *direction = [directions allObjects][0];
 					if([direction isEqualToString:@"1"])
 					{
 						[station setDirection:@"S"];
@@ -258,7 +258,7 @@
 		[stops sortUsingSelector:@selector(sortBySequence:)];
 		if([stops count] > 0)
 		{
-			Station *startStation = [[stops objectAtIndex:0] station];
+			Station *startStation = [stops[0] station];
 			Station *stopStation = [[stops lastObject] station];
 			
 			for(Stop *stop in stops)
@@ -283,8 +283,8 @@
 {
 	NSInteger timeInMinutes = 0;
 	NSArray *components = [timeString componentsSeparatedByString:@":"];
-	timeInMinutes += [[components objectAtIndex:0] intValue] * 60;
-	timeInMinutes += [[components objectAtIndex:1] intValue];
+	timeInMinutes += [components[0] intValue] * 60;
+	timeInMinutes += [components[1] intValue];
 	
 	return timeInMinutes;
 }

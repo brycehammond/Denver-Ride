@@ -176,7 +176,7 @@
 		else if(indexPath.section == kScheduleTypeSection)
 		{
 			cell.textLabel.text = @"Schedule Type";
-			cell.detailTextLabel.text = [[NSDate fullDayTypesByCode] objectForKey:[self currentDayType]];
+			cell.detailTextLabel.text = [NSDate fullDayTypesByCode][[self currentDayType]];
 		}
 		
 		return cell;
@@ -211,7 +211,7 @@
 			}
 			
 			// Get the stop corresponding to the current index path and configure the table view cell.
-			Stop *stop = [[self currentStops] objectAtIndex:indexPath.row];
+			Stop *stop = [self currentStops][indexPath.row];
 			
 			if(_timeDirection == FORWARD)
 			{
@@ -304,7 +304,7 @@
 		else
 		{
 			RunViewController *runController = [[RunViewController alloc] 
-												initWithStop:[[self currentStops] objectAtIndex:indexPath.row]
+												initWithStop:[self currentStops][indexPath.row]
 												withTimeDirection:_timeDirection];
 			[runController setManagedObjectContext:[self managedObjectContext]];
 			[[self navigationController] pushViewController:runController animated:YES];
@@ -424,9 +424,9 @@
 	BOOL ascending = (_timeDirection == FORWARD);
 	
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	NSArray *sortDescriptors = @[sortDescriptor];
 	[request setSortDescriptors:sortDescriptors];
-	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+	NSArray *prefetchKeys = @[@"station",@"line"];
 	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 	[request setFetchLimit:5];
 	[request setPredicate:predicate];

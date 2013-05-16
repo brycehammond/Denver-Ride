@@ -72,11 +72,11 @@
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-			[[stop departureTimeInMinutes] intValue],[NSArray arrayWithObjects:[stop direction], @"B",nil],[[stop run] intValue],lineName,[[self stop] dayType]];
+			[[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[[stop run] intValue],lineName,[[self stop] dayType]];
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-					 [[stop departureTimeInMinutes] intValue],[NSArray arrayWithObjects:[stop direction], @"B",nil],[[stop run] intValue],lineName,[[self stop] dayType]];
+					 [[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[[stop run] intValue],lineName,[[self stop] dayType]];
 		
 	}
 
@@ -88,9 +88,9 @@
 	// Order the events by creation date, most recent first.
 	BOOL ascending = (_timeDirection == FORWARD);
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:(ascending) ? @"departureTimeInMinutes" : @"arrivalTimeInMinutes" ascending:ascending];
-	NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+	NSArray *sortDescriptors = @[sortDescriptor];
 	[request setSortDescriptors:sortDescriptors];
-	NSArray *prefetchKeys = [[NSArray alloc] initWithObjects:@"station",@"line",nil];
+	NSArray *prefetchKeys = @[@"station",@"line"];
 	[request setRelationshipKeyPathsForPrefetching:prefetchKeys];
 	[request setPredicate:predicate];
 	
@@ -163,7 +163,7 @@
     }
     
 	// Get the event corresponding to the current index path and configure the table view cell.
-	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
+	Stop *stop = (Stop *)[self runArray][indexPath.row];
 	
 	CGRect currentFrame = cell.detailTextLabel.frame;
 	cell.detailTextLabel.frame = currentFrame;
@@ -180,7 +180,7 @@
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-	Stop *stop = (Stop *)[[self runArray] objectAtIndex:indexPath.row];
+	Stop *stop = (Stop *)[self runArray][indexPath.row];
 	StationViewController *stationController = [[StationViewController alloc] initWithStation:[stop station] 
 																	 withCurrentTimeInMinutes:(_timeDirection == FORWARD) ? [[stop arrivalTimeInMinutes] intValue] : [[stop departureTimeInMinutes] intValue]
 																			 andTimeDirection:_timeDirection

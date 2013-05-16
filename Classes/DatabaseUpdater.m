@@ -76,8 +76,8 @@
 				NSDictionary *parsedStructure = [returnString JSONValue];
 				if([parsedStructure isKindOfClass:[NSDictionary class]])
 				{
-					NSString *date = [parsedStructure objectForKey:@"updateDate"];
-					NSString *file = [parsedStructure objectForKey:@"updateFile"];
+					NSString *date = parsedStructure[@"updateDate"];
+					NSString *file = parsedStructure[@"updateFile"];
 					
 					if(date && file)
 					{

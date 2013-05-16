@@ -57,10 +57,10 @@
 	{
 		if(_recentlyUsedStationsToDisplay)
 		{
-			station = [_recentlyUsedStationsToDisplay objectAtIndex:indexPath.row];
+			station = _recentlyUsedStationsToDisplay[indexPath.row];
 		}
 		else {
-			station = [_recentlyUsedStations objectAtIndex:indexPath.row];
+			station = _recentlyUsedStations[indexPath.row];
 		}
 
 	}
