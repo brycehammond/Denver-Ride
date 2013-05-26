@@ -2,36 +2,29 @@
 //  Stop.h
 //  RTD
 //
-//  Created by bryce.hammond on 7/31/09.
-//  Copyright 2009 Fluidvision Design. All rights reserved.
+//  Created by Bryce Hammond on 5/26/13.
+//  Copyright (c) 2013 Fluidvision Design. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class Station;
-@class Line;
+@class Line, Station;
 
-@interface Stop :  NSManagedObject  
-{
-	
-}
+@interface Stop : NSManagedObject
 
-@property (nonatomic, strong) NSNumber * departureTimeInMinutes;
-@property (nonatomic, strong) NSNumber * arrivalTimeInMinutes;
-@property (nonatomic, strong) NSNumber * run;
-@property (nonatomic, strong) NSString * direction;
-@property (nonatomic, strong) NSString * dayType;
-@property (nonatomic, strong) NSNumber * stopSequence;
-@property (nonatomic, strong) Station * station;
-@property (nonatomic, strong) Station *terminalStation;
-@property (nonatomic, strong) Station *startStation;
-@property (nonatomic, strong) Line * line;
-
-- (NSString *)formattedTime;
-
-- (NSComparisonResult)sortBySequence:(Stop *)otherStop;
+@property (nonatomic, retain) NSString * dayType;
+@property (nonatomic) int16_t arrivalTimeInMinutes;
+@property (nonatomic) int32_t run;
+@property (nonatomic) int16_t departureTimeInMinutes;
+@property (nonatomic) int16_t stopSequence;
+@property (nonatomic) BOOL hasEastbound;
+@property (nonatomic) BOOL hasNorthbound;
+@property (nonatomic) BOOL hasSouthbound;
+@property (nonatomic) BOOL hasWestbound;
+@property (nonatomic, retain) Station *startStation;
+@property (nonatomic, retain) Station *station;
+@property (nonatomic, retain) Line *line;
+@property (nonatomic, retain) Station *terminalStation;
 
 @end
-
-
-

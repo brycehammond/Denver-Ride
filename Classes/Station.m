@@ -1,9 +1,9 @@
-// 
+//
 //  Station.m
 //  RTD
 //
-//  Created by bryce.hammond on 7/31/09.
-//  Copyright 2009 Fluidvision Design. All rights reserved.
+//  Created by Bryce Hammond on 5/26/13.
+//  Copyright (c) 2013 Fluidvision Design. All rights reserved.
 //
 
 #import "Station.h"
@@ -11,41 +11,43 @@
 #import "Stop.h"
 
 
-@implementation Station 
+@implementation Station
 
 @synthesize currentDistance = _currentDistance,
-			location = _location;
+    location = _location;
 
-@dynamic longitude;
-@dynamic name;
 @dynamic latitude;
-@dynamic lines;
+@dynamic name;
+@dynamic longitude;
+@dynamic hasWestbound;
+@dynamic hasEastbound;
+@dynamic hasNorthbound;
+@dynamic hasSouthbound;
 @dynamic stops;
-@dynamic direction;
+@dynamic lines;
 
 -(CLLocation *)location
 {
-	if(! _location)
-	{
-		_location = [[CLLocation alloc] initWithLatitude:[[self latitude] doubleValue] longitude:[[self longitude] doubleValue]];
-	}
-	
-	return _location;
+    if(! _location)
+    {
+        _location = [[CLLocation alloc] initWithLatitude:[[self latitude] doubleValue] longitude:[[self longitude] doubleValue]];
+    }
+    
+    return _location;
 }
 
 -(NSComparisonResult)compareAscending:(Station *)station
 {
-	if([self currentDistance] < [station currentDistance])
-	{
-		return NSOrderedAscending;
-	}
-	else if([self currentDistance] > [station currentDistance])
-	{
-		return NSOrderedDescending;
-	}
-	
-	return NSOrderedSame;
+    if([self currentDistance] < [station currentDistance])
+    {
+        return NSOrderedAscending;
+    }
+    else if([self currentDistance] > [station currentDistance])
+    {
+        return NSOrderedDescending;
+    }
+    
+    return NSOrderedSame;
 }
-
 
 @end

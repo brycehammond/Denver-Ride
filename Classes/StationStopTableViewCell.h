@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Stop.h"
-#import "Station.h"
+#import "Stop+Convenience.h"
+#import "Station+Convenience.h"
 
 @interface StationStopTableViewCell : UITableViewCell {
 

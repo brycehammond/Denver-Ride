@@ -12,6 +12,10 @@
 		0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0205555E163A5D9D00EEB0EB /* libFlurry.a */; };
 		02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02055560163A5F3500EEB0EB /* SystemConfiguration.framework */; };
 		0232ECE015E461130053FE65 /* RTD2.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0232ECDF15E461130053FE65 /* RTD2.0.sqlite */; };
+		024473271752D2A30083A970 /* Stop+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473261752D2A30083A970 /* Stop+Convenience.m */; };
+		0244732A1752D2B60083A970 /* Station+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473291752D2B60083A970 /* Station+Convenience.m */; };
+		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
+		024473331752D6FD0083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473321752D6FD0083A970 /* Stop.m */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
@@ -65,8 +69,6 @@
 		14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DD891038B8BB00640D8B /* UIColorCategories.m */; };
 		14E4DE221038CF7000640D8B /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DE211038CF7000640D8B /* LoadingView.m */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
-		14EC9CF71026370F00F375E2 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF31026370F00F375E2 /* Station.m */; };
-		14EC9CF81026370F00F375E2 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF51026370F00F375E2 /* Stop.m */; };
 		14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */; };
 		14FBCE39106EBDE3002D6185 /* StationChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCE37106EBDE3002D6185 /* StationChangeViewController.m */; };
 		1D3623260D0F684500981E51 /* RTDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* RTDAppDelegate.m */; };
@@ -85,6 +87,14 @@
 		0205555E163A5D9D00EEB0EB /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
 		02055560163A5F3500EEB0EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0232ECDF15E461130053FE65 /* RTD2.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD2.0.sqlite; sourceTree = "<group>"; };
+		024473251752D2A30083A970 /* Stop+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stop+Convenience.h"; sourceTree = "<group>"; };
+		024473261752D2A30083A970 /* Stop+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stop+Convenience.m"; sourceTree = "<group>"; };
+		024473281752D2B60083A970 /* Station+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Station+Convenience.h"; sourceTree = "<group>"; };
+		024473291752D2B60083A970 /* Station+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Station+Convenience.m"; sourceTree = "<group>"; };
+		0244732E1752D6910083A970 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
+		0244732F1752D6910083A970 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
+		024473311752D6FD0083A970 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
+		024473321752D6FD0083A970 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
@@ -169,10 +179,6 @@
 		14E4DE211038CF7000640D8B /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
 		14EC9CF11026370F00F375E2 /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
-		14EC9CF21026370F00F375E2 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
-		14EC9CF31026370F00F375E2 /* Station.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Station.m; sourceTree = "<group>"; };
-		14EC9CF41026370F00F375E2 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
-		14EC9CF51026370F00F375E2 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		14FBCD8A106E8D5F002D6185 /* DayTypeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DayTypeChangeViewController.h; sourceTree = "<group>"; };
 		14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DayTypeChangeViewController.m; sourceTree = "<group>"; };
 		14FBCE36106EBDE3002D6185 /* StationChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationChangeViewController.h; sourceTree = "<group>"; };
@@ -208,6 +214,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		024473211752D25C0083A970 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				024473251752D2A30083A970 /* Stop+Convenience.h */,
+				024473261752D2A30083A970 /* Stop+Convenience.m */,
+				024473281752D2B60083A970 /* Station+Convenience.h */,
+				024473291752D2B60083A970 /* Station+Convenience.m */,
+			);
+			name = Categories;
+			sourceTree = "<group>";
+		};
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,12 +341,13 @@
 		14E4D5E71034FD7400640D8B /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				024473211752D25C0083A970 /* Categories */,
 				14EC9CF01026370F00F375E2 /* Line.h */,
 				14EC9CF11026370F00F375E2 /* Line.m */,
-				14EC9CF21026370F00F375E2 /* Station.h */,
-				14EC9CF31026370F00F375E2 /* Station.m */,
-				14EC9CF41026370F00F375E2 /* Stop.h */,
-				14EC9CF51026370F00F375E2 /* Stop.m */,
+				0244732E1752D6910083A970 /* Station.h */,
+				0244732F1752D6910083A970 /* Station.m */,
+				024473311752D6FD0083A970 /* Stop.h */,
+				024473321752D6FD0083A970 /* Stop.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -523,8 +541,6 @@
 				1D3623260D0F684500981E51 /* RTDAppDelegate.m in Sources */,
 				28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */,
 				14EC9CF61026370F00F375E2 /* Line.m in Sources */,
-				14EC9CF71026370F00F375E2 /* Station.m in Sources */,
-				14EC9CF81026370F00F375E2 /* Stop.m in Sources */,
 				1454CF30102F69D7007F0516 /* StationViewController.m in Sources */,
 				14C6CBD91033038D00368298 /* RunViewController.m in Sources */,
 				14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */,
@@ -550,6 +566,10 @@
 				145B00A5125014C100A643AA /* DatabaseUpdater.m in Sources */,
 				1465D90B129DE0F1009132DE /* DatabaseLoader.m in Sources */,
 				02055550163A52EA00EEB0EB /* DenverRideConstants.m in Sources */,
+				024473271752D2A30083A970 /* Stop+Convenience.m in Sources */,
+				0244732A1752D2B60083A970 /* Station+Convenience.m in Sources */,
+				024473301752D6910083A970 /* Station.m in Sources */,
+				024473331752D6FD0083A970 /* Stop.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
