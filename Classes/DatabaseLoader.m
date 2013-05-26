@@ -76,8 +76,8 @@
 			
 			NSString *lineName = fields[0];
 			
-			[line setName:[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""]];
-			if([lineName hasPrefix:@"101"]) // is lightrail
+			[line setName:[[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""] stringByReplacingOccurrencesOfString:@"103" withString:@""]];
+			if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"103"]) // is lightrail
 			{
 				[line setType:@"LR"];
 			}
@@ -196,6 +196,8 @@
 			[stop setLine:linesById[lineByTrip[tripId]]];
 			[stop setDayType:dayTypeByTrip[tripId]];
 			
+            //0 is East/North and 1 is West/South
+            
 			NSString *direction = directionByTrip[tripId];
 			if([direction isEqualToString:@"1"])
 			{
@@ -236,6 +238,9 @@
 				}
 				else
 				{
+                    
+                    //0 is East/North and 1 is West/South
+                    
 					NSString *direction = [directions allObjects][0];
 					if([direction isEqualToString:@"1"])
 					{

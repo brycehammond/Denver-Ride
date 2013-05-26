@@ -4,18 +4,20 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 1,1,West 1st Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 10,10,East 12th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 100,100,Kipling Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-100X,100X,South Kipling Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
+100L,100L,South Kipling Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 101C,101,Light Rail C Line,This Route Travels Northbound & Southbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,FF6600,FFFFFF
 101D,101,Light Rail D Line,This Route Travels Northbound & Southbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,008000,FFFFFF
 101E,101,Light Rail E Line,This Route Travels Northbound & Southbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,871F78,FFFFFF
 101F,101,Light Rail F Line,This Route Travels Northbound & Southbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,FF0033,FFFFFF
 101H,101,Light Rail H Line,This Route Travels Northbound & Southbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,3D59AB,FFFFFF
+103W,103,Light Rail West Line W Line,This Route Travels Eastbound & Westbound,0,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=2,00B9B0,FFFFFF
 104,104,West 104th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+104X,104X,Commerce City / Denver Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 105,105,Havana Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 11,11,Mississippi Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 112,112,West 112th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-116X,116X,South Simms Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
-12,12,Downing Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+116L,116L,South Simms Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+12,12,Downing / N Washington,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 120,120,120th Avenue / Brighton,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 120X,120X,Wagon Road / Thornton Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 121,121,Peoria Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
@@ -33,17 +35,15 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 15L,15L,East Colfax Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 16,16,West Colfax Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 169L,169L,Buckley / Tower DIA Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-16L,16L,West Colfax Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-17,17,Jeffco,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-1W,1W,1W West 1st Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+17,17,Red Rocks College,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 20,20,20th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 204,204,Table Mesa / Moorhead / North 19th,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205,205,28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205C,205C,205C 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205P,205P,205P 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 205W,205W,205W 28th St / Gunbarrel,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-206,206,Pearl / Eisenhower / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-206F,206F,206F Pearl / Eisenhower / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+206,206,Pearl / Manhattan / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+206F,206F,206F Pearl / Manhattan / Fairview H.S.,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 208,208,Iris / Valmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 208F,208F,208F Iris / Valmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 209,209,CU / Thunderbird,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
@@ -53,21 +53,21 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 225E,225E,225E Boulder / Lafayette via Baseline,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 228,228,Louisville / Broomfield,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 24,24,University Blvd,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+26,26,West 26th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 27,27,Yale Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 28,28,28th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 28B,28B,28B 28th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 29,29,Riverbend,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-2X,2X,Morrison Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 3,3,Alameda Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 30,30,South Federal Blvd,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 30L,30L,South Federal Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 31,31,Federal Blvd ,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 31X,31X,North Federal Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 32,32,West 32nd Avenue / City Park,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-323,323,Skyline / Twin Peaks,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-324,324,Main Street / Twin Peaks,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-326,326,Northside Loop Clockwise,This Route Travels Clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-327,327,Northside Loop Counterclockwise,This Route Travels Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+323,323,Skyline Crosstown,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+324,324,Main Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+326,326,Westside Crosstown,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+327,327,Eastside Crosstown,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 34,34,Platte Industrial,This Route Travels Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 35,35,Hampden Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 36,36,Fort Logan,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
@@ -86,17 +86,16 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 46,46,South Dahlia,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 47X,47X,Green Valley Ranch/Montbello Exp,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 48,48,East 48th Avenue / Commerce City,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+50,50,Lakes Crosstown,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 51,51,Sheridan Blvd,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 52,52,W 52nd Avenue / South Bannock,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 54,54,Montbello Industrial Park,This Route Travels Clock-wise & Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 55X,55X,Olde Town Arvada Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 59,59,West Bowles,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-5X,5X,Federal Center Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 6,6,East 6th Avenue / North Pecos,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 65,65,Monaco Parkway,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 66,66,Arapahoe Road,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 67,67,Ridge Road ,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
-6X,6X,Federal Center/ I-25 & Broadway,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 72,72,72nd Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 72W,72W,72W 72nd Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 72X,72X,Quaker via Ward Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
@@ -109,14 +108,14 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 80X,80X,West 80th Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 83L,83L,Cherry Creek / Parker Rd Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 86X,86X,Westminster Center Express,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
-87X,87X,South Wadsworth Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,E33638,FFFFFF
 88,88,Northglenn/Commerce City/Stapleton,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+89,89,Stapleton/Anschutz Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 9,9,West 10th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 92,92,92nd Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 AA,AA,Wagon Road / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
 AB,AB,Boulder / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
 ABA,ABA,ABA Boulder / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
-AF,AF,Federal Center / Downtown / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
+AF,AF,Downtown / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
 ART,ART,ART,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 AS,AS,Stapleton / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
 AT,AT,Arapahoe County / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,000080,FFFFFF
@@ -132,14 +131,16 @@ CV,CV,CV Pine Junction / Conifer / Denver,This Route Travels Eastbound & Westbou
 CX,CX,CX Pine Junction / Conifer / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 DASH,DASH,Boulder / Lafayette via Louisville,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 DD,DD,Boulder / Colorado Blvd,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
-DM,DM,Boulder / Anschutz-Fitzsimons,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
+DM,DM,Boulder / Anschutz Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 ES,ES,ES Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 EV,EV,EV Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 EX,EX,EX Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 GS,GS,Golden / Boulder,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
+HOP,HOP,HOP,This Route Travels Clock-wise & Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 HX,HX,28th Street/ Civic Center,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 J,J,Longmont / East Boulder / CU,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 JUMP,JUMP,Boulder / Lafayette via Arapahoe,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+KC,KC,Ken Caryl Ranch,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 L,L,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 LNX,LNX,LNX Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 LSX,LSX,LSX Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
@@ -151,8 +152,8 @@ R,R,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.r
 RC,RC,RC Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 RX,RX,RX Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 S,S,Denver / East Boulder,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
-SKIP,SKIP,Broadway,,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+SKIP,SKIP,Broadway,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 STAMPEDE,STAMPEDE,CU East Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 T,T,Boulder / Greenwood Plaza,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
 Y,Y,Lyons / Boulder,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
-YL,YL,Lyons To Longmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF
+YL,YL,Lyons / Longmont,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,2F4F2F,FFFFFF

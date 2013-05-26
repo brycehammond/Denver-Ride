@@ -28,7 +28,7 @@
     if(nil == [[NSUserDefaults standardUserDefaults]
                stringForKey:kLastUpdateDateKey])
     {
-        [[NSUserDefaults standardUserDefaults] setObject:@"20121026" forKey:kLastUpdateDateKey];
+        [[NSUserDefaults standardUserDefaults] setObject:kLastUpdateDate forKey:kLastUpdateDateKey];
     }
     
 }

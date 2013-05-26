@@ -50,7 +50,7 @@
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)
 	{
-		_currentDatabaseVersion = [[NSString alloc] initWithString:kInitialDatabaseVersion];
+		_currentDatabaseVersion = kInitialDatabaseVersion;
 		[[NSUserDefaults standardUserDefaults] setObject:_currentDatabaseVersion forKey:kDatabaseVersionKey];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
@@ -67,7 +67,8 @@
 							@"D": [UIColor colorFromHex:@"038349" withAlpha:1],
 							@"E": [UIColor colorFromHex:@"552485" withAlpha:1],
 							@"F": [UIColor colorFromHex:@"EF3931" withAlpha:1],
-							@"H": [UIColor colorFromHex:@"0073BD" withAlpha:1]};
+							@"H": [UIColor colorFromHex:@"0073BD" withAlpha:1],
+                            @"W": [UIColor colorFromHex:@"00B9B0" withAlpha:1]};
 	
 	
 	RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
