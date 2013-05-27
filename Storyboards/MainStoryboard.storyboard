@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vex-9g-UMN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="3084" systemVersion="12D78" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vex-9g-UMN">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
@@ -11,6 +11,58 @@
                     <view key="view" contentMode="scaleToFill" id="4xO-8Z-vti">
                         <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="QEk-h5-Zbv">
+                                <rect key="frame" x="0.0" y="7" width="320" height="448"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="directions.png" id="n47-gN-rbd">
+                                <rect key="frame" x="0.0" y="424" width="87" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="line-direction.png" id="nX3-t3-OwP">
+                                <rect key="frame" x="87" y="443" width="93" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iYy-ev-Pdw">
+                                <rect key="frame" x="250" y="443" width="70" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="B Cycle" backgroundImage="bcycle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7oK-gy-VNE">
+                                <rect key="frame" x="180" y="443" width="70" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Route Map" backgroundImage="route-map.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pointer.png" id="TDJ-Pl-g7H">
+                                <rect key="frame" x="27" y="451" width="22" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k69-cu-458">
+                                <rect key="frame" x="95" y="453" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="axn-e0-A02"/>
@@ -38,6 +90,33 @@
             <point key="canvasLocation" x="199" y="188"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bcycle.png" width="70" height="61"/>
+        <image name="directions.png" width="87" height="80"/>
+        <image name="line-direction.png" width="93" height="61"/>
+        <image name="pointer.png" width="22" height="32"/>
+        <image name="route-map.png" width="70" height="61"/>
+    </resources>
+    <classes>
+        <class className="DRRootViewController" superclassName="DenverRideBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DRRootViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+        <class className="DenverRideBaseViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DenverRideBaseViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="nortboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
