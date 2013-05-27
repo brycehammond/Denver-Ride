@@ -79,8 +79,9 @@
 	NSArray *recentlyUsedStations = [[NSUserDefaults standardUserDefaults] objectForKey:kRecentlyUsedStationsKey];
 	if(recentlyUsedStations)
 	{
-		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@ AND direction in %@",recentlyUsedStations,
-									   @[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]];
+		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@",recentlyUsedStations];
+        searchPredicate = [NSCompoundPredicate andPredicateWithSubpredicates:@[searchPredicate, [Station filterPredicateForCurrentDirection]]];
+        
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
 		[request setEntity:entity];
@@ -349,9 +350,8 @@
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 	NSArray *sortDescriptors = @[sortDescriptor];
 	
-	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"direction in %@",
-								@[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]]];
-	
+    
+	[fetchRequest setPredicate:[Station filterPredicateForCurrentDirection]];
 	
 	[fetchRequest setSortDescriptors:sortDescriptors];
 	
@@ -370,8 +370,8 @@
 	NSPredicate *reduction = nil;
 	if([searchText length] > 0)
 	{
-		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] %@ AND direction in %@",searchText, 
-					 @[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]];
+		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] %@",searchText];
+        reduction = [NSCompoundPredicate andPredicateWithSubpredicates:@[reduction, [Station filterPredicateForCurrentDirection]]];
 	}
 	else {
 		_recentlyUsedStationsToDisplay = nil;
