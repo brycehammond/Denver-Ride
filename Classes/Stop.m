@@ -18,10 +18,7 @@
 @dynamic run;
 @dynamic departureTimeInMinutes;
 @dynamic stopSequence;
-@dynamic hasEastbound;
-@dynamic hasNorthbound;
-@dynamic hasSouthbound;
-@dynamic hasWestbound;
+@dynamic direction;
 @dynamic startStation;
 @dynamic station;
 @dynamic line;

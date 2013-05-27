@@ -33,7 +33,7 @@
 
 
 #define kDatabaseVersionKey	@"DatabaseVersionKey"
-#define kInitialDatabaseVersion @"RTD2.0"
+#define kInitialDatabaseVersion @"RTD3.0"
 
 #pragma mark -
 #pragma mark Application lifecycle

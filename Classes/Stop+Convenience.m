@@ -29,7 +29,7 @@
 - (NSString *)formattedTime
 {
 	NSString *amOrPm = @"A";
-	int hours = self.departureTimeInMinutes / 60;
+	int hours = self.departureTimeInMinutes.intValue / 60;
 	if(hours >= 24)
 	{
 		hours -= 24;
@@ -49,10 +49,33 @@
 		hours = 12;
 	}
 	
-	int minutes = [self departureTimeInMinutes] % 60;
+	int minutes = self.departureTimeInMinutes.intValue % 60;
 	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%i:0%i%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%i:%i%@",hours,minutes,amOrPm];
 	
 	return formattedTime;
+}
+
+- (NSString *)fullDirection
+{
+    NSString *directionString = @"";
+    if([self.direction isEqualToString:@"N"])
+    {
+        directionString = @"Nothbound";
+    }
+    else if([self.direction isEqualToString:@"W"])
+    {
+        directionString = @"Westbound";
+    }
+    else if([self.direction isEqualToString:@"E"])
+    {
+        directionString = @"Eastbound";
+    }
+    else if([self.direction isEqualToString:@"S"])
+    {
+        directionString = @"Southbound";
+    }
+    
+    return directionString;
 }
 
 @end

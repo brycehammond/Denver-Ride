@@ -11,7 +11,7 @@
 #define kBackgroundColor @"D7D7D7"
 #define kBasePath @"http://www.improbabilitydrive.com/RTD/2.0/"
 #define kLastUpdateDateKey	@"LastUpdateDateKey"
-#define kLastUpdateDate @"20130410"
+#define kLastUpdateDate @"20130526"
 #define kNavBarHeight   44
 #define kSelectorHeight 61
 #define kStatusBarHeight    20

@@ -14,14 +14,11 @@
 @interface Stop : NSManagedObject
 
 @property (nonatomic, retain) NSString * dayType;
-@property (nonatomic) int16_t arrivalTimeInMinutes;
-@property (nonatomic) int32_t run;
-@property (nonatomic) int16_t departureTimeInMinutes;
-@property (nonatomic) int16_t stopSequence;
-@property (nonatomic) BOOL hasEastbound;
-@property (nonatomic) BOOL hasNorthbound;
-@property (nonatomic) BOOL hasSouthbound;
-@property (nonatomic) BOOL hasWestbound;
+@property (nonatomic, retain) NSNumber * arrivalTimeInMinutes;
+@property (nonatomic, retain) NSNumber * run;
+@property (nonatomic, retain) NSNumber * departureTimeInMinutes;
+@property (nonatomic, retain) NSNumber * stopSequence;
+@property (nonatomic, retain) NSString * direction;
 @property (nonatomic, retain) Station *startStation;
 @property (nonatomic, retain) Station *station;
 @property (nonatomic, retain) Line *line;

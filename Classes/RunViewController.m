@@ -7,9 +7,9 @@
 //
 
 #import "RunViewController.h"
-#import "Stop.h"
+#import "Stop+Convenience.h"
 #import "Line.h"
-#import "Station.h"
+#import "Station+Convenience.h"
 #import "StationViewController.h"
 #import "RTDAppDelegate.h"
 
@@ -72,11 +72,11 @@
 	if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-			[[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[[stop run] intValue],lineName,[[self stop] dayType]];
+			[[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[stop run],lineName,[[self stop] dayType]];
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-					 [[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[[stop run] intValue],lineName,[[self stop] dayType]];
+					 [[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[stop run],lineName,[[self stop] dayType]];
 		
 	}
 

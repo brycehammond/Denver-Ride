@@ -16,16 +16,15 @@
 @property (nonatomic, retain) NSDecimalNumber * latitude;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSDecimalNumber * longitude;
-@property (nonatomic) BOOL hasWestbound;
-@property (nonatomic) BOOL hasEastbound;
-@property (nonatomic) BOOL hasNorthbound;
-@property (nonatomic) BOOL hasSouthbound;
+@property (nonatomic, retain) NSNumber * hasWestbound;
+@property (nonatomic, retain) NSNumber * hasEastbound;
+@property (nonatomic, retain) NSNumber * hasNorthbound;
+@property (nonatomic, retain) NSNumber * hasSouthbound;
 @property (nonatomic, retain) NSSet *stops;
 @property (nonatomic, retain) NSSet *lines;
 
 @property (assign) CLLocationDistance currentDistance;
 @property (nonatomic, strong) CLLocation *location;
-
 @end
 
 @interface Station (CoreDataGeneratedAccessors)

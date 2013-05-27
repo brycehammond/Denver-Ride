@@ -49,12 +49,26 @@
     for(NSUInteger lineIdx = 1; lineIdx < [fileLines count]; ++lineIdx)
     {
         NSArray *fields = [fileLines[lineIdx] componentsSeparatedByString:@","];
-		if([linesToProcess containsObject:fields[0]])
+        NSString *lineName = fields[0];
+		if([linesToProcess containsObject:lineName])
 		{
 			NSString *tripId = fields[2];
 			dayTypeByTrip[tripId] = fields[1];
 			lineByTrip[tripId] = fields[0];
-			directionByTrip[tripId] = fields[4];
+            
+            NSString *direction = @"";
+            if([lineName hasPrefix:@"101"])
+            {
+                //North/Southbound
+                direction = [fields[4] isEqualToString:@"1"] ? @"S" : @"N";
+            }
+            else
+            {
+                //West/Eastbound
+                direction = [fields[4] isEqualToString:@"1"] ? @"W" : @"E";
+            }
+            
+			directionByTrip[tripId] = direction;
 			[relevantTrips addObject:tripId];
 		}
     }
@@ -168,8 +182,8 @@
 				
 				
 				[station setName:stationName];
-				[station setLongitude:@([stationFields[4] doubleValue])];
-				[station setLatitude:@([stationFields[3] doubleValue])];
+				[station setLongitude:[NSDecimalNumber decimalNumberWithString:stationFields[4]]];
+				[station setLatitude:[NSDecimalNumber decimalNumberWithString:stationFields[3]]];
 				
 				stationsById[stationId] = station;
 				
@@ -195,20 +209,8 @@
 			[stop setStopSequence:@([fields[4] intValue])];
 			[stop setLine:linesById[lineByTrip[tripId]]];
 			[stop setDayType:dayTypeByTrip[tripId]];
-			
-            //0 is East/North and 1 is West/South
-            
-			NSString *direction = directionByTrip[tripId];
-			if([direction isEqualToString:@"1"])
-			{
-				[stop setDirection:@"S"];
-			}
-			else 
-			{
-				[stop setDirection:@"N"];
-			}
+            stop.direction = directionByTrip[tripId];
 
-			
 			NSMutableArray *stopsArray = stopsByTrip[tripId];
 			if(nil == stopsArray)
 			{
@@ -230,29 +232,27 @@
 		if(nil != station)
 		{
 			NSMutableSet *directions = directionsByStationId[stationId];
-			if([directions count] > 0)
-			{
-				if([directions count] >= 2) //have more than one direction
-				{
-					[station setDirection:@"B"];
-				}
-				else
-				{
-                    
-                    //0 is East/North and 1 is West/South
-                    
-					NSString *direction = [directions allObjects][0];
-					if([direction isEqualToString:@"1"])
-					{
-						[station setDirection:@"S"];
-					}
-					else 
-					{
-						[station setDirection:@"N"];
-					}
-
-				}
-			}
+            
+            if([directions containsObject:@"S"])
+            {
+                station.hasSouthbound = [NSNumber numberWithBool:YES];
+            }
+            
+            if([directions containsObject:@"W"])
+            {
+                station.hasWestbound = [NSNumber numberWithBool:YES];
+            }
+            
+            if([directions containsObject:@"N"])
+            {
+                station.hasNorthbound = [NSNumber numberWithBool:YES];
+            }
+            
+            if([directions containsObject:@"E"])
+            {
+                station.hasEastbound = [NSNumber numberWithBool:YES];
+            }
+            
 		}
 	}
 	

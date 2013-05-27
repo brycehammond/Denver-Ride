@@ -13,9 +13,6 @@
 
 @implementation Station
 
-@synthesize currentDistance = _currentDistance,
-    location = _location;
-
 @dynamic latitude;
 @dynamic name;
 @dynamic longitude;
@@ -25,6 +22,10 @@
 @dynamic hasSouthbound;
 @dynamic stops;
 @dynamic lines;
+
+
+@synthesize currentDistance = _currentDistance,
+location = _location;
 
 -(CLLocation *)location
 {

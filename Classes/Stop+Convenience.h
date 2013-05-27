@@ -14,5 +14,6 @@
 
 - (NSComparisonResult)sortBySequence:(Stop *)otherStop;
 
+- (NSString *)fullDirection;
 
 @end
