@@ -27,7 +27,6 @@
 @synthesize window;
 @synthesize navigationController;
 @synthesize currentDirection = _currentDirection;
-@synthesize linesToColors = _linesToColors;
 @synthesize currentDayType;
 
 
@@ -58,14 +57,6 @@
 	{
 		[self populateStore];
 	}
-	
-	_linesToColors = @{@"C": [UIColor colorWithHexString:@"F79238"],
-							@"D": [UIColor colorWithHexString:@"038349"],
-							@"E": [UIColor colorWithHexString:@"552485"],
-							@"F": [UIColor colorWithHexString:@"EF3931"],
-							@"H": [UIColor colorWithHexString:@"0073BD"],
-                            @"W": [UIColor colorWithHexString:@"00B9B0"]};
-	
 	
 	DRRootViewController *rootViewController = [[DRRootViewController alloc] initWithNibName:nil bundle:nil];
 	rootViewController.managedObjectContext = context;

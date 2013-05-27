@@ -23,8 +23,6 @@
 	
 	NSString *_currentDirection;
 	
-	NSDictionary *_linesToColors;
-	
 	NSString *currentDayType;
 	
 	DRDatabaseUpdater *_databaseUpdater;
