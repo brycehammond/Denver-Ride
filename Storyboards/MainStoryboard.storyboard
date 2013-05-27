@@ -25,6 +25,13 @@
                                 <rect key="frame" x="87" y="443" width="93" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gbc-04-G7p">
+                                <rect key="frame" x="97" y="453" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iYy-ev-Pdw">
                                 <rect key="frame" x="250" y="443" width="70" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -61,9 +68,9 @@
                                 <rect key="frame" x="27" y="451" width="22" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k69-cu-458">
-                                <rect key="frame" x="95" y="453" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Northbound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k69-cu-458">
+                                <rect key="frame" x="97" y="475" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -131,7 +138,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="axn-e0-A02"/>
+                    <navigationItem key="navigationItem" id="axn-e0-A02">
+                        <barButtonItem key="rightBarButtonItem" title="Closest" id="8b5-tQ-Ucl">
+                            <connections>
+                                <action selector="topRightButtonClicked:" destination="3qN-Ri-Ipd" id="5iP-Hc-8VM"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bcycleButton" destination="iYy-ev-Pdw" id="pSS-bg-rFQ"/>
+                        <outlet property="currentDirectionLabel" destination="k69-cu-458" id="PwY-aP-BKf"/>
+                        <outlet property="mapButton" destination="7oK-gy-VNE" id="UJe-Qm-4bY"/>
+                        <outlet property="typeSwitchButton" destination="8b5-tQ-Ucl" id="VuW-El-zo5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsb-ZG-0Yh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -168,7 +187,7 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DRRootViewController.h"/>
             <relationships>
                 <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
         <class className="DenverRideBaseViewController" superclassName="UIViewController">
@@ -180,6 +199,9 @@
                 <relationship kind="action" name="nortboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="bcycleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="currentDirectionLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
             </relationships>
         </class>
     </classes>

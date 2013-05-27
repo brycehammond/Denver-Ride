@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MainSectionSelectorView.h"
 
 @interface DenverRideBaseViewController : UIViewController
+
+@property (nonatomic, weak) IBOutlet UIButton *mapButton;
+@property (nonatomic, weak) IBOutlet UIButton *bcycleButton;
+@property (nonatomic, weak) IBOutlet UILabel *currentDirectionLabel;
+
 
 - (IBAction)nortboundSelected:(UIButton *)sender;
 - (IBAction)southboundSelected:(UIButton *)sender;

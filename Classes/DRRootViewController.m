@@ -14,7 +14,7 @@
 @interface DRRootViewController ()
 
 @property (nonatomic, strong) UIView *containerView;
-@property (nonatomic, strong) IBOutlet UIButton *typeSwitchButton;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *typeSwitchButton;
 @property (nonatomic, weak) UIViewController<DRChangeDirectionProtocol> *activeViewController;
 @property (nonatomic, strong) DRClosestSelectViewController *closestViewController;
 @property (nonatomic, strong) DRManualSelectViewController *manualViewController;
@@ -83,7 +83,7 @@
 		[self setTitle:@"Manual Mode"];
 	}
     
-    [self.typeSwitchButton setTitle:buttonTitle forState:UIControlStateNormal];
+    self.typeSwitchButton.title = buttonTitle;
 }
 
 -(void)updateFinished
