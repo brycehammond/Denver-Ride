@@ -32,7 +32,7 @@
 @synthesize currentDayType;
 
 
-#define kDatabaseVersionKey	@"DatabaseVersionKey"
+#define kDatabaseVersionKey	@"DatabaseV3VersionKey"
 #define kInitialDatabaseVersion @"RTD3.0"
 
 #pragma mark -
@@ -92,7 +92,7 @@
 	[UIView commitAnimations];
 	
 	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	if(! currentDirection)
+	if(nil == currentDirection)
 	{
 		currentDirection = @"N";
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:kCurrentDirectionKey];
