@@ -10,7 +10,6 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "StationStopTableViewCell.h"
-#import "UIColorCategories.h"
 
 @interface ManualSelectViewController (Private)
 - (NSString *)formattedTimeInMinutes;
@@ -41,12 +40,12 @@
 	
 	[[self view] setFrame:CGRectMake(0, 0, 
 									 [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants shortContainerHeight])];
-	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	_manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];
 	[_manualTableView setDelegate:self];
 	[_manualTableView setDataSource:self];
-	[_manualTableView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[_manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	[[self view] addSubview:_manualTableView];
 	
 }
@@ -146,7 +145,7 @@
 			cell.textLabel.text = @"Arriving at";
 		}
 		cell.textLabel.textAlignment = UITextAlignmentCenter;
-		cell.textLabel.textColor = [UIColor colorFromHex:@"385487" withAlpha:1];
+		cell.textLabel.textColor = [UIColor colorWithHexString:@"385487"];
 
 		return cell;
 	}

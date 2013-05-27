@@ -69,7 +69,6 @@
 		14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D5E31034FD5700640D8B /* StationListViewController.m */; };
 		14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14E4D90A10370DE600640D8B /* CoreLocation.framework */; };
 		14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */; };
-		14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DD891038B8BB00640D8B /* UIColorCategories.m */; };
 		14E4DE221038CF7000640D8B /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14E4DE211038CF7000640D8B /* LoadingView.m */; };
 		14EC9CF61026370F00F375E2 /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = 14EC9CF11026370F00F375E2 /* Line.m */; };
 		14FBCD8D106E8D5F002D6185 /* DayTypeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14FBCD8B106E8D5F002D6185 /* DayTypeChangeViewController.m */; };
@@ -80,6 +79,7 @@
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		3FEF7E0BA66D468581EE7FC9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -173,8 +173,6 @@
 		14E4D90A10370DE600640D8B /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		14E4D9DC10373C0D00640D8B /* StationStopTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StationStopTableViewCell.h; sourceTree = "<group>"; };
 		14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StationStopTableViewCell.m; sourceTree = "<group>"; };
-		14E4DD891038B8BB00640D8B /* UIColorCategories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIColorCategories.m; path = ../UIColorCategories.m; sourceTree = "<group>"; };
-		14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIColorCategories.h; path = ../UIColorCategories.h; sourceTree = "<group>"; };
 		14E4DE201038CF7000640D8B /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
 		14E4DE211038CF7000640D8B /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
 		14EC9CF01026370F00F375E2 /* Line.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Line.h; sourceTree = "<group>"; };
@@ -192,6 +190,8 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		38B245A91ECC4944A81C99F0 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -208,6 +208,7 @@
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
 				0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */,
+				3FEF7E0BA66D468581EE7FC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +252,6 @@
 		145B00871250001000A643AA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				14E4DD8A1038B8BB00640D8B /* UIColorCategories.h */,
-				14E4DD891038B8BB00640D8B /* UIColorCategories.m */,
 				14B7029B1235CBB1007B9C90 /* UIView+Categories.h */,
 				14B7029C1235CBB1007B9C90 /* UIView+Categories.m */,
 				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
@@ -412,6 +411,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				38B245A91ECC4944A81C99F0 /* Pods.xcconfig */,
 			);
 			name = CustomTemplate;
 			sourceTree = "<group>";
@@ -438,6 +438,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				28860BE40F44EE6400985440 /* CoreData.framework */,
+				E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -449,9 +450,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Denver Ride" */;
 			buildPhases = (
+				E71E52FD3DDA4D34ADEC8346 /* Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				273C4AC7C416478FAF4AE362 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -534,6 +537,37 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		273C4AC7C416478FAF4AE362 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+		E71E52FD3DDA4D34ADEC8346 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -546,7 +580,6 @@
 				14C6CBD91033038D00368298 /* RunViewController.m in Sources */,
 				14E4D5E51034FD5700640D8B /* StationListViewController.m in Sources */,
 				14E4D9DE10373C0D00640D8B /* StationStopTableViewCell.m in Sources */,
-				14E4DD8B1038B8BB00640D8B /* UIColorCategories.m in Sources */,
 				14E4DE221038CF7000640D8B /* LoadingView.m in Sources */,
 				1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */,
 				1484255A105BD87900DCB458 /* ManualSelectViewController.m in Sources */,
@@ -598,8 +631,9 @@
 		};
 		1450A4B4103CB4BC0069B04C /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -616,12 +650,7 @@
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					UIKit,
-					"-weak_library",
-					/usr/lib/libSystem.B.dylib,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -631,8 +660,9 @@
 		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
@@ -650,12 +680,7 @@
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "-DDEBUG";
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					UIKit,
-					"-weak_library",
-					/usr/lib/libSystem.B.dylib,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "32F29573-80F7-4B00-8541-33D92D39F59C";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32F29573-80F7-4B00-8541-33D92D39F59C";
@@ -665,8 +690,9 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
@@ -682,12 +708,7 @@
 					"\"$(SRCROOT)/Flurry\"",
 				);
 				OTHER_CFLAGS = "";
-				OTHER_LDFLAGS = (
-					"-weak_framework",
-					UIKit,
-					"-weak_library",
-					/usr/lib/libSystem.B.dylib,
-				);
+				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "6EF3C598-375A-44A7-B8C1-9D8973CF344B";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EF3C598-375A-44A7-B8C1-9D8973CF344B";

@@ -35,7 +35,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	[_runTableView setBackgroundColor:[UIColor clearColor]];
 	//get the run array from the stop
 	Stop *stop = [self stop];

@@ -18,7 +18,7 @@
 	
 	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants tallContainerHeight])];
 	
-	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1]];
+	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
     
     _mapView = [[UIWebView alloc] initWithFrame:[[self view] bounds]];
     [_mapView setScalesPageToFit:YES];

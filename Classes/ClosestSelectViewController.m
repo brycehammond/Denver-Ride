@@ -62,7 +62,7 @@ currentDirection = _currentDirection;
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[_closeStationsTableView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[_closeStationsTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
 	
 	//We haven't gotten a closest location yet so set the
@@ -385,7 +385,7 @@ currentDirection = _currentDirection;
 		
 		cell.textLabel.text = @"View All Stations";
         cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
-        cell.textLabel.textColor = [UIColor colorFromHex:@"656565" withAlpha:1.0];
+        cell.textLabel.textColor = [UIColor colorWithHexString:@"656565"];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 		
 		return cell;
@@ -450,7 +450,7 @@ currentDirection = _currentDirection;
     UILabel *stationLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 5, [[UIScreen mainScreen] bounds].size.width, 25)];
 	[stationLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
 	[stationLabel setTextAlignment:UITextAlignmentLeft];
-    [stationLabel setTextColor:[UIColor colorFromHex:@"272727" withAlpha:1.0]];
+    [stationLabel setTextColor:[UIColor colorWithHexString:@"272727"]];
 	[stationLabel setAdjustsFontSizeToFitWidth:YES];
 	[stationLabel setText:[[self closestStationsArray][section] name]];
 	[stationLabel setBackgroundColor:[UIColor clearColor]];

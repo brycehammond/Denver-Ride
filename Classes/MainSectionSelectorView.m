@@ -29,10 +29,10 @@
         // Initialization code
 		
 		//set background with header
-		[self setBackgroundColor:[UIColor colorFromHex:@"4E9CE1" withAlpha:1]];
+		[self setBackgroundColor:[UIColor colorWithHexString:@"4E9CE1"]];
 		UIView *headerRule = [[UIView alloc] initWithFrame:
 							  CGRectMake(0, 0, frame.size.width, 1)];
-		[headerRule setBackgroundColor:[UIColor colorFromHex:@"185FC7" withAlpha:1]];
+		[headerRule setBackgroundColor:[UIColor colorWithHexString:@"185FC7"]];
 		[self addSubview:headerRule];
 
 		UIImage *buttonImage = [UIImage imageNamed:@"nav-northbound.png"];

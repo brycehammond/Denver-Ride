@@ -1,0 +1,13 @@
+PODS:
+  - MagicalRecord (2.1)
+  - UIColor-Utilities (1.0.1)
+
+DEPENDENCIES:
+  - MagicalRecord
+  - UIColor-Utilities
+
+SPEC CHECKSUMS:
+  MagicalRecord: 64e7184c240087a45e9588a722eaf05b0ad837f7
+  UIColor-Utilities: a392783be1b72e5d5ad9ae450ef2280239441bc8
+
+COCOAPODS: 0.20.2

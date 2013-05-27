@@ -14,7 +14,9 @@
 
 - (id)initWithFrame:(CGRect)frame {
     if ((self = [super initWithFrame:frame])) {
-		[self setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:0.8]];
+        UIColor *backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
+        backgroundColor = [backgroundColor colorWithAlphaComponent:0.8];
+		[self setBackgroundColor:backgroundColor];
 		
 		
 		CGRect frame = [self frame];

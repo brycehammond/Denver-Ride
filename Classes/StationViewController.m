@@ -30,7 +30,7 @@
 - (void)loadView
 {
 	[super loadView];
-	[[self view] setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
 															  [DenverRideConstants shortContainerHeight])
 												   style:UITableViewStyleGrouped];

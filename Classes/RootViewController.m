@@ -25,7 +25,7 @@
 															  [DenverRideConstants shortContainerHeight])];
     [_containerView setClipsToBounds:YES];
 
-	[_containerView setBackgroundColor:[UIColor colorFromHex:kBackgroundColor withAlpha:1.0]];
+	[_containerView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	[[self view] addSubview:_containerView];
 }
 
@@ -34,7 +34,7 @@
 	[super viewDidLoad];
 	
 	[[[self navigationController] navigationBar] setTintColor:
-	 [UIColor colorFromHex:kNavBarColor withAlpha:1]];
+	 [UIColor colorWithHexString:kNavBarColor]];
 	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFinished) 
 												 name:@"UpdateFinishedNotification" object:nil];

@@ -11,7 +11,6 @@
 #import "Station.h"
 #import "RTDAppDelegate.h"
 #import "NSDate+TimeInMinutes.h"
-#import "UIColorCategories.h"
 
 #define kRecentlyUsedStationsKey @"RecentlyUsedStations"
 
@@ -43,7 +42,7 @@
 	NSString *dayType = [[NSDate date] dayType];
 	[appDelegate setCurrentDayType:dayType];
     
-    self.stationListSearchBar.tintColor = [UIColor colorFromHex:kNavBarColor withAlpha:1];
+    self.stationListSearchBar.tintColor = [UIColor colorWithHexString:kNavBarColor];
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -324,7 +323,7 @@
 	[headerLabel setTextColor:[UIColor whiteColor]];
 	[headerLabel setText:sectionTitle];
 	[headerLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:18]];
-	[headerLabel setBackgroundColor:[UIColor colorFromHex:@"70A96A" withAlpha:1]];
+	[headerLabel setBackgroundColor:[UIColor colorWithHexString:@"70A96A"]];
 	[headerLabel setShadowColor:[UIColor grayColor]];
 	[headerLabel setShadowOffset:CGSizeMake(2, 1)];
 	

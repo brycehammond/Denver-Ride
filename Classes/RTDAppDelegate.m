@@ -11,7 +11,6 @@
 #import "Line.h"
 #import "Station.h"
 #import "Stop.h"
-#import "UIColorCategories.h"
 #import "Flurry.h"
 #import "DatabaseLoader.h"
 
@@ -63,12 +62,12 @@
 		[self populateStore];
 	}
 	
-	_linesToColors = @{@"C": [UIColor colorFromHex:@"F79238" withAlpha:1],
-							@"D": [UIColor colorFromHex:@"038349" withAlpha:1],
-							@"E": [UIColor colorFromHex:@"552485" withAlpha:1],
-							@"F": [UIColor colorFromHex:@"EF3931" withAlpha:1],
-							@"H": [UIColor colorFromHex:@"0073BD" withAlpha:1],
-                            @"W": [UIColor colorFromHex:@"00B9B0" withAlpha:1]};
+	_linesToColors = @{@"C": [UIColor colorWithHexString:@"F79238"],
+							@"D": [UIColor colorWithHexString:@"038349"],
+							@"E": [UIColor colorWithHexString:@"552485"],
+							@"F": [UIColor colorWithHexString:@"EF3931"],
+							@"H": [UIColor colorWithHexString:@"0073BD"],
+                            @"W": [UIColor colorWithHexString:@"00B9B0"]};
 	
 	
 	RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
