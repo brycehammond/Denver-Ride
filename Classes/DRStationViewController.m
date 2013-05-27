@@ -48,7 +48,7 @@
 	[_stopsTableView setBackgroundColor:[UIColor clearColor]];
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	if([direction isEqualToString:@"N"])
+	/*if([direction isEqualToString:@"N"])
 	{
 		[_sectionSelectorView setToNorthbound];
 	}
@@ -56,7 +56,7 @@
 	{
 		[_sectionSelectorView setToSouthbound];
 	}
-	
+	*/
 	[Flurry logEvent:@"Station View" withParameters:@{@"Station": [_station name]}];
 	[self retrieveStopsInDirection:direction];
 }

@@ -13,6 +13,7 @@
 #import "Stop.h"
 #import "Flurry.h"
 #import "DRDatabaseLoader.h"
+#import "UIColor+Expanded.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -36,12 +37,12 @@
 #pragma mark -
 #pragma mark Application lifecycle
 
-- (void)applicationDidFinishLaunching:(UIApplication *)application {    
-    
-	defaultDataNeedsFilling = NO;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    defaultDataNeedsFilling = NO;
 	
 	[Flurry startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
-
+    
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
 	if(nil == _currentDatabaseVersion)
 	{
@@ -57,26 +58,8 @@
 	{
 		[self populateStore];
 	}
-	
-	DRRootViewController *rootViewController = [[DRRootViewController alloc] initWithNibName:nil bundle:nil];
-	rootViewController.managedObjectContext = context;
-	
-	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
     
-	
-	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-	
-	[window addSubview:[navigationController view]];
-    [window makeKeyAndVisible];
-	
-	_defaultPngToFade = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Default.png"]];
-	[window addSubview:_defaultPngToFade];
-	[UIView beginAnimations:nil context:nil];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(completedFadingDefaultPng:finished:context:)];
-	[UIView setAnimationDuration:.4];
-	[_defaultPngToFade setAlpha:0];
-	[UIView commitAnimations];
+    [self setupAppearanceProxies];
 	
 	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	if(nil == currentDirection)
@@ -84,7 +67,8 @@
 		currentDirection = @"N";
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:kCurrentDirectionKey];
 	}
-
+    
+    return YES;
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
@@ -96,10 +80,6 @@
     }
     
     [_databaseUpdater startUpdate];
-}
-
-- (void)completedFadingDefaultPng:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
-	[_defaultPngToFade removeFromSuperview];
 }
 
 /**
@@ -226,6 +206,13 @@
 	{
 		[[NSUserDefaults standardUserDefaults] setObject:_currentDirection forKey:kCurrentDirectionKey];
 	}
+}
+
+- (void)setupAppearanceProxies
+{
+    UIColor *headerColor = [UIColor colorWithHexString:kNavBarColor];
+    [[UINavigationBar appearance] setTintColor:headerColor];
+    [[UITabBar appearance] setTintColor:headerColor];
 }
 
 

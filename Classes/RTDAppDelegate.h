@@ -27,8 +27,6 @@
 	
 	DRDatabaseUpdater *_databaseUpdater;
 	
-	UIImageView *_defaultPngToFade;
-	
 	NSString *_currentDatabaseVersion;
 	
 	NSString *_updatingDatabaseVersion;

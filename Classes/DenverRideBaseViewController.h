@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "MainSectionSelectorView.h"
 
-@interface DenverRideBaseViewController : UIViewController <MainSectionSelectorViewDelegate> {
-	MainSectionSelectorView *_sectionSelectorView;
-}
+@interface DenverRideBaseViewController : UIViewController
+
+- (IBAction)nortboundSelected:(UIButton *)sender;
+- (IBAction)southboundSelected:(UIButton *)sender;
+- (IBAction)westboundSelected:(UIButton *)sender;
+- (IBAction)eastboundSelected:(UIButton *)sender;
+- (IBAction)mapSelected:(UIButton *)sender;
+- (IBAction)bcycleSelected:(UIButton *)sender;
 
 @end

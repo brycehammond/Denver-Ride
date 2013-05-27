@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RTDAppDelegate.h"
 
 int main(int argc, char *argv[]) {
     
     @autoreleasepool {
-        int retVal = UIApplicationMain(argc, argv, nil, @"RTDAppDelegate");
+        int retVal = UIApplicationMain(argc, argv, nil, NSStringFromClass([RTDAppDelegate class]));
         return retVal;
     }
 }

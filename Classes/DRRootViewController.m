@@ -13,6 +13,13 @@
 
 @interface DRRootViewController ()
 
+@property (nonatomic, strong) UIView *containerView;
+@property (nonatomic, strong) IBOutlet UIButton *typeSwitchButton;
+@property (nonatomic, weak) UIViewController<DRChangeDirectionProtocol> *activeViewController;
+@property (nonatomic, strong) DRClosestSelectViewController *closestViewController;
+@property (nonatomic, strong) DRManualSelectViewController *manualViewController;
+@property (nonatomic, strong) DRRTDMapViewController *mapViewController;
+@property (nonatomic, strong) BCycleViewController *bcycleViewController;
 
 @end
 
@@ -20,23 +27,16 @@
 
 @synthesize  managedObjectContext = _managedObjectContext,
 			closestViewController = _closestViewController,
-			manualViewController = _manualViewController;
-
-- (void)loadView
-{
-	[super loadView];
-	_containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  [DenverRideConstants shortContainerHeight])];
-    [_containerView setClipsToBounds:YES];
-
-	[_containerView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	[[self view] addSubview:_containerView];
-}
+			manualViewController = _manualViewController,
+            mapViewController = _mapViewController,
+            bcycleViewController = _bcycleViewController;
 
 -(void)viewDidLoad
 {
 	[super viewDidLoad];
 	
+    [self.containerView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
+    
 	[[[self navigationController] navigationBar] setTintColor:
 	 [UIColor colorWithHexString:kNavBarColor]];
 	
@@ -45,14 +45,14 @@
 
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	if([direction isEqualToString:@"N"])
+	/*if([direction isEqualToString:@"N"])
 	{
 		[_sectionSelectorView setToNorthbound];
 	}
 	else
 	{
 		[_sectionSelectorView setToSouthbound];
-	}
+	}*/
 	
 	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
 	if(! lastTypeUsed)
@@ -71,25 +71,19 @@
 	NSString *buttonTitle = nil;
 	if([lastTypeUsed isEqualToString:@"Closest"])
 	{
-		_activeViewController = [self closestViewController];
+		self.activeViewController = [self closestViewController];
 		[Flurry logEvent:@"Launch" withParameters:@{@"Mode": @"Closest",@"Direction": direction}];
 		buttonTitle = @"Manual";
 		[self setTitle:@"Closest Stations"];
 	}
 	else {
-		_activeViewController = [self manualViewController];
+		self.activeViewController = [self manualViewController];
 		[Flurry logEvent:@"Launch" withParameters:@{@"Mode": @"Manual",@"Direction": direction}];
 		buttonTitle = @"Closest";
 		[self setTitle:@"Manual Mode"];
 	}
-	
-	_typeSwitchButton = [[UIBarButtonItem alloc] initWithTitle:buttonTitle
-														style:UIBarButtonItemStylePlain 
-																   target:self action:@selector(topRightButtonClicked:)];
-	[_typeSwitchButton setPossibleTitles:[NSSet setWithObjects:@"Manual",@"Closest",nil]];
-	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton];
-	
-	[_containerView addSubview:[_activeViewController view]];
+    
+    [self.typeSwitchButton setTitle:buttonTitle forState:UIControlStateNormal];
 }
 
 -(void)updateFinished
@@ -101,11 +95,11 @@
 		[[self navigationController] popToRootViewControllerAnimated:NO];
 	}
 	
-	[_activeViewController retrieveStopsDirection:direction];
+	[self.activeViewController retrieveStopsDirection:direction];
 	
 }
 
--(void)topRightButtonClicked:(UIBarButtonItem *)sender
+-(IBAction)topRightButtonClicked:(UIBarButtonItem *)sender
 {
 	if([[sender title] isEqualToString:@"Manual"])
 	{
@@ -116,12 +110,13 @@
 		[self setTitle:@"Manual Mode"];
 		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
 		[sender setTitle:@"Closest"];
+        
 		[UIView beginAnimations:nil context:nil];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_containerView cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.containerView cache:YES];
 		[UIView setAnimationDuration:0.75];
         [[[self closestViewController] view] removeFromSuperview];
-		_activeViewController = [self manualViewController];
-        [_containerView addSubview:[[self manualViewController] view]];
+		self.activeViewController = [self manualViewController];
+        [self.containerView addSubview:[[self manualViewController] view]];
         [UIView commitAnimations];
 		[[self manualViewController] viewWillAppear:YES];
 		[[self manualViewController] viewDidAppear:YES];
@@ -140,11 +135,11 @@
 		[self setTitle:@"Closest Stations"];
 		
 		[UIView beginAnimations:nil context:nil];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:_containerView cache:YES];
+        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.containerView cache:YES];
 		[UIView setAnimationDuration:0.75];
         [[[self manualViewController] view] removeFromSuperview];
-		_activeViewController = [self closestViewController];
-        [_containerView addSubview:[[self closestViewController] view]];
+		self.activeViewController = [self closestViewController];
+        [self.containerView addSubview:[[self closestViewController] view]];
         [UIView commitAnimations];
 		[[self closestViewController] viewWillAppear:YES];
 		[[self closestViewController] viewDidAppear:YES];
@@ -185,10 +180,10 @@
 	NSString *direction = @"N";
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
-	[[_mapViewController view] removeFromSuperview];
-	[[_bcycleViewController view] removeFromSuperview];
+	[[self.mapViewController view] removeFromSuperview];
+	[[self.bcycleViewController view] removeFromSuperview];
 	
-	if(_activeViewController == _manualViewController)
+	if(self.activeViewController == _manualViewController)
 	{
 		[self setTitle:@"Manual Mode"];
 	}
@@ -196,11 +191,7 @@
 	{
 		[self setTitle:@"Closest Stations"];
 	}
-
-    [_containerView setFrameHeight:[DenverRideConstants shortContainerHeight]];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
-	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
-	[_activeViewController changeDirectionTo:direction];
+	[self.activeViewController changeDirectionTo:direction];
 }
 
 - (void)southboundWasSelected
@@ -211,7 +202,7 @@
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
 	
-	if(_activeViewController == _manualViewController)
+	if(self.activeViewController == _manualViewController)
 	{
 		[self setTitle:@"Manual Mode"];
 	}
@@ -219,11 +210,7 @@
 	{
 		[self setTitle:@"Closest Stations"];
 	}
-	
-    [_containerView setFrameHeight:[DenverRideConstants shortContainerHeight]];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
-	[[self navigationItem] setRightBarButtonItem:_typeSwitchButton]; 
-	[_activeViewController changeDirectionTo:direction];
+	[self.activeViewController changeDirectionTo:direction];
 }
 
 - (void)mapWasSelected
@@ -235,10 +222,10 @@
 	}
 
 	
-    [_containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
+    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_bcycleViewController view] removeFromSuperview];
     [_mapViewController viewWillAppear:NO];
-	[_containerView addSubview:[_mapViewController view]];
+	[self.containerView addSubview:[_mapViewController view]];
     [_mapViewController viewDidAppear:NO];
 	[self setTitle:@"Route Map"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];
@@ -255,10 +242,10 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
-    [_containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
+    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_mapViewController view] removeFromSuperview];
     [_bcycleViewController viewWillAppear:NO];
-	[_containerView addSubview:[_bcycleViewController view]];
+	[self.containerView addSubview:[_bcycleViewController view]];
     [_bcycleViewController viewDidAppear:NO];
 	[self setTitle:@"BCycle"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];

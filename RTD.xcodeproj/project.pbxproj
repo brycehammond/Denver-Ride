@@ -20,6 +20,7 @@
 		024473401752E5630083A970 /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
 		024473411752E5630083A970 /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024473431753EF3D0083A970 /* MainStoryboard.storyboard */; };
+		026A1E9E17541E4000793F5F /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 026A1E9D17541E4000793F5F /* UIColor+Expanded.m */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
@@ -61,7 +62,6 @@
 		14B701FD12356EAA007B9C90 /* DRStationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* DRStationChangeViewController.xib */; };
 		14B701FE12356EAA007B9C90 /* DRStationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* DRStationListViewController.xib */; };
 		14B7020012356EAA007B9C90 /* DRTimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* DRTimeChangeViewController.xib */; };
-		14B7022912357740007B9C90 /* MainSectionSelectorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022812357740007B9C90 /* MainSectionSelectorView.m */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
 		14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7029C1235CBB1007B9C90 /* UIView+Categories.m */; };
 		14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */; };
@@ -97,6 +97,8 @@
 		024473341752D9270083A970 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		024473351752D9270083A970 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		024473431753EF3D0083A970 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboards/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		026A1E9C17541E4000793F5F /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
+		026A1E9D17541E4000793F5F /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
@@ -158,8 +160,6 @@
 		14B701F212356EAA007B9C90 /* DRStationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRStationChangeViewController.xib; path = NIBs/DRStationChangeViewController.xib; sourceTree = "<group>"; };
 		14B701F312356EAA007B9C90 /* DRStationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRStationListViewController.xib; path = NIBs/DRStationListViewController.xib; sourceTree = "<group>"; };
 		14B701F512356EAA007B9C90 /* DRTimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRTimeChangeViewController.xib; path = NIBs/DRTimeChangeViewController.xib; sourceTree = "<group>"; };
-		14B7022712357740007B9C90 /* MainSectionSelectorView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainSectionSelectorView.h; sourceTree = "<group>"; };
-		14B7022812357740007B9C90 /* MainSectionSelectorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainSectionSelectorView.m; sourceTree = "<group>"; };
 		14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideBaseViewController.h; sourceTree = "<group>"; };
 		14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideBaseViewController.m; sourceTree = "<group>"; };
 		14B7029B1235CBB1007B9C90 /* UIView+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Categories.h"; sourceTree = "<group>"; };
@@ -262,6 +262,8 @@
 		145B00871250001000A643AA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				026A1E9C17541E4000793F5F /* UIColor+Expanded.h */,
+				026A1E9D17541E4000793F5F /* UIColor+Expanded.m */,
 				14B7029B1235CBB1007B9C90 /* UIView+Categories.h */,
 				14B7029C1235CBB1007B9C90 /* UIView+Categories.m */,
 				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
@@ -398,8 +400,6 @@
 				14E4D9DD10373C0D00640D8B /* StationStopTableViewCell.m */,
 				14E4DE201038CF7000640D8B /* LoadingView.h */,
 				14E4DE211038CF7000640D8B /* LoadingView.m */,
-				14B7022712357740007B9C90 /* MainSectionSelectorView.h */,
-				14B7022812357740007B9C90 /* MainSectionSelectorView.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -603,7 +603,6 @@
 				14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */,
 				14B7017B12356DCA007B9C90 /* main.m in Sources */,
 				14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */,
-				14B7022912357740007B9C90 /* MainSectionSelectorView.m in Sources */,
 				14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */,
 				14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */,
 				145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */,
@@ -615,6 +614,7 @@
 				024473271752D2A30083A970 /* Stop+Convenience.m in Sources */,
 				024473301752D6910083A970 /* Station.m in Sources */,
 				024473361752D9270083A970 /* Stop.m in Sources */,
+				026A1E9E17541E4000793F5F /* UIColor+Expanded.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +645,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -674,7 +674,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
@@ -704,7 +704,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = YES;
+				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";

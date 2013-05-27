@@ -12,24 +12,8 @@
 #import "BCycleViewController.h"
 #import "DenverRideBaseViewController.h"
 
-@class DRClosestSelectViewController, DRManualSelectViewController;
-
-@interface DRRootViewController : DenverRideBaseViewController {
-	
-	UIView *_containerView;
-	
-	UIBarButtonItem *_typeSwitchButton;
-	
-	DRRTDMapViewController *_mapViewController;
-	BCycleViewController *_bcycleViewController;
-	
-	UIViewController<DRChangeDirectionProtocol> *_activeViewController;
-	
-}
+@interface DRRootViewController : DenverRideBaseViewController 
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-
-@property (nonatomic, strong) DRClosestSelectViewController *closestViewController;
-@property (nonatomic, strong) DRManualSelectViewController *manualViewController;
 
 @end

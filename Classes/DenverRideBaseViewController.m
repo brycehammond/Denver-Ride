@@ -12,21 +12,10 @@
 @implementation DenverRideBaseViewController
 
 
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-	[super loadView];
-	[[self view] setFrameHeight:416];
-	_sectionSelectorView = [[MainSectionSelectorView alloc] initWithDefaultFrame];
-	CGRect frame = _sectionSelectorView.frame;
-	frame.origin = CGPointMake(0, [self view].frame.size.height
-							   - _sectionSelectorView.frame.size.height);
-	[_sectionSelectorView setFrame:frame];
-	[_sectionSelectorView setDelegate:self];
-    [_sectionSelectorView setAutoresizingMask:UIViewAutoresizingFlexibleTopMargin];
-	
-	[[self view] addSubview:_sectionSelectorView];
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
 }
-
 
 - (void)didReceiveMemoryWarning {
     // Releases the view if it doesn't have a superview.
@@ -37,32 +26,38 @@
 
 - (void)viewDidUnload {
     [super viewDidUnload];
-	_sectionSelectorView = nil;
 }
 
 
 
-#pragma mark MainSectionSelectorViewDelegate methods
-
-- (void)nortboundWasSelected
+- (IBAction)nortboundSelected:(UIButton *)sender
 {
-	
+    
 }
 
-- (void)southboundWasSelected
+- (IBAction)southboundSelected:(UIButton *)sender
 {
-	
+    
 }
 
-- (void)mapWasSelected
+- (IBAction)westboundSelected:(UIButton *)sender
 {
-	
+    
 }
 
-- (void)bcycleWasSelected
+- (IBAction)eastboundSelected:(UIButton *)sender
 {
-	
+    
 }
 
+- (IBAction)mapSelected:(UIButton *)sender
+{
+    
+}
+
+- (IBAction)bcycleSelected:(UIButton *)sender
+{
+    
+}
 
 @end
