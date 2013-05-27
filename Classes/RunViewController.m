@@ -40,7 +40,7 @@
 	//get the run array from the stop
 	Stop *stop = [self stop];
 	NSString *lineName = [[stop line] name];
-	NSString *direction = ([[stop direction] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+	NSString *direction = [stop fullDirection];
 	
 	if(_timeDirection == FORWARD)
 	{
@@ -60,15 +60,15 @@
 	
 	if(_timeDirection == FORWARD)
 	{
-		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-			[[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[stop run],lineName,[[self stop] dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"arrivalTimeInMinutes > %i AND run == %@ AND line.name == %@ AND dayType = %@ AND direction == %@",
+			[[stop departureTimeInMinutes] intValue],[stop run],lineName,[[self stop] dayType], stop.direction];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND direction in %@ AND run == %i AND line.name == %@ AND dayType = %@",
-					 [[stop departureTimeInMinutes] intValue],@[[stop direction], @"B"],[stop run],lineName,[[self stop] dayType]];
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %iAND run == %@ AND line.name == %@ AND dayType = %@ AND direction == %@",
+					 [[stop departureTimeInMinutes] intValue],[stop run],lineName,[[self stop] dayType], stop.direction];
 		
 	}
-
+    
 	DLog(@"Request predicate: %@",predicate);
 	NSFetchRequest *request = [[NSFetchRequest alloc] init];
 	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Stop" inManagedObjectContext:[self managedObjectContext]];

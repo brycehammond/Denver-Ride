@@ -170,7 +170,9 @@ currentDirection = _currentDirection;
 	
 	//rebuild the closest stations based on direction
 	NSArray *currentDirectionClosesStations = [[self stationsArray] filteredArrayUsingPredicate:
-											   [NSPredicate predicateWithFormat:@"direction = %@ OR direction = 'B'",[self currentDirection]]];
+											   [Station filterPredicateForDirection:[self currentDirection]]];
+    
+    
 	
 	if([currentDirectionClosesStations count] >= 4)
 	{

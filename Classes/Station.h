@@ -25,6 +25,10 @@
 
 @property (assign) CLLocationDistance currentDistance;
 @property (nonatomic, strong) CLLocation *location;
+
++ (NSPredicate *)filterPredicateForCurrentDirection;
++ (NSPredicate *)filterPredicateForDirection:(NSString *)direction;
+
 @end
 
 @interface Station (CoreDataGeneratedAccessors)

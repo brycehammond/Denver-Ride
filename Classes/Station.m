@@ -51,4 +51,35 @@ location = _location;
     return NSOrderedSame;
 }
 
+
+
++ (NSPredicate *)filterPredicateForCurrentDirection
+{
+    NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+    return [Station filterPredicateForDirection:currentDirection];
+}
+
++ (NSPredicate *)filterPredicateForDirection:(NSString *)direction
+{
+    NSPredicate *directionPredicate = nil;
+    if([direction isEqualToString:@"N"])
+    {
+        directionPredicate = [NSPredicate predicateWithFormat:@"hasNorthbound == 1"];
+    }
+    else if([direction isEqualToString:@"S"])
+    {
+        directionPredicate = [NSPredicate predicateWithFormat:@"hasSouthbound == 1"];
+    }
+    else if([direction isEqualToString:@"W"])
+    {
+        directionPredicate = [NSPredicate predicateWithFormat:@"hasWestbound == 1"];
+    }
+    else if([direction isEqualToString:@"E"])
+    {
+        directionPredicate = [NSPredicate predicateWithFormat:@"hasEastbound == 1"];
+    }
+    
+    return directionPredicate;
+}
+
 @end
