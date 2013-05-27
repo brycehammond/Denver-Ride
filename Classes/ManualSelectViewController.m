@@ -75,12 +75,12 @@
 	[super viewWillAppear:animated];
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate setCurrentDayType:[self currentDayType]];
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 -(void)changeDirectionTo:(NSString *)direction
 {
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[self retrieveStopsDirection:direction];
 }
 
@@ -193,7 +193,7 @@
 			}
 			
 			NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
-			NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+			NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 			
 			cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
 			cell.textLabel.adjustsFontSizeToFitWidth = YES;
@@ -247,7 +247,7 @@
 			_timeDirection = FORWARD;
 		}
 
-		[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+		[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 		[tableView reloadData];
 	}
 	else if(indexPath.section == kTimeSection)
@@ -448,7 +448,7 @@
 {
 	[self setTimeInMinutes:[viewController timeInMinutes]];
 	[viewController animateOut];
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 -(void)cancelButtonClickedOnTimeChangeViewController:(TimeChangeViewController *)viewController
@@ -465,7 +465,7 @@
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	[appDelegate setCurrentDayType:[self currentDayType]];
 	[viewController animateOut];
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 -(void)cancelButtonClickedOnDayTypeChangeViewController:(DayTypeChangeViewController *)viewController
@@ -480,7 +480,7 @@
 {
 	[[NSUserDefaults standardUserDefaults] setObject:station forKey:@"ManualStation"];
 	[[self navigationController] dismissModalViewControllerAnimated:YES];
-	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 -(void)viewWasCancelled

@@ -16,6 +16,7 @@
 #define kSelectorHeight 61
 #define kStatusBarHeight    20
 #define kNavBarColor @"70A96A"
+#define kCurrentDirectionKey @"CurrentDirection"
 
 @interface DenverRideConstants : NSObject
 

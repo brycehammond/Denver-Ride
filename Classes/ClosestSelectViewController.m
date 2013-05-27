@@ -69,7 +69,7 @@ currentDirection = _currentDirection;
 	//closest location array to empty
 	[self setClosestStationsArray:@[]];
 	[self setClosestStationsStopsArray:[NSMutableArray array]];
-	[self setCurrentDirection:[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"]];
+	[self setCurrentDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 	
 	/*
 	 Fetch existing stations.

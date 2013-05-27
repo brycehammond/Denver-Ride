@@ -80,7 +80,7 @@
 	if(recentlyUsedStations)
 	{
 		NSPredicate *searchPredicate =[NSPredicate predicateWithFormat:@"name IN %@ AND direction in %@",recentlyUsedStations,
-									   @[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]];
+									   @[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]];
 		NSFetchRequest *request = [[NSFetchRequest alloc] init];
 		NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[self managedObjectContext]];
 		[request setEntity:entity];
@@ -350,7 +350,7 @@
 	NSArray *sortDescriptors = @[sortDescriptor];
 	
 	[fetchRequest setPredicate:[NSPredicate predicateWithFormat:@"direction in %@",
-								@[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]]];
+								@[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]]];
 	
 	
 	[fetchRequest setSortDescriptors:sortDescriptors];
@@ -371,7 +371,7 @@
 	if([searchText length] > 0)
 	{
 		reduction = [NSPredicate predicateWithFormat:@"name contains[cd] %@ AND direction in %@",searchText, 
-					 @[[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"], @"B"]];
+					 @[[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey], @"B"]];
 	}
 	else {
 		_recentlyUsedStationsToDisplay = nil;

@@ -91,11 +91,11 @@
 	[_defaultPngToFade setAlpha:0];
 	[UIView commitAnimations];
 	
-	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	if(! currentDirection)
 	{
 		currentDirection = @"N";
-		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:@"CurrentDirection"];
+		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:kCurrentDirectionKey];
 	}
 
 }
@@ -237,7 +237,7 @@
 	
 	if(_currentDirection)
 	{
-		[[NSUserDefaults standardUserDefaults] setObject:_currentDirection forKey:@"CurrentDirection"];
+		[[NSUserDefaults standardUserDefaults] setObject:_currentDirection forKey:kCurrentDirectionKey];
 	}
 }
 

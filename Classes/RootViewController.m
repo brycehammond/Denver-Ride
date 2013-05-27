@@ -40,7 +40,7 @@
 												 name:@"UpdateFinishedNotification" object:nil];
 
 	
-	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	if([direction isEqualToString:@"N"])
 	{
 		[_sectionSelectorView setToNorthbound];
@@ -90,7 +90,7 @@
 
 -(void)updateFinished
 {
-	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	
 	if([[self navigationController] topViewController] != self)
 	{
@@ -105,7 +105,7 @@
 {
 	if([[sender title] isEqualToString:@"Manual"])
 	{
-		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 		[Flurry logEvent:@"Switch Mode" withParameters:
 			@{@"Mode": @"Manual",@"Direction": direction}];
 		//Set the manual mode
@@ -127,7 +127,7 @@
 		
 		//set to closest mode
 		
-		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 		[Flurry logEvent:@"Switch Mode" withParameters:
 			@{@"Mode": @"Closest",@"Direction": direction}];
 		
@@ -179,7 +179,7 @@
 - (void)nortboundWasSelected
 {
 	NSString *direction = @"N";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];
@@ -202,7 +202,7 @@
 - (void)southboundWasSelected
 {
 	NSString *direction = @"S";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	[[_mapViewController view] removeFromSuperview];
 	[[_bcycleViewController view] removeFromSuperview];

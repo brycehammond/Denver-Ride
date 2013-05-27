@@ -47,7 +47,7 @@
 	[self setTitle:[[self station] name]];
 	[_stopsTableView setBackgroundColor:[UIColor clearColor]];
 	
-	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"];
+	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	if([direction isEqualToString:@"N"])
 	{
 		[_sectionSelectorView setToNorthbound];
@@ -152,7 +152,7 @@
 		
 		
 		NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
-		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:@"CurrentDirection"] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
 		
@@ -238,7 +238,7 @@
 - (void)nortboundWasSelected
 {
 	NSString *direction = @"N";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	
 	[[_mapViewController view] removeFromSuperview];
@@ -254,7 +254,7 @@
 - (void)southboundWasSelected
 {
 	NSString *direction = @"S";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:@"CurrentDirection"];
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	
 	[[_mapViewController view] removeFromSuperview];
