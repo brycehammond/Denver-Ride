@@ -7,12 +7,12 @@
 //
 
 #import "RTDAppDelegate.h"
-#import "RootViewController.h"
+#import "DRRootViewController.h"
 #import "Line.h"
 #import "Station.h"
 #import "Stop.h"
 #import "Flurry.h"
-#import "DatabaseLoader.h"
+#import "DRDatabaseLoader.h"
 
 @interface RTDAppDelegate (Private)
 
@@ -41,9 +41,6 @@
     
 	defaultDataNeedsFilling = NO;
 	
-    [Flurry setSecureTransportEnabled:NO];
-    [Flurry setSessionReportsOnCloseEnabled:NO];
-    [Flurry setSessionReportsOnPauseEnabled:NO];
 	[Flurry startSession:@"EVE2QD8JNU2R1QXVTAZQ"];
 
 	_currentDatabaseVersion = [[NSUserDefaults standardUserDefaults] stringForKey:kDatabaseVersionKey];
@@ -70,7 +67,7 @@
                             @"W": [UIColor colorWithHexString:@"00B9B0"]};
 	
 	
-	RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+	DRRootViewController *rootViewController = [[DRRootViewController alloc] initWithNibName:nil bundle:nil];
 	rootViewController.managedObjectContext = context;
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
@@ -103,7 +100,7 @@
 {
     if(nil == _databaseUpdater)
     {
-        _databaseUpdater = [[DatabaseUpdater alloc] init];
+        _databaseUpdater = [[DRDatabaseUpdater alloc] init];
         [_databaseUpdater setDelegate:self];        
     }
     
@@ -258,7 +255,7 @@
 -(void)populateStore
 {
 	
-	DatabaseLoader *loader = [[DatabaseLoader alloc] init];
+	DRDatabaseLoader *loader = [[DRDatabaseLoader alloc] init];
 	[loader loadItUp];
 }
 
@@ -307,7 +304,7 @@
 
 - (void)databaseUpdateFinished
 {
-    RootViewController *rootViewController = [[RootViewController alloc] initWithNibName:nil bundle:nil];
+    DRRootViewController *rootViewController = [[DRRootViewController alloc] initWithNibName:nil bundle:nil];
 	rootViewController.managedObjectContext = [self managedObjectContext];
 	
 	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];

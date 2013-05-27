@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "EncapsulatedConnection.h"
+#import "DREncapsulatedConnection.h"
 
 @interface BCycleViewController : UIViewController <MKMapViewDelegate, EncapsulatedConnectionDelegate> {
 	MKMapView *_mapView;
 	NSArray *_stations;
-	EncapsulatedConnection *_updateConnection;
+	DREncapsulatedConnection *_updateConnection;
 
 	NSMutableDictionary *_stationsByName;
 }

@@ -6,9 +6,9 @@
 //  Copyright Fluidvision Design 2009. All rights reserved.
 //
 
-#import "DatabaseUpdater.h"
+#import "DRDatabaseUpdater.h"
 
-@class  RootViewController;
+@class  DRRootViewController;
 
 @interface RTDAppDelegate : NSObject <UIApplicationDelegate, DatabaseUpdaterDelegate> {
     
@@ -27,7 +27,7 @@
 	
 	NSString *currentDayType;
 	
-	DatabaseUpdater *_databaseUpdater;
+	DRDatabaseUpdater *_databaseUpdater;
 	
 	UIImageView *_defaultPngToFade;
 	

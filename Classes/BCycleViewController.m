@@ -7,7 +7,7 @@
 //
 
 #import "BCycleViewController.h"
-#import "StationAnnotation.h"
+#import "DRStationAnnotation.h"
 #import "Flurry.h"
 
 #define kStationInfoKey @"StationInfoKey"
@@ -88,7 +88,7 @@
 		
 		_stations = stations;
 		[_mapView addAnnotations:stations];
-		for(StationAnnotation *station in _stations)
+		for(DRStationAnnotation *station in _stations)
 		{
 			_stationsByName[[station title]] = station;
 		}
@@ -96,9 +96,9 @@
 	else 
 	{
 		//go through and update the stations
-		for(StationAnnotation *station in stations)
+		for(DRStationAnnotation *station in stations)
 		{
-			StationAnnotation *existingStation = _stationsByName[[station title]];
+			DRStationAnnotation *existingStation = _stationsByName[[station title]];
 			if(existingStation)
 			{
 				[existingStation setBikesAvailable:[station bikesAvailable]];
@@ -141,7 +141,7 @@
 							 [NSURL URLWithString:@"http://bcycle.semanticchickens.com/stations.txt"]];
 	
 	[_updateConnection setDelegate:nil];
-	_updateConnection = [[EncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"StationUpdate"];
+	_updateConnection = [[DREncapsulatedConnection alloc] initWithRequest:request delegate:self identifier:@"StationUpdate"];
 	
 }
 
@@ -178,7 +178,7 @@
 		return nil;
 	
 	// If it is our StationAnnotation, we create and return its view
-	if ([annotation isKindOfClass:[StationAnnotation class]]) {
+	if ([annotation isKindOfClass:[DRStationAnnotation class]]) {
 		// try to dequeue an existing pin view first
 		static NSString* stationAnnotationIdentifier = @"StationAnnotationIdentifier";
 		MKPinAnnotationView* pinView = (MKPinAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:stationAnnotationIdentifier ];
@@ -203,7 +203,7 @@
 
 #pragma mark EncapsulatedConnectionDelegate methods
 
-- (void)connection:(EncapsulatedConnection *)connection returnedWithData:(NSData *)data
+- (void)connection:(DREncapsulatedConnection *)connection returnedWithData:(NSData *)data
 {
 	if(nil != data)
 	{
@@ -213,7 +213,7 @@
 	}
 }
 
-- (void)connection:(EncapsulatedConnection *)connection returnedWithError:(NSError *)error
+- (void)connection:(DREncapsulatedConnection *)connection returnedWithError:(NSError *)error
 {
 	
 }
@@ -234,7 +234,7 @@
 		NSArray *elements = [line componentsSeparatedByString:@"\t"];
 		if([elements count] > 2)
 		{
-			StationAnnotation *station = [[StationAnnotation alloc] init];
+			DRStationAnnotation *station = [[DRStationAnnotation alloc] init];
 			
 			CLLocationCoordinate2D coordinate;
 			coordinate.latitude = [elements[0] doubleValue];
