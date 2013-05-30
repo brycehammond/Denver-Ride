@@ -18,7 +18,6 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *stopsTableView;
 
-
 @end
 
 

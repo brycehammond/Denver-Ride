@@ -267,12 +267,9 @@
 	}
 	else if(indexPath.section == kStationSection)
 	{
-		if( ! _stationChangeController)
-		{
-			_stationChangeController = [[DRStationChangeViewController alloc] initWithNibName:@"StationChangeViewController" bundle:nil];
-			[_stationChangeController setDelegate:self];
-			[_stationChangeController setManagedObjectContext:[self managedObjectContext]];
-		}
+		_stationChangeController = [[DRStationChangeViewController alloc] initWithNibName:@"StationChangeViewController" bundle:nil];
+        [_stationChangeController setDelegate:self];
+        [_stationChangeController setManagedObjectContext:[self managedObjectContext]];
 		
 		[[self navigationController] presentModalViewController:_stationChangeController animated:YES];
 	}
