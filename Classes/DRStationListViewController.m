@@ -265,9 +265,16 @@
 	else {
 		station = [[self fetchedResultsController] objectAtIndexPath:[NSIndexPath indexPathForRow:indexPath.row inSection:0]];
 	}
-	
-	DRStationViewController *stationController = [[DRStationViewController alloc] initWithStation:station withCurrentTimeInMinutes:timeInMinutes];
-	[stationController setManagedObjectContext:[self managedObjectContext]];
+    
+    RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    DRStationViewController *stationController = (DRStationViewController *)[[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationController"];
+    stationController.station = station;
+    stationController.currentTimeInMinutes = timeInMinutes;
+    stationController.timeDirection = FORWARD;
+    stationController.dayType = appDelegate.currentDayType;
+    stationController.managedObjectContext = self.managedObjectContext;
+    
 	[[self navigationController] pushViewController:stationController animated:YES];
 	
 	[self addStationToRecentlyUsed:station];

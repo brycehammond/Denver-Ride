@@ -17,7 +17,7 @@
 @interface DRStationViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *stopsTableView;
-@property (assign, nonatomic) TimeDirection timeDirection;
+
 
 @end
 
@@ -34,31 +34,13 @@
     [super viewDidLoad];
 	[self setTitle:[[self station] name]];
 	[self.stopsTableView setBackgroundColor:[UIColor clearColor]];
-	
-	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	//@TODO: set hand direction properly
-    
-	[Flurry logEvent:@"Station View" withParameters:@{@"Station": [_station name]}];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+    [Flurry logEvent:@"Station View" withParameters:@{@"Station": self.station.name}];
 	[self retrieveStopsInDirection:direction];
-}
-
--(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes
-{
-	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
-	return [self initWithStation:station withCurrentTimeInMinutes:currentTimeInMinutes andTimeDirection:FORWARD andDayType:[appDelegate currentDayType]];
-}
-
--(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
-	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType
-{
-	if((self = [self initWithNibName:nil bundle:nil]))
-	{
-		[self setStation:station];
-		[self setCurrentTimeInMinutes:currentTimeInMinutes];
-		self.timeDirection = timeDirection;
-		[self setDayType:dayType];
-	}
-	return self;
 }
 
 - (void)didReceiveMemoryWarning {

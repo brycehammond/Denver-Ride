@@ -40,6 +40,7 @@
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 02AE137E130B9C3700816476 /* light-rail-map.pdf */; };
+		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* DRStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* DRStationViewController.m */; };
@@ -119,6 +120,8 @@
 		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02AE137E130B9C3700816476 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
+		02B23FEF175710A8006AF9A2 /* UIStoryboard+DenverRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+DenverRide.h"; sourceTree = "<group>"; };
+		02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+DenverRide.m"; sourceTree = "<group>"; };
 		02B7FD3E156A9EA600867D4A /* Denver Ride.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Denver Ride.entitlements"; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* DRTimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTimeChangeViewController.m; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 				145B0069124FFC4300A643AA /* NSData+gzip.h */,
 				145B006A124FFC4300A643AA /* NSData+gzip.m */,
+				02B23FEF175710A8006AF9A2 /* UIStoryboard+DenverRide.h */,
+				02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -615,6 +620,7 @@
 				024473301752D6910083A970 /* Station.m in Sources */,
 				024473361752D9270083A970 /* Stop.m in Sources */,
 				026A1E9E17541E4000793F5F /* UIColor+Expanded.m in Sources */,
+				02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -178,6 +178,168 @@
             </objects>
             <point key="canvasLocation" x="199" y="188"/>
         </scene>
+        <!--Station View Controller-->
+        <scene sceneID="TbV-Ql-LTG">
+            <objects>
+                <viewController storyboardIdentifier="StationController" id="XCh-5K-ARK" customClass="DRStationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zw2-mN-8ZK">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="6Wk-4b-RGO">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="USA-t7-Uqd">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="XCh-5K-ARK" id="8Mr-9x-uFB"/>
+                                            <outlet property="delegate" destination="XCh-5K-ARK" id="V5j-Qe-VIc"/>
+                                        </connections>
+                                    </tableView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="directions.png" id="XTt-sK-yvx">
+                                <rect key="frame" x="0.0" y="424" width="87" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="line-direction.png" id="ieS-bB-Hc8">
+                                <rect key="frame" x="87" y="443" width="93" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lHt-XF-Rem">
+                                <rect key="frame" x="97" y="453" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="xf4-Uj-7K9">
+                                <rect key="frame" x="250" y="443" width="70" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="B Cycle" backgroundImage="bcycle.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="bcycle-active.png"/>
+                                <state key="highlighted" backgroundImage="bcycle-active.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="bcycleSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="Pqp-F8-vHn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rHh-sY-9bb">
+                                <rect key="frame" x="180" y="443" width="70" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Route Map" backgroundImage="route-map.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="route-map-active.png"/>
+                                <state key="highlighted" backgroundImage="route-map-active.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="mapSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="gh2-7h-141"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="pointer.png" id="Lzb-xn-YrN">
+                                <rect key="frame" x="27" y="451" width="22" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Northbound" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="b0o-gD-Ydg">
+                                <rect key="frame" x="97" y="475" width="75" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yXd-kz-L3N">
+                                <rect key="frame" x="20" y="424" width="36" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="northboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="kCh-eQ-8Jg"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e3A-Op-Vxp">
+                                <rect key="frame" x="0.0" y="458" width="35" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="westboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="3bZ-Zs-bXf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K2O-vY-ujh">
+                                <rect key="frame" x="51" y="458" width="41" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="eastboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="1Qa-U4-7uS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Np-ri-Mfi">
+                                <rect key="frame" x="20" y="480" width="36" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="southboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="5VH-fD-WDF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="MRk-BW-5hL"/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <connections>
+                        <outlet property="bcycleButton" destination="xf4-Uj-7K9" id="vy5-ds-R2f"/>
+                        <outlet property="containerView" destination="6Wk-4b-RGO" id="Eha-u3-27F"/>
+                        <outlet property="currentDirectionHand" destination="Lzb-xn-YrN" id="u83-3O-IPe"/>
+                        <outlet property="currentDirectionLabel" destination="b0o-gD-Ydg" id="neq-Tb-qTT"/>
+                        <outlet property="mapButton" destination="rHh-sY-9bb" id="3Q8-Na-Mr2"/>
+                        <outlet property="stopsTableView" destination="USA-t7-Uqd" id="DOF-f0-lWb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1ll-WU-XrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121" y="195"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bcycle-active.png" width="70" height="61"/>
@@ -194,6 +356,12 @@
             <relationships>
                 <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIBarButtonItem"/>
+            </relationships>
+        </class>
+        <class className="DRStationViewController" superclassName="DenverRideBaseViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DRStationViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="stopsTableView" candidateClass="UITableView"/>
             </relationships>
         </class>
         <class className="DenverRideBaseViewController" superclassName="UIViewController">

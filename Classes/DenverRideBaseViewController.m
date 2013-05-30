@@ -16,6 +16,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self updateViewForDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -36,38 +37,56 @@
 
 - (IBAction)northboundSelected:(UIButton *)sender
 {
-    self.currentDirectionLabel.text = @"Northbound";
-    [UIView animateWithDuration:0.3 animations:^{
-        self.currentDirectionHand.transform = CGAffineTransformIdentity;
-    }];
+    [self updateViewForDirection:@"N"];
     [self directionSelected:@"N"];
 }
 
 - (IBAction)southboundSelected:(UIButton *)sender
 {
-    self.currentDirectionLabel.text = @"Southbound";
-    [UIView animateWithDuration:0.3 animations:^{
-        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI);
-    }];
+    [self updateViewForDirection:@"S"];
     [self directionSelected:@"S"];
 }
 
 - (IBAction)westboundSelected:(UIButton *)sender
 {
-    self.currentDirectionLabel.text = @"Westbound";
-    [UIView animateWithDuration:0.3 animations:^{
-        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(-M_PI_2);
-    }];
+    [self updateViewForDirection:@"W"];
     [self directionSelected:@"W"];
 }
 
 - (IBAction)eastboundSelected:(UIButton *)sender
 {
-    self.currentDirectionLabel.text = @"Eastbound";
-    [UIView animateWithDuration:0.3 animations:^{
-        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI_2);
-    }];
+    [self updateViewForDirection:@"E"];
     [self directionSelected:@"E"];
+}
+
+- (void)updateViewForDirection:(NSString *)direction
+{
+    NSString *directionText = @"";
+    CGAffineTransform transform = CGAffineTransformIdentity;
+    if([direction isEqualToString:@"N"])
+    {
+        directionText = @"Northbound";
+    }
+    else if([direction isEqualToString:@"S"])
+    {
+        directionText = @"Southbound";
+        transform = CGAffineTransformMakeRotation(M_PI);
+    }
+    else if([direction isEqualToString:@"W"])
+    {
+        directionText = @"Westbound";
+        transform = CGAffineTransformMakeRotation(-M_PI_2);
+    }
+    else if([direction isEqualToString:@"E"])
+    {
+        directionText = @"Eastbound";
+        transform = CGAffineTransformMakeRotation(M_PI_2);
+    }
+    
+    self.currentDirectionLabel.text = directionText;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.currentDirectionHand.transform = transform;
+    }];
 }
 
 - (IBAction)mapSelected:(UIButton *)sender

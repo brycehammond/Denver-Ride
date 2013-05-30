@@ -21,9 +21,6 @@
 @property (nonatomic, strong) Station *station;
 @property (assign) NSInteger currentTimeInMinutes;
 @property (nonatomic, strong) NSString *dayType;
-
--(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes;
--(id)initWithStation:(Station *)station withCurrentTimeInMinutes:(NSInteger)currentTimeInMinutes 
-	andTimeDirection:(TimeDirection)timeDirection andDayType:(NSString *)dayType;
+@property (assign, nonatomic) TimeDirection timeDirection;
 
 @end
