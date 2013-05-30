@@ -197,16 +197,38 @@
 
 -(void)setCurrentDirection:(NSString *)direction
 {
-	if(_currentDirection != direction)
-	{
-		_currentDirection = direction;
-	}
-	
-	if(_currentDirection)
-	{
-		[[NSUserDefaults standardUserDefaults] setObject:_currentDirection forKey:kCurrentDirectionKey];
-	}
+	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 }
+
+- (NSString *)currentDirection
+{
+    return [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+}
+
++ (NSString *)fullDirectionForDirection:(NSString *)direction
+{
+    NSString *fullDirection = @"";
+    if([direction isEqualToString:@"N"])
+    {
+        fullDirection = @"North";
+    }
+    else if([direction isEqualToString:@"S"])
+    {
+        fullDirection = @"South";
+    }
+    else if([direction isEqualToString:@"W"])
+    {
+        fullDirection = @"West";
+    }
+    else if([direction isEqualToString:@"E"])
+    {
+        fullDirection = @"East";
+    }
+    
+    return fullDirection;
+}
+
+
 
 - (void)setupAppearanceProxies
 {
@@ -327,13 +349,6 @@
 		[self managedObjectContext];
 	}
 }
-
-
-#pragma mark -
-#pragma mark Memory management
-
-
-
 
 @end
 

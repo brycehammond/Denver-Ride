@@ -33,8 +33,6 @@
     self.containerView.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
 }
 
-
-
 - (IBAction)northboundSelected:(UIButton *)sender
 {
     [self updateViewForDirection:@"N"];

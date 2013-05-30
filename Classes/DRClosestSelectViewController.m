@@ -400,9 +400,9 @@ currentDirection = _currentDirection;
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 		}
 		
-		NSString *direction = ([[self currentDirection] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+		NSString *direction = [RTDAppDelegate fullDirectionForDirection:self.currentDirection];
 		
-		cell.textLabel.text = [NSString stringWithFormat:@"End of line for %@ transit",direction];
+		cell.textLabel.text = [NSString stringWithFormat:@"End of line for %@bound transit",direction];
 		
 		cell.textLabel.adjustsFontSizeToFitWidth = YES;
 		[cell setAccessoryType:UITableViewCellAccessoryNone];

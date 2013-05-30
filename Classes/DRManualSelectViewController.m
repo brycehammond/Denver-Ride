@@ -192,9 +192,9 @@
 			}
 			
 			NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
-			NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
+			NSString *direction =  [RTDAppDelegate fullDirectionForDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 			
-			cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
+			cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@bound transit",sentinal,direction];
 			cell.textLabel.adjustsFontSizeToFitWidth = YES;
 			[cell setAccessoryType:UITableViewCellAccessoryNone];
 			[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
