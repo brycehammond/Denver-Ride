@@ -27,9 +27,7 @@
 
 @synthesize  managedObjectContext = _managedObjectContext,
 			closestViewController = _closestViewController,
-			manualViewController = _manualViewController,
-            mapViewController = _mapViewController,
-            bcycleViewController = _bcycleViewController;
+			manualViewController = _manualViewController;
 
 -(void)viewDidLoad
 {
@@ -215,44 +213,6 @@
 		[self setTitle:@"Closest Stations"];
 	}
 	[self.activeViewController changeDirectionTo:direction];
-}
-
-- (IBAction)mapSelected:(UIButton *)sender
-{
-    if(nil == _mapViewController)
-	{
-		_mapViewController = [[DRRTDMapViewController alloc] initWithNibName:nil bundle:nil];
-	}
-
-	self.mapButton.enabled = NO;
-    self.bcycleButton.enabled = YES;
-    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
-	[[_bcycleViewController view] removeFromSuperview];
-    [self addChildViewController:_mapViewController];
-	[self.containerView addSubview:[_mapViewController view]];
-	[self setTitle:@"Route Map"];
-	[[self navigationController] setNavigationBarHidden:YES animated:NO];
-}
-
-- (IBAction)bcycleSelected:(UIButton *)sender
-{
-	if(nil == _bcycleViewController)
-	{
-		_bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
-	}
-	else 
-	{
-		[_bcycleViewController updateAnnotations]; 
-	}
-	
-    self.mapButton.enabled = YES;
-    self.bcycleButton.enabled = NO;
-    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
-	[[_mapViewController view] removeFromSuperview];
-    [self addChildViewController:_bcycleViewController];
-	[self.containerView addSubview:[_bcycleViewController view]];
-	[self setTitle:@"BCycle"];
-	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 

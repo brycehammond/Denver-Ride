@@ -62,12 +62,40 @@
 
 - (IBAction)mapSelected:(UIButton *)sender
 {
+    if(nil == self.mapViewController)
+	{
+		self.mapViewController = [[DRRTDMapViewController alloc] initWithNibName:nil bundle:nil];
+	}
     
+	self.mapButton.enabled = NO;
+    self.bcycleButton.enabled = YES;
+    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
+	[[self.bcycleViewController view] removeFromSuperview];
+    [self addChildViewController:self.mapViewController];
+	[self.containerView addSubview:self.mapViewController.view];
+	[self setTitle:@"Route Map"];
+	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 - (IBAction)bcycleSelected:(UIButton *)sender
 {
-    
+    if(nil == self.bcycleViewController)
+	{
+		self.bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
+	}
+	else
+	{
+		[self.bcycleViewController updateAnnotations];
+	}
+	
+    self.mapButton.enabled = YES;
+    self.bcycleButton.enabled = NO;
+    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
+	[[self.mapViewController view] removeFromSuperview];
+    [self addChildViewController:self.bcycleViewController];
+	[self.containerView addSubview:[self.bcycleViewController view]];
+	[self setTitle:@"BCycle"];
+	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
 - (void)directionSelected:(NSString *)direction
