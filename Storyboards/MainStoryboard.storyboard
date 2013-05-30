@@ -15,7 +15,7 @@
                             <view contentMode="scaleToFill" id="QEk-h5-Zbv">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="directions.png" id="n47-gN-rbd">
                                 <rect key="frame" x="0.0" y="424" width="87" height="80"/>
@@ -138,7 +138,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="axn-e0-A02">
                         <barButtonItem key="rightBarButtonItem" title="Closest" id="8b5-tQ-Ucl">
@@ -192,13 +192,7 @@
         <class className="DRRootViewController" superclassName="DenverRideBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DRRootViewController.h"/>
             <relationships>
-                <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="northboundSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
-                <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>

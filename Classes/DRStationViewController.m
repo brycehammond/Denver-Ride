@@ -14,8 +14,11 @@
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
 
-@interface DRStationViewController (Private)
--(void)retrieveStopsInDirection:(NSString *)direction;
+@interface DRStationViewController ()
+
+@property (weak, nonatomic) IBOutlet UITableView *stopsTableView;
+@property (assign, nonatomic) TimeDirection timeDirection;
+
 @end
 
 
@@ -26,26 +29,11 @@
 			dayType = _dayType;
 
 
-
-- (void)loadView
-{
-	[super loadView];
-	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	_stopsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, [[self view] frame].size.width,
-															  [DenverRideConstants shortContainerHeight])
-												   style:UITableViewStyleGrouped];
-	[_stopsTableView setDelegate:self];
-	[_stopsTableView setDataSource:self];
-	
-	[[self view] addSubview:_stopsTableView];
-	
-}
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	[self setTitle:[[self station] name]];
-	[_stopsTableView setBackgroundColor:[UIColor clearColor]];
+	[self.stopsTableView setBackgroundColor:[UIColor clearColor]];
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 	//@TODO: set hand direction properly
@@ -67,7 +55,7 @@
 	{
 		[self setStation:station];
 		[self setCurrentTimeInMinutes:currentTimeInMinutes];
-		_timeDirection = timeDirection;
+		self.timeDirection = timeDirection;
 		[self setDayType:dayType];
 	}
 	return self;
@@ -123,7 +111,7 @@
 		// Get the event corresponding to the current index path and configure the table view cell.
 		Stop *stop = [self stopsArray][indexPath.row];
 		
-		if(_timeDirection == FORWARD)
+		if(self.timeDirection == FORWARD)
 		{
 			[cell setEndOfLineStation:[stop terminalStation] withStartStop:stop];
 		}
@@ -144,7 +132,7 @@
 		}
 		
 		
-		NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
+		NSString *sentinal = (self.timeDirection == BACKWARD) ? @"Start" : @"End";
 		NSString *direction = ([[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey] isEqualToString:@"N"]) ? @"Northbound" : @"Southbound";
 		
 		cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@ transit",sentinal,direction];
@@ -165,7 +153,7 @@
 	if([[self stopsArray] count] > 0)
 	{
 		Stop *stop = [self stopsArray][indexPath.row];
-		DRRunViewController *runController = [[DRRunViewController alloc] initWithStop:stop withTimeDirection:_timeDirection];
+		DRRunViewController *runController = [[DRRunViewController alloc] initWithStop:stop withTimeDirection:self.timeDirection];
 		[runController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:runController animated:YES];
 		
@@ -183,7 +171,7 @@
 	
 	NSPredicate *predicate = nil;
 	
-	if(_timeDirection == FORWARD)
+	if(self.timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes > %i AND station = %@ AND direction = %@ AND dayType = %@ AND terminalStation != %@",
 		 [self currentTimeInMinutes],[self station], direction, [self dayType], [self station]];
@@ -205,7 +193,7 @@
 	[request setEntity:entity];
 	
 	// Order the events by creation date, most recent first.
-	BOOL ascending = (_timeDirection == FORWARD);
+	BOOL ascending = (self.timeDirection == FORWARD);
 	NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"departureTimeInMinutes" ascending:ascending];
 	NSArray *sortDescriptors = @[sortDescriptor];
 	[request setSortDescriptors:sortDescriptors];
@@ -222,79 +210,20 @@
 	// Set self's events array to the mutable array, then clean up.
 	[self setStopsArray:mutableFetchResults];
 	
-	[_stopsTableView reloadData];
+	[self.stopsTableView reloadData];
 }
 
+#pragma mark DenverRideBaseViewController overrides
 
-#pragma mark MainSectionSelectorViewDelegate methods
-
-- (void)nortboundWasSelected
+- (void)directionSelected:(NSString *)direction
 {
-	NSString *direction = @"N";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
-	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
-	
-	[[_mapViewController view] removeFromSuperview];
-	[[_bcycleViewController view] removeFromSuperview];
-	
-    [_stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
+	[super directionSelected:direction];
+	[self.stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
-	[_stopsTableView reloadData];
+	[self.stopsTableView reloadData];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
-- (void)southboundWasSelected
-{
-	NSString *direction = @"S";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
-	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
-	
-	[[_mapViewController view] removeFromSuperview];
-	[[_bcycleViewController view] removeFromSuperview];
-	
-    [_stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
-	[self setTitle:[[self station] name]];
-	[self retrieveStopsInDirection:direction];
-	[_stopsTableView reloadData];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
-}
-
-- (void)mapWasSelected
-{
-	
-	if(nil == _mapViewController)
-	{
-		_mapViewController = [[DRRTDMapViewController alloc] initWithNibName:nil bundle:nil];
-	}
-	
-	[_stopsTableView setFrameHeight:[DenverRideConstants tallContainerHeight]];
-	[[_bcycleViewController view] removeFromSuperview];
-    [_mapViewController viewWillAppear:NO];
-	[_stopsTableView addSubview:[_mapViewController view]];
-    [_mapViewController viewDidAppear:NO];
-	[self setTitle:@"Route Map"]; 
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
-}
-
-- (void)bcycleWasSelected
-{
-	if(nil == _bcycleViewController)
-	{
-		_bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
-	}
-	else 
-	{
-		[_bcycleViewController updateAnnotations]; 
-	}
-	
-    [_stopsTableView setFrameHeight:[DenverRideConstants tallContainerHeight]];
-	[[_mapViewController view] removeFromSuperview];
-    [_bcycleViewController viewWillAppear:NO];
-	[_stopsTableView addSubview:[_bcycleViewController view]];
-    [_bcycleViewController viewDidAppear:NO];
-	[self setTitle:@"BCycle"];
-    [[self navigationController] setNavigationBarHidden:YES animated:NO];
-}
 
 @end

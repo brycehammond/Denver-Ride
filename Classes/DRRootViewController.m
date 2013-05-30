@@ -171,35 +171,7 @@
 	return _manualViewController;
 }
 
-#pragma mark MainSectionSelectorViewDelegate methods
-
-- (IBAction)northboundSelected:(UIButton *)sender
-{
-    [super northboundSelected:sender];
-    [self directionSelected:@"N"];
-    self.currentDirectionLabel.text = @"Northbound";
-}
-
-- (IBAction)southboundSelected:(UIButton *)sender
-{
-    [super southboundSelected:sender];
-    [self directionSelected:@"S"];
-    self.currentDirectionLabel.text = @"Southbound";
-}
-
-- (IBAction)westboundSelected:(UIButton *)sender
-{
-    [super westboundSelected:sender];
-    [self directionSelected:@"W"];
-    self.currentDirectionLabel.text = @"Westbound";
-}
-
-- (IBAction)eastboundSelected:(UIButton *)sender
-{
-    [super eastboundSelected:sender];
-    [self directionSelected:@"E"];
-    self.currentDirectionLabel.text = @"Eastbound";
-}
+#pragma mark DenverRideBaseViewController overrides
 
 - (void)directionSelected:(NSString *)direction
 {

@@ -28,36 +28,46 @@
 - (void)viewDidUnload {
     [self setCurrentDirectionHand:nil];
     [super viewDidUnload];
+    self.view.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
+    self.containerView.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
 }
 
 
 
 - (IBAction)northboundSelected:(UIButton *)sender
 {
+    self.currentDirectionLabel.text = @"Northbound";
     [UIView animateWithDuration:0.3 animations:^{
         self.currentDirectionHand.transform = CGAffineTransformIdentity;
     }];
+    [self directionSelected:@"N"];
 }
 
 - (IBAction)southboundSelected:(UIButton *)sender
 {
+    self.currentDirectionLabel.text = @"Southbound";
     [UIView animateWithDuration:0.3 animations:^{
         self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI);
     }];
+    [self directionSelected:@"S"];
 }
 
 - (IBAction)westboundSelected:(UIButton *)sender
 {
+    self.currentDirectionLabel.text = @"Westbound";
     [UIView animateWithDuration:0.3 animations:^{
         self.currentDirectionHand.transform = CGAffineTransformMakeRotation(-M_PI_2);
     }];
+    [self directionSelected:@"W"];
 }
 
 - (IBAction)eastboundSelected:(UIButton *)sender
 {
+    self.currentDirectionLabel.text = @"Eastbound";
     [UIView animateWithDuration:0.3 animations:^{
         self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI_2);
     }];
+    [self directionSelected:@"E"];
 }
 
 - (IBAction)mapSelected:(UIButton *)sender

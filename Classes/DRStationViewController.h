@@ -14,23 +14,7 @@
 
 @class Station;
 
-@interface DRStationViewController : DenverRideBaseViewController <UITableViewDelegate, UITableViewDataSource> {
-
-	NSMutableArray *_stopsArray;
-	NSManagedObjectContext *_managedObjectContext;
-	Station *_station;
-	
-	UITableView *_stopsTableView;
-	
-	NSInteger _currentTimeInMinutes;
-	
-	TimeDirection _timeDirection;
-	NSString *_dayType;
-	
-	DRRTDMapViewController *_mapViewController;
-	BCycleViewController *_bcycleViewController;
-	
-}
+@interface DRStationViewController : DenverRideBaseViewController <UITableViewDelegate, UITableViewDataSource> 
 
 @property (nonatomic, strong) NSMutableArray *stopsArray;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
