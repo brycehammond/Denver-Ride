@@ -126,9 +126,9 @@
 		stationFieldsByStationId[fields[0]] = fields;
     }
 	
-	NSMutableDictionary *stationsById = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary *stationsByName = [[NSMutableDictionary alloc] init];
 	NSMutableDictionary *stopsByTrip = [[NSMutableDictionary alloc] init];
-	NSMutableDictionary *directionsByStationId = [[NSMutableDictionary alloc] init];
+	NSMutableDictionary *directionsByStationName = [[NSMutableDictionary alloc] init];
 	
 	//now read in the stop times and create the stops and 
     NSString *allStopTimes = [[NSString alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"stop_times" ofType:@"txt"] encoding:NSUTF8StringEncoding error:&error];
@@ -174,7 +174,7 @@
 																	 withString:@""];
 			}
 			
-			Station *station = stationsById[stationId];
+			Station *station = stationsByName[stationName];
 			if(nil == station)
 			{
 				station = [NSEntityDescription insertNewObjectForEntityForName:@"Station"
@@ -185,15 +185,15 @@
 				[station setLongitude:[NSDecimalNumber decimalNumberWithString:stationFields[4]]];
 				[station setLatitude:[NSDecimalNumber decimalNumberWithString:stationFields[3]]];
 				
-				stationsById[stationId] = station;
+				stationsByName[stationName] = station;
 				
 			}
 			
-			NSMutableSet *stationDirections = directionsByStationId[stationId];
+			NSMutableSet *stationDirections = directionsByStationName[stationName];
 			if(nil == stationDirections)
 			{
 				stationDirections = [NSMutableSet set];
-				directionsByStationId[stationId] = stationDirections;
+				directionsByStationName[stationName] = stationDirections;
 			}
 			
 			[stationDirections addObject:directionByTrip[tripId]];
@@ -226,12 +226,12 @@
 	//go through and assign the direction to the station based to the 
 	//directions of the trips for each station
 	
-	for(NSString *stationId in [directionsByStationId allKeys])
+	for(NSString *stationName in [directionsByStationName allKeys])
 	{
-		Station *station = stationsById[stationId];
+		Station *station = stationsByName[stationName];
 		if(nil != station)
 		{
-			NSMutableSet *directions = directionsByStationId[stationId];
+			NSMutableSet *directions = directionsByStationName[stationName];
             
             if([directions containsObject:@"S"])
             {
