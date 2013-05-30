@@ -19,8 +19,7 @@
 @property (nonatomic, weak) UIViewController<DRChangeDirectionProtocol> *activeViewController;
 @property (nonatomic, strong) DRClosestSelectViewController *closestViewController;
 @property (nonatomic, strong) DRManualSelectViewController *manualViewController;
-@property (nonatomic, strong) DRRTDMapViewController *mapViewController;
-@property (nonatomic, strong) BCycleViewController *bcycleViewController;
+
 
 @end
 
@@ -176,38 +175,37 @@
 
 #pragma mark MainSectionSelectorViewDelegate methods
 
-- (IBAction)nortboundSelected:(UIButton *)sender
+- (IBAction)northboundSelected:(UIButton *)sender
 {
-    [self directionWasSelection:@"N"];
+    [super northboundSelected:sender];
+    [self directionSelected:@"N"];
     self.currentDirectionLabel.text = @"Northbound";
 }
 
 - (IBAction)southboundSelected:(UIButton *)sender
 {
-    [self directionWasSelection:@"S"];
+    [super southboundSelected:sender];
+    [self directionSelected:@"S"];
     self.currentDirectionLabel.text = @"Southbound";
 }
 
 - (IBAction)westboundSelected:(UIButton *)sender
 {
-    [self directionWasSelection:@"W"];
+    [super westboundSelected:sender];
+    [self directionSelected:@"W"];
     self.currentDirectionLabel.text = @"Westbound";
 }
 
 - (IBAction)eastboundSelected:(UIButton *)sender
 {
-    [self directionWasSelection:@"E"];
+    [super eastboundSelected:sender];
+    [self directionSelected:@"E"];
     self.currentDirectionLabel.text = @"Eastbound";
 }
 
-- (void)directionWasSelection:(NSString *)direction
+- (void)directionSelected:(NSString *)direction
 {
-    [[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
-	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
-	[[self.mapViewController view] removeFromSuperview];
-	[[self.bcycleViewController view] removeFromSuperview];
-    [[self navigationController] setNavigationBarHidden:NO animated:NO];
-	
+	[super directionSelected:direction];
 	if(self.activeViewController == _manualViewController)
 	{
 		[self setTitle:@"Manual Mode"];

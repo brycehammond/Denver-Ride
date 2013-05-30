@@ -89,7 +89,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nortboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="XqZ-vs-2E7"/>
+                                    <action selector="northboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="QWQ-Cr-cvg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i5N-hR-xRs">
@@ -150,6 +150,7 @@
                     <connections>
                         <outlet property="bcycleButton" destination="iYy-ev-Pdw" id="pSS-bg-rFQ"/>
                         <outlet property="containerView" destination="QEk-h5-Zbv" id="2f9-sN-ZGH"/>
+                        <outlet property="currentDirectionHand" destination="TDJ-Pl-g7H" id="pwP-bS-eeF"/>
                         <outlet property="currentDirectionLabel" destination="k69-cu-458" id="PwY-aP-BKf"/>
                         <outlet property="mapButton" destination="7oK-gy-VNE" id="UJe-Qm-4bY"/>
                         <outlet property="typeSwitchButton" destination="8b5-tQ-Ucl" id="VuW-El-zo5"/>
@@ -194,7 +195,7 @@
                 <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="nortboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="northboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
                 <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
@@ -207,11 +208,12 @@
                 <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="nortboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="northboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bcycleButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="currentDirectionHand" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="currentDirectionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
             </relationships>

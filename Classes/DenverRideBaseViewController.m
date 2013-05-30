@@ -7,9 +7,10 @@
 //
 
 #import "DenverRideBaseViewController.h"
-
+#import "Flurry.h"
 
 @implementation DenverRideBaseViewController
+@synthesize currentDirectionHand;
 
 
 - (void)viewDidLoad
@@ -25,29 +26,38 @@
 }
 
 - (void)viewDidUnload {
+    [self setCurrentDirectionHand:nil];
     [super viewDidUnload];
 }
 
 
 
-- (IBAction)nortboundSelected:(UIButton *)sender
+- (IBAction)northboundSelected:(UIButton *)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@"N" forKey:kCurrentDirectionKey];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.currentDirectionHand.transform = CGAffineTransformIdentity;
+    }];
 }
 
 - (IBAction)southboundSelected:(UIButton *)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@"S" forKey:kCurrentDirectionKey];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI);
+    }];
 }
 
 - (IBAction)westboundSelected:(UIButton *)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@"W" forKey:kCurrentDirectionKey];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(-M_PI_2);
+    }];
 }
 
 - (IBAction)eastboundSelected:(UIButton *)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@"E" forKey:kCurrentDirectionKey];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.currentDirectionHand.transform = CGAffineTransformMakeRotation(M_PI_2);
+    }];
 }
 
 - (IBAction)mapSelected:(UIButton *)sender
@@ -58,6 +68,15 @@
 - (IBAction)bcycleSelected:(UIButton *)sender
 {
     
+}
+
+- (void)directionSelected:(NSString *)direction
+{
+    [[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
+	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
+    [self.mapViewController.view removeFromSuperview];
+	[self.bcycleViewController.view removeFromSuperview];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
 @end

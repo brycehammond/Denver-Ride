@@ -35,8 +35,7 @@
 	
 	self.detailTextLabel.text = [NSString stringWithFormat:@"%@ Line (%@)",[[stop line] name],
 								 [station name]];
-	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
-	self.detailTextLabel.textColor = [appDelegate linesToColors][[[stop line] name]];
+	self.detailTextLabel.textColor = [UIColor colorWithHexString:stop.line.color];
 	
 	
 }
