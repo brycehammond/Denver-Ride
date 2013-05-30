@@ -9,11 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "DRRTDMapViewController.h"
 
-typedef enum {
-	FORWARD = 0,
-	BACKWARD = 1
-} TimeDirection;
-
 @class Stop;
 
 @interface DRRunViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
@@ -26,7 +21,7 @@ typedef enum {
 	IBOutlet UILabel *_middleLine;
 	IBOutlet UILabel *_bottomLine;
 	
-	TimeDirection _timeDirection;
+	DRTimeDirection _timeDirection;
 	
 	DRRTDMapViewController *_mapController;
 }
@@ -37,6 +32,6 @@ typedef enum {
 
 
 -(id)initWithStop:(Stop *)stop;
--(id)initWithStop:(Stop *)stop withTimeDirection:(TimeDirection)timeDirection;
+-(id)initWithStop:(Stop *)stop withTimeDirection:(DRTimeDirection)timeDirection;
 
 @end

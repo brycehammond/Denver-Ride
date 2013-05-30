@@ -82,4 +82,35 @@ location = _location;
     return directionPredicate;
 }
 
+- (NSString *)noStopTextForDirection:(NSString *)direction
+{
+    return [self noStopTextForDirection:direction withTimeDirection:FORWARD];
+}
+
+- (NSString *)noStopTextForDirection:(NSString *)direction withTimeDirection:(DRTimeDirection)timeDirection
+{
+    NSString *noStopText = @"";
+    NSString *sentinal = (timeDirection == BACKWARD) ? @"Start" : @"End";
+    
+    
+    if([direction isEqualToString:@"N"])
+    {
+        noStopText = (self.hasNorthbound) ? [NSString stringWithFormat:@"%@ of line for Northbound transit",sentinal] : @"No Northbound transit";
+    }
+    else if([direction isEqualToString:@"S"])
+    {
+        noStopText = (self.hasSouthbound) ? [NSString stringWithFormat:@"%@ of line for Southbound transit",sentinal] : @"No Southbound transit";
+    }
+    else if([direction isEqualToString:@"W"])
+    {
+        noStopText = (self.hasWestbound) ? [NSString stringWithFormat:@"%@ of line for Westbound transit",sentinal] : @"No Westbound transit";
+    }
+    else if([direction isEqualToString:@"E"])
+    {
+        noStopText = (self.hasEastbound) ? [NSString stringWithFormat:@"%@ of line for Eastbound transit",sentinal] : @"No Eastbound transit";
+    }
+    
+    return noStopText;
+}
+
 @end

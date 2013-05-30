@@ -18,6 +18,11 @@
 #define kNavBarColor @"70A96A"
 #define kCurrentDirectionKey @"CurrentDirection"
 
+typedef enum {
+	FORWARD = 0,
+	BACKWARD = 1
+} DRTimeDirection;
+
 @interface DenverRideConstants : NSObject
 
 + (NSInteger)shortContainerHeight;

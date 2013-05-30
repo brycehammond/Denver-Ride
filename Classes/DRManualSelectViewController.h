@@ -29,7 +29,7 @@ StationChangeViewControllerDelegate> {
 	DRDayTypeChangeViewController *_dayTypeChangeController;
 	DRStationChangeViewController *_stationChangeController;
 	
-	TimeDirection _timeDirection;
+	DRTimeDirection _timeDirection;
 	
 	
 }

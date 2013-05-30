@@ -29,6 +29,9 @@
 + (NSPredicate *)filterPredicateForCurrentDirection;
 + (NSPredicate *)filterPredicateForDirection:(NSString *)direction;
 
+- (NSString *)noStopTextForDirection:(NSString *)direction;
+- (NSString *)noStopTextForDirection:(NSString *)direction withTimeDirection:(DRTimeDirection)timeDirection;
+
 @end
 
 @interface Station (CoreDataGeneratedAccessors)

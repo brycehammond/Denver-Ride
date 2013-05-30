@@ -131,6 +131,8 @@
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
     [self.mapViewController.view removeFromSuperview];
 	[self.bcycleViewController.view removeFromSuperview];
+    self.mapButton.enabled = YES;
+    self.bcycleButton.enabled = YES;
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 

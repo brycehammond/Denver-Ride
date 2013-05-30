@@ -22,7 +22,7 @@
 	return [self initWithStop:stop withTimeDirection:FORWARD];
 }
 
--(id)initWithStop:(Stop *)stop withTimeDirection:(TimeDirection)timeDirection
+-(id)initWithStop:(Stop *)stop withTimeDirection:(DRTimeDirection)timeDirection
 {
 	if(self = [self initWithNibName:@"DRRunViewController" bundle:nil])
 	{
