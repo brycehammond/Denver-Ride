@@ -9,11 +9,12 @@
 #import "DRRootViewController.h"
 #import "DRClosestSelectViewController.h"
 #import "DRManualSelectViewController.h"
+#import "RTDAppDelegate.h"
+#import "Station+Convenience.h"
 #import "Flurry.h"
 
 @interface DRRootViewController ()
 
-@property (nonatomic, strong) UIView *containerView;
 @property (nonatomic, strong) IBOutlet UIBarButtonItem *typeSwitchButton;
 @property (nonatomic, weak) UIViewController<DRChangeDirectionProtocol> *activeViewController;
 @property (nonatomic, strong) DRClosestSelectViewController *closestViewController;
@@ -37,6 +38,9 @@
 	
     [self.containerView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
     
+    RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    self.managedObjectContext = appDelegate.managedObjectContext;
+    
 	[[[self navigationController] navigationBar] setTintColor:
 	 [UIColor colorWithHexString:kNavBarColor]];
 	
@@ -45,14 +49,7 @@
 
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	/*if([direction isEqualToString:@"N"])
-	{
-		[_sectionSelectorView setToNorthbound];
-	}
-	else
-	{
-		[_sectionSelectorView setToSouthbound];
-	}*/
+    //@TODO: set hand direction properly
 	
 	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
 	if(! lastTypeUsed)
@@ -84,6 +81,10 @@
 	}
     
     self.typeSwitchButton.title = buttonTitle;
+    
+    self.activeViewController.view.frame = self.containerView.bounds;
+    [self addChildViewController:self.activeViewController];
+    [self.containerView addSubview:self.activeViewController.view];
 }
 
 -(void)updateFinished
@@ -175,63 +176,67 @@
 
 #pragma mark MainSectionSelectorViewDelegate methods
 
-- (void)nortboundWasSelected
+- (IBAction)nortboundSelected:(UIButton *)sender
 {
-	NSString *direction = @"N";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
+    [self directionWasSelection:@"N"];
+    self.currentDirectionLabel.text = @"Northbound";
+}
+
+- (IBAction)southboundSelected:(UIButton *)sender
+{
+    [self directionWasSelection:@"S"];
+    self.currentDirectionLabel.text = @"Southbound";
+}
+
+- (IBAction)westboundSelected:(UIButton *)sender
+{
+    [self directionWasSelection:@"W"];
+    self.currentDirectionLabel.text = @"Westbound";
+}
+
+- (IBAction)eastboundSelected:(UIButton *)sender
+{
+    [self directionWasSelection:@"E"];
+    self.currentDirectionLabel.text = @"Eastbound";
+}
+
+- (void)directionWasSelection:(NSString *)direction
+{
+    [[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
 	[[self.mapViewController view] removeFromSuperview];
 	[[self.bcycleViewController view] removeFromSuperview];
+    [[self navigationController] setNavigationBarHidden:NO animated:NO];
 	
 	if(self.activeViewController == _manualViewController)
 	{
 		[self setTitle:@"Manual Mode"];
 	}
-	else 
+	else
 	{
 		[self setTitle:@"Closest Stations"];
 	}
 	[self.activeViewController changeDirectionTo:direction];
 }
 
-- (void)southboundWasSelected
+- (IBAction)mapSelected:(UIButton *)sender
 {
-	NSString *direction = @"S";
-	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
-	[Flurry logEvent:@"Switch Direction" withParameters:@{@"Direction": direction}];
-	[[_mapViewController view] removeFromSuperview];
-	[[_bcycleViewController view] removeFromSuperview];
-	
-	if(self.activeViewController == _manualViewController)
-	{
-		[self setTitle:@"Manual Mode"];
-	}
-	else 
-	{
-		[self setTitle:@"Closest Stations"];
-	}
-	[self.activeViewController changeDirectionTo:direction];
-}
-
-- (void)mapWasSelected
-{
-	
-	if(nil == _mapViewController)
+    if(nil == _mapViewController)
 	{
 		_mapViewController = [[DRRTDMapViewController alloc] initWithNibName:nil bundle:nil];
 	}
 
-	
+	self.mapButton.enabled = NO;
+    self.bcycleButton.enabled = YES;
     [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_bcycleViewController view] removeFromSuperview];
-    [_mapViewController viewWillAppear:NO];
+    [self addChildViewController:_mapViewController];
 	[self.containerView addSubview:[_mapViewController view]];
-    [_mapViewController viewDidAppear:NO];
 	[self setTitle:@"Route Map"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }
 
-- (void)bcycleWasSelected
+- (IBAction)bcycleSelected:(UIButton *)sender
 {
 	if(nil == _bcycleViewController)
 	{
@@ -242,11 +247,12 @@
 		[_bcycleViewController updateAnnotations]; 
 	}
 	
+    self.mapButton.enabled = YES;
+    self.bcycleButton.enabled = NO;
     [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[_mapViewController view] removeFromSuperview];
-    [_bcycleViewController viewWillAppear:NO];
+    [self addChildViewController:_bcycleViewController];
 	[self.containerView addSubview:[_bcycleViewController view]];
-    [_bcycleViewController viewDidAppear:NO];
 	[self setTitle:@"BCycle"];
 	[[self navigationController] setNavigationBarHidden:YES animated:NO];
 }

@@ -32,22 +32,22 @@
 
 - (IBAction)nortboundSelected:(UIButton *)sender
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"N" forKey:kCurrentDirectionKey];
 }
 
 - (IBAction)southboundSelected:(UIButton *)sender
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"S" forKey:kCurrentDirectionKey];
 }
 
 - (IBAction)westboundSelected:(UIButton *)sender
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"W" forKey:kCurrentDirectionKey];
 }
 
 - (IBAction)eastboundSelected:(UIButton *)sender
 {
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@"E" forKey:kCurrentDirectionKey];
 }
 
 - (IBAction)mapSelected:(UIButton *)sender

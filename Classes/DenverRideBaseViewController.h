@@ -13,7 +13,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *mapButton;
 @property (nonatomic, weak) IBOutlet UIButton *bcycleButton;
 @property (nonatomic, weak) IBOutlet UILabel *currentDirectionLabel;
-
+@property (nonatomic, strong) IBOutlet UIView *containerView;
 
 - (IBAction)nortboundSelected:(UIButton *)sender;
 - (IBAction)southboundSelected:(UIButton *)sender;

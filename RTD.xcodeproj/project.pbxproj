@@ -57,11 +57,11 @@
 		14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701B612356E2F007B9C90 /* Default@2x.png */; };
 		14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */; };
 		14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */ = {isa = PBXBuildFile; fileRef = 14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */; };
-		14B701F712356EAA007B9C90 /* DRDayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EC12356EAA007B9C90 /* DRDayTypeChangeViewController.xib */; };
-		14B701FC12356EAA007B9C90 /* DRRunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* DRRunViewController.xib */; };
-		14B701FD12356EAA007B9C90 /* DRStationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* DRStationChangeViewController.xib */; };
-		14B701FE12356EAA007B9C90 /* DRStationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* DRStationListViewController.xib */; };
-		14B7020012356EAA007B9C90 /* DRTimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* DRTimeChangeViewController.xib */; };
+		14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */; };
+		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
+		14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* StationChangeViewController.xib */; };
+		14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* StationListViewController.xib */; };
+		14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
 		14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7029C1235CBB1007B9C90 /* UIView+Categories.m */; };
 		14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */; };
@@ -155,11 +155,11 @@
 		14B701B612356E2F007B9C90 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Artwork/Default@2x.png"; sourceTree = "<group>"; };
 		14B701C912356E2F007B9C90 /* RTDIcon_57x57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_57x57.png; path = Artwork/RTDIcon_57x57.png; sourceTree = "<group>"; };
 		14B701CA12356E2F007B9C90 /* RTDIcon_114x114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RTDIcon_114x114.png; path = Artwork/RTDIcon_114x114.png; sourceTree = "<group>"; };
-		14B701EC12356EAA007B9C90 /* DRDayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRDayTypeChangeViewController.xib; path = NIBs/DRDayTypeChangeViewController.xib; sourceTree = "<group>"; };
-		14B701F112356EAA007B9C90 /* DRRunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRRunViewController.xib; path = NIBs/DRRunViewController.xib; sourceTree = "<group>"; };
-		14B701F212356EAA007B9C90 /* DRStationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRStationChangeViewController.xib; path = NIBs/DRStationChangeViewController.xib; sourceTree = "<group>"; };
-		14B701F312356EAA007B9C90 /* DRStationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRStationListViewController.xib; path = NIBs/DRStationListViewController.xib; sourceTree = "<group>"; };
-		14B701F512356EAA007B9C90 /* DRTimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DRTimeChangeViewController.xib; path = NIBs/DRTimeChangeViewController.xib; sourceTree = "<group>"; };
+		14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = NIBs/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
+		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
+		14B701F212356EAA007B9C90 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = NIBs/StationChangeViewController.xib; sourceTree = "<group>"; };
+		14B701F312356EAA007B9C90 /* StationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationListViewController.xib; path = NIBs/StationListViewController.xib; sourceTree = "<group>"; };
+		14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = NIBs/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideBaseViewController.h; sourceTree = "<group>"; };
 		14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideBaseViewController.m; sourceTree = "<group>"; };
 		14B7029B1235CBB1007B9C90 /* UIView+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Categories.h"; sourceTree = "<group>"; };
@@ -277,11 +277,11 @@
 		14B7016812355C5E007B9C90 /* NIBs */ = {
 			isa = PBXGroup;
 			children = (
-				14B701EC12356EAA007B9C90 /* DRDayTypeChangeViewController.xib */,
-				14B701F112356EAA007B9C90 /* DRRunViewController.xib */,
-				14B701F212356EAA007B9C90 /* DRStationChangeViewController.xib */,
-				14B701F312356EAA007B9C90 /* DRStationListViewController.xib */,
-				14B701F512356EAA007B9C90 /* DRTimeChangeViewController.xib */,
+				14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */,
+				14B701F112356EAA007B9C90 /* RunViewController.xib */,
+				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
+				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
+				14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */,
 			);
 			name = NIBs;
 			sourceTree = "<group>";
@@ -519,11 +519,11 @@
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
 				14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */,
 				14B701E012356E2F007B9C90 /* RTDIcon_114x114.png in Resources */,
-				14B701F712356EAA007B9C90 /* DRDayTypeChangeViewController.xib in Resources */,
-				14B701FC12356EAA007B9C90 /* DRRunViewController.xib in Resources */,
-				14B701FD12356EAA007B9C90 /* DRStationChangeViewController.xib in Resources */,
-				14B701FE12356EAA007B9C90 /* DRStationListViewController.xib in Resources */,
-				14B7020012356EAA007B9C90 /* DRTimeChangeViewController.xib in Resources */,
+				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
+				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
+				14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */,
+				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
+				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				02AE137F130B9C3700816476 /* light-rail-map.pdf in Resources */,
 				02055553163A54DB00EEB0EB /* Default-568h@2x.png in Resources */,

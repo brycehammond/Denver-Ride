@@ -48,15 +48,8 @@
 	[_stopsTableView setBackgroundColor:[UIColor clearColor]];
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-	/*if([direction isEqualToString:@"N"])
-	{
-		[_sectionSelectorView setToNorthbound];
-	}
-	else
-	{
-		[_sectionSelectorView setToSouthbound];
-	}
-	*/
+	//@TODO: set hand direction properly
+    
 	[Flurry logEvent:@"Station View" withParameters:@{@"Station": [_station name]}];
 	[self retrieveStopsInDirection:direction];
 }

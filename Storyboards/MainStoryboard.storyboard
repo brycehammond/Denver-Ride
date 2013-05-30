@@ -13,7 +13,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" id="QEk-h5-Zbv">
-                                <rect key="frame" x="0.0" y="7" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="448"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </view>
@@ -41,7 +41,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
+                                <state key="disabled" backgroundImage="bcycle-active.png"/>
+                                <state key="highlighted" backgroundImage="bcycle-active.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -57,7 +58,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="highlighted">
+                                <state key="disabled" backgroundImage="route-map-active.png"/>
+                                <state key="highlighted" backgroundImage="route-map-active.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -77,7 +79,7 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mc7-dr-7Pg">
                                 <rect key="frame" x="20" y="424" width="36" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -92,7 +94,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i5N-hR-xRs">
                                 <rect key="frame" x="0.0" y="458" width="35" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -107,7 +109,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zpg-Pt-4Ox">
                                 <rect key="frame" x="51" y="458" width="41" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,7 +124,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wU2-Ff-Utv">
                                 <rect key="frame" x="20" y="480" width="36" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -147,6 +149,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="bcycleButton" destination="iYy-ev-Pdw" id="pSS-bg-rFQ"/>
+                        <outlet property="containerView" destination="QEk-h5-Zbv" id="2f9-sN-ZGH"/>
                         <outlet property="currentDirectionLabel" destination="k69-cu-458" id="PwY-aP-BKf"/>
                         <outlet property="mapButton" destination="7oK-gy-VNE" id="UJe-Qm-4bY"/>
                         <outlet property="typeSwitchButton" destination="8b5-tQ-Ucl" id="VuW-El-zo5"/>
@@ -176,17 +179,25 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bcycle-active.png" width="70" height="61"/>
         <image name="bcycle.png" width="70" height="61"/>
         <image name="directions.png" width="87" height="80"/>
         <image name="line-direction.png" width="93" height="61"/>
         <image name="pointer.png" width="22" height="32"/>
+        <image name="route-map-active.png" width="70" height="61"/>
         <image name="route-map.png" width="70" height="61"/>
     </resources>
     <classes>
         <class className="DRRootViewController" superclassName="DenverRideBaseViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DRRootViewController.h"/>
             <relationships>
+                <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="nortboundSelected:" candidateClass="UIButton"/>
+                <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="topRightButtonClicked:" candidateClass="UIBarButtonItem"/>
+                <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="typeSwitchButton" candidateClass="UIBarButtonItem"/>
             </relationships>
         </class>
@@ -200,6 +211,7 @@
                 <relationship kind="action" name="southboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="westboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="bcycleButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="containerView" candidateClass="UIView"/>
                 <relationship kind="outlet" name="currentDirectionLabel" candidateClass="UILabel"/>
                 <relationship kind="outlet" name="mapButton" candidateClass="UIButton"/>
             </relationships>
