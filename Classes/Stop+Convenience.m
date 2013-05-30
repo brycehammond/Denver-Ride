@@ -12,11 +12,11 @@
 
 - (NSComparisonResult)sortBySequence:(Stop *)otherStop
 {
-	if(self.stopSequence == otherStop.stopSequence)
+	if(self.stopSequence.intValue == otherStop.stopSequence.intValue)
     {
         return NSOrderedSame;
     }
-    else if(self.stopSequence < otherStop.stopSequence)
+    else if(self.stopSequence.intValue < otherStop.stopSequence.intValue)
     {
         return NSOrderedAscending;
     }
