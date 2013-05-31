@@ -69,7 +69,7 @@
 
 	}
 	
-	[delegate stationWasSelected:[station name]];
+	[delegate stationWasSelected:station];
 	
 	[self addStationToRecentlyUsed:station];
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];

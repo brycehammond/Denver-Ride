@@ -28,6 +28,7 @@
 
 + (NSPredicate *)filterPredicateForCurrentDirection;
 + (NSPredicate *)filterPredicateForDirection:(NSString *)direction;
++ (Station *)stationWithName:(NSString *)name;
 
 - (NSString *)noStopTextForDirection:(NSString *)direction;
 - (NSString *)noStopTextForDirection:(NSString *)direction withTimeDirection:(DRTimeDirection)timeDirection;

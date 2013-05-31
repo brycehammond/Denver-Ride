@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "DRStationListViewController.h"
+#import "Station+Convenience.h"
 
 @protocol StationChangeViewControllerDelegate
 
--(void)stationWasSelected:(NSString *)station;
+-(void)stationWasSelected:(Station *)station;
 -(void)viewWasCancelled;
 
 @end

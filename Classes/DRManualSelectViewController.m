@@ -11,9 +11,9 @@
 #import "RTDAppDelegate.h"
 #import "StationStopTableViewCell.h"
 
-@interface DRManualSelectViewController (Private)
-- (NSString *)formattedTimeInMinutes;
-- (NSArray *)nextStopsInDirection:(NSString *)direction forTimeInMinutes:(NSInteger)timeInMinutes;
+@interface DRManualSelectViewController ()
+
+@property (strong, nonatomic) Station *station;
 
 @end
 
@@ -58,6 +58,8 @@
 	{
 		[[NSUserDefaults standardUserDefaults] setObject:@"Union Station" forKey:@"ManualStation"];
 	}
+    
+    self.station = [Station stationWithName:[[NSUserDefaults standardUserDefaults] objectForKey:@"ManualStation"]];
 	
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSString *dayType = [[NSDate date] dayType];
@@ -190,11 +192,10 @@
 			if (cell == nil) {
 				cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
 			}
-			
-			NSString *sentinal = (_timeDirection == BACKWARD) ? @"Start" : @"End";
-			NSString *direction =  [RTDAppDelegate fullDirectionForDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
-			
-			cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@bound transit",sentinal,direction];
+            
+			NSString *direction =  [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+
+			cell.textLabel.text = [self.station noStopTextForDirection:direction withTimeDirection:_timeDirection];
 			cell.textLabel.adjustsFontSizeToFitWidth = YES;
 			[cell setAccessoryType:UITableViewCellAccessoryNone];
 			[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -220,18 +221,11 @@
 				[cell setEndOfLineStation:[stop startStation] withStartStop:stop];
 			}
 
-			
-			
 			return cell;
 		}
-
-		
-		
 	}
 	
 	return nil;
-	
-    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -389,18 +383,18 @@
     if(_timeDirection == FORWARD)
 	{
 		predicate = [NSPredicate predicateWithFormat:
-					 @"departureTimeInMinutes >= %i AND station.name = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
+					 @"departureTimeInMinutes >= %i AND station = %@ AND direction = %@ AND terminalStation.name != station.name AND dayType = %@",
 					 timeInMinutes,
-					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 self.station,
 					 direction,
 					 [self currentDayType]];
         
 	}
 	else {
 		predicate = [NSPredicate predicateWithFormat:
-					 @"departureTimeInMinutes <= %i AND station.name = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
+					 @"departureTimeInMinutes <= %i AND station = %@ AND direction = %@ AND startStation.name != station.name AND dayType = %@",
 					 timeInMinutes,
-					 [[NSUserDefaults standardUserDefaults] stringForKey:@"ManualStation"],
+					 self.station,
 					 direction,
 					 [self currentDayType]];
 	}
@@ -472,9 +466,10 @@
 #pragma mark -
 #pragma mark StationChangeViewControllerDelegate
 
--(void)stationWasSelected:(NSString *)station
+-(void)stationWasSelected:(Station *)station
 {
-	[[NSUserDefaults standardUserDefaults] setObject:station forKey:@"ManualStation"];
+    self.station = station;
+	[[NSUserDefaults standardUserDefaults] setObject:station.name forKey:@"ManualStation"];
 	[[self navigationController] dismissModalViewControllerAnimated:YES];
 	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }

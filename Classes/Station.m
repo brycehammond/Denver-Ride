@@ -9,7 +9,7 @@
 #import "Station.h"
 #import "Line.h"
 #import "Stop.h"
-
+#import "RTDAppDelegate.h"
 
 @implementation Station
 
@@ -82,6 +82,25 @@ location = _location;
     return directionPredicate;
 }
 
++ (Station *)stationWithName:(NSString *)name
+{
+    RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+	NSEntityDescription *entity = [NSEntityDescription entityForName:@"Station" inManagedObjectContext:[appDelegate managedObjectContext]];
+	request.entity = entity;
+
+    request.predicate = [NSPredicate predicateWithFormat:@"name = %@",name];
+	
+	NSError *error = nil;
+	NSArray *stations = [[appDelegate managedObjectContext] executeFetchRequest:request error:&error];
+	if(stations.count > 0)
+    {
+        return stations[0];
+    }
+    
+    return nil;
+}
+
 - (NSString *)noStopTextForDirection:(NSString *)direction
 {
     return [self noStopTextForDirection:direction withTimeDirection:FORWARD];
@@ -95,19 +114,19 @@ location = _location;
     
     if([direction isEqualToString:@"N"])
     {
-        noStopText = (self.hasNorthbound) ? [NSString stringWithFormat:@"%@ of line for Northbound transit",sentinal] : @"No Northbound transit";
+        noStopText = (self.hasNorthbound.boolValue == YES) ? [NSString stringWithFormat:@"%@ of line for Northbound transit",sentinal] : @"No Northbound transit";
     }
     else if([direction isEqualToString:@"S"])
     {
-        noStopText = (self.hasSouthbound) ? [NSString stringWithFormat:@"%@ of line for Southbound transit",sentinal] : @"No Southbound transit";
+        noStopText = (self.hasSouthbound.boolValue == YES) ? [NSString stringWithFormat:@"%@ of line for Southbound transit",sentinal] : @"No Southbound transit";
     }
     else if([direction isEqualToString:@"W"])
     {
-        noStopText = (self.hasWestbound) ? [NSString stringWithFormat:@"%@ of line for Westbound transit",sentinal] : @"No Westbound transit";
+        noStopText = (self.hasWestbound.boolValue == YES) ? [NSString stringWithFormat:@"%@ of line for Westbound transit",sentinal] : @"No Westbound transit";
     }
     else if([direction isEqualToString:@"E"])
     {
-        noStopText = (self.hasEastbound) ? [NSString stringWithFormat:@"%@ of line for Eastbound transit",sentinal] : @"No Eastbound transit";
+        noStopText = (self.hasEastbound.boolValue == YES) ? [NSString stringWithFormat:@"%@ of line for Eastbound transit",sentinal] : @"No Eastbound transit";
     }
     
     return noStopText;

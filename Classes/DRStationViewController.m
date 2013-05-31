@@ -112,11 +112,9 @@
 			cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
 		}
 		
+		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
 		
-		NSString *sentinal = (self.timeDirection == BACKWARD) ? @"Start" : @"End";
-		NSString *direction = [RTDAppDelegate fullDirectionForDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
-		
-		cell.textLabel.text = [NSString stringWithFormat:@"%@ of line for %@bound transit",sentinal,direction];
+		cell.textLabel.text = [self.station noStopTextForDirection:direction withTimeDirection:self.timeDirection];
 		
 		cell.textLabel.adjustsFontSizeToFitWidth = YES;
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
