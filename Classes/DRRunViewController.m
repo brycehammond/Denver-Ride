@@ -24,7 +24,7 @@
 
 -(id)initWithStop:(Stop *)stop withTimeDirection:(DRTimeDirection)timeDirection
 {
-	if(self = [self initWithNibName:@"DRRunViewController" bundle:nil])
+	if(self = [self initWithNibName:@"RunViewController" bundle:nil])
 	{
 		[self setStop:stop];
 		_timeDirection = timeDirection;
@@ -64,7 +64,7 @@
 			[[stop departureTimeInMinutes] intValue],[stop run],lineName,[[self stop] dayType], stop.direction];
 	}
 	else {
-		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %iAND run == %@ AND line.name == %@ AND dayType = %@ AND direction == %@",
+		predicate = [NSPredicate predicateWithFormat:@"departureTimeInMinutes < %i AND run == %@ AND line.name == %@ AND dayType = %@ AND direction == %@",
 					 [[stop departureTimeInMinutes] intValue],[stop run],lineName,[[self stop] dayType], stop.direction];
 		
 	}

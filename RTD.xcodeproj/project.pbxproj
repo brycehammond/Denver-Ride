@@ -77,7 +77,6 @@
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* DRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DRRootViewController.m */; };
-		3FEF7E0BA66D468581EE7FC9 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,7 +209,6 @@
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
 				0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */,
-				3FEF7E0BA66D468581EE7FC9 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,11 +462,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Denver Ride" */;
 			buildPhases = (
-				E71E52FD3DDA4D34ADEC8346 /* Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
-				273C4AC7C416478FAF4AE362 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -548,37 +544,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		273C4AC7C416478FAF4AE362 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-		};
-		E71E52FD3DDA4D34ADEC8346 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -643,7 +608,6 @@
 		};
 		1450A4B4103CB4BC0069B04C /* Distribution */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -672,13 +636,12 @@
 		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (378ZUYCRYV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (378ZUYCRYV)";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -694,21 +657,20 @@
 				OTHER_CFLAGS = "-DDEBUG";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "32F29573-80F7-4B00-8541-33D92D39F59C";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "32F29573-80F7-4B00-8541-33D92D39F59C";
+				PROVISIONING_PROFILE = "4E4ABEA1-D110-494E-99A8-1878AD72D0E4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4E4ABEA1-D110-494E-99A8-1878AD72D0E4";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "Denver Ride.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (288P9Q3CLH)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Bryce Hammond (378ZUYCRYV)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Bryce Hammond (378ZUYCRYV)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
@@ -722,8 +684,8 @@
 				OTHER_CFLAGS = "";
 				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "6EF3C598-375A-44A7-B8C1-9D8973CF344B";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "6EF3C598-375A-44A7-B8C1-9D8973CF344B";
+				PROVISIONING_PROFILE = "4E4ABEA1-D110-494E-99A8-1878AD72D0E4";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "4E4ABEA1-D110-494E-99A8-1878AD72D0E4";
 				SDKROOT = iphoneos;
 			};
 			name = Release;

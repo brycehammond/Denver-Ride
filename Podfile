@@ -1,1 +1,1 @@
-platform :ios, '5.0'
+platform :ios, '6.1'
