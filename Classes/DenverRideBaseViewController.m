@@ -135,7 +135,7 @@
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
 }
 
-- (IBAction)directionButtonSelected:(id)sender
+- (IBAction)moveToNextDirection:(id)sender
 {
     NSString *currentDirection  = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
     if(self.mapButton.enabled && self.bcycleButton.enabled)
@@ -146,15 +146,6 @@
     
     [self updateViewForDirection:currentDirection];
     [self directionSelected:currentDirection];
-}
-
-- (IBAction)moveToNextDirection:(id)sender
-{
-    
-    NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-    NSString *newDirection = [self nextDirectionForDirection:currentDirection];
-    [self updateViewForDirection:newDirection];
-    [self directionSelected:newDirection];
 }
 
 - (NSString *)nextDirectionForDirection:(NSString *)direction

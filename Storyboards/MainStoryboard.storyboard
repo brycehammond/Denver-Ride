@@ -127,7 +127,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="directionButtonSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="ZAT-Fv-aUa"/>
+                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="inW-3e-b1w"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9wd-AY-4mF">
@@ -142,7 +142,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="Y3x-mu-ePy"/>
+                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="deE-ZE-YNI"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gbc-04-G7p">
@@ -335,8 +335,8 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="moveToNextDirection:" destination="XCh-5K-ARK" eventType="touchUpInside" id="1Nj-oC-Z23"/>
                                     <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="aHF-Zh-CmJ"/>
-                                    <action selector="moveToNextDirection:" destination="XCh-5K-ARK" eventType="touchUpInside" id="rOR-vA-kSr"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Oq-QM-AuY">
@@ -351,8 +351,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="directionButtonSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="Gx7-fp-EIB"/>
-                                    <action selector="directionButtonSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="g6h-ZO-Tjf"/>
+                                    <action selector="moveToNextDirection:" destination="XCh-5K-ARK" eventType="touchUpInside" id="qfg-hu-Wwr"/>
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="LINE:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lHt-XF-Rem">
@@ -416,7 +415,6 @@
             <source key="sourceIdentifier" type="project" relativePath="./Classes/DenverRideBaseViewController.h"/>
             <relationships>
                 <relationship kind="action" name="bcycleSelected:" candidateClass="UIButton"/>
-                <relationship kind="action" name="directionButtonSelected:"/>
                 <relationship kind="action" name="eastboundSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="mapSelected:" candidateClass="UIButton"/>
                 <relationship kind="action" name="moveToNextDirection:"/>
