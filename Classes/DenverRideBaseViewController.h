@@ -15,10 +15,12 @@
 @property (nonatomic, weak) IBOutlet UIButton *mapButton;
 @property (nonatomic, weak) IBOutlet UIButton *bcycleButton;
 @property (nonatomic, weak) IBOutlet UILabel *currentDirectionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *currentDirectionButton;
 @property (nonatomic, strong) IBOutlet UIView *containerView;
+@property (weak, nonatomic) IBOutlet UIButton *currentDirectionHand;
+
 @property (nonatomic, strong) DRRTDMapViewController *mapViewController;
 @property (nonatomic, strong) BCycleViewController *bcycleViewController;
-@property (weak, nonatomic) IBOutlet UIImageView *currentDirectionHand;
 
 - (IBAction)northboundSelected:(UIButton *)sender;
 - (IBAction)southboundSelected:(UIButton *)sender;

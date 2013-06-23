@@ -10,8 +10,6 @@
 #import "Flurry.h"
 
 @implementation DenverRideBaseViewController
-@synthesize currentDirectionHand;
-
 
 - (void)viewDidLoad
 {
@@ -28,6 +26,7 @@
 
 - (void)viewDidUnload {
     [self setCurrentDirectionHand:nil];
+    [self setCurrentDirectionButton:nil];
     [super viewDidUnload];
     self.view.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
     self.containerView.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
@@ -134,6 +133,38 @@
     self.mapButton.enabled = YES;
     self.bcycleButton.enabled = YES;
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
+}
+
+- (IBAction)directionButtonSelected:(id)sender
+{
+    NSString *currentDirection  = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+    if(self.mapButton.enabled && self.bcycleButton.enabled)
+    {
+        //we are in direction mode so just update the direction to the next one
+        currentDirection = [self nextDirectionForDirection:currentDirection];
+    }
+    
+    [self updateViewForDirection:currentDirection];
+    [self directionSelected:currentDirection];
+}
+
+- (IBAction)moveToNextDirection:(id)sender
+{
+    
+    NSString *currentDirection = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
+    NSString *newDirection = [self nextDirectionForDirection:currentDirection];
+    [self updateViewForDirection:newDirection];
+    [self directionSelected:newDirection];
+}
+
+- (NSString *)nextDirectionForDirection:(NSString *)direction
+{
+    NSDictionary *nextDirections = @{@"N" : @"E",
+                                     @"E" : @"S",
+                                     @"S" : @"W",
+                                     @"W" : @"N"};
+    
+    return nextDirections[direction];
 }
 
 @end
