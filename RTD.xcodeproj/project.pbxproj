@@ -11,6 +11,7 @@
 		02055553163A54DB00EEB0EB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 02055552163A54DB00EEB0EB /* Default-568h@2x.png */; };
 		0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0205555E163A5D9D00EEB0EB /* libFlurry.a */; };
 		02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02055560163A5F3500EEB0EB /* SystemConfiguration.framework */; };
+		0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0209FE5317D6EB8A001F6A87 /* Security.framework */; };
 		021835EA175875A0002CAD48 /* RTD3.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 021835E9175875A0002CAD48 /* RTD3.0.sqlite */; };
 		021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021835ED17587900002CAD48 /* light-rail-map.pdf */; };
 		024473271752D2A30083A970 /* Stop+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473261752D2A30083A970 /* Stop+Convenience.m */; };
@@ -88,6 +89,7 @@
 		0205555D163A5D8900EEB0EB /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Flurry.h; path = Flurry/Flurry.h; sourceTree = SOURCE_ROOT; };
 		0205555E163A5D9D00EEB0EB /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
 		02055560163A5F3500EEB0EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		0209FE5317D6EB8A001F6A87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		021835E9175875A0002CAD48 /* RTD3.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.0.sqlite; sourceTree = "<group>"; };
 		021835ED17587900002CAD48 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
 		024473251752D2A30083A970 /* Stop+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stop+Convenience.h"; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */,
 				02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */,
 				028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */,
 				028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */,
@@ -451,6 +454,7 @@
 				028ED94613342CA10055CDC7 /* libz.dylib */,
 				02055560163A5F3500EEB0EB /* SystemConfiguration.framework */,
 				028ED94413342C9A0055CDC7 /* MapKit.framework */,
+				0209FE5317D6EB8A001F6A87 /* Security.framework */,
 				14E4D90A10370DE600640D8B /* CoreLocation.framework */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
