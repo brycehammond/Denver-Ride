@@ -99,9 +99,16 @@
 			{
 				[line setType:@"B"];
 			}
+            
+            if([lineName isEqualToString:@"W"])
+            {
+                [line setColor:@"00B9B0"];
+            }
+            else
+            {
+               [line setColor:fields[6]];
+            }
 
-			[line setColor:fields[6]];
-			
 			linesById[lineName] = line;
 		}
 		
