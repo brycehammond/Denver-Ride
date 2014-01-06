@@ -173,6 +173,11 @@
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT SB"
 																	 withString:@""];
 			}
+            
+            if([stationName isEqualToString:@"Union"])
+            {
+                stationName = @"Union Station";
+            }
 			
 			Station *station = stationsByName[stationName];
 			if(nil == station)

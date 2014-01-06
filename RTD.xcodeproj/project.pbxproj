@@ -12,7 +12,6 @@
 		0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0205555E163A5D9D00EEB0EB /* libFlurry.a */; };
 		02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02055560163A5F3500EEB0EB /* SystemConfiguration.framework */; };
 		0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0209FE5317D6EB8A001F6A87 /* Security.framework */; };
-		021835EA175875A0002CAD48 /* RTD3.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 021835E9175875A0002CAD48 /* RTD3.0.sqlite */; };
 		021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021835ED17587900002CAD48 /* light-rail-map.pdf */; };
 		024473271752D2A30083A970 /* Stop+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473261752D2A30083A970 /* Stop+Convenience.m */; };
 		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
@@ -40,6 +39,11 @@
 		0291B7A9179CD44B00DDC00D /* line.png in Resources */ = {isa = PBXBuildFile; fileRef = 0291B7A5179CD44B00DDC00D /* line.png */; };
 		0291B7AA179CD44B00DDC00D /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0291B7A6179CD44B00DDC00D /* line@2x.png */; };
 		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
+		02C2B62F187A5BB100A9FB0B /* routes.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90C129DE80E009132DE /* routes.txt */; };
+		02C2B630187A5BB100A9FB0B /* stop_times.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90D129DE80E009132DE /* stop_times.txt */; };
+		02C2B631187A5BB100A9FB0B /* stops.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90E129DE80E009132DE /* stops.txt */; };
+		02C2B632187A5BB100A9FB0B /* trips.txt in Resources */ = {isa = PBXBuildFile; fileRef = 1465D90F129DE80E009132DE /* trips.txt */; };
+		02C2B633187A5BB100A9FB0B /* linesToProcess.txt in Resources */ = {isa = PBXBuildFile; fileRef = 14A782DB129E138600C7F372 /* linesToProcess.txt */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* DRStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* DRStationViewController.m */; };
@@ -90,7 +94,6 @@
 		0205555E163A5D9D00EEB0EB /* libFlurry.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libFlurry.a; path = Flurry/libFlurry.a; sourceTree = "<group>"; };
 		02055560163A5F3500EEB0EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0209FE5317D6EB8A001F6A87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		021835E9175875A0002CAD48 /* RTD3.0.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.0.sqlite; sourceTree = "<group>"; };
 		021835ED17587900002CAD48 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
 		024473251752D2A30083A970 /* Stop+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stop+Convenience.h"; sourceTree = "<group>"; };
 		024473261752D2A30083A970 /* Stop+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stop+Convenience.m"; sourceTree = "<group>"; };
@@ -439,7 +442,6 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				021835E9175875A0002CAD48 /* RTD3.0.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 				14B7016812355C5E007B9C90 /* NIBs */,
@@ -519,6 +521,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02C2B62F187A5BB100A9FB0B /* routes.txt in Resources */,
+				02C2B630187A5BB100A9FB0B /* stop_times.txt in Resources */,
+				02C2B631187A5BB100A9FB0B /* stops.txt in Resources */,
+				02C2B632187A5BB100A9FB0B /* trips.txt in Resources */,
+				02C2B633187A5BB100A9FB0B /* linesToProcess.txt in Resources */,
 				14B701CB12356E2F007B9C90 /* Default.png in Resources */,
 				14B701CC12356E2F007B9C90 /* Default@2x.png in Resources */,
 				14B701DF12356E2F007B9C90 /* RTDIcon_57x57.png in Resources */,
@@ -543,7 +550,6 @@
 				026A1EBC1754219000793F5F /* route-map@2x.png in Resources */,
 				026A1EBD1754219000793F5F /* top-shadow.png in Resources */,
 				026A1EBE1754219000793F5F /* top-shadow@2x.png in Resources */,
-				021835EA175875A0002CAD48 /* RTD3.0.sqlite in Resources */,
 				021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */,
 				0291B7A1179CD3BD00DDC00D /* circle.png in Resources */,
 				0291B7A2179CD3BD00DDC00D /* circle@2x.png in Resources */,
