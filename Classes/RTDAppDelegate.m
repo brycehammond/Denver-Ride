@@ -233,7 +233,8 @@
 - (void)setupAppearanceProxies
 {
     UIColor *headerColor = [UIColor colorWithHexString:kNavBarColor];
-    [[UINavigationBar appearance] setTintColor:headerColor];
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setBarTintColor:headerColor];
     [[UITabBar appearance] setTintColor:headerColor];
 }
 

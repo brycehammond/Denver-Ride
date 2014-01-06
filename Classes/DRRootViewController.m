@@ -38,9 +38,6 @@
     RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
     self.managedObjectContext = appDelegate.managedObjectContext;
     
-	[[[self navigationController] navigationBar] setTintColor:
-	 [UIColor colorWithHexString:kNavBarColor]];
-	
 	[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateFinished) 
 												 name:@"UpdateFinishedNotification" object:nil];
 
