@@ -100,7 +100,7 @@
 				[line setType:@"B"];
 			}
             
-            if([lineName isEqualToString:@"W"])
+            if([lineName isEqualToString:@"103W"])
             {
                 [line setColor:@"00B9B0"];
             }

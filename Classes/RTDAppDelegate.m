@@ -304,13 +304,10 @@
 
 - (void)databaseUpdateFinished
 {
-    DRRootViewController *rootViewController = [[DRRootViewController alloc] initWithNibName:nil bundle:nil];
-	rootViewController.managedObjectContext = [self managedObjectContext];
-	
-	navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    UINavigationController *navController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController];
+	[navigationController.viewControllers[0] setManagedObjectContext:[self managedObjectContext]];
     
-    
-    [window addSubview:[navigationController view]];
+    self.window.rootViewController = navController;
 }
 
 - (void)newDatabaseAvailableWithFilename:(NSString *)filename andDate:(NSString *)date
