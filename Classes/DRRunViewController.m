@@ -37,7 +37,12 @@
     [super viewDidLoad];
 	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	[_runTableView setBackgroundColor:[UIColor clearColor]];
-    self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    if([self respondsToSelector:@selector(setEdgesForExtendedLayout:)])
+    {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    
 	//get the run array from the stop
 	Stop *stop = [self stop];
 	NSString *lineName = [[stop line] name];
