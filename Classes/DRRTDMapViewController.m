@@ -17,11 +17,16 @@
 	[super loadView];
 	
 	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants tallContainerHeight])];
-	
-	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
+	[[self view] setBackgroundColor:[UIColor colorWithHexString:kNavBarColor]];
     
     _mapView = [[UIWebView alloc] initWithFrame:[[self view] bounds]];
     [_mapView setScalesPageToFit:YES];
+    if(IS_OS_7_OR_LATER)
+    {
+        [_mapView setFrameYOrigin:kStatusBarHeight]; //set it below the status bar
+        [_mapView setFrameHeight:_mapView.frame.size.height - kStatusBarHeight];
+    }
+    
     
     NSString *pdfLocation = [[NSBundle mainBundle] pathForResource:@"light-rail-map" ofType:@"pdf"];
     

@@ -12,12 +12,26 @@
 
 + (NSInteger)shortContainerHeight
 {
-    return [[UIScreen mainScreen] bounds].size.height - kNavBarHeight - kSelectorHeight - kStatusBarHeight;
+    if(IS_OS_7_OR_LATER)
+    {
+        return [[UIScreen mainScreen] bounds].size.height - kNavBarHeight - kSelectorHeight;
+    }
+    else
+    {
+        return [[UIScreen mainScreen] bounds].size.height - kNavBarHeight - kSelectorHeight - kStatusBarHeight;
+    }
 }
 
 + (NSInteger)tallContainerHeight
 {
-    return [[UIScreen mainScreen] bounds].size.height - kSelectorHeight - kStatusBarHeight;
+    if(IS_OS_7_OR_LATER)
+    {
+        return [[UIScreen mainScreen] bounds].size.height - kSelectorHeight;
+    }
+    else
+    {
+        return [[UIScreen mainScreen] bounds].size.height - kSelectorHeight - kStatusBarHeight;
+    }
 
 }
 

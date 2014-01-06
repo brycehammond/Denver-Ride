@@ -37,9 +37,15 @@
 	[super loadView];
 	
 	[[self view] setFrame:CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants tallContainerHeight])];
+    [[self view] setBackgroundColor:[UIColor colorWithHexString:kNavBarColor]];
 	
 	_mapView = [[MKMapView alloc] initWithFrame:[[self view] bounds]];
 	[[self view] addSubview:_mapView];
+    if(IS_OS_7_OR_LATER)
+    {
+        [_mapView setFrameYOrigin:kStatusBarHeight]; //set it below the status bar
+        [_mapView setFrameHeight:_mapView.frame.size.height - kStatusBarHeight];
+    }
 	
 	// Set the map type such as Standard, Satellite, Hybrid
 	_mapView.mapType = MKMapTypeStandard;
