@@ -13,15 +13,6 @@
 #import "Stop.h"
 #import "Flurry.h"
 #import "DRDatabaseLoader.h"
-#import "UIColor+Expanded.h"
-
-@interface RTDAppDelegate (Private)
-
--(void)populateStore;
--(BOOL)rebuildCoreDataStackWithDatabasePath:(NSString *)path;
-
-@end
-
 
 @implementation RTDAppDelegate
 
@@ -318,7 +309,7 @@
 
 - (void)databaseUpdateFinished
 {
-    UINavigationController *navController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateInitialViewController];
+    UINavigationController *navController = [[UIStoryboard mainStoryboard] instantiateInitialViewController];
 	[navigationController.viewControllers[0] setManagedObjectContext:[self managedObjectContext]];
     
     self.window.rootViewController = navController;
