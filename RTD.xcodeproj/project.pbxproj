@@ -18,7 +18,6 @@
 		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
 		024473361752D9270083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473351752D9270083A970 /* Stop.m */; };
 		024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024473431753EF3D0083A970 /* MainStoryboard.storyboard */; };
-		026A1E9E17541E4000793F5F /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 026A1E9D17541E4000793F5F /* UIColor+Expanded.m */; };
 		026A1EAF1754219000793F5F /* bcycle-active.png in Resources */ = {isa = PBXBuildFile; fileRef = 026A1E9F1754219000793F5F /* bcycle-active.png */; };
 		026A1EB01754219000793F5F /* bcycle-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 026A1EA01754219000793F5F /* bcycle-active@2x.png */; };
 		026A1EB11754219000793F5F /* bcycle.png in Resources */ = {isa = PBXBuildFile; fileRef = 026A1EA11754219000793F5F /* bcycle.png */; };
@@ -64,7 +63,6 @@
 		14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* StationListViewController.xib */; };
 		14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
-		14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7029C1235CBB1007B9C90 /* UIView+Categories.m */; };
 		14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */; };
 		14C6CBD91033038D00368298 /* DRRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* DRRunViewController.m */; };
 		14DDBCD91085881300583F84 /* DREncapsulatedConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 14DDBCD81085881300583F84 /* DREncapsulatedConnection.m */; };
@@ -81,6 +79,7 @@
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* DRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DRRootViewController.m */; };
+		571A89B837ED4D22B43A700A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -100,8 +99,6 @@
 		024473341752D9270083A970 /* Stop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Stop.h; sourceTree = "<group>"; };
 		024473351752D9270083A970 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		024473431753EF3D0083A970 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboards/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		026A1E9C17541E4000793F5F /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
-		026A1E9D17541E4000793F5F /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
 		026A1E9F1754219000793F5F /* bcycle-active.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bcycle-active.png"; path = "Artwork/bcycle-active.png"; sourceTree = "<group>"; };
 		026A1EA01754219000793F5F /* bcycle-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bcycle-active@2x.png"; path = "Artwork/bcycle-active@2x.png"; sourceTree = "<group>"; };
 		026A1EA11754219000793F5F /* bcycle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bcycle.png; path = Artwork/bcycle.png; sourceTree = "<group>"; };
@@ -169,8 +166,6 @@
 		14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = NIBs/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideBaseViewController.h; sourceTree = "<group>"; };
 		14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideBaseViewController.m; sourceTree = "<group>"; };
-		14B7029B1235CBB1007B9C90 /* UIView+Categories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Categories.h"; sourceTree = "<group>"; };
-		14B7029C1235CBB1007B9C90 /* UIView+Categories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Categories.m"; sourceTree = "<group>"; };
 		14BCE4EE10CC4404003E4391 /* DRRTDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRTDMapViewController.h; sourceTree = "<group>"; };
 		14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRRTDMapViewController.m; sourceTree = "<group>"; };
 		14C6CBD61033038D00368298 /* DRRunViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRunViewController.h; sourceTree = "<group>"; };
@@ -218,6 +213,7 @@
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
 				0205555F163A5D9D00EEB0EB /* libFlurry.a in Frameworks */,
+				571A89B837ED4D22B43A700A /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,10 +265,6 @@
 		145B00871250001000A643AA /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				026A1E9C17541E4000793F5F /* UIColor+Expanded.h */,
-				026A1E9D17541E4000793F5F /* UIColor+Expanded.m */,
-				14B7029B1235CBB1007B9C90 /* UIView+Categories.h */,
-				14B7029C1235CBB1007B9C90 /* UIView+Categories.m */,
 				1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */,
 				1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */,
 				145B0069124FFC4300A643AA /* NSData+gzip.h */,
@@ -475,9 +467,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1D6058960D05DD3E006BFB54 /* Build configuration list for PBXNativeTarget "Denver Ride" */;
 			buildPhases = (
+				FA60C2B837744788BD08683A /* Check Pods Manifest.lock */,
 				1D60588D0D05DD3D006BFB54 /* Resources */,
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
+				471A81714BFE4C91A94A0D15 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -494,7 +488,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Fluidvision Design";
 			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "RTD" */;
@@ -560,6 +554,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		471A81714BFE4C91A94A0D15 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA60C2B837744788BD08683A /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		1D60588E0D05DD3D006BFB54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -584,7 +611,6 @@
 				14B7017B12356DCA007B9C90 /* main.m in Sources */,
 				14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */,
 				14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */,
-				14B7029D1235CBB1007B9C90 /* UIView+Categories.m in Sources */,
 				145BFFDD124FD3B700A643AA /* BCycleViewController.m in Sources */,
 				145BFFE0124FD3C700A643AA /* DRStationAnnotation.m in Sources */,
 				145B006B124FFC4300A643AA /* NSData+gzip.m in Sources */,
@@ -594,7 +620,6 @@
 				024473271752D2A30083A970 /* Stop+Convenience.m in Sources */,
 				024473301752D6910083A970 /* Station.m in Sources */,
 				024473361752D9270083A970 /* Stop.m in Sources */,
-				026A1E9E17541E4000793F5F /* UIColor+Expanded.m in Sources */,
 				02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -605,7 +630,6 @@
 		1450A4B3103CB4BC0069B04C /* Distribution */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
@@ -622,6 +646,7 @@
 		};
 		1450A4B4103CB4BC0069B04C /* Distribution */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -650,6 +675,7 @@
 		};
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -680,6 +706,7 @@
 		};
 		1D6058950D05DD3E006BFB54 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38B245A91ECC4944A81C99F0 /* Pods.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = "$(inherited)";
 				CLANG_ENABLE_OBJC_ARC = YES;
@@ -709,7 +736,6 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -717,6 +743,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				ONLY_ACTIVE_ARCH = YES;
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				SDKROOT = iphoneos;
@@ -726,7 +753,6 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";

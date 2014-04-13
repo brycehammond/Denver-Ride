@@ -1,1 +1,17 @@
-COCOAPODS: 0.20.2
+PODS:
+  - UIColor-Utilities (1.0.1)
+  - UIView-IMUUtilities (0.0.1)
+
+DEPENDENCIES:
+  - UIColor-Utilities
+  - UIView-IMUUtilities (from `podspecs/UIView-IMUUtilities.podspec`)
+
+EXTERNAL SOURCES:
+  UIView-IMUUtilities:
+    :podspec: podspecs/UIView-IMUUtilities.podspec
+
+SPEC CHECKSUMS:
+  UIColor-Utilities: 5c2076b975f423097011aeea4012e75857dd9c99
+  UIView-IMUUtilities: 27fb272f24adb20ec780386f979ef7394a2537fb
+
+COCOAPODS: 0.31.1

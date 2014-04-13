@@ -14,7 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <CoreData/CoreData.h>
 	#import <MapKit/MapKit.h>
-	#import "UIView+Categories.h"
+	#import "UIView+IMUFrameConvenience.h"
 	#import "DenverRideConstants.h"
     #import "DLog.h"
     #import "UIColor+Expanded.h"
