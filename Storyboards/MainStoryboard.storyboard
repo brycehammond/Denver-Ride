@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vex-9g-UMN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="vex-9g-UMN">
     <dependencies>
         <deployment defaultVersion="1280" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
@@ -23,44 +23,64 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="B Cycle" backgroundImage="bcycle.png">
+                                <state key="normal" title="B Cycle" backgroundImage="bcycle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="bcycle-active.png"/>
-                                <state key="highlighted" backgroundImage="bcycle-active.png">
+                                <state key="disabled" backgroundImage="bcycle-active"/>
+                                <state key="selected" backgroundImage="bcycle-active"/>
+                                <state key="highlighted" backgroundImage="bcycle-active">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="bcycleSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="zWd-Ml-wSl"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7oK-gy-VNE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7oK-gy-VNE">
                                 <rect key="frame" x="180" y="443" width="70" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Route Map" backgroundImage="route-map.png">
+                                <state key="normal" title="Route Map" backgroundImage="route-map">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="route-map-active.png"/>
-                                <state key="highlighted" backgroundImage="route-map-active.png"/>
+                                <state key="disabled" backgroundImage="route-map-active"/>
+                                <state key="highlighted" backgroundImage="route-map-active"/>
                                 <connections>
                                     <action selector="mapSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="p0i-IW-ZBg"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TNy-5v-9Cz">
-                                <rect key="frame" x="75" y="424" width="105" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="circle" id="n47-gN-rbd">
+                                <rect key="frame" x="0.0" y="424" width="87" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9wd-AY-4mF">
+                                <rect key="frame" x="6" y="435" width="67" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="line.png">
+                                <state key="normal" image="pointer">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="line-active.png"/>
-                                <state key="selected" backgroundImage="line-active.png"/>
-                                <state key="highlighted" backgroundImage="line-active.png">
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="deE-ZE-YNI"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="TNy-5v-9Cz">
+                                <rect key="frame" x="69" y="424" width="111" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="line">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="line-active"/>
+                                <state key="selected" backgroundImage="line-active"/>
+                                <state key="highlighted" backgroundImage="line-active">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -81,88 +101,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="circle.png" id="n47-gN-rbd">
-                                <rect key="frame" x="0.0" y="424" width="87" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="9wd-AY-4mF">
-                                <rect key="frame" x="27" y="451" width="22" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="pointer.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="deE-ZE-YNI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Mc7-dr-7Pg">
-                                <rect key="frame" x="20" y="424" width="36" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="1" minY="5" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="N">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="northboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="QWQ-Cr-cvg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="i5N-hR-xRs">
-                                <rect key="frame" x="0.0" y="456" width="26" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="W">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="westboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="MVF-hC-y5o"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Zpg-Pt-4Ox">
-                                <rect key="frame" x="51" y="459" width="36" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="E">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eastboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="CXm-Qj-Xh8"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wU2-Ff-Utv">
-                                <rect key="frame" x="20" y="480" width="36" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="3" minY="1" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="S">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="southboundSelected:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="8i7-MP-LKu"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490196079" green="0.84313725490196079" blue="0.84313725490196079" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -235,44 +173,64 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="B Cycle" backgroundImage="bcycle.png">
+                                <state key="normal" title="B Cycle" backgroundImage="bcycle">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="bcycle-active.png"/>
-                                <state key="highlighted" backgroundImage="bcycle-active.png">
+                                <state key="disabled" backgroundImage="bcycle-active"/>
+                                <state key="highlighted" backgroundImage="bcycle-active">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="bcycleSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="Pqp-F8-vHn"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rHh-sY-9bb">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="rHh-sY-9bb">
                                 <rect key="frame" x="180" y="507" width="70" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="Route Map" backgroundImage="route-map.png">
+                                <state key="normal" title="Route Map" backgroundImage="route-map">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="route-map-active.png"/>
-                                <state key="highlighted" backgroundImage="route-map-active.png"/>
+                                <state key="disabled" backgroundImage="route-map-active"/>
+                                <state key="highlighted" backgroundImage="route-map-active"/>
                                 <connections>
                                     <action selector="mapSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="gh2-7h-141"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Oq-QM-AuY">
-                                <rect key="frame" x="74" y="488" width="106" height="80"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="circle" id="XTt-sK-yvx">
+                                <rect key="frame" x="0.0" y="488" width="87" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hAm-Lv-Cbq">
+                                <rect key="frame" x="6" y="499" width="67" height="64"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" backgroundImage="line.png">
+                                <state key="normal" image="pointer">
                                     <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <state key="disabled" backgroundImage="line-active.png"/>
-                                <state key="selected" backgroundImage="line-active.png"/>
-                                <state key="highlighted" backgroundImage="line-active.png">
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="moveToNextDirection:" destination="XCh-5K-ARK" eventType="touchUpInside" id="1Nj-oC-Z23"/>
+                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="aHF-Zh-CmJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="7Oq-QM-AuY">
+                                <rect key="frame" x="69" y="488" width="111" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" backgroundImage="line">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="disabled" backgroundImage="line-active"/>
+                                <state key="selected" backgroundImage="line-active"/>
+                                <state key="highlighted" backgroundImage="line-active">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -293,90 +251,6 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="circle.png" id="XTt-sK-yvx">
-                                <rect key="frame" x="0.0" y="488" width="87" height="80"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yXd-kz-L3N">
-                                <rect key="frame" x="20" y="488" width="36" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="2" minY="4" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="N">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="northboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="kCh-eQ-8Jg"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="e3A-Op-Vxp">
-                                <rect key="frame" x="0.0" y="522" width="26" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="-5" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="W">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="westboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="3bZ-Zs-bXf"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="K2O-vY-ujh">
-                                <rect key="frame" x="51" y="523" width="28" height="25"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="-2" minY="-1" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="E">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="eastboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="1Qa-U4-7uS"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="5Np-ri-Mfi">
-                                <rect key="frame" x="20" y="544" width="36" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <inset key="contentEdgeInsets" minX="3" minY="1" maxX="0.0" maxY="0.0"/>
-                                <state key="normal" title="S">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="southboundSelected:" destination="XCh-5K-ARK" eventType="touchUpInside" id="5VH-fD-WDF"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="hAm-Lv-Cbq">
-                                <rect key="frame" x="27" y="515" width="22" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" image="pointer.png">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="moveToNextDirection:" destination="XCh-5K-ARK" eventType="touchUpInside" id="1Nj-oC-Z23"/>
-                                    <action selector="moveToNextDirection:" destination="3qN-Ri-Ipd" eventType="touchUpInside" id="aHF-Zh-CmJ"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.84313725490000002" green="0.84313725490000002" blue="0.84313725490000002" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -399,14 +273,14 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bcycle-active.png" width="70" height="61"/>
-        <image name="bcycle.png" width="70" height="61"/>
-        <image name="circle.png" width="87" height="80"/>
-        <image name="line-active.png" width="111" height="80"/>
-        <image name="line.png" width="111" height="80"/>
-        <image name="pointer.png" width="22" height="32"/>
-        <image name="route-map-active.png" width="70" height="61"/>
-        <image name="route-map.png" width="70" height="61"/>
+        <image name="bcycle" width="70" height="61"/>
+        <image name="bcycle-active" width="70" height="61"/>
+        <image name="circle" width="87" height="80"/>
+        <image name="line" width="111" height="80"/>
+        <image name="line-active" width="111" height="80"/>
+        <image name="pointer" width="22" height="32"/>
+        <image name="route-map" width="70" height="61"/>
+        <image name="route-map-active" width="70" height="61"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
