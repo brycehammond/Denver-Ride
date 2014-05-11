@@ -11,5 +11,6 @@
 @interface UIStoryboard (DenverRide)
 
 + (UIStoryboard *)mainStoryboard;
++ (UIStoryboard *)stationStoryboard;
 
 @end
