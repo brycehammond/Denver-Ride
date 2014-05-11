@@ -169,15 +169,21 @@
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" Stn" withString:@""];
 			}
 			
-			if([stationName hasSuffix:@" LRT NB"])
+			if([stationName hasSuffix:@" LRT NB"] || [stationName hasSuffix:@" LRT Nb"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT NB"
 																	 withString:@""];
+                
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Nb"
+																	 withString:@""];
+                
 			}
 			
-			if([stationName hasSuffix:@" LRT SB"])
+			if([stationName hasSuffix:@" LRT SB"] || [stationName hasSuffix:@"LRT Sb"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT SB"
+																	 withString:@""];
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Sb"
 																	 withString:@""];
 			}
             
