@@ -261,7 +261,7 @@
 	}
 	else if(indexPath.section == kStationSection)
 	{
-		_stationChangeController = [[DRStationChangeViewController alloc] initWithNibName:@"StationChangeViewController" bundle:nil];
+		_stationChangeController =  [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationChange"];
         [_stationChangeController setDelegate:self];
         [_stationChangeController setManagedObjectContext:[self managedObjectContext]];
 		

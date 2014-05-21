@@ -454,7 +454,7 @@ currentDirection = _currentDirection;
 	
 	if(indexPath.section == [[self closestStationsArray] count])
 	{
-		DRStationListViewController *listController = [[DRStationListViewController alloc] initWithNibName:@"StationListViewController" bundle:nil];
+		DRStationListViewController *listController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationList"];
 		[listController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:listController animated:YES];
 	}

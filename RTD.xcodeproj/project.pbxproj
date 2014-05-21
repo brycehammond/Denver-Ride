@@ -36,8 +36,6 @@
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
 		14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */; };
 		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
-		14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F212356EAA007B9C90 /* StationChangeViewController.xib */; };
-		14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F312356EAA007B9C90 /* StationListViewController.xib */; };
 		14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
 		14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */; };
@@ -115,8 +113,6 @@
 		14B7017912356DCA007B9C90 /* RTD.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = RTD.xcdatamodel; path = "App Resources/RTD.xcdatamodel"; sourceTree = "<group>"; };
 		14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DayTypeChangeViewController.xib; path = NIBs/DayTypeChangeViewController.xib; sourceTree = "<group>"; };
 		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
-		14B701F212356EAA007B9C90 /* StationChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationChangeViewController.xib; path = NIBs/StationChangeViewController.xib; sourceTree = "<group>"; };
-		14B701F312356EAA007B9C90 /* StationListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = StationListViewController.xib; path = NIBs/StationListViewController.xib; sourceTree = "<group>"; };
 		14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TimeChangeViewController.xib; path = NIBs/TimeChangeViewController.xib; sourceTree = "<group>"; };
 		14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideBaseViewController.h; sourceTree = "<group>"; };
 		14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideBaseViewController.m; sourceTree = "<group>"; };
@@ -234,8 +230,6 @@
 			children = (
 				14B701EC12356EAA007B9C90 /* DayTypeChangeViewController.xib */,
 				14B701F112356EAA007B9C90 /* RunViewController.xib */,
-				14B701F212356EAA007B9C90 /* StationChangeViewController.xib */,
-				14B701F312356EAA007B9C90 /* StationListViewController.xib */,
 				14B701F512356EAA007B9C90 /* TimeChangeViewController.xib */,
 			);
 			name = NIBs;
@@ -450,8 +444,6 @@
 				02AEEE01191FC8BE0060F2EE /* RTD3.0.sqlite in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
-				14B701FD12356EAA007B9C90 /* StationChangeViewController.xib in Resources */,
-				14B701FE12356EAA007B9C90 /* StationListViewController.xib in Resources */,
 				14B7020012356EAA007B9C90 /* TimeChangeViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				0206A23B1908C59400F155B3 /* Images.xcassets in Resources */,

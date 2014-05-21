@@ -18,6 +18,16 @@
     [super viewDidLoad];
     [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
     self.stationChangeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
+    
+    if(IS_OS_7_OR_LATER)
+    {
+        [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor whiteColor]];
+    }
+    else
+    {
+        [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor colorWithHexString:kNavBarColor]];
+    }
+    
 }
 
 -(IBAction)cancelButtonClicked
@@ -31,15 +41,6 @@
 	
 	// Release any cached data, images, etc that aren't in use.
 }
-
-- (void)viewDidUnload {
-    [self setStationChangeToolbar:nil];
-    [super viewDidUnload];
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
