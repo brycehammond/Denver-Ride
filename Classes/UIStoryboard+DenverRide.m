@@ -15,4 +15,9 @@
     return [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
 }
 
++ (UIStoryboard *)stationStoryboard
+{
+    return [UIStoryboard storyboardWithName:@"StationStoryboard" bundle:nil];
+}
+
 @end
