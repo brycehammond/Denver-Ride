@@ -11,25 +11,11 @@ class Dock
   end  
 end
 
-def send_email(from, to, subject, message)
-	msg = <<END_OF_MESSAGE
-From: #{from}
-To: #{to}
-Subject: #{subject}
-	
-#{message}
-END_OF_MESSAGE
-	
-	Net::SMTP.start('localhost') do |smtp|
-		smtp.send_message msg, from, to
-	end
-end
-
 docks = Array.new
 
 current_dock = nil
 
-open("http://denver.bcycle.com/home.aspx").each do |line|
+open("https://denver.bcycle.com/home.aspx").each do |line|
   if line =~ /var point = new google.maps.LatLng\((.*?), (.*?)\)\;/ then
     current_dock = Dock.new
     current_dock.lattitude = $1
@@ -40,12 +26,4 @@ open("http://denver.bcycle.com/home.aspx").each do |line|
     current_dock.docks_available = $3
     puts current_dock
   end
-end
-
-if docks.length > 0
-  docks.each do |dock|
-    puts dock
-  end
-else
-  send_email("commerce@semanticchickens.com","bryce@semanticchickens.com","BCycle processing error","Couldn't extract docks from BCycle website")
 end
