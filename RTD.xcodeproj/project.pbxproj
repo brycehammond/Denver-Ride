@@ -17,9 +17,9 @@
 		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
 		024473361752D9270083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473351752D9270083A970 /* Stop.m */; };
 		024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024473431753EF3D0083A970 /* MainStoryboard.storyboard */; };
+		02554D141A5A39B300E78AF4 /* RTD3.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE00191FC8BE0060F2EE /* RTD3.0.sqlite */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
-		02AEEE01191FC8BE0060F2EE /* RTD3.0.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE00191FC8BE0060F2EE /* RTD3.0.sqlite */; };
 		02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */; };
 		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
@@ -444,7 +444,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02AEEE01191FC8BE0060F2EE /* RTD3.0.sqlite in Resources */,
+				02554D141A5A39B300E78AF4 /* RTD3.0.sqlite in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
 				02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
