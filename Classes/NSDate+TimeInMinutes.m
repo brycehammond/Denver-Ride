@@ -124,11 +124,14 @@ static NSSet *_holidays;
 		case 7:
 			returnDay = @"SA";
 			break;
+        case 6:
+            returnDay = @"FR";
+            break;
 		case 1:
 			returnDay = @"SU";
 			break;
 		default:
-			returnDay = @"WK";
+			returnDay = @"MT";
 			break;
 	}
 	
@@ -151,7 +154,7 @@ static NSSet *_holidays;
 {
 	if(! _fullDayTypes)
 	{
-		_fullDayTypes = @[@"Weekday",@"Saturday",@"Sunday/Holiday"];
+		_fullDayTypes = @[@"Monday to Thursday",@"Friday",@"Saturday",@"Sunday/Holiday"];
 	}
 	
 	return _fullDayTypes;
@@ -162,7 +165,7 @@ static NSSet *_holidays;
 	if( ! _fullDayTypesByCode)
 	{
 		_fullDayTypesByCode = [[NSDictionary alloc] initWithObjects:[NSDate fullDayTypes] 
-															forKeys:@[@"WK",@"SA",@"SU"]];
+															forKeys:@[@"MT",@"FR",@"SA",@"SU"]];
 	}
 	
 	return _fullDayTypesByCode;
@@ -172,7 +175,7 @@ static NSSet *_holidays;
 {
 	if( ! _codesByfullDayTypes)
 	{
-		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:@[@"WK",@"SA",@"SU"]
+		_codesByfullDayTypes = [[NSDictionary alloc] initWithObjects:@[@"MT",@"FR",@"SA",@"SU"]
 															 forKeys:[NSDate fullDayTypes]];
 	}
 	

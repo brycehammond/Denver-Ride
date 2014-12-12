@@ -53,6 +53,7 @@
 		if([linesToProcess containsObject:lineName])
 		{
 			NSString *tripId = fields[2];
+            
 			dayTypeByTrip[tripId] = fields[1];
 			lineByTrip[tripId] = fields[0];
             
