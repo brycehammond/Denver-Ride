@@ -22,7 +22,7 @@
 @synthesize currentDayType;
 
 
-#define kDatabaseVersionKey	@"DatabaseV3VersionKey"
+#define kDatabaseVersionKey	@"DatabaseV31VersionKey"
 #define kInitialDatabaseVersion @"RTD3.1"
 
 #pragma mark -
