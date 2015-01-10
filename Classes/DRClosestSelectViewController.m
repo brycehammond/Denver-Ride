@@ -88,6 +88,11 @@ currentDirection = _currentDirection;
 	if([CLLocationManager locationServicesEnabled])
 	{
 		// Start the location manager.
+        
+        if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+            [self.locationManager requestWhenInUseAuthorization];
+        }
+        
 		[[self locationManager] startUpdatingLocation];
 	}
 	else {
