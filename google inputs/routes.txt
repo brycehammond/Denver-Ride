@@ -39,7 +39,6 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 169L,169L,Buckley / Tower DIA Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,C129B9,FFFFFF
 16L,16L,West Colfax Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,C129B9,FFFFFF
 17,17,Red Rocks College,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
-1W,1W,West 1st Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 20,20,20th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 204,204,Table Mesa / Moorhead / North 19th,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 205,205,28th St / Gunbarrel / Heatherwood,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
@@ -71,12 +70,13 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 324,324,Main Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 326,326,Westside Crosstown,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 327,327,Eastside Crosstown,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
-34,34,Platte Industrial,This Route Travels Counter clock-wise,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
+34,34,Platte Industrial,This Route Travels Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 35,35,Hampden Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 36,36,Fort Logan,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 36L,36L,Fort Logan Limited,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 38,38,38th Avenue,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 3L,3L,East Alameda Limited,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,C129B9,FFFFFF
+4,4,Morrison Road,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 40,40,Colorado Boulevard,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 401,401,Ranches Crosstown,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,008FBF,FFFFFF
 402L,402L,Highlands Ranch Parkway,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,C129B9,FFFFFF
@@ -124,39 +124,38 @@ ART,ART,ART,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.co
 AS,AS,Stapleton / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,003DA7,FFFFFF
 AT,AT,Arapahoe County / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,003DA7,FFFFFF
 ATX,ATX,Arapahoe County / DIA,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/schedules/getRouteList.action?routeType=9,003DA7,FFFFFF
-BF,BF,Boulder / Denver All Stops,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
+BF,BF,Boulder / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 BMX,BMX,Boulder / Denver Regional Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 BOLT,BOLT,Boulder / Longmont,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
-BOUND,BOUND,30th Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
-BV,BV,Boulder / Denver All Stops,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
+BOUND,BOUND,30th Street,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+BV,BV,Boulder / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 BX,BX,Boulder / Denver Regional Express,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 CS,CS,Pine Junction / Conifer / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 CV,CV,Pine Junction / Conifer / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 CX,CX,Pine Junction / Conifer / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
-DASH,DASH,Boulder / Lafayette via Louisville,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
-DD,DD,Boulder / Colorado Blvd,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
+DASH,DASH,Boulder / Lafayette via Louisville,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 DM,DM,Boulder / Anschutz Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 ES,ES,Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 EV,EV,Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 EX,EX,Evergreen / Aspen Park / Denver,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
-FREE MALLRIDE,FREE MALLRIDE,Free Mall Ride,,3,http://www3.rtd-denver.com/,FFFF00,000000
-FREE METRORIDE,FREE METRORIDE,Free MetroRide,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00968D,FFFFFF
 GS,GS,Golden / Boulder,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 HOP,HOP,HOP,This Route Travels Clock-wise & Counter clock-wise,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 HX,HX,28th Street/ Civic Center,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 J,J,Longmont / East Boulder / CU,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
-JUMP,JUMP,Boulder / Lafayette via Arapahoe,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
+JUMP,JUMP,Boulder / Lafayette via Arapahoe,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 L,L,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 LNX,LNX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 LSX,LSX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 LX,LX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
+MALLRIDE,MALLRIDE,Free Mall Ride,,3,http://www3.rtd-denver.com/,FFFF00,000000
+METRORIDE,METRORIDE,Free MetroRide,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00968D,FFFFFF
 N,N,Nederland / Boulder,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 P,P,Parker / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 R,R,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 RC,RC,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 RX,RX,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 S,S,Denver / East Boulder,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
-SKIP,SKIP,Broadway,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
-STAMPEDE,STAMPEDE,CU East Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,004E5A,FFFFFF
+SKIP,SKIP,Broadway,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
+STAMPEDE,STAMPEDE,CU East Campus,This Route Travels Eastbound & Westbound,3,http://www3.rtd-denver.com/,0099CC,FFFFFF
 T,T,Boulder / Greenwood Plaza,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
 Y,Y,Lyons / Boulder,This Route Travels Northbound & Southbound,3,http://www3.rtd-denver.com/,00833F,FFFFFF
