@@ -12,6 +12,7 @@
 		02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02055560163A5F3500EEB0EB /* SystemConfiguration.framework */; };
 		0206A23B1908C59400F155B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0206A23A1908C59400F155B3 /* Images.xcassets */; };
 		0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0209FE5317D6EB8A001F6A87 /* Security.framework */; };
+		02179CF91B8BB28500E0AD14 /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02179CF81B8BB28500E0AD14 /* RTD3.1.sqlite */; };
 		021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021835ED17587900002CAD48 /* light-rail-map.pdf */; };
 		024473271752D2A30083A970 /* Stop+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473261752D2A30083A970 /* Stop+Convenience.m */; };
 		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
@@ -21,7 +22,6 @@
 		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */; };
 		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
-		02F2C7251B02651A0053A651 /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02F2C7241B0264F90053A651 /* RTD3.1.sqlite */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* DRStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* DRStationViewController.m */; };
@@ -66,6 +66,7 @@
 		02055560163A5F3500EEB0EB /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		0206A23A1908C59400F155B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0209FE5317D6EB8A001F6A87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		02179CF81B8BB28500E0AD14 /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		021835ED17587900002CAD48 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
 		024473251752D2A30083A970 /* Stop+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stop+Convenience.h"; sourceTree = "<group>"; };
 		024473261752D2A30083A970 /* Stop+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stop+Convenience.m"; sourceTree = "<group>"; };
@@ -80,7 +81,6 @@
 		02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StationStoryboard.storyboard; path = Storyboards/StationStoryboard.storyboard; sourceTree = "<group>"; };
 		02B23FEF175710A8006AF9A2 /* UIStoryboard+DenverRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+DenverRide.h"; sourceTree = "<group>"; };
 		02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+DenverRide.m"; sourceTree = "<group>"; };
-		02F2C7241B0264F90053A651 /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		140B57AE105D92DE00468DC9 /* DRTimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTimeChangeViewController.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -360,7 +360,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				02F2C7241B0264F90053A651 /* RTD3.1.sqlite */,
+				02179CF81B8BB28500E0AD14 /* RTD3.1.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 				14B7016812355C5E007B9C90 /* NIBs */,
@@ -452,7 +452,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02F2C7251B02651A0053A651 /* RTD3.1.sqlite in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
 				02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
@@ -461,6 +460,7 @@
 				0206A23B1908C59400F155B3 /* Images.xcassets in Resources */,
 				024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */,
 				021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */,
+				02179CF91B8BB28500E0AD14 /* RTD3.1.sqlite in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
