@@ -92,7 +92,7 @@
 			NSString *lineName = fields[0];
 			
 			[line setName:[[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""] stringByReplacingOccurrencesOfString:@"103" withString:@""]];
-			if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"103"]) // is lightrail
+			if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"103"] || [lineName isEqualToString:@"A"]) // is lightrail
 			{
 				[line setType:@"LR"];
 			}
@@ -191,6 +191,12 @@
             if([stationName isEqualToString:@"Union"])
             {
                 stationName = @"Union Station";
+            }
+            
+            NSRange seperatorRange = [stationName rangeOfString:@" -"];
+            if(seperatorRange.location != NSNotFound)
+            {
+                stationName = [stationName substringToIndex:seperatorRange.location];
             }
 			
 			Station *station = stationsByName[stationName];

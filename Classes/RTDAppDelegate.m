@@ -42,8 +42,7 @@
 		[[NSUserDefaults standardUserDefaults] synchronize];
 	}
 	
-    
-	NSManagedObjectContext *context = self.managedObjectContext;
+    [self managedObjectContext]; //load up the context
 	
 	if(defaultDataNeedsFilling)
 	{
