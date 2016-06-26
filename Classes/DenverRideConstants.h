@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 #define kBackgroundColor @"D7D7D7"
-#define kBasePath @"http://denverride.s3.amazonaws.com/3.1/test/"
+#define kBasePath @"http://denverride.s3.amazonaws.com/3.1/"
 #define kLastUpdateDateKey	@"LastUpdateDateKey"
-#define kLastUpdateDate @"20160425"
+#define kLastUpdateDate @"20160626"
 #define kNavBarHeight   44
 #define kSelectorHeight 61
 #define kStatusBarHeight    20

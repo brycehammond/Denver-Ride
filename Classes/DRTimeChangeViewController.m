@@ -12,16 +12,15 @@
 @implementation DRTimeChangeViewController
 
 @synthesize delegate;
-@synthesize timeChangeToolbar = _timeChangeToolbar;
 
 -(IBAction)doneButtonClicked
 {
-	[delegate doneButtonClickedOnTimeChangeViewController:self];
+	[self.delegate doneButtonClickedOnTimeChangeViewController:self];
 }
 
 -(IBAction)cancelButtonClicked
 {
-	[delegate cancelButtonClickedOnTimeChangeViewController:self];
+	[self.delegate cancelButtonClickedOnTimeChangeViewController:self];
 }
 
 -(void)setTimeInMinutes:(NSInteger)timeInMinutes
