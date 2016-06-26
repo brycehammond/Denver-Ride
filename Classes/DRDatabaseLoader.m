@@ -164,13 +164,19 @@
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" Station" withString:@""];
 			}
-			
-			if([stationName hasSuffix:@" Stn"])
+            else if([stationName hasSuffix:@" Track 1"])
+            {
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" Track 1" withString:@""];
+            }
+            else if([stationName hasSuffix:@" Track 2"])
+            {
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" Track 2" withString:@""];
+            }
+            else if([stationName hasSuffix:@" Stn"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" Stn" withString:@""];
 			}
-			
-			if([stationName hasSuffix:@" LRT NB"] || [stationName hasSuffix:@" LRT Nb"])
+			else if([stationName hasSuffix:@" LRT NB"] || [stationName hasSuffix:@" LRT Nb"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT NB"
 																	 withString:@""];
@@ -179,16 +185,14 @@
 																	 withString:@""];
                 
 			}
-			
-			if([stationName hasSuffix:@" LRT SB"] || [stationName hasSuffix:@"LRT Sb"])
+            else if([stationName hasSuffix:@" LRT SB"] || [stationName hasSuffix:@"LRT Sb"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT SB"
 																	 withString:@""];
                 stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Sb"
 																	 withString:@""];
 			}
-            
-            if([stationName isEqualToString:@"Union"])
+            else if([stationName isEqualToString:@"Union"])
             {
                 stationName = @"Union Station";
             }
@@ -288,8 +292,8 @@
 		[stops sortUsingSelector:@selector(sortBySequence:)];
 		if([stops count] > 0)
 		{
-			Station *startStation = [stops[0] station];
-			Station *stopStation = [[stops lastObject] station];
+			Station *startStation = [stops.firstObject station];
+			Station *stopStation = [stops.lastObject station];
 			
 			for(Stop *stop in stops)
 			{
