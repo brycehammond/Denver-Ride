@@ -30,12 +30,12 @@
 	
 	NSDate *currentDate = [NSDate date];
 	//subtract the hours and minutes of the day to get the start of the day
-	NSDateComponents *components = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:currentDate];
+	NSDateComponents *components = [gregorian components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:currentDate];
 	[components setHour:-[components hour]];
 	[components setMinute:-[components minute]];
 	currentDate = [gregorian dateByAddingComponents:components toDate:currentDate options:0];
-	int hours = timeInMinutes / 60;
-	int minutes = timeInMinutes % 60;
+	NSInteger hours = timeInMinutes / 60;
+	NSInteger minutes = timeInMinutes % 60;
 	[components setHour:hours];
 	[components setMinute:minutes];
 	currentDate = [gregorian dateByAddingComponents:components toDate:currentDate options:0];
@@ -47,9 +47,9 @@
 -(NSInteger)timeInMinutes
 {
 	NSCalendar *gregorian = [NSCalendar currentCalendar];
-	NSDateComponents *components = [gregorian components:NSHourCalendarUnit|NSMinuteCalendarUnit fromDate:[_timePicker date]];
-	int hours = [components hour];
-	int minutes = [components minute];
+	NSDateComponents *components = [gregorian components:NSCalendarUnitHour|NSCalendarUnitMinute fromDate:[_timePicker date]];
+	NSInteger hours = [components hour];
+	NSInteger minutes = [components minute];
 	
 	return (hours * 60) + minutes;
 }

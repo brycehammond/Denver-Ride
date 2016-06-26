@@ -443,7 +443,7 @@ currentDirection = _currentDirection;
     
     UILabel *stationLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 5, [[UIScreen mainScreen] bounds].size.width, 25)];
 	[stationLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
-	[stationLabel setTextAlignment:UITextAlignmentLeft];
+	[stationLabel setTextAlignment:NSTextAlignmentLeft];
     [stationLabel setTextColor:[UIColor colorWithHexString:@"272727"]];
 	[stationLabel setAdjustsFontSizeToFitWidth:YES];
 	[stationLabel setText:[[self closestStationsArray][section] name]];

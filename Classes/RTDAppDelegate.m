@@ -151,12 +151,7 @@
 			
             NSURL *fileURL = [NSURL fileURLWithPath:filePath];
             
-            BOOL iCloudExclusionAvailable = (&NSURLIsExcludedFromBackupKey != NULL);
-            
-            if(iCloudExclusionAvailable)
-            {
-                [fileURL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
-            }
+            [fileURL setResourceValue:@YES forKey:NSURLIsExcludedFromBackupKey error:&error];
             
 			persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel: [self managedObjectModel]];
 			if (![persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:fileURL options:nil error:&error]){

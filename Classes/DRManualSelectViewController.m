@@ -146,7 +146,7 @@
 		else {
 			cell.textLabel.text = @"Arriving at";
 		}
-		cell.textLabel.textAlignment = UITextAlignmentCenter;
+		cell.textLabel.textAlignment = NSTextAlignmentCenter;
 		cell.textLabel.textColor = [UIColor colorWithHexString:@"385487"];
 
 		return cell;
@@ -351,7 +351,7 @@
 -(NSString *)formattedTimeInMinutes
 {
 	NSString *amOrPm = @"A";
-	int hours = [self timeInMinutes] / 60;
+	NSInteger hours = [self timeInMinutes] / 60;
 	if(hours >= 24)
 	{
 		hours -= 24;
@@ -371,8 +371,8 @@
 		hours = 12;
 	}
 	
-	int minutes = [self timeInMinutes] % 60;
-	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%i:0%i%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%i:%i%@",hours,minutes,amOrPm];
+	NSInteger minutes = [self timeInMinutes] % 60;
+	NSString *formattedTime = (minutes < 10) ? [NSString stringWithFormat:@"%li:0%li%@",hours,minutes,amOrPm] : [NSString stringWithFormat:@"%li:%li%@",hours,minutes,amOrPm];
 	
 	return formattedTime;
 }

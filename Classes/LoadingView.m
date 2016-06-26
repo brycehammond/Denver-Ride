@@ -22,7 +22,7 @@
 		CGRect frame = [self frame];
 		_loadingTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, round(frame.size.height / 2)-40, 320, 24)];
 		
-		[_loadingTextLabel setTextAlignment:UITextAlignmentCenter];
+		[_loadingTextLabel setTextAlignment:NSTextAlignmentCenter];
 		[_loadingTextLabel setBackgroundColor:[UIColor clearColor]];
 		[_loadingTextLabel setText:@"Loading"];
 		[_loadingTextLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:20]];

@@ -31,9 +31,9 @@ static NSSet *_holidays;
 -(NSInteger)weekdayNumber
 {
 	NSCalendar *gregorian = [[NSCalendar alloc] 
-							 initWithCalendarIdentifier:NSGregorianCalendar];
+							 initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 	NSDateComponents *weekDayComponents = [gregorian 
-										   components:NSWeekdayCalendarUnit fromDate:self];
+										   components:NSCalendarUnitWeekday fromDate:self];
 	NSInteger weekday = [weekDayComponents weekday];
 	
 	
@@ -95,16 +95,16 @@ static NSSet *_holidays;
 	}
 	
 	NSCalendar *gregorian = [[NSCalendar alloc] 
-							 initWithCalendarIdentifier:NSGregorianCalendar];
+							 initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
 	NSDateComponents *dayComponents = [gregorian 
-									   components:NSDayCalendarUnit|NSMonthCalendarUnit|NSYearCalendarUnit fromDate:self];
+									   components:NSCalendarUnitDay|NSCalendarUnitMonth|NSCalendarUnitYear fromDate:self];
 
 	NSInteger day = [dayComponents day];
 	NSInteger month = [dayComponents month];
 	NSInteger year = [dayComponents year];
 	
 	
-	return [_holidays containsObject:[NSString stringWithFormat:@"%i/%i/%i",month,day,year]];				 
+	return [_holidays containsObject:[NSString stringWithFormat:@"%li/%li/%li",month,day,year]];
 						
 }
 
