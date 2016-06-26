@@ -192,7 +192,8 @@
                 stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Sb"
 																	 withString:@""];
 			}
-            else if([stationName isEqualToString:@"Union"])
+            
+            if([stationName isEqualToString:@"Union"])
             {
                 stationName = @"Union Station";
             }
