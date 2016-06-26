@@ -265,7 +265,7 @@
         [_stationChangeController setDelegate:self];
         [_stationChangeController setManagedObjectContext:[self managedObjectContext]];
 		
-		[[self navigationController] presentModalViewController:_stationChangeController animated:YES];
+        [[self navigationController] presentViewController:_stationChangeController animated:YES completion:nil];
 	}
 	else if(indexPath.section == kScheduleTypeSection)
 	{
@@ -470,13 +470,13 @@
 {
     self.station = station;
 	[[NSUserDefaults standardUserDefaults] setObject:station.name forKey:@"ManualStation"];
-	[[self navigationController] dismissModalViewControllerAnimated:YES];
+    [[self navigationController] dismissViewControllerAnimated:YES completion:nil];
 	[self retrieveStopsDirection:[[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey]];
 }
 
 -(void)viewWasCancelled
 {
-	[[self navigationController] dismissModalViewControllerAnimated:YES];
+    [[self navigationController] dismissViewControllerAnimated:YES completion:nil];
 }
 
 
