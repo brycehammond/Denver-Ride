@@ -13,7 +13,6 @@
 		0206A23B1908C59400F155B3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0206A23A1908C59400F155B3 /* Images.xcassets */; };
 		0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0209FE5317D6EB8A001F6A87 /* Security.framework */; };
 		021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 021835ED17587900002CAD48 /* light-rail-map.pdf */; };
-		02210ED01CCFDD43006D491D /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02210ECE1CCFDD15006D491D /* RTD3.1.sqlite */; };
 		024473271752D2A30083A970 /* Stop+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473261752D2A30083A970 /* Stop+Convenience.m */; };
 		024473301752D6910083A970 /* Station.m in Sources */ = {isa = PBXBuildFile; fileRef = 0244732F1752D6910083A970 /* Station.m */; };
 		024473361752D9270083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473351752D9270083A970 /* Stop.m */; };
@@ -67,7 +66,6 @@
 		0206A23A1908C59400F155B3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0209FE5317D6EB8A001F6A87 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		021835ED17587900002CAD48 /* light-rail-map.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = "light-rail-map.pdf"; path = "Artwork/light-rail-map.pdf"; sourceTree = "<group>"; };
-		02210ECE1CCFDD15006D491D /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		024473251752D2A30083A970 /* Stop+Convenience.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Stop+Convenience.h"; sourceTree = "<group>"; };
 		024473261752D2A30083A970 /* Stop+Convenience.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Stop+Convenience.m"; sourceTree = "<group>"; };
 		0244732E1752D6910083A970 /* Station.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Station.h; sourceTree = "<group>"; };
@@ -348,6 +346,7 @@
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				024473421753EF200083A970 /* Storyboards */,
+				14B7016812355C5E007B9C90 /* NIBs */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -360,10 +359,8 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				02210ECE1CCFDD15006D491D /* RTD3.1.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
-				14B7016812355C5E007B9C90 /* NIBs */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -414,7 +411,7 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Fluidvision Design";
 				TargetAttributes = {
 					1D6058900D05DD3D006BFB54 = {
@@ -452,7 +449,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02210ED01CCFDD43006D491D /* RTD3.1.sqlite in Resources */,
 				14B701F712356EAA007B9C90 /* DayTypeChangeViewController.xib in Resources */,
 				02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */,
 				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
@@ -549,7 +545,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PROVISIONING_PROFILE = "";
@@ -574,7 +570,7 @@
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -582,6 +578,7 @@
 				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fluidvisiondesign.denverride;
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33d76c29-1a2e-4cef-9340-476de9188728";
@@ -607,7 +604,7 @@
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -615,6 +612,7 @@
 				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fluidvisiondesign.denverride;
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -638,7 +636,7 @@
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				INFOPLIST_FILE = "App Resources/RTD-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -646,6 +644,7 @@
 				);
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fluidvisiondesign.denverride;
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
@@ -659,10 +658,11 @@
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
@@ -681,7 +681,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PROVISIONING_PROFILE = "";
