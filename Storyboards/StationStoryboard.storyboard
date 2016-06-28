@@ -1,12 +1,130 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5023" systemVersion="13A603" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
-    <scenes/>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="bFI-EA-bdo">
+            <objects>
+                <viewController id="Gdt-RL-uSf" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kWo-u0-0ja"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kz4-1C-RCI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PEi-I9-7Va">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="i44-Ka-deD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1363" y="198"/>
+        </scene>
+        <!--Station List View Controller-->
+        <scene sceneID="DRy-2m-kZd">
+            <objects>
+                <viewController storyboardIdentifier="StationList" automaticallyAdjustsScrollViewInsets="NO" id="ywl-Er-hvZ" customClass="DRStationListViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Uym-Yi-2Lu"/>
+                        <viewControllerLayoutGuide type="bottom" id="eex-OY-TJR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Xel-9y-UCT">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dph-te-5Go">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ywl-Er-hvZ" id="VHC-Vv-YDE"/>
+                                    <outlet property="delegate" destination="ywl-Er-hvZ" id="AtQ-hc-agk"/>
+                                </connections>
+                            </tableView>
+                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-8m-JmW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.38823529410000002" green="0.64705882349999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="ywl-Er-hvZ" id="wwj-WD-UJ1"/>
+                                </connections>
+                            </searchBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="_stationsTableView" destination="dph-te-5Go" id="9Wa-H1-la7"/>
+                        <outlet property="stationListSearchBar" destination="J8q-8m-JmW" id="NnA-2e-znB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="03B-fC-mh1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1359" y="908"/>
+        </scene>
+        <!--Station Change View Controller-->
+        <scene sceneID="8Xu-cf-zaM">
+            <objects>
+                <viewController storyboardIdentifier="StationChange" id="68v-rx-1DL" customClass="DRStationChangeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bgQ-zC-WHo"/>
+                        <viewControllerLayoutGuide type="bottom" id="aJU-uL-FkJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TUd-oa-VAh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-xv-Was">
+                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="68v-rx-1DL" id="ECX-hs-Q99"/>
+                                </connections>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-dB-vA1">
+                                <rect key="frame" x="0.0" y="116" width="600" height="484"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="68v-rx-1DL" id="feo-dZ-hrX"/>
+                                    <outlet property="delegate" destination="68v-rx-1DL" id="VKZ-Qx-w8M"/>
+                                </connections>
+                            </tableView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n6-OB-pYW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="soJ-co-GIN">
+                                        <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <action selector="cancelButtonClicked" destination="68v-rx-1DL" id="SFH-8d-5zM"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
+                    <connections>
+                        <outlet property="_stationsTableView" destination="Dx7-dB-vA1" id="dPS-CL-9Nk"/>
+                        <outlet property="stationChangeToolbar" destination="7n6-OB-pYW" id="v2N-82-Y8j"/>
+                        <outlet property="stationListSearchBar" destination="Ksh-xv-Was" id="UH4-lA-X4D"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tAK-6G-Car" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2092" y="908"/>
+        </scene>
+    </scenes>
 </document>

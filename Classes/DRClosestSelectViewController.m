@@ -25,15 +25,6 @@
 
 @implementation DRClosestSelectViewController
 
-@synthesize  managedObjectContext = _managedObjectContext, 
-stationsArray = _stationsArray,
-locationManager = _locationManager,
-closestStationsArray = _closestStationsArray,
-closestStationsStopsArray = _closestStationsStopsArray,
-navigationController = _navigationController,
-currentDirection = _currentDirection;
-
-
 - (void)loadView
 {
 	[super loadView];

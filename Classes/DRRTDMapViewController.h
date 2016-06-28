@@ -11,9 +11,7 @@
 @class DRRTDMapViewController;
 
 @interface DRRTDMapViewController : UIViewController
-{
-    UIWebView *_mapView;
-	
-}
+
+@property (strong, nonatomic) IBOutlet UIWebView *_mapView;
 
 @end

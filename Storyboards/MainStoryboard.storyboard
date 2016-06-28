@@ -197,6 +197,189 @@
             </objects>
             <point key="canvasLocation" x="373.125" y="198.59154929577463"/>
         </scene>
+        <!--Day Type Change View Controller-->
+        <scene sceneID="z1R-4Q-ucJ">
+            <objects>
+                <viewController storyboardIdentifier="DRDayTypeChangeViewController" id="q41-va-pTZ" customClass="DRDayTypeChangeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="p5L-uE-BCk"/>
+                        <viewControllerLayoutGuide type="bottom" id="TYf-yB-0Jx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="FxY-D3-kL6">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j1X-dI-XHE">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
+                                <color key="backgroundColor" white="0.51459854009999995" alpha="0.5" colorSpace="calibratedWhite"/>
+                            </view>
+                            <pickerView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dip-md-P12">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="216" id="xrl-wy-xm7"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="q41-va-pTZ" id="oTR-gc-7SF"/>
+                                    <outlet property="delegate" destination="q41-va-pTZ" id="Htr-DI-S7T"/>
+                                </connections>
+                            </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rc7-xn-YH1">
+                                <rect key="frame" x="0.0" y="340" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="PRj-n8-8gd"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Cancel" id="gQv-yb-0WW">
+                                        <connections>
+                                            <action selector="cancelButtonClicked" destination="q41-va-pTZ" id="Zqz-IC-UMx"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="IJx-sq-Knj"/>
+                                    <barButtonItem title="Done" style="done" id="AaQ-E7-Odl">
+                                        <connections>
+                                            <action selector="doneButtonClicked" destination="q41-va-pTZ" id="xkH-3E-7LR"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rc7-xn-YH1" firstAttribute="top" secondItem="j1X-dI-XHE" secondAttribute="bottom" id="EPU-BG-26c"/>
+                            <constraint firstAttribute="trailing" secondItem="dip-md-P12" secondAttribute="trailing" id="IkD-tg-j1q"/>
+                            <constraint firstItem="j1X-dI-XHE" firstAttribute="leading" secondItem="FxY-D3-kL6" secondAttribute="leading" id="SQ0-iE-kWq"/>
+                            <constraint firstAttribute="trailing" secondItem="j1X-dI-XHE" secondAttribute="trailing" id="aEi-rl-Fch"/>
+                            <constraint firstItem="dip-md-P12" firstAttribute="leading" secondItem="FxY-D3-kL6" secondAttribute="leading" id="i8n-bQ-XAg"/>
+                            <constraint firstItem="rc7-xn-YH1" firstAttribute="leading" secondItem="FxY-D3-kL6" secondAttribute="leading" id="igJ-BD-PHq"/>
+                            <constraint firstAttribute="trailing" secondItem="rc7-xn-YH1" secondAttribute="trailing" id="kLK-kC-V3z"/>
+                            <constraint firstItem="j1X-dI-XHE" firstAttribute="top" secondItem="FxY-D3-kL6" secondAttribute="top" id="nHM-rD-5Xd"/>
+                            <constraint firstItem="dip-md-P12" firstAttribute="top" secondItem="rc7-xn-YH1" secondAttribute="bottom" id="qvj-VO-ORy"/>
+                            <constraint firstItem="rc7-xn-YH1" firstAttribute="top" secondItem="j1X-dI-XHE" secondAttribute="bottom" id="s4Q-04-96b"/>
+                            <constraint firstItem="TYf-yB-0Jx" firstAttribute="top" secondItem="dip-md-P12" secondAttribute="bottom" id="wTz-IS-kTe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="_cancelButton" destination="gQv-yb-0WW" id="dwV-k0-VlA"/>
+                        <outlet property="_doneButton" destination="AaQ-E7-Odl" id="CEC-fu-QPa"/>
+                        <outlet property="_fadeView" destination="j1X-dI-XHE" id="LAO-0k-PxT"/>
+                        <outlet property="_picker" destination="dip-md-P12" id="3PT-le-6LY"/>
+                        <outlet property="dayTypeToolbar" destination="rc7-xn-YH1" id="LTh-rj-dpb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cdv-Zo-XIW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413" y="1033"/>
+        </scene>
+        <!--Time Change View Controller-->
+        <scene sceneID="S6j-qH-c9t">
+            <objects>
+                <viewController storyboardIdentifier="DRTimeChangeViewController" id="taq-xw-NPQ" customClass="DRTimeChangeViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5gT-Vt-zP2"/>
+                        <viewControllerLayoutGuide type="bottom" id="sMw-gA-Afq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Lur-3M-gli">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9xk-6J-yBt">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
+                                <color key="backgroundColor" white="0.51459854009999995" alpha="0.5" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="alo-r5-RQR">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <subviews>
+                                    <datePicker clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="A7y-ua-mkb">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="216"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="274572892.10232699">
+                                            <!--2009-09-13 22:14:52 +0000-->
+                                        </date>
+                                        <locale key="locale" localeIdentifier="en_US"/>
+                                    </datePicker>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="A7y-ua-mkb" firstAttribute="leading" secondItem="alo-r5-RQR" secondAttribute="leading" id="JZR-Or-Cpd"/>
+                                    <constraint firstItem="A7y-ua-mkb" firstAttribute="top" secondItem="alo-r5-RQR" secondAttribute="top" id="fhl-sf-ssu"/>
+                                    <constraint firstAttribute="trailing" secondItem="A7y-ua-mkb" secondAttribute="trailing" id="ngf-mT-biO"/>
+                                    <constraint firstAttribute="bottom" secondItem="A7y-ua-mkb" secondAttribute="bottom" id="oEO-LA-vlk"/>
+                                    <constraint firstAttribute="height" constant="216" id="vTZ-g3-thN"/>
+                                </constraints>
+                            </view>
+                            <pickerView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZx-qZ-dI3">
+                                <rect key="frame" x="0.0" y="384" width="600" height="216"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7pr-Kk-BPl">
+                                <rect key="frame" x="0.0" y="340" width="600" height="44"/>
+                                <items>
+                                    <barButtonItem title="Cancel" id="1jb-z6-Rfe"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="KfY-zM-Uu3"/>
+                                    <barButtonItem title="Done" style="done" id="lXa-OC-Me6"/>
+                                </items>
+                            </toolbar>
+                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bf0-W5-fa6">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="340"/>
+                                <color key="backgroundColor" white="0.51459854009999995" alpha="0.5" colorSpace="calibratedWhite"/>
+                            </view>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w4A-BY-s0w">
+                                <rect key="frame" x="0.0" y="340" width="600" height="44"/>
+                                <color key="backgroundColor" white="1" alpha="0.94999999999999996" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="bOh-CV-Mio"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem title="Cancel" id="wG0-Lf-aCs">
+                                        <connections>
+                                            <action selector="cancelButtonClicked" destination="taq-xw-NPQ" id="7pR-Oh-Vtp"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="XwA-Dd-TLP"/>
+                                    <barButtonItem title="Done" style="done" id="icK-Ay-Qw0">
+                                        <connections>
+                                            <action selector="doneButtonClicked" destination="taq-xw-NPQ" id="NjO-x4-HI7"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="alo-r5-RQR" firstAttribute="leading" secondItem="Lur-3M-gli" secondAttribute="leading" id="1j9-ZQ-aSA"/>
+                            <constraint firstItem="w4A-BY-s0w" firstAttribute="top" secondItem="9xk-6J-yBt" secondAttribute="bottom" id="2Re-aC-5w5"/>
+                            <constraint firstItem="9xk-6J-yBt" firstAttribute="top" secondItem="Lur-3M-gli" secondAttribute="top" id="7pV-ES-8w0"/>
+                            <constraint firstAttribute="trailing" secondItem="alo-r5-RQR" secondAttribute="trailing" id="E8U-Lj-q4m"/>
+                            <constraint firstItem="w4A-BY-s0w" firstAttribute="top" secondItem="9xk-6J-yBt" secondAttribute="bottom" id="IPo-fi-dA1"/>
+                            <constraint firstAttribute="trailing" secondItem="9xk-6J-yBt" secondAttribute="trailing" id="IyE-Ht-Xzx"/>
+                            <constraint firstItem="alo-r5-RQR" firstAttribute="top" secondItem="w4A-BY-s0w" secondAttribute="bottom" id="O4l-mb-sTC"/>
+                            <constraint firstAttribute="trailing" secondItem="w4A-BY-s0w" secondAttribute="trailing" id="aFl-oh-MFP"/>
+                            <constraint firstItem="w4A-BY-s0w" firstAttribute="leading" secondItem="Lur-3M-gli" secondAttribute="leading" id="fLM-jd-Rsk"/>
+                            <constraint firstItem="sMw-gA-Afq" firstAttribute="top" secondItem="alo-r5-RQR" secondAttribute="bottom" id="mTU-ly-JWg"/>
+                            <constraint firstItem="alo-r5-RQR" firstAttribute="top" secondItem="w4A-BY-s0w" secondAttribute="bottom" id="x7V-NU-P2Q"/>
+                            <constraint firstItem="9xk-6J-yBt" firstAttribute="leading" secondItem="Lur-3M-gli" secondAttribute="leading" id="xcn-tM-HWC"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="lZx-qZ-dI3"/>
+                                <exclude reference="7pr-Kk-BPl"/>
+                                <exclude reference="Bf0-W5-fa6"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="_cancelButton" destination="wG0-Lf-aCs" id="ISF-Ow-EfX"/>
+                        <outlet property="_doneButton" destination="icK-Ay-Qw0" id="HKB-lx-gRu"/>
+                        <outlet property="_fadeView" destination="9xk-6J-yBt" id="sfC-ij-qw9"/>
+                        <outlet property="_timePicker" destination="A7y-ua-mkb" id="CEl-gp-9en"/>
+                        <outlet property="timeChangeToolbar" destination="w4A-BY-s0w" id="CMg-jv-QJv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ANd-uc-RMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1345" y="1017"/>
+        </scene>
         <!--Station View Controller-->
         <scene sceneID="TbV-Ql-LTG">
             <objects>
@@ -330,109 +513,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1ll-WU-XrX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2092" y="203"/>
-        </scene>
-        <!--Station List View Controller-->
-        <scene sceneID="NpO-76-dpO">
-            <objects>
-                <viewController storyboardIdentifier="StationList" automaticallyAdjustsScrollViewInsets="NO" id="vDl-ZV-Aau" customClass="DRStationListViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Qn6-C0-do7"/>
-                        <viewControllerLayoutGuide type="bottom" id="2hU-Iy-3pw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="ddh-RJ-dyt">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="YoZ-od-UI9">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="vDl-ZV-Aau" id="6pn-N5-Yt8"/>
-                                    <outlet property="delegate" destination="vDl-ZV-Aau" id="B7P-gw-CcE"/>
-                                </connections>
-                            </tableView>
-                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tar-6W-hnf">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.38823529410000002" green="0.64705882349999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.4392156862745098" green="0.66274509803921566" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
-                                <connections>
-                                    <outlet property="delegate" destination="vDl-ZV-Aau" id="Fqf-Yk-hac"/>
-                                </connections>
-                            </searchBar>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <connections>
-                        <outlet property="_stationsTableView" destination="YoZ-od-UI9" id="Vtf-OE-Uiw"/>
-                        <outlet property="stationListSearchBar" destination="tar-6W-hnf" id="9Z0-FZ-LMe"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pVZ-m9-FF3" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1359" y="908"/>
-        </scene>
-        <!--Station Change View Controller-->
-        <scene sceneID="lFS-7J-r9c">
-            <objects>
-                <viewController storyboardIdentifier="StationChange" id="OLY-FB-e4q" customClass="DRStationChangeViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="hOx-Bu-TI6"/>
-                        <viewControllerLayoutGuide type="bottom" id="6pV-O9-pHb"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="uhI-hI-MKm">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="c6F-AQ-fni">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="OLY-FB-e4q" id="edg-Mg-9Nd"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LIA-X8-gvk">
-                                <rect key="frame" x="0.0" y="116" width="600" height="484"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="OLY-FB-e4q" id="OCN-9j-1NL"/>
-                                    <outlet property="delegate" destination="OLY-FB-e4q" id="ree-Mm-bGR"/>
-                                </connections>
-                            </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tda-ht-UAF">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                <items>
-                                    <barButtonItem title="Cancel" id="gxQ-CC-eFB">
-                                        <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="cancelButtonClicked" destination="OLY-FB-e4q" id="QWp-rX-qXq"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.4392156862745098" green="0.66274509803921566" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
-                        </subviews>
-                        <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <extendedEdge key="edgesForExtendedLayout"/>
-                    <connections>
-                        <outlet property="_stationsTableView" destination="LIA-X8-gvk" id="fOe-9I-bEJ"/>
-                        <outlet property="stationChangeToolbar" destination="Tda-ht-UAF" id="wRv-zJ-o3z"/>
-                        <outlet property="stationListSearchBar" destination="c6F-AQ-fni" id="t4s-QS-VxO"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="3do-zy-qSC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2092" y="908"/>
         </scene>
     </scenes>
     <resources>
