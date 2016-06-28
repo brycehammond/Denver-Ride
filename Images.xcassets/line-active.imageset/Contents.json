@@ -1,11 +1,33 @@
 {
   "images" : [
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 55,
+          "left" : 55
+        }
+      },
       "idiom" : "universal",
       "filename" : "line-direction-active.png",
       "scale" : "1x"
     },
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 111,
+          "left" : 110
+        }
+      },
       "idiom" : "universal",
       "filename" : "line-direction-active@2x.png",
       "scale" : "2x"
