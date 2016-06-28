@@ -95,7 +95,6 @@
     
 	self.mapButton.enabled = NO;
     self.bcycleButton.enabled = YES;
-    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[self.bcycleViewController view] removeFromSuperview];
     [self addChildViewController:self.mapViewController];
 	[self.containerView addSubview:self.mapViewController.view];
@@ -116,7 +115,6 @@
 	
     self.mapButton.enabled = YES;
     self.bcycleButton.enabled = NO;
-    [self.containerView setFrameHeight:[DenverRideConstants tallContainerHeight]];
 	[[self.mapViewController view] removeFromSuperview];
     [self addChildViewController:self.bcycleViewController];
 	[self.containerView addSubview:[self.bcycleViewController view]];

@@ -37,9 +37,6 @@
 - (void)loadView
 {
 	[super loadView];
-	
-	[[self view] setFrame:CGRectMake(0, 0, 
-									 [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants shortContainerHeight])];
 	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	_manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];

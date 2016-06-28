@@ -16,18 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
     self.stationChangeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
-    
-    if(IS_OS_7_OR_LATER)
-    {
-        [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor whiteColor]];
-    }
-    else
-    {
-        [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor colorWithHexString:kNavBarColor]];
-    }
-    
+    [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor whiteColor]];
 }
 
 -(IBAction)cancelButtonClicked

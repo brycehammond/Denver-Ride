@@ -1,8 +1,12 @@
 PODS:
+  - Flurry-iOS-SDK (7.6.4):
+    - Flurry-iOS-SDK/FlurrySDK (= 7.6.4)
+  - Flurry-iOS-SDK/FlurrySDK (7.6.4)
   - UIColor-Utilities (1.0.1)
   - UIView-IMUUtilities (0.0.1)
 
 DEPENDENCIES:
+  - Flurry-iOS-SDK (~> 7.6.3)
   - UIColor-Utilities
   - UIView-IMUUtilities (from `podspecs/UIView-IMUUtilities.podspec`)
 
@@ -11,7 +15,8 @@ EXTERNAL SOURCES:
     :podspec: podspecs/UIView-IMUUtilities.podspec
 
 SPEC CHECKSUMS:
-  UIColor-Utilities: 5c2076b975f423097011aeea4012e75857dd9c99
-  UIView-IMUUtilities: 27fb272f24adb20ec780386f979ef7394a2537fb
+  Flurry-iOS-SDK: 9da972687d3af9f48038dcd86eae9cad3acca456
+  UIColor-Utilities: 6746a54dcdb3bc012dd7aeaeea5588ae2100beb2
+  UIView-IMUUtilities: c6fd64146f793936e3db987ea9b1ed93939cca0d
 
-COCOAPODS: 0.31.1
+COCOAPODS: 0.39.0

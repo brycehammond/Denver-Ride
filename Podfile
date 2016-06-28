@@ -1,6 +1,9 @@
-platform :ios, '6.1'
-
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
 inhibit_all_warnings!
-
-pod 'UIColor-Utilities'
-pod 'UIView-IMUUtilities', :podspec => "podspecs/UIView-IMUUtilities.podspec"
+use_frameworks!
+target 'Denver Ride' do
+    pod 'UIColor-Utilities'
+    pod 'UIView-IMUUtilities', :podspec => "podspecs/UIView-IMUUtilities.podspec"
+    pod 'Flurry-iOS-SDK', '~> 7.6.3'
+end

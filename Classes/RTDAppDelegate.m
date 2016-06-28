@@ -218,20 +218,13 @@
 - (void)setupAppearanceProxies
 {
     UIColor *headerColor = [UIColor colorWithHexString:kNavBarColor];
-    
-    
-    if(IS_OS_7_OR_LATER)
-    {
-        [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-        [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
-        [[UINavigationBar appearance] setBarTintColor:headerColor];
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    }
-    else
-    {
-        [[UINavigationBar appearance] setTintColor:headerColor];
-    }
-    
+
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
+    [[UINavigationBar appearance] setBarTintColor:headerColor];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+
+
     
     [[UITabBar appearance] setTintColor:headerColor];
 }

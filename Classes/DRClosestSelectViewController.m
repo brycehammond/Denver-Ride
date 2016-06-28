@@ -37,8 +37,6 @@ currentDirection = _currentDirection;
 - (void)loadView
 {
 	[super loadView];
-	[[self view] setFrame:CGRectMake(0, 0, 
-									 [[UIScreen mainScreen] bounds].size.width, [DenverRideConstants shortContainerHeight])];
 	_closeStationsTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];
 	[_closeStationsTableView setDelegate:self];

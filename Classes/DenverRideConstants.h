@@ -12,12 +12,9 @@
 #define kBasePath @"http://denverride.s3.amazonaws.com/3.1/"
 #define kLastUpdateDateKey	@"LastUpdateDateKey"
 #define kLastUpdateDate @"20160626"
-#define kNavBarHeight   44
 #define kSelectorHeight 61
-#define kStatusBarHeight    20
 #define kNavBarColor @"70A96A"
 #define kCurrentDirectionKey @"CurrentDirection"
-#define IS_OS_7_OR_LATER    ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)
 
 typedef enum {
 	FORWARD = 0,
@@ -25,8 +22,5 @@ typedef enum {
 } DRTimeDirection;
 
 @interface DenverRideConstants : NSObject
-
-+ (NSInteger)shortContainerHeight;
-+ (NSInteger)tallContainerHeight;
 
 @end

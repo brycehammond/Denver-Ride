@@ -197,7 +197,6 @@
 - (void)directionSelected:(NSString *)direction
 {
 	[super directionSelected:direction];
-	[self.stopsTableView setFrameHeight:[DenverRideConstants shortContainerHeight]];
 	[self setTitle:[[self station] name]];
 	[self retrieveStopsInDirection:direction];
 	[self.stopsTableView reloadData];

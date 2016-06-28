@@ -43,11 +43,8 @@
 	[appDelegate setCurrentDayType:dayType];
     
     self.stationListSearchBar.tintColor = [UIColor colorWithHexString:kNavBarColor];
-    
-    if(IS_OS_7_OR_LATER)
-    {
-        self.automaticallyAdjustsScrollViewInsets = YES;
-    }
+
+    self.automaticallyAdjustsScrollViewInsets = YES;
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {

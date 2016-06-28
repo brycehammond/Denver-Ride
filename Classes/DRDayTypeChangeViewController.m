@@ -52,8 +52,6 @@
 {
     [super viewDidLoad];
     
-    [self.view setFrameHeight:[[UIScreen mainScreen] bounds].size.height - kStatusBarHeight];
-    
     self.dayTypeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
 }
 
