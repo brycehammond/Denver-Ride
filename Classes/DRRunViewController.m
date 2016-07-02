@@ -24,7 +24,7 @@
 
 -(id)initWithStop:(Stop *)stop withTimeDirection:(DRTimeDirection)timeDirection
 {
-	if(self = [self initWithNibName:@"RunViewController" bundle:nil])
+	if((self = [[UIStoryboard stationStoryboard] instantiateViewControllerWithIdentifier:@"DRRunViewController"]))
 	{
 		[self setStop:stop];
 		_timeDirection = timeDirection;

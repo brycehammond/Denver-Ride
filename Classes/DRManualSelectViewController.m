@@ -244,7 +244,7 @@
 	{
 		if(! _timeChangeController)
 		{
-			_timeChangeController = [[DRTimeChangeViewController alloc] initWithNibName:@"TimeChangeViewController" bundle:nil];
+            _timeChangeController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"DRTimeChangeViewController"];
 			[_timeChangeController setDelegate:self];
 		}
 		
@@ -268,7 +268,7 @@
 	{
 		if( ! _dayTypeChangeController)
 		{
-			_dayTypeChangeController = [[DRDayTypeChangeViewController alloc] initWithNibName:@"DayTypeChangeViewController" bundle:nil];
+            _dayTypeChangeController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"DRDayTypeChangeViewController"];
 			[_dayTypeChangeController setDelegate:self];
 		}
 		

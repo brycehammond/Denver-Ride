@@ -8,12 +8,12 @@
           "width" : 1
         },
         "cap-insets" : {
-          "right" : 55,
-          "left" : 55
+          "right" : 8,
+          "left" : 7
         }
       },
       "idiom" : "universal",
-      "filename" : "line-direction.png",
+      "filename" : "nav-bg-active.png",
       "scale" : "1x"
     },
     {
@@ -24,12 +24,12 @@
           "width" : 1
         },
         "cap-insets" : {
-          "right" : 111,
-          "left" : 110
+          "right" : 15,
+          "left" : 15
         }
       },
       "idiom" : "universal",
-      "filename" : "line-direction@2x.png",
+      "filename" : "nav-bg-active@2x.png",
       "scale" : "2x"
     },
     {
@@ -40,12 +40,12 @@
           "width" : 1
         },
         "cap-insets" : {
-          "right" : 166,
-          "left" : 166
+          "right" : 23,
+          "left" : 23
         }
       },
       "idiom" : "universal",
-      "filename" : "line-direction@3x.png",
+      "filename" : "nav-bg-active@3x.png",
       "scale" : "3x"
     }
   ],

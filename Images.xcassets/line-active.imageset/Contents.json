@@ -33,7 +33,19 @@
       "scale" : "2x"
     },
     {
+      "resizing" : {
+        "mode" : "3-part-horizontal",
+        "center" : {
+          "mode" : "tile",
+          "width" : 1
+        },
+        "cap-insets" : {
+          "right" : 166,
+          "left" : 166
+        }
+      },
       "idiom" : "universal",
+      "filename" : "line-direction-active@3x.png",
       "scale" : "3x"
     }
   ],

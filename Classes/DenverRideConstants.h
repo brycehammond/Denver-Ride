@@ -12,7 +12,6 @@
 #define kBasePath @"http://denverride.s3.amazonaws.com/3.1/"
 #define kLastUpdateDateKey	@"LastUpdateDateKey"
 #define kLastUpdateDate @"20160626"
-#define kSelectorHeight 61
 #define kNavBarColor @"70A96A"
 #define kCurrentDirectionKey @"CurrentDirection"
 

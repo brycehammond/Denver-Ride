@@ -34,7 +34,6 @@
 		1484255D105BD8B000DCB458 /* DRClosestSelectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1484255C105BD8B000DCB458 /* DRClosestSelectViewController.m */; };
 		14B7017B12356DCA007B9C90 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017612356DCA007B9C90 /* main.m */; };
 		14B7017D12356DCA007B9C90 /* RTD.xcdatamodel in Sources */ = {isa = PBXBuildFile; fileRef = 14B7017912356DCA007B9C90 /* RTD.xcdatamodel */; };
-		14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14B701F112356EAA007B9C90 /* RunViewController.xib */; };
 		14B7022E12357DC0007B9C90 /* DenverRideBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */; };
 		14BCE4F110CC4404003E4391 /* DRRTDMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14BCE4EF10CC4404003E4391 /* DRRTDMapViewController.m */; };
 		14C6CBD91033038D00368298 /* DRRunViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C6CBD71033038D00368298 /* DRRunViewController.m */; };
@@ -108,7 +107,6 @@
 		14B7017712356DCA007B9C90 /* RTD_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RTD_Prefix.pch; path = "App Resources/RTD_Prefix.pch"; sourceTree = "<group>"; };
 		14B7017812356DCA007B9C90 /* RTD-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "RTD-Info.plist"; path = "App Resources/RTD-Info.plist"; sourceTree = "<group>"; };
 		14B7017912356DCA007B9C90 /* RTD.xcdatamodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcdatamodel; name = RTD.xcdatamodel; path = "App Resources/RTD.xcdatamodel"; sourceTree = "<group>"; };
-		14B701F112356EAA007B9C90 /* RunViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = RunViewController.xib; path = NIBs/RunViewController.xib; sourceTree = "<group>"; };
 		14B7022C12357DC0007B9C90 /* DenverRideBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DenverRideBaseViewController.h; sourceTree = "<group>"; };
 		14B7022D12357DC0007B9C90 /* DenverRideBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DenverRideBaseViewController.m; sourceTree = "<group>"; };
 		14BCE4EE10CC4404003E4391 /* DRRTDMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRTDMapViewController.h; sourceTree = "<group>"; };
@@ -223,14 +221,6 @@
 			name = Categories;
 			sourceTree = "<group>";
 		};
-		14B7016812355C5E007B9C90 /* NIBs */ = {
-			isa = PBXGroup;
-			children = (
-				14B701F112356EAA007B9C90 /* RunViewController.xib */,
-			);
-			name = NIBs;
-			sourceTree = "<group>";
-		};
 		14B7017112356D96007B9C90 /* App Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -334,7 +324,6 @@
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				024473421753EF200083A970 /* Storyboards */,
-				14B7016812355C5E007B9C90 /* NIBs */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
@@ -450,7 +439,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */,
-				14B701FC12356EAA007B9C90 /* RunViewController.xib in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
 				0206A23B1908C59400F155B3 /* Images.xcassets in Resources */,
 				024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */,
