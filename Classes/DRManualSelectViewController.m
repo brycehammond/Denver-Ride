@@ -27,13 +27,6 @@
 #define kScheduleTypeSection 3
 #define kStopsSection 4
 
-
-@synthesize navigationController = _navigationController,
-			managedObjectContext = _managedObjectContext,
-			timeInMinutes = _timeInMinutes,
-			currentStops = _currentStops,
-			currentDayType = _currentDayType;
-
 - (void)loadView
 {
 	[super loadView];
