@@ -167,7 +167,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 	Stop *stop = (Stop *)[self runArray][indexPath.row];
     
-    DRStationViewController *stationController = (DRStationViewController *)[[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationController"];
+    DRStationViewController *stationController = (DRStationViewController *)[[UIStoryboard stationStoryboard] instantiateViewControllerWithIdentifier:@"StationController"];
     stationController.currentTimeInMinutes = (_timeDirection == FORWARD) ? [[stop arrivalTimeInMinutes] intValue] : [[stop departureTimeInMinutes] intValue];
     stationController.timeDirection = _timeDirection;
     stationController.dayType = stop.dayType;

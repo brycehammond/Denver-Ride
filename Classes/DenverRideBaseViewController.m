@@ -8,6 +8,7 @@
 
 #import "DenverRideBaseViewController.h"
 #import "Flurry.h"
+#import "Masonry.h"
 
 @implementation DenverRideBaseViewController
 
@@ -90,23 +91,30 @@
 {
     if(nil == self.mapViewController)
 	{
-		self.mapViewController = [[DRRTDMapViewController alloc] initWithNibName:nil bundle:nil];
+        self.mapViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"DRRTDMapViewController"];
 	}
     
 	self.mapButton.enabled = NO;
     self.bcycleButton.enabled = YES;
+    [self setTitle:@"Route Map"];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
 	[[self.bcycleViewController view] removeFromSuperview];
+    [self.bcycleViewController removeFromParentViewController];
     [self addChildViewController:self.mapViewController];
 	[self.containerView addSubview:self.mapViewController.view];
-	[self setTitle:@"Route Map"];
-	[[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
+    [[self.mapViewController view] mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
+    [self.containerView layoutIfNeeded];
 }
 
 - (IBAction)bcycleSelected:(UIButton *)sender
 {
     if(nil == self.bcycleViewController)
 	{
-		self.bcycleViewController = [[BCycleViewController alloc] initWithNibName:nil bundle:nil];
+        self.bcycleViewController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"DRBCycleViewController"];
 	}
 	else
 	{
@@ -115,11 +123,18 @@
 	
     self.mapButton.enabled = YES;
     self.bcycleButton.enabled = NO;
+    [self setTitle:@"BCycle"];
+    [[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
 	[[self.mapViewController view] removeFromSuperview];
+    [self.mapViewController removeFromParentViewController];
     [self addChildViewController:self.bcycleViewController];
 	[self.containerView addSubview:[self.bcycleViewController view]];
-	[self setTitle:@"BCycle"];
-	[[self navigationController] setNavigationBarHidden:YES animated:NO];
+    
+    [[self.bcycleViewController view] mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
+    [self.containerView layoutIfNeeded];
 }
 
 - (void)directionSelected:(NSString *)direction

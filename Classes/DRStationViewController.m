@@ -23,11 +23,6 @@
 
 @implementation DRStationViewController
 
-@synthesize managedObjectContext = _managedObjectContext, station = _station, 
-			stopsArray = _stopsArray, currentTimeInMinutes = _currentTimeInMinutes,
-			dayType = _dayType;
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];

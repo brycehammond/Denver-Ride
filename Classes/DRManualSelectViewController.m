@@ -10,13 +10,13 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "StationStopTableViewCell.h"
+#import "Masonry.h"
 
 @interface DRManualSelectViewController ()
 
 @property (strong, nonatomic) Station *station;
 
 @end
-
 
 
 @implementation DRManualSelectViewController
@@ -37,6 +37,10 @@
 	[_manualTableView setDataSource:self];
 	[_manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
 	[[self view] addSubview:_manualTableView];
+    
+    [_manualTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 	
 }
 
@@ -251,7 +255,7 @@
 	}
 	else if(indexPath.section == kStationSection)
 	{
-		_stationChangeController =  [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationChange"];
+		_stationChangeController =  [[UIStoryboard stationStoryboard] instantiateViewControllerWithIdentifier:@"StationChange"];
         [_stationChangeController setDelegate:self];
         [_stationChangeController setManagedObjectContext:[self managedObjectContext]];
 		

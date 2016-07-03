@@ -10,7 +10,7 @@
 #import "DRRunViewController.h"
 #import "DRRTDMapViewController.h"
 #import "DenverRideBaseViewController.h"
-#import "BCycleViewController.h"
+#import "DRBCycleViewController.h"
 
 @class Station;
 

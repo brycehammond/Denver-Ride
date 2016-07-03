@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ChangeDirectionProtocol.h"
 #import "DRRTDMapViewController.h"
-#import "BCycleViewController.h"
+#import "DRBCycleViewController.h"
 #import "DenverRideBaseViewController.h"
 
 @interface DRRootViewController : DenverRideBaseViewController 

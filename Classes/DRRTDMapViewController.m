@@ -11,46 +11,22 @@
 
 @implementation DRRTDMapViewController
 
-
-- (void)loadView
+- (void)viewDidLoad
 {
-	[super loadView];
-	[[self view] setBackgroundColor:[UIColor colorWithHexString:kNavBarColor]];
+    [super viewDidLoad];
     
-    _mapView = [[UIWebView alloc] initWithFrame:[[self view] bounds]];
-    [_mapView setScalesPageToFit:YES];
+    self.mapView.scalesPageToFit = YES;
     
     NSString *pdfLocation = [[NSBundle mainBundle] pathForResource:@"light-rail-map" ofType:@"pdf"];
     
     NSURL *url = [NSURL fileURLWithPath:pdfLocation];
-    [_mapView loadRequest:[NSURLRequest requestWithURL:url]];
-	
-	[[self view] addSubview:_mapView];
+    [self.mapView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
+    [super viewDidAppear:animated];
 	[Flurry logEvent:@"Map View shown"];
-	[super viewDidAppear:animated];
 }
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-    _mapView = nil;
-}
-
--(UIView *) viewForZoomingInScrollView:(UIScrollView *)scrollView {
-    return _mapView;
-}
-
-
 
 @end

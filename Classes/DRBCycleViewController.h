@@ -9,13 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "DREncapsulatedConnection.h"
 
-@interface BCycleViewController : UIViewController <MKMapViewDelegate, EncapsulatedConnectionDelegate> {
-	MKMapView *_mapView;
+@interface DRBCycleViewController : UIViewController <MKMapViewDelegate, EncapsulatedConnectionDelegate> {
 	NSArray *_stations;
 	DREncapsulatedConnection *_updateConnection;
 
 	NSMutableDictionary *_stationsByName;
 }
+
+@property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 //merges new station information
 - (void)updateStations:(NSArray *)stations;

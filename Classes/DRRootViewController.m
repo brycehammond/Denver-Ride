@@ -12,6 +12,7 @@
 #import "RTDAppDelegate.h"
 #import "Station+Convenience.h"
 #import "Flurry.h"
+#import "Masonry.h"
 
 @interface DRRootViewController ()
 
@@ -25,9 +26,8 @@
 
 @implementation DRRootViewController
 
-@synthesize  managedObjectContext = _managedObjectContext,
-			closestViewController = _closestViewController,
-			manualViewController = _manualViewController;
+
+static NSString *lastTypeUsedKey = @"LastTypeUsed";
 
 -(void)viewDidLoad
 {
@@ -43,20 +43,12 @@
 
 	
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
-    //@TODO: set hand direction properly
 	
-	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:@"LastTypeUsed"];
+	NSString *lastTypeUsed = [[NSUserDefaults standardUserDefaults] stringForKey:lastTypeUsedKey];
 	if(! lastTypeUsed)
 	{
-		if([[[UIDevice currentDevice] name] hasPrefix:@"iPod"])
-		{
-			lastTypeUsed = @"Manual";
-		}
-		else {
-			lastTypeUsed = @"Closest";
-		}
-		
-		[[NSUserDefaults standardUserDefaults] setObject:lastTypeUsed forKey:@"LastTypeUsed"];
+        lastTypeUsed = @"Closest";
+		[[NSUserDefaults standardUserDefaults] setObject:lastTypeUsed forKey:lastTypeUsedKey];
 	}
 	
 	NSString *buttonTitle = nil;
@@ -81,6 +73,27 @@
     [self.containerView addSubview:self.activeViewController.view];
 }
 
+- (void)setActiveViewController:(UIViewController<DRChangeDirectionProtocol> *)activeViewController
+{
+    if(_activeViewController == activeViewController)
+    {
+        return;
+    }
+    
+    UIViewController *currentActiveController = self.activeViewController;
+    [currentActiveController removeFromParentViewController];
+    [[currentActiveController view] removeFromSuperview];
+    
+    [self addChildViewController:activeViewController];
+    [self.containerView addSubview:[activeViewController view]];
+    
+    [[activeViewController view] mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.containerView);
+    }];
+    
+    _activeViewController = activeViewController;
+}
+
 -(void)updateFinished
 {
 	NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
@@ -96,6 +109,7 @@
 
 -(IBAction)topRightButtonClicked:(UIBarButtonItem *)sender
 {
+    
 	if([[sender title] isEqualToString:@"Manual"])
 	{
 		NSString *direction = [[NSUserDefaults standardUserDefaults] stringForKey:kCurrentDirectionKey];
@@ -103,18 +117,14 @@
 			@{@"Mode": @"Manual",@"Direction": direction}];
 		//Set the manual mode
 		[self setTitle:@"Manual Mode"];
-		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:@"LastTypeUsed"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Manual" forKey:lastTypeUsedKey];
 		[sender setTitle:@"Closest"];
         
-		[UIView beginAnimations:nil context:nil];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.containerView cache:YES];
-		[UIView setAnimationDuration:0.75];
-        [[[self closestViewController] view] removeFromSuperview];
-		self.activeViewController = [self manualViewController];
-        [self.containerView addSubview:[[self manualViewController] view]];
-        [UIView commitAnimations];
-		[[self manualViewController] viewWillAppear:YES];
-		[[self manualViewController] viewDidAppear:YES];
+        [UIView transitionWithView:self.containerView duration:0.75 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            self.activeViewController = [self manualViewController];
+        } completion:^(BOOL finished) {
+            
+        }];
 		
 	}
 	else {
@@ -126,18 +136,14 @@
 			@{@"Mode": @"Closest",@"Direction": direction}];
 		
 		[sender setTitle:@"Manual"];
-		[[NSUserDefaults standardUserDefaults] setObject:@"Closest" forKey:@"LastTypeUsed"];
+		[[NSUserDefaults standardUserDefaults] setObject:@"Closest" forKey:lastTypeUsedKey];
 		[self setTitle:@"Closest Stations"];
 		
-		[UIView beginAnimations:nil context:nil];
-        [UIView setAnimationTransition:UIViewAnimationTransitionFlipFromLeft forView:self.containerView cache:YES];
-		[UIView setAnimationDuration:0.75];
-        [[[self manualViewController] view] removeFromSuperview];
-		self.activeViewController = [self closestViewController];
-        [self.containerView addSubview:[[self closestViewController] view]];
-        [UIView commitAnimations];
-		[[self closestViewController] viewWillAppear:YES];
-		[[self closestViewController] viewDidAppear:YES];
+        [UIView transitionWithView:self.containerView duration:0.75 options:UIViewAnimationOptionTransitionFlipFromLeft animations:^{
+            self.activeViewController = [self closestViewController];
+        } completion:^(BOOL finished) {
+            
+        }];
 	}
 
 }
@@ -148,8 +154,7 @@
 	{
 		_closestViewController = [[DRClosestSelectViewController alloc] initWithNibName:nil
 																			   bundle:nil];
-		[_closestViewController setManagedObjectContext:[self managedObjectContext]];
-		[_closestViewController setNavigationController:[self navigationController]];
+        _closestViewController.managedObjectContext = self.managedObjectContext;
 	}
 	
 	return _closestViewController;
@@ -161,8 +166,7 @@
 	{
 		_manualViewController = [[DRManualSelectViewController alloc] initWithNibName:nil 
 																			 bundle:nil];
-		[_manualViewController setManagedObjectContext:[self managedObjectContext]];
-		[_manualViewController setNavigationController:[self navigationController]];
+        _manualViewController.managedObjectContext = self.managedObjectContext;
 	}
 	
 	return _manualViewController;

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DRRTDMapViewController.h"
-#import "BCycleViewController.h"
+#import "DRBCycleViewController.h"
 
 @interface DenverRideBaseViewController : UIViewController
 
@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *currentDirectionHand;
 
 @property (nonatomic, strong) DRRTDMapViewController *mapViewController;
-@property (nonatomic, strong) BCycleViewController *bcycleViewController;
+@property (nonatomic, strong) DRBCycleViewController *bcycleViewController;
 
 - (IBAction)northboundSelected:(UIButton *)sender;
 - (IBAction)southboundSelected:(UIButton *)sender;

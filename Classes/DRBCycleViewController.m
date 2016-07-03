@@ -6,63 +6,38 @@
 //  Copyright Fluidvision Design, Inc. 2010. All rights reserved.
 //
 
-#import "BCycleViewController.h"
+#import "DRBCycleViewController.h"
 #import "DRStationAnnotation.h"
 #import "Flurry.h"
 
 #define kStationInfoKey @"StationInfoKey"
 
-@interface BCycleViewController (Private)
+@interface DRBCycleViewController (Private)
 
 - (void)loadStationsFromString:(NSString *)string stale:(BOOL)stale;
 
 @end
 
 
-@implementation BCycleViewController
+@implementation DRBCycleViewController
 
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (void)viewDidLoad
 {
-	if((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]))
-	{
-		_stationsByName = [[NSMutableDictionary alloc] init];
-	}
-	
-	return self;
-}
-
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-	[super loadView];
-    [[self view] setBackgroundColor:[UIColor colorWithHexString:kNavBarColor]];
-	
-	_mapView = [[MKMapView alloc] initWithFrame:[[self view] bounds]];
-	[[self view] addSubview:_mapView];
-	
-	// Set the map type such as Standard, Satellite, Hybrid
-	_mapView.mapType = MKMapTypeStandard;
-	
-	// Config user interactions
-	_mapView.zoomEnabled = YES;
-	_mapView.scrollEnabled = YES;
-	
-	// Set the region and zoom level
-	MKCoordinateRegion region;
-	MKCoordinateSpan span;
-	CLLocationCoordinate2D location;
-	location.latitude = 39.744154;
-	location.longitude = -104.975739;
-	span.latitudeDelta = 0.08;
-	span.longitudeDelta = 0.08;
-	region.span = span;
-	region.center = location;
-	// Set to that region with an animated effect
-	[_mapView setRegion:region animated:TRUE];
-	// Lastly, set the MKMapViewDelegate
-	_mapView.delegate = self;
+    _stationsByName = [[NSMutableDictionary alloc] init];
     
-	_mapView.showsUserLocation = YES;
+    [super viewDidLoad];
+    // Set the region and zoom level
+    MKCoordinateRegion region;
+    MKCoordinateSpan span;
+    CLLocationCoordinate2D location;
+    location.latitude = 39.744154;
+    location.longitude = -104.975739;
+    span.latitudeDelta = 0.08;
+    span.longitudeDelta = 0.08;
+    region.span = span;
+    region.center = location;
+    // Set to that region with an animated effect
+    [self.mapView setRegion:region animated:TRUE];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -219,7 +194,7 @@
 
 @end
 
-@implementation BCycleViewController (Private)
+@implementation DRBCycleViewController (Private)
 
 
 - (void)loadStationsFromString:(NSString *)string stale:(BOOL)stale

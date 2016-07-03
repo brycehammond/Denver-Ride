@@ -16,6 +16,7 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
+#import "Masonry.h"
 
 @interface DRClosestSelectViewController (Private)
 - (void)updateDirection:(NSString *)direction;
@@ -34,6 +35,10 @@
 	[_closeStationsTableView setDataSource:self];
 	
 	[[self view] addSubview:_closeStationsTableView];
+    
+    [_closeStationsTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
 	
 }
 

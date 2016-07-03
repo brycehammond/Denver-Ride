@@ -265,7 +265,7 @@
     
     RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    DRStationViewController *stationController = (DRStationViewController *)[[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationController"];
+    DRStationViewController *stationController = (DRStationViewController *)[[UIStoryboard stationStoryboard] instantiateViewControllerWithIdentifier:@"StationController"];
     stationController.station = station;
     stationController.currentTimeInMinutes = timeInMinutes;
     stationController.timeDirection = FORWARD;
