@@ -324,7 +324,7 @@
                                             <constraint firstAttribute="height" constant="21" id="UDC-xH-0wT"/>
                                             <constraint firstAttribute="width" constant="42" id="YIJ-8E-yUm"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>

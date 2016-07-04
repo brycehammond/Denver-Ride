@@ -59,6 +59,10 @@
 		[[NSUserDefaults standardUserDefaults] setObject:currentDirection forKey:kCurrentDirectionKey];
 	}
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [_databaseUpdater startUpdate];
+    });
+    
     return YES;
 }
 
@@ -69,7 +73,10 @@
         _databaseUpdater = [[DRDatabaseUpdater alloc] init];
         [_databaseUpdater setDelegate:self];        
     }
-    
+}
+
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
     [_databaseUpdater startUpdate];
 }
 

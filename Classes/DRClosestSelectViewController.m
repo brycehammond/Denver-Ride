@@ -357,7 +357,7 @@
 		}
 		
 		cell.textLabel.text = @"View All Stations";
-        cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:16];
+        cell.textLabel.font = [UIFont boldSystemFontOfSize:16];
         cell.textLabel.textColor = [UIColor colorWithHexString:@"656565"];
 		[cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
 		
