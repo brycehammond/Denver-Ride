@@ -10,6 +10,7 @@
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
 #import "NSData+gzip.h"
+#import "SVProgressHUD.h"
 
 @interface DRDatabaseUpdater (Private)
 - (void)showUpdateAlert;
@@ -112,7 +113,6 @@
             [delegate databaseUpdateFinished];
             
             [self hideLoadingView];
-            [_loadingView setDownloadProgress:0];
             
             _databaseUpdateConnection = nil;
             
@@ -174,34 +174,19 @@
 
 - (void)updateProgress:(NSTimer *)timer
 {
-	[_loadingView setDownloadProgress:[_databaseUpdateConnection downloadPercentage]];
+    [SVProgressHUD showProgress:[_databaseUpdateConnection downloadPercentage] status:@"Updating Schedules"];
 }
 								  
 #pragma mark LoadingView methods
 
-- (void)showLoadingView;
+- (void)showLoadingView
 {
-	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
-	
-	if(! _loadingView)
-	{
-		_loadingView = [[LoadingView alloc] initWithFrame:[[appDelegate window] bounds]];
-	}
-	
-	[_loadingView setMessage:@"Updating schedules"];
-	
-	if(! [_loadingView superview])
-	{
-		[[appDelegate window] addSubview:_loadingView];
-	}
+    [SVProgressHUD showProgress:0.0 status:@"Updating Schedules"];
 }
 
 - (void)hideLoadingView
 {
-	if([_loadingView superview])
-	{
-		[_loadingView removeFromSuperview];
-	}
+    [SVProgressHUD dismiss];
 }
 
 @end

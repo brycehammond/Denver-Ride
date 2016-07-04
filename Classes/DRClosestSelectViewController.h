@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "LoadingView.h"
 #import "ChangeDirectionProtocol.h"
 
 @interface DRClosestSelectViewController : UIViewController <CLLocationManagerDelegate, UITableViewDelegate, 
@@ -22,7 +21,6 @@
 	NSMutableArray *_closestStationsStopsArray;
 	
 	UITableView *_closeStationsTableView;
-	LoadingView *_loadingView;
 	
 	NSTimer *_delayTimer;
 	

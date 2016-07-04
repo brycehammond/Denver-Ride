@@ -16,6 +16,7 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
+#import "SVProgressHUD.h"
 
 @interface DRClosestSelectViewController (Private)
 - (void)updateDirection:(NSString *)direction;
@@ -45,7 +46,6 @@
     [super viewDidLoad];
 	
 	[_closeStationsTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	_loadingView = [[LoadingView alloc] initWithFrame:[_closeStationsTableView frame]];
 	
 	//We haven't gotten a closest location yet so set the
 	//closest location array to empty
@@ -71,12 +71,7 @@
 	// Set the station array to the mutable array, then clean up.
 	[self setStationsArray:mutableFetchResults];
 	
-	if(! [_loadingView superview])
-	{
-		[_loadingView setMessage:@"Finding Closest Stations"];
-		[[self view] addSubview:_loadingView];
-	}
-	
+    [SVProgressHUD showWithStatus:@"Finding Closest Stations"];
 	
 	if([CLLocationManager locationServicesEnabled])
 	{
@@ -131,11 +126,7 @@
 
 -(void)changeDirectionTo:(NSString *)direction
 {
-	if(! [_loadingView superview])
-	{
-		[_loadingView setMessage:@"Loading"];
-		[[self view] addSubview:_loadingView];
-	}
+    [SVProgressHUD showWithStatus:@"Loading"];
 	
 	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
 }
@@ -211,12 +202,7 @@
 	}
 	
 	[_closeStationsTableView reloadData];
-	if([_loadingView superview])
-	{
-		[_loadingView removeFromSuperview];
-	}
-	
-	
+    [SVProgressHUD dismiss];
 }
 
 - (NSArray *)nextStopsForStation:(Station *)station withTimeInMinutes:(NSInteger)timeInMinutes andDayType:(NSString *)dayType

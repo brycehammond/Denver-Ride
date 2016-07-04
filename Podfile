@@ -7,4 +7,5 @@ target 'Denver Ride' do
     pod 'Flurry-iOS-SDK', '~> 7.6.3'
     pod 'Masonry', '1.0.1'
     pod 'Reveal-iOS-SDK', :configurations => ['Debug']
+    pod 'SVProgressHUD', '2.0.3'
 end

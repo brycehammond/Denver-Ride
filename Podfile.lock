@@ -4,6 +4,7 @@ PODS:
   - Flurry-iOS-SDK/FlurrySDK (7.6.4)
   - Masonry (1.0.1)
   - Reveal-iOS-SDK (1.6.2)
+  - SVProgressHUD (2.0.3)
   - UIColor-Utilities (1.0.1)
   - UIView-IMUUtilities (0.0.1)
 
@@ -11,6 +12,7 @@ DEPENDENCIES:
   - Flurry-iOS-SDK (~> 7.6.3)
   - Masonry (= 1.0.1)
   - Reveal-iOS-SDK
+  - SVProgressHUD (= 2.0.3)
   - UIColor-Utilities
   - UIView-IMUUtilities (from `podspecs/UIView-IMUUtilities.podspec`)
 
@@ -22,6 +24,7 @@ SPEC CHECKSUMS:
   Flurry-iOS-SDK: 9da972687d3af9f48038dcd86eae9cad3acca456
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   Reveal-iOS-SDK: e2250b3c155bcfac53ae223ddc1f76d08f206c33
+  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
   UIColor-Utilities: 6746a54dcdb3bc012dd7aeaeea5588ae2100beb2
   UIView-IMUUtilities: c6fd64146f793936e3db987ea9b1ed93939cca0d
 

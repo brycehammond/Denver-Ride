@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "DREncapsulatedConnection.h"
-#import "LoadingView.h"
 
 @protocol DatabaseUpdaterDelegate
 
@@ -23,8 +22,6 @@
 	DREncapsulatedConnection *_updateCheckConnection;
 	
 	DREncapsulatedConnection *_databaseUpdateConnection;
-	
-	LoadingView *_loadingView;
 	
 	NSString *_newDatabaseFileName;
     NSString *_newDatabaseLocalFileName;
