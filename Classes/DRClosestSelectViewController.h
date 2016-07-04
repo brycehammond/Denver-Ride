@@ -38,8 +38,6 @@
 @property (nonatomic, strong) NSString *currentDirection;
 @property (nonatomic, strong) NSMutableArray *closestStationsStopsArray;
 
-@property (nonatomic, strong) UINavigationController *navigationController;
-
 -(void)retrieveStopsDirection:(NSString *)direction;
 
 @end

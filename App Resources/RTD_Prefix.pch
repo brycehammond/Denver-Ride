@@ -13,5 +13,6 @@
 	#import "DenverRideConstants.h"
     #import "DLog.h"
     #import "UIColor+Expanded.h"
+    #import "Masonry.h"
     #import "UIStoryboard+DenverRide.h"
 #endif

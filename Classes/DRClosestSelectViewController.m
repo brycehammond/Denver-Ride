@@ -16,7 +16,6 @@
 #import "NSDate+TimeInMinutes.h"
 #import "RTDAppDelegate.h"
 #import "Flurry.h"
-#import "Masonry.h"
 
 @interface DRClosestSelectViewController (Private)
 - (void)updateDirection:(NSString *)direction;
@@ -436,7 +435,7 @@
     [header setBackgroundColor:[UIColor clearColor]];
     
     UILabel *stationLabel = [[UILabel alloc] initWithFrame:CGRectMake(22, 5, [[UIScreen mainScreen] bounds].size.width, 25)];
-	[stationLabel setFont:[UIFont fontWithName:@"Helvetica-Bold" size:17]];
+    [stationLabel setFont:[UIFont boldSystemFontOfSize:17.0]];
 	[stationLabel setTextAlignment:NSTextAlignmentLeft];
     [stationLabel setTextColor:[UIColor colorWithHexString:@"272727"]];
 	[stationLabel setAdjustsFontSizeToFitWidth:YES];
@@ -453,7 +452,7 @@
 	
 	if(indexPath.section == [[self closestStationsArray] count])
 	{
-		DRStationListViewController *listController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"StationList"];
+		DRStationListViewController *listController = [[UIStoryboard stationStoryboard] instantiateViewControllerWithIdentifier:@"StationList"];
 		[listController setManagedObjectContext:[self managedObjectContext]];
 		[[self navigationController] pushViewController:listController animated:YES];
 	}

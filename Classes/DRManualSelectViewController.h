@@ -32,7 +32,6 @@ StationChangeViewControllerDelegate> {
 	
 }
 
-@property (nonatomic, strong) UINavigationController *navigationController;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (assign) NSInteger timeInMinutes;
 @property (nonatomic, strong) NSArray *currentStops;
