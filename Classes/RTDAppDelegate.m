@@ -13,6 +13,7 @@
 #import "Stop.h"
 #import "Flurry.h"
 #import "DRDatabaseLoader.h"
+#import "SVProgressHUD.h"
 
 @implementation RTDAppDelegate
 
@@ -224,7 +225,9 @@
     [[UINavigationBar appearance] setBarTintColor:headerColor];
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
 
-
+    [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
+    [SVProgressHUD setForegroundColor:[UIColor colorWithHexString:kNavBarColor]];
+    [SVProgressHUD setBackgroundColor:[UIColor whiteColor]];
     
     [[UITabBar appearance] setTintColor:headerColor];
 }
