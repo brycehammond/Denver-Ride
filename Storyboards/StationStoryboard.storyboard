@@ -240,7 +240,7 @@
                                                     <constraint firstAttribute="height" constant="61" id="Kit-s8-s5K"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                                <inset key="titleEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Route Map" backgroundImage="route-map-background">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -251,9 +251,18 @@
                                                     <action selector="mapSelected:" destination="tn5-2t-XYJ" eventType="touchUpInside" id="596-a5-gWJ"/>
                                                 </connections>
                                             </button>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map-pin" translatesAutoresizingMaskIntoConstraints="NO" id="oBF-ne-dJZ">
+                                                <rect key="frame" x="329" y="5" width="62" height="37"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="37" id="9cc-RJ-i1w"/>
+                                                    <constraint firstAttribute="width" constant="62" id="gyS-9Y-dHF"/>
+                                                </constraints>
+                                            </imageView>
                                         </subviews>
                                         <color key="backgroundColor" red="0.15686274510000001" green="0.3921568627" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
+                                            <constraint firstItem="oBF-ne-dJZ" firstAttribute="top" secondItem="Qbe-6a-cPF" secondAttribute="top" constant="5" id="Fx9-WQ-GyD"/>
+                                            <constraint firstItem="oBF-ne-dJZ" firstAttribute="centerX" secondItem="Qbe-6a-cPF" secondAttribute="centerX" id="dRa-kz-XgX"/>
                                             <constraint firstAttribute="bottom" secondItem="Qbe-6a-cPF" secondAttribute="bottom" id="fgV-t9-10D"/>
                                             <constraint firstAttribute="height" constant="61" id="ufL-VT-kFH"/>
                                         </constraints>
@@ -335,7 +344,7 @@
                                             <constraint firstAttribute="height" constant="61" id="uFY-KM-EsQ"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
-                                        <inset key="titleEdgeInsets" minX="0.0" minY="33" maxX="0.0" maxY="0.0"/>
+                                        <inset key="titleEdgeInsets" minX="0.0" minY="36" maxX="0.0" maxY="0.0"/>
                                         <state key="normal" title="B Cycle" backgroundImage="bcycle-background">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -362,6 +371,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bcycle" translatesAutoresizingMaskIntoConstraints="NO" id="xSb-S8-qmy">
+                                        <rect key="frame" x="495" y="25" width="51" height="37"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="51" id="6hJ-ZZ-7ng"/>
+                                            <constraint firstAttribute="height" constant="37" id="MD0-f1-DHX"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -392,6 +408,8 @@
                                     <constraint firstItem="2Dm-T3-zkn" firstAttribute="leading" secondItem="Ibj-gM-Rle" secondAttribute="leading" id="kF7-bW-G8N"/>
                                     <constraint firstItem="Qbe-6a-cPF" firstAttribute="leading" secondItem="Z0e-gl-ifc" secondAttribute="trailing" constant="1" id="pPN-92-0ju"/>
                                     <constraint firstItem="Z0e-gl-ifc" firstAttribute="leading" secondItem="yNs-Yk-9Wq" secondAttribute="trailing" constant="-69" id="qd8-Hd-CwN"/>
+                                    <constraint firstItem="xSb-S8-qmy" firstAttribute="top" secondItem="nmM-0R-gfD" secondAttribute="top" constant="5" id="t0s-hO-2Nu"/>
+                                    <constraint firstItem="xSb-S8-qmy" firstAttribute="centerX" secondItem="nmM-0R-gfD" secondAttribute="centerX" id="y3l-xc-rRE"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -443,11 +461,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bcycle" width="31" height="31"/>
         <image name="bcycle-background" width="70" height="61"/>
         <image name="bcycle-background-active" width="70" height="61"/>
         <image name="circle" width="87" height="80"/>
         <image name="line" width="111" height="80"/>
         <image name="line-active" width="111" height="80"/>
+        <image name="map-pin" width="36" height="29"/>
         <image name="pointer" width="22" height="32"/>
         <image name="route-map-background" width="11" height="61"/>
         <image name="route-map-background-active" width="16" height="61"/>

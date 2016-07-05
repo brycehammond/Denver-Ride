@@ -163,13 +163,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		022BC3961D2AF29D002CD240 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "New Group";
-			sourceTree = "<group>";
-		};
 		024473211752D25C0083A970 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,7 +316,6 @@
 		29B97314FDCFA39411CA2CEA /* CustomTemplate */ = {
 			isa = PBXGroup;
 			children = (
-				022BC3961D2AF29D002CD240 /* New Group */,
 				14B7017112356D96007B9C90 /* App Resources */,
 				080E96DDFE201D6D7F000001 /* Classes */,
 				024473421753EF200083A970 /* Storyboards */,

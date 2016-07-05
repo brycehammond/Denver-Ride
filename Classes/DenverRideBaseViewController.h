@@ -22,10 +22,6 @@
 @property (nonatomic, strong) DRRTDMapViewController *mapViewController;
 @property (nonatomic, strong) DRBCycleViewController *bcycleViewController;
 
-- (IBAction)northboundSelected:(UIButton *)sender;
-- (IBAction)southboundSelected:(UIButton *)sender;
-- (IBAction)westboundSelected:(UIButton *)sender;
-- (IBAction)eastboundSelected:(UIButton *)sender;
 - (IBAction)mapSelected:(UIButton *)sender;
 - (IBAction)bcycleSelected:(UIButton *)sender;
 

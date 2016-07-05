@@ -32,29 +32,6 @@
     self.containerView.backgroundColor = [UIColor colorWithHexString:kBackgroundColor];
 }
 
-- (IBAction)northboundSelected:(UIButton *)sender
-{
-    [self updateViewForDirection:@"N"];
-    [self directionSelected:@"N"];
-}
-
-- (IBAction)southboundSelected:(UIButton *)sender
-{
-    [self updateViewForDirection:@"S"];
-    [self directionSelected:@"S"];
-}
-
-- (IBAction)westboundSelected:(UIButton *)sender
-{
-    [self updateViewForDirection:@"W"];
-    [self directionSelected:@"W"];
-}
-
-- (IBAction)eastboundSelected:(UIButton *)sender
-{
-    [self updateViewForDirection:@"E"];
-    [self directionSelected:@"E"];
-}
 
 - (void)updateViewForDirection:(NSString *)direction
 {
