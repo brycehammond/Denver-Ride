@@ -283,9 +283,9 @@
                                     <mask key="constraints">
                                         <exclude reference="Ym6-QS-C6Z"/>
                                         <exclude reference="dnP-vw-NGA"/>
-                                        <exclude reference="bpJ-QY-3zz"/>
-                                        <exclude reference="Ixi-2n-sIp"/>
                                         <exclude reference="7LH-vp-WvB"/>
+                                        <exclude reference="Ixi-2n-sIp"/>
+                                        <exclude reference="bpJ-QY-3zz"/>
                                     </mask>
                                 </variation>
                             </view>
@@ -388,7 +388,7 @@
                                 </items>
                             </toolbar>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="rc7-xn-YH1" firstAttribute="top" secondItem="j1X-dI-XHE" secondAttribute="bottom" id="EPU-BG-26c"/>
                             <constraint firstAttribute="trailing" secondItem="dip-md-P12" secondAttribute="trailing" id="IkD-tg-j1q"/>
@@ -473,7 +473,7 @@
                                 <color key="backgroundColor" white="0.51459854009999995" alpha="0.5" colorSpace="calibratedWhite"/>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="alo-r5-RQR" firstAttribute="leading" secondItem="Lur-3M-gli" secondAttribute="leading" id="1j9-ZQ-aSA"/>
                             <constraint firstItem="w4A-BY-s0w" firstAttribute="top" secondItem="9xk-6J-yBt" secondAttribute="bottom" id="2Re-aC-5w5"/>
@@ -544,8 +544,8 @@
                             </constraints>
                             <variation key="default">
                                 <mask key="constraints">
-                                    <exclude reference="jXH-jh-UhZ"/>
                                     <exclude reference="eZj-1d-DO9"/>
+                                    <exclude reference="jXH-jh-UhZ"/>
                                 </mask>
                             </variation>
                         </imageView>
@@ -673,8 +673,8 @@
                         <mask key="constraints">
                             <exclude reference="2aj-6f-Uy7"/>
                             <exclude reference="fgd-Bb-CBT"/>
-                            <exclude reference="c2c-8p-n2W"/>
                             <exclude reference="OSp-Zx-K5e"/>
+                            <exclude reference="c2c-8p-n2W"/>
                             <exclude reference="gav-Ff-bfi"/>
                         </mask>
                     </variation>

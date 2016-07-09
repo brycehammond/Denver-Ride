@@ -15,6 +15,12 @@
 
 @property (strong, nonatomic) Station *station;
 
+@property (strong, nonatomic) DRTimeChangeViewController *timeChangeController;
+@property (strong, nonatomic) DRDayTypeChangeViewController *dayTypeChangeController;
+@property (strong, nonatomic) DRStationChangeViewController *stationChangeController;
+@property (strong, nonatomic) UITableView *manualTableView;
+@property (assign) DRTimeDirection timeDirection;
+
 @end
 
 
@@ -30,14 +36,14 @@
 {
 	[super loadView];
 	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	_manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
+	self.manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
 														   style:UITableViewStyleGrouped];
-	[_manualTableView setDelegate:self];
-	[_manualTableView setDataSource:self];
-	[_manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	[[self view] addSubview:_manualTableView];
+	[self.manualTableView setDelegate:self];
+	[self.manualTableView setDataSource:self];
+	[self.manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
+	[[self view] addSubview:self.manualTableView];
     
-    [_manualTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.manualTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
 	
@@ -59,9 +65,7 @@
 	[self setCurrentDayType:dayType];
 	[appDelegate setCurrentDayType:dayType];
 	
-	_timeDirection = FORWARD;
-	
-	[self viewWillAppear:NO];
+	self.timeDirection = FORWARD;
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -77,20 +81,6 @@
 	[[NSUserDefaults standardUserDefaults] setObject:direction forKey:kCurrentDirectionKey];
 	[self retrieveStopsDirection:direction];
 }
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
-
 
 #pragma mark -
 #pragma mark Table view data source methods
@@ -132,7 +122,7 @@
 		}
 		[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
 		[cell setAccessoryType:UITableViewCellAccessoryNone];
-		if(_timeDirection == FORWARD)
+		if(self.timeDirection == FORWARD)
 		{
 			cell.textLabel.text = @"Departing from";
 		}
@@ -244,9 +234,16 @@
 			[_timeChangeController setDelegate:self];
 		}
 		
-		CGRect frame = [[_timeChangeController view] frame];
-		frame.origin.y = self.view.frame.size.height;
-		_timeChangeController.view.frame = frame;
+        UIWindow *window = [[self view] window];
+        [window addSubview:[_timeChangeController view]];
+        [_timeChangeController.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(window.mas_left);
+            make.right.equalTo(window.mas_right);
+            make.height.equalTo(window.mas_height);
+            make.top.equalTo(window.mas_bottom);
+        }];
+        
+        [window layoutIfNeeded];
 		
 		[[[self view] window] addSubview:[_timeChangeController view]];
 		[_timeChangeController setTimeInMinutes:[self timeInMinutes]];
@@ -267,12 +264,18 @@
             _dayTypeChangeController = [[UIStoryboard mainStoryboard] instantiateViewControllerWithIdentifier:@"DRDayTypeChangeViewController"];
 			[_dayTypeChangeController setDelegate:self];
 		}
-		
-		CGRect frame = [[_dayTypeChangeController view] frame];
-		frame.origin.y = self.view.frame.size.height;
-		_dayTypeChangeController.view.frame = frame;
-		
-		[[[self view] window] addSubview:[_dayTypeChangeController view]];
+        
+        UIWindow *window = [[self view] window];
+		[window addSubview:[_dayTypeChangeController view]];
+        [_dayTypeChangeController.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(window.mas_left);
+            make.right.equalTo(window.mas_right);
+            make.height.equalTo(window.mas_height);
+            make.top.equalTo(window.mas_bottom);
+        }];
+        
+        [window layoutIfNeeded];
+        
 		[_dayTypeChangeController setDayType:[self currentDayType]];
 		[_dayTypeChangeController animateIn];
 		

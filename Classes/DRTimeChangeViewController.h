@@ -24,9 +24,6 @@
 	IBOutlet UIBarButtonItem *_doneButton;
 	IBOutlet UIDatePicker *_timePicker;
 	IBOutlet UIView *_fadeView;
-	
-	id<TimeChangeViewControllerDelegate> __weak delegate;
-	
 }
 
 @property (weak) id<TimeChangeViewControllerDelegate> delegate;

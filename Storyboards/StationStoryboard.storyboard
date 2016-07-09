@@ -114,9 +114,12 @@
                                     <outlet property="delegate" destination="ywl-Er-hvZ" id="AtQ-hc-agk"/>
                                 </connections>
                             </tableView>
-                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-8m-JmW">
+                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-8m-JmW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.38823529410000002" green="0.64705882349999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="H5h-k7-GF0"/>
+                                </constraints>
                                 <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
@@ -125,6 +128,11 @@
                             </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="J8q-8m-JmW" firstAttribute="leading" secondItem="Xel-9y-UCT" secondAttribute="leading" id="SIq-u6-RMO"/>
+                            <constraint firstAttribute="trailing" secondItem="J8q-8m-JmW" secondAttribute="trailing" id="Xoa-zW-gH2"/>
+                            <constraint firstItem="J8q-8m-JmW" firstAttribute="top" secondItem="Xel-9y-UCT" secondAttribute="top" id="y17-Cf-StQ"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
@@ -148,29 +156,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" fixedFrame="YES" text="" placeholder="Search" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-xv-Was">
-                                <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="68v-rx-1DL" id="ECX-hs-Q99"/>
-                                </connections>
-                            </searchBar>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-dB-vA1">
-                                <rect key="frame" x="0.0" y="116" width="600" height="484"/>
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Dx7-dB-vA1">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                <searchBar key="tableFooterView" opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" id="Ksh-xv-Was">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
+                                    <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="68v-rx-1DL" id="ECX-hs-Q99"/>
+                                    </connections>
+                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="68v-rx-1DL" id="feo-dZ-hrX"/>
                                     <outlet property="delegate" destination="68v-rx-1DL" id="VKZ-Qx-w8M"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n6-OB-pYW">
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n6-OB-pYW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="yi9-YP-ZmU"/>
+                                </constraints>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
                                 <items>
                                     <barButtonItem title="Cancel" id="soJ-co-GIN">
@@ -185,6 +197,16 @@
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="7n6-OB-pYW" firstAttribute="top" secondItem="TUd-oa-VAh" secondAttribute="top" id="EIn-zh-h4u"/>
+                            <constraint firstItem="7n6-OB-pYW" firstAttribute="leading" secondItem="TUd-oa-VAh" secondAttribute="leading" id="Kut-pv-Vdp"/>
+                            <constraint firstAttribute="trailing" secondItem="7n6-OB-pYW" secondAttribute="trailing" id="W0n-BA-reX"/>
+                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="leading" secondItem="TUd-oa-VAh" secondAttribute="leading" id="cFu-uO-6d3"/>
+                            <constraint firstItem="aJU-uL-FkJ" firstAttribute="top" secondItem="Dx7-dB-vA1" secondAttribute="bottom" id="gXe-yq-iVh"/>
+                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="top" secondItem="7n6-OB-pYW" secondAttribute="bottom" id="mj6-x4-0H1"/>
+                            <constraint firstAttribute="trailing" secondItem="Dx7-dB-vA1" secondAttribute="trailing" id="sjl-wS-t18"/>
+                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="top" secondItem="7n6-OB-pYW" secondAttribute="bottom" id="yIq-am-hGq"/>
+                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>

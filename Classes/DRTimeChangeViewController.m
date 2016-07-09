@@ -10,7 +10,19 @@
 
 @implementation DRTimeChangeViewController
 
-@synthesize delegate;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    self.timeChangeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(fadeViewTapped:)];
+    [_fadeView addGestureRecognizer:tapGesture];
+}
+
+- (void)fadeViewTapped:(UITapGestureRecognizer *)gesture
+{
+    [self.delegate cancelButtonClickedOnTimeChangeViewController:self];
+}
+
 
 -(IBAction)doneButtonClicked
 {
@@ -54,72 +66,39 @@
 
 -(void)animateIn
 {
-	[_fadeView setAlpha:0.0];
-	[UIView beginAnimations:@"animateIn" context:nil];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-	CGRect frame = [[self view] frame];
-	frame.origin.y = 20;
-	frame.origin.x = 0;
-	[[self view] setFrame:frame];
-	[UIView commitAnimations];
+    _fadeView.alpha = 0.0;
+    
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view.superview);
+        }];
+        [self.view.superview layoutIfNeeded];
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.2 animations:^{
+            _fadeView.alpha = 0.7;
+        }];
+    }];
 }
 
 -(void)animateOut
 {
-	[UIView beginAnimations:@"animateOutFade" context:nil];
-	[UIView setAnimationDelegate:self];
-	[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-	[UIView setAnimationDuration:0.1];
-	[_fadeView setAlpha:0.0];
-	[UIView commitAnimations];
-}
-
-- (void)animationDidStop:(NSString *)animationID finished:(NSNumber *)finished context:(void *)context
-{
-	if([animationID isEqualToString:@"animateOutFade"])
-	{
-		[UIView beginAnimations:@"animateOut" context:nil];
-		[UIView setAnimationDelegate:self];
-		[UIView setAnimationDidStopSelector:@selector(animationDidStop:finished:context:)];
-		CGRect frame = [[self view] frame];
-		frame.origin.y = [[[self view] superview] bounds].size.height;
-		frame.origin.x = 0;
-		[[self view] setFrame:frame];
-		[UIView commitAnimations];
-		
-	}
-	else if([animationID isEqualToString:@"animateOut"])
-	{
-		[[self view] removeFromSuperview];
-	}
-	else if([animationID isEqualToString:@"animateIn"])
-	{
-		[UIView beginAnimations:@"animateInFade" context:nil];
-		[UIView setAnimationDuration:0.4];
-		[UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
-		[_fadeView setAlpha:0.7];
-		[UIView commitAnimations];
-	}
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-    self.timeChangeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
-}
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-    [self setTimeChangeToolbar:nil];
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+    [UIView animateWithDuration:0.2 animations:^{
+        _fadeView.alpha = 0.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.view mas_remakeConstraints:^(MASConstraintMaker *make) {
+                UIView *superview = self.view.superview;
+                make.top.equalTo(superview.mas_bottom);
+                make.left.equalTo(superview.mas_left);
+                make.right.equalTo(superview.mas_right);
+                make.height.equalTo(superview.mas_height);
+            }];
+            
+            [self.view.superview layoutIfNeeded];
+        } completion:^(BOOL finished) {
+            [self.view removeFromSuperview];
+        }];
+    }];
 }
 
 

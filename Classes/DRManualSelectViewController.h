@@ -15,22 +15,7 @@
 
 @interface DRManualSelectViewController : UIViewController <DRChangeDirectionProtocol, 
 UITableViewDelegate, UITableViewDataSource, TimeChangeViewControllerDelegate, DayTypeChangeViewControllerDelegate,
-StationChangeViewControllerDelegate> {
-	
-	UITableView *_manualTableView;
-	NSInteger _timeInMinutes;
-	
-	NSArray *_currentStops;
-	NSString *_currentDayType;
-	
-	DRTimeChangeViewController *_timeChangeController;
-	DRDayTypeChangeViewController *_dayTypeChangeController;
-	DRStationChangeViewController *_stationChangeController;
-	
-	DRTimeDirection _timeDirection;
-	
-	
-}
+StationChangeViewControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (assign) NSInteger timeInMinutes;
