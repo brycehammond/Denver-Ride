@@ -17,13 +17,8 @@
 
 @end
 
-@interface DRStationChangeViewController : DRStationListViewController {
-	id<StationChangeViewControllerDelegate> __weak delegate;
-}
+@interface DRStationChangeViewController : DRStationListViewController 
 
 @property (weak) id<StationChangeViewControllerDelegate> delegate;
-@property (strong, nonatomic) IBOutlet UIToolbar *stationChangeToolbar;
-
--(IBAction)cancelButtonClicked;
 
 @end

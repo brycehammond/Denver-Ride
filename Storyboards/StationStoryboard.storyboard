@@ -94,10 +94,10 @@
             </objects>
             <point key="canvasLocation" x="2084" y="221"/>
         </scene>
-        <!--Station List View Controller-->
+        <!--All Stations-->
         <scene sceneID="DRy-2m-kZd">
             <objects>
-                <viewController storyboardIdentifier="StationList" automaticallyAdjustsScrollViewInsets="NO" id="ywl-Er-hvZ" customClass="DRStationListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StationList" title="All Stations" id="ywl-Er-hvZ" customClass="DRStationListViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Uym-Yi-2Lu"/>
                         <viewControllerLayoutGuide type="bottom" id="eex-OY-TJR"/>
@@ -106,7 +106,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dph-te-5Go">
+                            <tableView clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="dph-te-5Go">
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -114,12 +114,13 @@
                                     <outlet property="delegate" destination="ywl-Er-hvZ" id="AtQ-hc-agk"/>
                                 </connections>
                             </tableView>
-                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-8m-JmW">
+                            <searchBar multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J8q-8m-JmW">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <color key="backgroundColor" red="0.38823529410000002" green="0.64705882349999999" blue="0.2274509804" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.4392156862745098" green="0.66274509803921566" blue="0.41568627450980394" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="H5h-k7-GF0"/>
                                 </constraints>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                 <connections>
@@ -129,9 +130,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="trailing" secondItem="dph-te-5Go" secondAttribute="trailing" id="3Ou-f9-Hcc"/>
                             <constraint firstItem="J8q-8m-JmW" firstAttribute="leading" secondItem="Xel-9y-UCT" secondAttribute="leading" id="SIq-u6-RMO"/>
                             <constraint firstAttribute="trailing" secondItem="J8q-8m-JmW" secondAttribute="trailing" id="Xoa-zW-gH2"/>
+                            <constraint firstItem="eex-OY-TJR" firstAttribute="top" secondItem="dph-te-5Go" secondAttribute="bottom" id="e12-v8-Wh4"/>
+                            <constraint firstItem="dph-te-5Go" firstAttribute="top" secondItem="J8q-8m-JmW" secondAttribute="bottom" id="jnw-TX-3es"/>
                             <constraint firstItem="J8q-8m-JmW" firstAttribute="top" secondItem="Xel-9y-UCT" secondAttribute="top" id="y17-Cf-StQ"/>
+                            <constraint firstItem="dph-te-5Go" firstAttribute="leading" secondItem="Xel-9y-UCT" secondAttribute="leading" id="zAn-qr-qtq"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -144,10 +149,10 @@
             </objects>
             <point key="canvasLocation" x="1359" y="908"/>
         </scene>
-        <!--Station Change View Controller-->
+        <!--All Stations-->
         <scene sceneID="8Xu-cf-zaM">
             <objects>
-                <viewController storyboardIdentifier="StationChange" id="68v-rx-1DL" customClass="DRStationChangeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="StationChange" title="All Stations" id="68v-rx-1DL" customClass="DRStationChangeViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bgQ-zC-WHo"/>
                         <viewControllerLayoutGuide type="bottom" id="aJU-uL-FkJ"/>
@@ -160,58 +165,37 @@
                                 <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
-                                <searchBar key="tableFooterView" opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" id="Ksh-xv-Was">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                    <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <textInputTraits key="textInputTraits"/>
-                                    <connections>
-                                        <outlet property="delegate" destination="68v-rx-1DL" id="ECX-hs-Q99"/>
-                                    </connections>
-                                </searchBar>
                                 <connections>
                                     <outlet property="dataSource" destination="68v-rx-1DL" id="feo-dZ-hrX"/>
                                     <outlet property="delegate" destination="68v-rx-1DL" id="VKZ-Qx-w8M"/>
                                 </connections>
                             </tableView>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7n6-OB-pYW">
+                            <searchBar opaque="NO" multipleTouchEnabled="YES" contentMode="redraw" text="" placeholder="Search" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ksh-xv-Was">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="yi9-YP-ZmU"/>
-                                </constraints>
                                 <inset key="insetFor6xAndEarlier" minX="0.0" minY="20" maxX="0.0" maxY="-20"/>
-                                <items>
-                                    <barButtonItem title="Cancel" id="soJ-co-GIN">
-                                        <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <action selector="cancelButtonClicked" destination="68v-rx-1DL" id="SFH-8d-5zM"/>
-                                        </connections>
-                                    </barButtonItem>
-                                </items>
-                                <color key="tintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="barTintColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
-                            </toolbar>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="68v-rx-1DL" id="ECX-hs-Q99"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" red="0.43921568630000002" green="0.66274509800000003" blue="0.41568627450000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="7n6-OB-pYW" firstAttribute="top" secondItem="TUd-oa-VAh" secondAttribute="top" id="EIn-zh-h4u"/>
-                            <constraint firstItem="7n6-OB-pYW" firstAttribute="leading" secondItem="TUd-oa-VAh" secondAttribute="leading" id="Kut-pv-Vdp"/>
-                            <constraint firstAttribute="trailing" secondItem="7n6-OB-pYW" secondAttribute="trailing" id="W0n-BA-reX"/>
+                            <constraint firstAttribute="trailing" secondItem="Ksh-xv-Was" secondAttribute="trailing" id="1Gu-E4-UmV"/>
                             <constraint firstItem="Dx7-dB-vA1" firstAttribute="leading" secondItem="TUd-oa-VAh" secondAttribute="leading" id="cFu-uO-6d3"/>
                             <constraint firstItem="aJU-uL-FkJ" firstAttribute="top" secondItem="Dx7-dB-vA1" secondAttribute="bottom" id="gXe-yq-iVh"/>
-                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="top" secondItem="7n6-OB-pYW" secondAttribute="bottom" id="mj6-x4-0H1"/>
+                            <constraint firstItem="Ksh-xv-Was" firstAttribute="top" secondItem="TUd-oa-VAh" secondAttribute="top" id="pb1-qx-H2Q"/>
                             <constraint firstAttribute="trailing" secondItem="Dx7-dB-vA1" secondAttribute="trailing" id="sjl-wS-t18"/>
-                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="top" secondItem="7n6-OB-pYW" secondAttribute="bottom" id="yIq-am-hGq"/>
+                            <constraint firstItem="Dx7-dB-vA1" firstAttribute="top" secondItem="Ksh-xv-Was" secondAttribute="bottom" id="yMZ-vg-dFt"/>
+                            <constraint firstItem="Ksh-xv-Was" firstAttribute="leading" secondItem="TUd-oa-VAh" secondAttribute="leading" id="yyv-bg-PvA"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="_stationsTableView" destination="Dx7-dB-vA1" id="dPS-CL-9Nk"/>
-                        <outlet property="stationChangeToolbar" destination="7n6-OB-pYW" id="v2N-82-Y8j"/>
                         <outlet property="stationListSearchBar" destination="Ksh-xv-Was" id="UH4-lA-X4D"/>
                     </connections>
                 </viewController>

@@ -16,30 +16,19 @@
 
 @implementation DRStationListViewController
 
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        _recentlyUsedStations = [[NSMutableArray alloc] init];
-		_recentlyUsedStationsToDisplay = nil;
-    }
-    return self;
-}
-
-
-
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
-	[self setTitle:@"All Stations"];
+    _recentlyUsedStations = [[NSMutableArray alloc] init];
+    _recentlyUsedStationsToDisplay = nil;
+    
+    [self.stationListSearchBar setBackgroundImage:[[UIImage alloc]init]];
+    self.stationListSearchBar.barTintColor = [UIColor colorWithHexString:@"70A96A"];
 	
 	RTDAppDelegate *appDelegate = (RTDAppDelegate *)[[UIApplication sharedApplication] delegate];
 	NSString *dayType = [[NSDate date] dayType];
 	[appDelegate setCurrentDayType:dayType];
-    
-    self.stationListSearchBar.tintColor = [UIColor colorWithHexString:kNavBarColor];
-
-    self.automaticallyAdjustsScrollViewInsets = YES;
 	
 	NSError *error;
 	if (![[self fetchedResultsController] performFetch:&error]) {
@@ -328,8 +317,6 @@
 	[headerLabel setText:sectionTitle];
     [headerLabel setFont:[UIFont boldSystemFontOfSize:18]];
 	[headerLabel setBackgroundColor:[UIColor colorWithHexString:@"70A96A"]];
-	[headerLabel setShadowColor:[UIColor grayColor]];
-	[headerLabel setShadowOffset:CGSizeMake(2, 1)];
 	
 	return headerLabel;
 

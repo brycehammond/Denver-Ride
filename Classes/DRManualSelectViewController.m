@@ -32,26 +32,22 @@
 #define kScheduleTypeSection 3
 #define kStopsSection 4
 
-- (void)loadView
-{
-	[super loadView];
-	[[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	self.manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
-														   style:UITableViewStyleGrouped];
-	[self.manualTableView setDelegate:self];
-	[self.manualTableView setDataSource:self];
-	[self.manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
-	[[self view] addSubview:self.manualTableView];
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [[self view] setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
+    self.manualTableView = [[UITableView alloc] initWithFrame:[[self view] bounds]
+                                                        style:UITableViewStyleGrouped];
+    [self.manualTableView setDelegate:self];
+    [self.manualTableView setDataSource:self];
+    [self.manualTableView setBackgroundColor:[UIColor colorWithHexString:kBackgroundColor]];
+    [[self view] addSubview:self.manualTableView];
     
     [self.manualTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-	
-}
-
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-    [super viewDidLoad];
+    
 	[self setTimeInMinutes:[[NSDate date] minutesIntoCurrentDay]];
 	if(! [[NSUserDefaults standardUserDefaults] objectForKey:@"ManualStation"] )
 	{
@@ -255,7 +251,9 @@
         [_stationChangeController setDelegate:self];
         [_stationChangeController setManagedObjectContext:[self managedObjectContext]];
 		
-        [[self navigationController] presentViewController:_stationChangeController animated:YES completion:nil];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:_stationChangeController];
+        
+        [self presentViewController:navController animated:YES completion:nil];
 	}
 	else if(indexPath.section == kScheduleTypeSection)
 	{

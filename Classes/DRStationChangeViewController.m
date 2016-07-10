@@ -11,25 +11,14 @@
 
 @implementation DRStationChangeViewController
 
-@synthesize delegate;
-@synthesize stationChangeToolbar;
-
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stationChangeToolbar.tintColor = [UIColor colorWithHexString:kNavBarColor];
-    [self.stationChangeToolbar.items.firstObject setTintColor:[UIColor whiteColor]];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStylePlain target:self action:@selector(cancelButtonClicked:)];
 }
 
--(IBAction)cancelButtonClicked
+-(void)cancelButtonClicked:(UIBarButtonItem *)item
 {
-	[delegate viewWasCancelled];
-}
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
+	[self.delegate viewWasCancelled];
 }
 
 // Customize the appearance of table view cells.
@@ -60,7 +49,7 @@
 
 	}
 	
-	[delegate stationWasSelected:station];
+	[self.delegate stationWasSelected:station];
 	
 	[self addStationToRecentlyUsed:station];
 	[tableView deselectRowAtIndexPath:indexPath animated:NO];
