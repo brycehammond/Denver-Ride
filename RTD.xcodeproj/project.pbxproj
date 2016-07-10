@@ -17,10 +17,10 @@
 		024473361752D9270083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473351752D9270083A970 /* Stop.m */; };
 		024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024473431753EF3D0083A970 /* MainStoryboard.storyboard */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
-		028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94613342CA10055CDC7 /* libz.dylib */; };
 		02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */; };
 		02B1F3781D20929700C161CC /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02B1F3771D20929700C161CC /* RTD3.1.sqlite */; };
 		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
+		02E87CCB1D330DEF00584325 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E87CCA1D330DEF00584325 /* libz.tbd */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
 		1454CF30102F69D7007F0516 /* DRStationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1454CF2F102F69D7007F0516 /* DRStationViewController.m */; };
@@ -50,8 +50,7 @@
 		28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 28860BE40F44EE6400985440 /* CoreData.framework */; };
 		2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */; };
 		28C286E10D94DF7D0034E888 /* DRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* DRRootViewController.m */; };
-		291795858D9DDD571510020F /* libPods-Denver Ride.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 438C20919EA691DD44F613F2 /* libPods-Denver Ride.a */; };
-		571A89B837ED4D22B43A700A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */; };
+		8FF4DFA77512D856356FED1E /* Pods_Denver_Ride.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77FB4FF7C1898D2101FBD643 /* Pods_Denver_Ride.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,12 +68,12 @@
 		024473351752D9270083A970 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		024473431753EF3D0083A970 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboards/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		028ED94613342CA10055CDC7 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StationStoryboard.storyboard; path = Storyboards/StationStoryboard.storyboard; sourceTree = "<group>"; };
 		02B1F3771D20929700C161CC /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		02B23FEF175710A8006AF9A2 /* UIStoryboard+DenverRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+DenverRide.h"; sourceTree = "<group>"; };
 		02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+DenverRide.m"; sourceTree = "<group>"; };
+		02E87CCA1D330DEF00584325 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		140B57AE105D92DE00468DC9 /* DRTimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTimeChangeViewController.m; sourceTree = "<group>"; };
 		1450A153103B8BF00069B04C /* NSDate+TimeInMinutes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeInMinutes.h"; sourceTree = "<group>"; };
@@ -134,10 +133,9 @@
 		2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		28C286DF0D94DF7D0034E888 /* DRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRRootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* DRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRRootViewController.m; sourceTree = "<group>"; };
-		438C20919EA691DD44F613F2 /* libPods-Denver Ride.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Denver Ride.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71FAA60BF6FBF60EBCFCE8D8 /* Pods-Denver Ride.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Denver Ride.release.xcconfig"; path = "Pods/Target Support Files/Pods-Denver Ride/Pods-Denver Ride.release.xcconfig"; sourceTree = "<group>"; };
+		77FB4FF7C1898D2101FBD643 /* Pods_Denver_Ride.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Denver_Ride.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA54E6E9D3104B5AC2A98962 /* Pods-Denver Ride.distribution.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Denver Ride.distribution.xcconfig"; path = "Pods/Target Support Files/Pods-Denver Ride/Pods-Denver Ride.distribution.xcconfig"; sourceTree = "<group>"; };
-		E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F14899559EC332703563120E /* Pods-Denver Ride.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Denver Ride.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Denver Ride/Pods-Denver Ride.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,17 +144,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02E87CCB1D330DEF00584325 /* libz.tbd in Frameworks */,
 				0209FE5417D6EB8A001F6A87 /* Security.framework in Frameworks */,
 				02055561163A5F3500EEB0EB /* SystemConfiguration.framework in Frameworks */,
-				028ED94713342CA10055CDC7 /* libz.dylib in Frameworks */,
 				028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
 				1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */,
 				2892E4100DC94CBA00A64D0F /* CoreGraphics.framework in Frameworks */,
 				28860BE50F44EE6400985440 /* CoreData.framework in Frameworks */,
 				14E4D90B10370DE600640D8B /* CoreLocation.framework in Frameworks */,
-				571A89B837ED4D22B43A700A /* libPods.a in Frameworks */,
-				291795858D9DDD571510020F /* libPods-Denver Ride.a in Frameworks */,
+				8FF4DFA77512D856356FED1E /* Pods_Denver_Ride.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +338,7 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				028ED94613342CA10055CDC7 /* libz.dylib */,
+				02E87CCA1D330DEF00584325 /* libz.tbd */,
 				02055560163A5F3500EEB0EB /* SystemConfiguration.framework */,
 				028ED94413342C9A0055CDC7 /* MapKit.framework */,
 				0209FE5317D6EB8A001F6A87 /* Security.framework */,
@@ -350,8 +347,7 @@
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				2892E40F0DC94CBA00A64D0F /* CoreGraphics.framework */,
 				28860BE40F44EE6400985440 /* CoreData.framework */,
-				E0A441CAEF1E4FB2AC4F9D13 /* libPods.a */,
-				438C20919EA691DD44F613F2 /* libPods-Denver Ride.a */,
+				77FB4FF7C1898D2101FBD643 /* Pods_Denver_Ride.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -559,7 +555,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -577,7 +573,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.fluidvisiondesign.denverride;
 				PRODUCT_NAME = "Denver Ride";
 				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "33d76c29-1a2e-4cef-9340-476de9188728";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c499aeea-ed24-4155-8b4e-3e5070efba0d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -627,8 +623,8 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_ENTITLEMENTS = "";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Fluidvision Design, LLC (8MW535NRK9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Fluidvision Design, LLC (8MW535NRK9)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "App Resources/RTD_Prefix.pch";
@@ -644,8 +640,8 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.fluidvisiondesign.denverride;
 				PRODUCT_NAME = "Denver Ride";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "c499aeea-ed24-4155-8b4e-3e5070efba0d";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "c499aeea-ed24-4155-8b4e-3e5070efba0d";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
