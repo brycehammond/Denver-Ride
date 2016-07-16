@@ -126,8 +126,6 @@
 
 -(void)changeDirectionTo:(NSString *)direction
 {
-    [SVProgressHUD showWithStatus:@"Loading"];
-	
 	[self performSelector:@selector(updateDirection:) withObject:direction afterDelay:0.1];
 }
 
