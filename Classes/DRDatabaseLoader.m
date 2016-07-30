@@ -69,11 +69,6 @@
                 direction = [fields[4] isEqualToString:@"1"] ? @"W" : @"E";
             }
             
-            
-            if([lineName hasPrefix:@"113"]) {
-                NSLog(@"Trip ID: %@", tripId);
-            }
-            
 			directionByTrip[tripId] = direction;
 			[relevantTrips addObject:tripId];
 		}
