@@ -58,7 +58,7 @@
 			lineByTrip[tripId] = fields[0];
             
             NSString *direction = @"";
-            if([lineName hasPrefix:@"101"])
+            if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"113"])
             {
                 //North/Southbound
                 direction = [fields[4] isEqualToString:@"1"] ? @"S" : @"N";
@@ -67,6 +67,11 @@
             {
                 //West/Eastbound
                 direction = [fields[4] isEqualToString:@"1"] ? @"W" : @"E";
+            }
+            
+            
+            if([lineName hasPrefix:@"113"]) {
+                NSLog(@"Trip ID: %@", tripId);
             }
             
 			directionByTrip[tripId] = direction;
@@ -91,8 +96,14 @@
 			
 			NSString *lineName = fields[0];
 			
-			[line setName:[[lineName stringByReplacingOccurrencesOfString:@"101" withString:@""] stringByReplacingOccurrencesOfString:@"103" withString:@""]];
-			if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"103"] || [lineName isEqualToString:@"A"]) // is lightrail
+            NSString *commonName = [lineName copy];
+            
+            commonName = [commonName stringByReplacingOccurrencesOfString:@"101" withString:@""];
+            commonName = [commonName stringByReplacingOccurrencesOfString:@"103" withString:@""];
+            commonName = [commonName stringByReplacingOccurrencesOfString:@"113" withString:@""];
+            
+			[line setName:commonName];
+			if([lineName hasPrefix:@"101"] || [lineName hasPrefix:@"103"] || [@[@"A",@"113B"] containsObject:lineName] ) // is lightrail
 			{
 				[line setType:@"LR"];
 			}
@@ -104,6 +115,10 @@
             if([lineName isEqualToString:@"103W"])
             {
                 [line setColor:@"00B9B0"];
+            }
+            else if([lineName isEqualToString:@"A"])
+            {
+                [line setColor:@"57C1E9"];
             }
             else
             {
@@ -158,7 +173,7 @@
 			NSString *stationId = fields[3];
 			NSArray *stationFields = stationFieldsByStationId[stationId];
 			
-			NSString *stationName = stationFields[1];
+			NSString *stationName = stationFields[2];
 			
 			if([stationName hasSuffix:@" Station"])
 			{
@@ -172,11 +187,19 @@
             {
                 stationName = [stationName stringByReplacingOccurrencesOfString:@" Track 2" withString:@""];
             }
+            else if([stationName hasSuffix:@" Track 3"])
+            {
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" Track 3" withString:@""];
+            }
+            else if([stationName hasSuffix:@" Track 8"])
+            {
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" Track 8" withString:@""];
+            }
             else if([stationName hasSuffix:@" Stn"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" Stn" withString:@""];
 			}
-			else if([stationName hasSuffix:@" LRT NB"] || [stationName hasSuffix:@" LRT Nb"])
+			else if([stationName hasSuffix:@" LRT NB"] || [stationName hasSuffix:@" LRT Nb"] || [stationName hasSuffix:@" N-Bound"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT NB"
 																	 withString:@""];
@@ -184,13 +207,18 @@
                 stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Nb"
 																	 withString:@""];
                 
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" N-Bound"
+                                                                     withString:@""];
+                
 			}
-            else if([stationName hasSuffix:@" LRT SB"] || [stationName hasSuffix:@"LRT Sb"])
+            else if([stationName hasSuffix:@" LRT SB"] || [stationName hasSuffix:@"LRT Sb"] || [stationName hasSuffix:@" S-Bound"])
 			{
 				stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT SB"
 																	 withString:@""];
                 stationName = [stationName stringByReplacingOccurrencesOfString:@" LRT Sb"
 																	 withString:@""];
+                stationName = [stationName stringByReplacingOccurrencesOfString:@" S-Bound"
+                                                                     withString:@""];
 			}
             
             if([stationName isEqualToString:@"Union"])
@@ -212,8 +240,8 @@
 				
 				
 				[station setName:stationName];
-				[station setLongitude:[NSDecimalNumber decimalNumberWithString:stationFields[4]]];
-				[station setLatitude:[NSDecimalNumber decimalNumberWithString:stationFields[3]]];
+				[station setLongitude:[NSDecimalNumber decimalNumberWithString:stationFields[5]]];
+				[station setLatitude:[NSDecimalNumber decimalNumberWithString:stationFields[4]]];
 				
 				stationsByName[stationName] = station;
 				
