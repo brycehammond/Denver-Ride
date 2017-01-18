@@ -16,8 +16,7 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 105,105,Havana Street,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 11,11,Mississippi Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 112,112,West 112th Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
-113B,B,Westminster Station to Union Station,This Route Travels Northbound & Southbound,2,http://www.rtd-denver.com/Schedules.shtml,4E9D2D,FFFFFF
-116L,116L,South Simms Limited,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
+113B,B,Union Station to Westminster Station,This Route Travels Northbound & Southbound,2,http://www.rtd-denver.com/Schedules.shtml,4E9D2D,FFFFFF
 116X,116X,South Simms Express,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 12,12,Downing / N Washington,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 120,120,120th Avenue / Brighton,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
@@ -26,7 +25,7 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 122X,122X,Wagon Road / Civic Center Express,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 128,128,Broomfield / Wagon Road,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 130,130,Yale / Buckley,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
-131,131,East Iliff / Seven Hills,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
+131,131,Iliff,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 133,133,Hampden/Tower,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 135,135,Smoky Hill Road,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 139,139,Quincy Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
@@ -34,7 +33,7 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 145X,145X,Brighton / Denver Airport ,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 15,15,East Colfax Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 153,153,Chambers Road,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
-157,157,CCA - Buckley,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
+157,157,CCA / Buckley,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 15L,15L,East Colfax Limited,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 16,16,West Colfax Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 169,169,Buckley Road,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
@@ -99,8 +98,10 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 51,51,Sheridan Blvd,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 52,52,W 52nd Avenue / South Bannock,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 55L,55L,Olde Town Arvada Limited,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
+55S,55S,Olde Town Arvada Special,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 59,59,West Bowles,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 6,6,East 6th Avenue ,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
+62,62,Commerce City/ Dicks SG Park,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,008FBF,FFFFFF
 65,65,Monaco Parkway,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 66,66,Arapahoe Road,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 67,67,Ridge Road ,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
@@ -122,7 +123,7 @@ route_id,route_short_name,route_long_name,route_desc,route_type,route_url,route_
 9,9,West 10th Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 90L,90L,US36 & Sheridan Limited,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
 92,92,92nd Avenue,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF
-A,A,Union Station to Denver Airport Station,This Route Travels Eastbound & Westbound,2,http://www.rtd-denver.com/Schedules.shtml,FFFBF0,FFFFFF
+A,A,Union Station to Denver Airport Station,This Route Travels Eastbound & Westbound,2,http://www.rtd-denver.com/Schedules.shtml,57C1E9,FFFFFF
 AA,AA,Wagon Road / Denver Airport,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,57C1E9,FFFFFF
 AB,AB,Boulder / DIA,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,57C1E9,FFFFFF
 ART,ART,ART,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,FFFF00,000000
@@ -152,10 +153,9 @@ L,L,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www.rt
 LNX,LNX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 LSX,LSX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 LX,LX,Longmont / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
-MALL,MALLRIDE,Free Mall Ride,,3,http://www.rtd-denver.com/Schedules.shtml,FFFF00,000000
+MALL,MALLRIDE,Free Mall Ride,,3,http://www.rtd-denver.com/Schedules.shtml,675DC6,FFFFFF
 N,N,Nederland / Boulder,This Route Travels Eastbound & Westbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 P,P,Parker / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
-R,R,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 RC,RC,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 RX,RX,Brighton / Denver,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,64A70B,FFFFFF
 SKIP,SKIP,Broadway,This Route Travels Northbound & Southbound,3,http://www.rtd-denver.com/Schedules.shtml,0076CE,FFFFFF

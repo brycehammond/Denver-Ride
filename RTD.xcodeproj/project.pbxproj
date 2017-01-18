@@ -17,9 +17,9 @@
 		024473361752D9270083A970 /* Stop.m in Sources */ = {isa = PBXBuildFile; fileRef = 024473351752D9270083A970 /* Stop.m */; };
 		024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 024473431753EF3D0083A970 /* MainStoryboard.storyboard */; };
 		028ED94513342C9A0055CDC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 028ED94413342C9A0055CDC7 /* MapKit.framework */; };
-		0290697D1D4CFEB700FDAE58 /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 0290697C1D4CFEB700FDAE58 /* RTD3.1.sqlite */; };
 		02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */; };
 		02B23FF1175710A8006AF9A2 /* UIStoryboard+DenverRide.m in Sources */ = {isa = PBXBuildFile; fileRef = 02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */; };
+		02D6C7771E2FD0CD0033BA70 /* RTD3.1.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 02D6C7761E2FD0CD0033BA70 /* RTD3.1.sqlite */; };
 		02E87CCB1D330DEF00584325 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 02E87CCA1D330DEF00584325 /* libz.tbd */; };
 		140B57B1105D92DF00468DC9 /* DRTimeChangeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */; };
 		1450A155103B8BF00069B04C /* NSDate+TimeInMinutes.m in Sources */ = {isa = PBXBuildFile; fileRef = 1450A154103B8BF00069B04C /* NSDate+TimeInMinutes.m */; };
@@ -68,11 +68,11 @@
 		024473351752D9270083A970 /* Stop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Stop.m; sourceTree = "<group>"; };
 		024473431753EF3D0083A970 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = Storyboards/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		028ED94413342C9A0055CDC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		0290697C1D4CFEB700FDAE58 /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		02A89FD913024DCF00D8F0A1 /* DLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLog.h; sourceTree = SOURCE_ROOT; };
 		02AEEE02191FCB020060F2EE /* StationStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = StationStoryboard.storyboard; path = Storyboards/StationStoryboard.storyboard; sourceTree = "<group>"; };
 		02B23FEF175710A8006AF9A2 /* UIStoryboard+DenverRide.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIStoryboard+DenverRide.h"; sourceTree = "<group>"; };
 		02B23FF0175710A8006AF9A2 /* UIStoryboard+DenverRide.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIStoryboard+DenverRide.m"; sourceTree = "<group>"; };
+		02D6C7761E2FD0CD0033BA70 /* RTD3.1.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = RTD3.1.sqlite; sourceTree = "<group>"; };
 		02E87CCA1D330DEF00584325 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		140B57AE105D92DE00468DC9 /* DRTimeChangeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DRTimeChangeViewController.h; sourceTree = "<group>"; };
 		140B57AF105D92DF00468DC9 /* DRTimeChangeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DRTimeChangeViewController.m; sourceTree = "<group>"; };
@@ -328,7 +328,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0290697C1D4CFEB700FDAE58 /* RTD3.1.sqlite */,
+				02D6C7761E2FD0CD0033BA70 /* RTD3.1.sqlite */,
 				14B701B412356E15007B9C90 /* Images */,
 				14B7017F12356E08007B9C90 /* stop files */,
 			);
@@ -432,8 +432,8 @@
 			files = (
 				02AEEE03191FCB020060F2EE /* StationStoryboard.storyboard in Resources */,
 				145BFFF5124FD52D00A643AA /* bcycle_stations.txt in Resources */,
-				0290697D1D4CFEB700FDAE58 /* RTD3.1.sqlite in Resources */,
 				0206A23B1908C59400F155B3 /* Images.xcassets in Resources */,
+				02D6C7771E2FD0CD0033BA70 /* RTD3.1.sqlite in Resources */,
 				024473441753EF3D0083A970 /* MainStoryboard.storyboard in Resources */,
 				021835EE17587900002CAD48 /* light-rail-map.pdf in Resources */,
 			);
